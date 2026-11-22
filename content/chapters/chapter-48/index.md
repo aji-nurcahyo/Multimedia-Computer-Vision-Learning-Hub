@@ -38,12 +38,14 @@ Diberikan korespondensi titik citra pada dua kamera berbeda $\mathbf{x}_1 = [u_1
 
 Untuk setiap kamera, relasi ini menghasilkan 2 persamaan linier independen terhadap koordinat titik 3D $\mathbf{X} = [X, Y, Z, 1]^T$:
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 u_1 \mathbf{p}_1^{3T} - \mathbf{p}_1^{1T} \\
 v_1 \mathbf{p}_1^{3T} - \mathbf{p}_1^{2T} \\
 u_2 \mathbf{p}_2^{3T} - \mathbf{p}_2^{1T} \\
 v_2 \mathbf{p}_2^{3T} - \mathbf{p}_2^{2T}
-\end{bmatrix} \mathbf{X} = \mathbf{A} \mathbf{X} = \mathbf{0}$$
+\end{bmatrix} \mathbf{X} = \mathbf{A} \mathbf{X} = \mathbf{0}
+$$
 
 di mana $\mathbf{p}_i^{jT}$ adalah baris ke-$j$ dari matriks proyeksi $\mathbf{P}_i$. Sistem linier $\mathbf{A} \mathbf{X} = \mathbf{0}$ dipecahkan secara optimal menggunakan Singular Value Decomposition (SVD): $\mathbf{X}$ adalah kolom terakhir dari matriks $\mathbf{V}$ (vektor singular dengan nilai singular terkecil).
 

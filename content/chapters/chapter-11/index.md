@@ -133,9 +133,9 @@ END
 
 ---
 
-## 8. Python &amp; OpenCV Implementation
+## 8. Python & OpenCV Implementation
 
-### Prasyarat &amp; Catatan
+### Prasyarat & Catatan
 - Instalasi: `pip install numpy opencv-python-headless`
 - Menggunakan `np.fft.fft2`, `np.fft.fftshift`, dan `cv2.dft` (di sini ditunjukkan dengan `np.fft` yang ringkas, akurat presisi ganda `complex128`, dan bebas bug dimensi).
 
@@ -196,13 +196,13 @@ if __name__ == "__main__":
 
 ## 9. Interactive Lab — 2D FFT Explorer
 
-Buka tab **Laboratorium &amp; Python** dan eksperimen pada **2D FFT Explorer**:
+Buka tab **Laboratorium & Python** dan eksperimen pada **2D FFT Explorer**:
 - Bandingkan pola masukan (garis-garis vertikal/horizontal rapat vs disk halus), **Masker Filter $H(u, v)$**, **Log Magnitude Spectrum**, dan **Citra Rekonstruksi IFFT**.
 - Pilih filter **Ideal**, **Butterworth**, atau **Gaussian**, lalu alihkan antara **Low-Pass** dan **High-Pass** sambil menggeser jari-jari cut-off $D_0$.
 
 ---
 
-## 10. Experiments &amp; Analysis
+## 10. Experiments & Analysis
 
 1. **Mengamati Gibbs Ringing Artifact**: Pilih mode **Ideal Low-Pass Filter** dengan $D_0 = 15$. Perhatikan munculnya lingkaran riak gelombang palsu di sekitar tepi objek lingkaran putih! Sekarang ganti ke **Gaussian Low-Pass Filter** pada $D_0 = 15$: lingkaran riak menghilang mulus karena transformasi Fourier dari fungsi Gaussian juga berbentuk Gaussian tanpa batas terjal.
 2. **Ekstraksi Garis Tepi via High-Pass Filter**: Ubah menjadi **High-Pass Filter (Gaussian)** dengan $D_0 = 12$. Area dalam lingkaran yang homogen berubah gelap karena komponen frekuensi rendah ($DC$) disumbat, menyisakan batas kontur dan pola garis rapat.
@@ -218,7 +218,7 @@ Buat skrip Python yang mensimulasikan foto terkorupsi interferensi gelombang sin
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Akses tab **Presentasi Slide** untuk 10 slide materi kuliah Domain Frekuensi.
 
@@ -231,7 +231,7 @@ Akses tab **Presentasi Slide** untuk 10 slide materi kuliah Domain Frekuensi.
 
 ## 13. Verified Academic References
 
-1. **Gonzalez, R. C., &amp; Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 4: Filtering in the Frequency Domain.
-2. **Cooley, J. W., &amp; Tukey, J. W.** (1965). *An Algorithm for the Machine Calculation of Complex Fourier Series*. Mathematics of Computation, 19(90), 297–301.
+1. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 4: Filtering in the Frequency Domain.
+2. **Cooley, J. W., & Tukey, J. W.** (1965). *An Algorithm for the Machine Calculation of Complex Fourier Series*. Mathematics of Computation, 19(90), 297–301.
 3. **NumPy Reference Documentation**. (2024). *Discrete Fourier Transform (`numpy.fft`)*. NumPy Foundation.
 

@@ -35,139 +35,20 @@ import {
 import { MarkdownRenderer } from './components/MarkdownRenderer';
 import { PresentationViewer } from './components/PresentationViewer';
 import { QuizView } from './components/QuizView';
-import { ImageProcessingLab } from './components/playgrounds/ImageProcessingLab';
-import { AudioProcessingLab } from './components/playgrounds/AudioProcessingLab';
-import { VideoProcessingLab } from './components/playgrounds/VideoProcessingLab';
-import { ComputerVisionLab } from './components/playgrounds/ComputerVisionLab';
-import { MultimediaDataExplorer } from './components/playgrounds/MultimediaDataExplorer';
-import { SamplingQuantizationSimulator } from './components/playgrounds/SamplingQuantizationSimulator';
-import { FormatSizeExplorer } from './components/playgrounds/FormatSizeExplorer';
-import { EnvironmentChecklist } from './components/playgrounds/EnvironmentChecklist';
-import { ArrayExplorer } from './components/playgrounds/ArrayExplorer';
-import { PixelImageExplorer } from './components/playgrounds/PixelImageExplorer';
-import { ColorSpaceConverterLab } from './components/playgrounds/ColorSpaceConverterLab';
-import { ImageEnhancementLab } from './components/playgrounds/ImageEnhancementLab';
-import { HistogramExplorerLab } from './components/playgrounds/HistogramExplorerLab';
-import { FftExplorerLab } from './components/playgrounds/FftExplorerLab';
-import { ImageRestorationLab } from './components/playgrounds/ImageRestorationLab';
-import { EdgeFeatureExplorerLab } from './components/playgrounds/EdgeFeatureExplorerLab';
-import { MorphologyLab } from './components/playgrounds/MorphologyLab';
-import { SegmentationLab } from './components/playgrounds/SegmentationLab';
-import { AudioSignalExplorer } from './components/playgrounds/AudioSignalExplorer';
-import { SamplingChannelLab } from './components/playgrounds/SamplingChannelLab';
-import { AudioFftAnalyzer } from './components/playgrounds/AudioFftAnalyzer';
-import { AudioFilteringLab } from './components/playgrounds/AudioFilteringLab';
-import { SpectrogramExplorer } from './components/playgrounds/SpectrogramExplorer';
-import { AudioFeatureLab } from './components/playgrounds/AudioFeatureLab';
-import { SpeechSignalAnalyzer } from './components/playgrounds/SpeechSignalAnalyzer';
-import { SpeechProcessingLab } from './components/playgrounds/SpeechProcessingLab';
-import { SoundClassificationLab } from './components/playgrounds/SoundClassificationLab';
-import { IntelligentAudioProjectLab } from './components/playgrounds/IntelligentAudioProjectLab';
-import { VideoFundamentalsExplorer } from './components/playgrounds/VideoFundamentalsExplorer';
-import { VideoFrameLab } from './components/playgrounds/VideoFrameLab';
-import { VideoCompressionLab } from './components/playgrounds/VideoCompressionLab';
-import { VideoEnhancementLab } from './components/playgrounds/VideoEnhancementLab';
-import { OpticalFlowExplorer } from './components/playgrounds/OpticalFlowExplorer';
-import { MotionDetectionLab } from './components/playgrounds/MotionDetectionLab';
-import { SingleObjectTrackingLab } from './components/playgrounds/SingleObjectTrackingLab';
-import { MultiObjectTrackingLab } from './components/playgrounds/MultiObjectTrackingLab';
-import { VideoEventAnalysisLab } from './components/playgrounds/VideoEventAnalysisLab';
-import { IntelligentVideoAnalyticsLab } from './components/playgrounds/IntelligentVideoAnalyticsLab';
-import { ImageGeometryExplorer } from './components/playgrounds/ImageGeometryExplorer';
-import { FeatureMatchingLab } from './components/playgrounds/FeatureMatchingLab';
-import { CameraCalibrationExplorer } from './components/playgrounds/CameraCalibrationExplorer';
-import { StereoDepthExplorer } from './components/playgrounds/StereoDepthExplorer';
-import { ClassicalObjectRecognitionLab } from './components/playgrounds/ClassicalObjectRecognitionLab';
-import { CnnFundamentalsExplorer } from './components/playgrounds/CnnFundamentalsExplorer';
-import { ImageClassificationLab } from './components/playgrounds/ImageClassificationLab';
-import { TransferLearningExplorer } from './components/playgrounds/TransferLearningExplorer';
-import { YoloObjectDetectionLab } from './components/playgrounds/YoloObjectDetectionLab';
-import { DeepSegmentationLab } from './components/playgrounds/DeepSegmentationLab';
-import { VisionTransformerExplorer } from './components/playgrounds/VisionTransformerExplorer';
-import { HumanPoseExplorer } from './components/playgrounds/HumanPoseExplorer';
-import { ThreeDReconstructionExplorer } from './components/playgrounds/ThreeDReconstructionExplorer';
-import { VisionEmbeddingExplorer } from './components/playgrounds/VisionEmbeddingExplorer';
-import { VisionEvaluationDashboard } from './components/playgrounds/VisionEvaluationDashboard';
-import { MultimodalPipelineExplorer } from './components/playgrounds/MultimodalPipelineExplorer';
-import { VisionLanguageLab } from './components/playgrounds/VisionLanguageLab';
-import { AudioVisualFusionLab } from './components/playgrounds/AudioVisualFusionLab';
-import { CrossModalSearchLab } from './components/playgrounds/CrossModalSearchLab';
-import { MultimodalApplicationStudio } from './components/playgrounds/MultimodalApplicationStudio';
-import { RealTimeProcessingLab } from './components/playgrounds/RealTimeProcessingLab';
-import { EdgeAiOptimizationLab } from './components/playgrounds/EdgeAiOptimizationLab';
-import { MultimediaWebAppsLab } from './components/playgrounds/MultimediaWebAppsLab';
-import { PerformanceProfilerLab } from './components/playgrounds/PerformanceProfilerLab';
-import { IntegratedCapstoneStudio } from './components/playgrounds/IntegratedCapstoneStudio';
+import { LaboratoryCatalogView, LabRenderer } from './components/LaboratoryCatalogView';
 
 type NavTab = 'home' | 'curriculum' | 'tracks' | 'advanced' | 'research' | 'chapter' | 'playgrounds' | 'about';
 type ChapterSubTab = 'reading' | 'slides' | 'lab' | 'quiz' | 'references';
-type PlaygroundLabKey =
-  | 'ch01'
-  | 'ch02'
-  | 'ch03'
-  | 'ch04'
-  | 'ch05'
-  | 'ch06'
-  | 'ch07'
-  | 'ch08'
-  | 'ch09'
-  | 'image'
-  | 'ch11'
-  | 'ch12'
-  | 'ch13'
-  | 'ch14'
-  | 'ch15'
-  | 'ch16'
-  | 'ch17'
-  | 'ch18'
-  | 'ch19'
-  | 'ch20'
-  | 'ch21'
-  | 'ch22'
-  | 'ch23'
-  | 'ch24'
-  | 'ch25'
-  | 'ch26'
-  | 'ch27'
-  | 'ch28'
-  | 'ch29'
-  | 'ch30'
-  | 'ch31'
-  | 'ch32'
-  | 'ch33'
-  | 'ch34'
-  | 'ch35'
-  | 'ch36'
-  | 'ch37'
-  | 'ch38'
-  | 'ch39'
-  | 'ch40'
-  | 'ch41'
-  | 'ch42'
-  | 'ch43'
-  | 'ch44'
-  | 'ch45'
-  | 'ch46'
-  | 'ch47'
-  | 'ch48'
-  | 'ch49'
-  | 'ch50'
-  | 'ch51'
-  | 'ch52'
-  | 'ch53'
-  | 'ch54'
-  | 'ch55'
-  | 'ch56'
-  | 'ch57'
-  | 'ch58'
-  | 'ch59'
-  | 'ch60'
-  | 'audio'
-  | 'video'
-  | 'cv';
 
 export function App() {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    try {
+      const saved = localStorage.getItem('app_theme');
+      return saved === 'dark' || saved === 'light' ? saved : 'light';
+    } catch {
+      return 'light';
+    }
+  });
   const [currentTab, setCurrentTab] = useState<NavTab>('home');
   const [activeChapterId, setActiveChapterId] = useState<string>('01');
   const [chapterSubTab, setChapterSubTab] = useState<ChapterSubTab>('reading');
@@ -180,12 +61,23 @@ export function App() {
   // Active track filter in Tracks tab
   const [selectedTrackId, setSelectedTrackId] = useState<string>('digital-image-processing');
 
-  // Active lab in Playgrounds tab
-  const [activeLabTab, setActiveLabTab] = useState<PlaygroundLabKey>('ch01');
+  // Active lab in Playgrounds tab (null = show catalog, string = active workspace)
+  const [activeLabTab, setActiveLabTab] = useState<string | null>(null);
 
-  // Toggle Theme
+  // Active module in Advanced tab (null = show catalog, string = active workspace)
+  const [activeAdvancedModuleId, setActiveAdvancedModuleId] = useState<string | null>(null);
+
+  // Active track in Research tab (null = show catalog, string = active workspace)
+  const [activeResearchTrackId, setActiveResearchTrackId] = useState<string | null>(null);
+
+  // Sync Theme attribute and localStorage
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('app_theme', theme);
+    } catch {
+      // Storage blocked or unavailable
+    }
   }, [theme]);
 
   const toggleTheme = () => {
@@ -197,16 +89,22 @@ export function App() {
     const syncFromHash = () => {
       const rawHash = window.location.hash.replace(/^#\/?/, '').trim();
       if (!rawHash) return;
-      if (rawHash === 'advanced') {
+      if (rawHash === 'advanced' || rawHash.startsWith('advanced/')) {
         setCurrentTab('advanced');
-      } else if (rawHash === 'research') {
+        const modKey = rawHash.replace(/^advanced\/?/, '').trim();
+        setActiveAdvancedModuleId(modKey || null);
+      } else if (rawHash === 'research' || rawHash.startsWith('research/')) {
         setCurrentTab('research');
+        const trackKey = rawHash.replace(/^research\/?/, '').trim();
+        setActiveResearchTrackId(trackKey || null);
       } else if (rawHash === 'curriculum') {
         setCurrentTab('curriculum');
       } else if (rawHash === 'tracks') {
         setCurrentTab('tracks');
-      } else if (rawHash === 'playgrounds') {
+      } else if (rawHash === 'playgrounds' || rawHash.startsWith('playgrounds/')) {
         setCurrentTab('playgrounds');
+        const labKey = rawHash.replace(/^playgrounds\/?/, '').trim();
+        setActiveLabTab(labKey || null);
       } else if (rawHash === 'about') {
         setCurrentTab('about');
       } else if (rawHash === 'home') {
@@ -231,10 +129,43 @@ export function App() {
       window.location.hash = '';
     } else if (tab === 'chapter') {
       window.location.hash = `#/chapter/${activeChapterId}`;
+    } else if (tab === 'playgrounds') {
+      window.location.hash = activeLabTab ? `#/playgrounds/${activeLabTab}` : '#/playgrounds';
+    } else if (tab === 'advanced') {
+      window.location.hash = activeAdvancedModuleId ? `#/advanced/${activeAdvancedModuleId}` : '#/advanced';
+    } else if (tab === 'research') {
+      window.location.hash = activeResearchTrackId ? `#/research/${activeResearchTrackId}` : '#/research';
     } else {
       window.location.hash = `#/${tab}`;
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectLab = (labId: string | null) => {
+    setActiveLabTab(labId);
+    if (labId) {
+      window.location.hash = `#/playgrounds/${labId}`;
+    } else {
+      window.location.hash = '#/playgrounds';
+    }
+  };
+
+  const handleSelectAdvancedModule = (moduleId: string | null) => {
+    setActiveAdvancedModuleId(moduleId);
+    if (moduleId) {
+      window.location.hash = `#/advanced/${moduleId}`;
+    } else {
+      window.location.hash = '#/advanced';
+    }
+  };
+
+  const handleSelectResearchTrack = (trackId: string | null) => {
+    setActiveResearchTrackId(trackId);
+    if (trackId) {
+      window.location.hash = `#/research/${trackId}`;
+    } else {
+      window.location.hash = '#/research';
+    }
   };
 
   const navigateToChapter = (id: string, subTab: ChapterSubTab = 'reading') => {
@@ -309,7 +240,7 @@ export function App() {
             onClick={() => handleTabChange('curriculum')}
           >
             <BookOpen size={16} />
-            Kurikulum (60 Bab)
+            Core L1–L2
           </button>
           <button
             className={`nav-btn ${currentTab === 'tracks' ? 'active' : ''}`}
@@ -323,28 +254,21 @@ export function App() {
             onClick={() => handleTabChange('advanced')}
           >
             <Layers size={16} />
-            Advanced (L3)
+            Advanced L3
           </button>
           <button
             className={`nav-btn ${currentTab === 'research' ? 'active' : ''}`}
             onClick={() => handleTabChange('research')}
           >
             <Microscope size={16} />
-            Research (L4)
+            Research L4
           </button>
           <button
             className={`nav-btn ${currentTab === 'playgrounds' ? 'active' : ''}`}
             onClick={() => handleTabChange('playgrounds')}
           >
             <FlaskConical size={16} />
-            Playground Lab
-          </button>
-          <button
-            className={`nav-btn ${currentTab === 'chapter' ? 'active' : ''}`}
-            onClick={() => handleTabChange('chapter')}
-          >
-            <Sparkles size={16} />
-            Modul Bab {activeChapterId}
+            Laboratorium
           </button>
           <button
             className={`nav-btn ${currentTab === 'about' ? 'active' : ''}`}
@@ -391,6 +315,43 @@ export function App() {
                   <span style={{ color: 'var(--text-muted)' }}>Institusi:</span>
                   <strong style={{ color: 'var(--primary)' }}>{masterCurriculum.institution}</strong>
                 </div>
+              </div>
+
+              {/* Primary Call-to-Action Buttons */}
+              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '1.75rem' }}>
+                <button
+                  className="control-btn"
+                  onClick={() => navigateToChapter('01')}
+                  style={{ background: 'var(--primary)', color: 'var(--on-primary)', fontWeight: 700, padding: '0.65rem 1.35rem', fontSize: '0.95rem' }}
+                >
+                  <Sparkles size={16} />
+                  <span>Mulai Belajar (Bab 01)</span>
+                  <ArrowRight size={16} />
+                </button>
+                <button
+                  className="control-btn"
+                  onClick={() => handleTabChange('curriculum')}
+                  style={{ padding: '0.65rem 1.25rem', fontSize: '0.95rem', fontWeight: 600 }}
+                >
+                  <BookOpen size={16} />
+                  <span>Jelajahi Kurikulum Core</span>
+                </button>
+                <button
+                  className="control-btn"
+                  onClick={() => handleTabChange('advanced')}
+                  style={{ padding: '0.65rem 1.25rem', fontSize: '0.95rem', fontWeight: 600 }}
+                >
+                  <Layers size={16} />
+                  <span>Advanced L3</span>
+                </button>
+                <button
+                  className="control-btn"
+                  onClick={() => handleTabChange('playgrounds')}
+                  style={{ padding: '0.65rem 1.25rem', fontSize: '0.95rem', fontWeight: 600 }}
+                >
+                  <FlaskConical size={16} />
+                  <span>Laboratorium (63 Lab)</span>
+                </button>
               </div>
             </header>
 
@@ -597,11 +558,47 @@ export function App() {
           <div className="container">
             <div style={{ marginBottom: '2rem' }}>
               <h1 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-                Master Kurikulum (60 Bab)
+                Kurikulum Core (60 Bab)
               </h1>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
                 Peta kurikulum lengkap 12 seksi yang mencakup pemrosesan sinyal multimedia hingga arsitektur visi komputer cerdas.
               </p>
+            </div>
+
+            {/* Quick Start Callout */}
+            <div
+              className="card"
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '1rem',
+                padding: '1.25rem 1.5rem',
+                marginBottom: '1.75rem',
+                background: 'var(--primary-glow)',
+                borderColor: 'var(--primary)',
+              }}
+            >
+              <div>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase' }}>
+                  Langkah Awal Pembelajaran Kurikulum Core
+                </span>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: '0.2rem 0', color: 'var(--text)' }}>
+                  Mulai dari Bab 01: Sinyal &amp; Sistem Multimedia Digital
+                </h3>
+                <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                  Pelajari fondasi sinyal kontinu vs diskrit, model sampling Nyquist, representasi matriks, dan coba laboratorium interaktif.
+                </p>
+              </div>
+              <button
+                className="control-btn"
+                onClick={() => navigateToChapter('01')}
+                style={{ background: 'var(--primary)', color: 'var(--on-primary)', fontWeight: 700, padding: '0.65rem 1.25rem' }}
+              >
+                <span>Buka Bab 01</span>
+                <ArrowRight size={15} />
+              </button>
             </div>
 
             {/* Filter and Search Bar */}
@@ -919,66 +916,7 @@ export function App() {
             {/* Sub-tab 3: Interactive Lab & Python Practice */}
             {chapterSubTab === 'lab' && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                {currentChapter.id === '01' && <MultimediaDataExplorer />}
-                {currentChapter.id === '02' && <SamplingQuantizationSimulator />}
-                {currentChapter.id === '03' && <FormatSizeExplorer />}
-                {currentChapter.id === '04' && <EnvironmentChecklist />}
-                {currentChapter.id === '05' && <ArrayExplorer />}
-                {currentChapter.id === '06' && <PixelImageExplorer />}
-                {currentChapter.id === '07' && <ColorSpaceConverterLab />}
-                {currentChapter.id === '08' && <ImageEnhancementLab />}
-                {currentChapter.id === '09' && <HistogramExplorerLab />}
-                {currentChapter.id === '10' && <ImageProcessingLab />}
-                {currentChapter.id === '11' && <FftExplorerLab />}
-                {currentChapter.id === '12' && <ImageRestorationLab />}
-                {currentChapter.id === '13' && <EdgeFeatureExplorerLab />}
-                {currentChapter.id === '14' && <MorphologyLab />}
-                {currentChapter.id === '15' && <SegmentationLab />}
-                {currentChapter.id === '16' && <AudioSignalExplorer />}
-                {currentChapter.id === '17' && <SamplingChannelLab />}
-                {currentChapter.id === '18' && <AudioFftAnalyzer />}
-                {currentChapter.id === '19' && <AudioFilteringLab />}
-                {currentChapter.id === '20' && <SpectrogramExplorer />}
-                {currentChapter.id === '21' && <AudioFeatureLab />}
-                {currentChapter.id === '22' && <SpeechSignalAnalyzer />}
-                {currentChapter.id === '23' && <SpeechProcessingLab />}
-                {currentChapter.id === '24' && <SoundClassificationLab />}
-                {currentChapter.id === '25' && <IntelligentAudioProjectLab />}
-                {currentChapter.id === '26' && <VideoFundamentalsExplorer />}
-                {currentChapter.id === '27' && <VideoFrameLab />}
-                {currentChapter.id === '28' && <VideoCompressionLab />}
-                {currentChapter.id === '29' && <VideoEnhancementLab />}
-                {currentChapter.id === '30' && <OpticalFlowExplorer />}
-                {currentChapter.id === '31' && <MotionDetectionLab />}
-                {currentChapter.id === '32' && <SingleObjectTrackingLab />}
-                {currentChapter.id === '33' && <MultiObjectTrackingLab />}
-                {currentChapter.id === '34' && <VideoEventAnalysisLab />}
-                {currentChapter.id === '35' && <IntelligentVideoAnalyticsLab />}
-                {currentChapter.id === '36' && <ImageGeometryExplorer />}
-                {currentChapter.id === '37' && <FeatureMatchingLab />}
-                {currentChapter.id === '38' && <CameraCalibrationExplorer />}
-                {currentChapter.id === '39' && <StereoDepthExplorer />}
-                {currentChapter.id === '40' && <ClassicalObjectRecognitionLab />}
-                {currentChapter.id === '41' && <CnnFundamentalsExplorer />}
-                {currentChapter.id === '42' && <ImageClassificationLab />}
-                {currentChapter.id === '43' && <TransferLearningExplorer />}
-                {currentChapter.id === '44' && <YoloObjectDetectionLab />}
-                {currentChapter.id === '45' && <DeepSegmentationLab />}
-                {currentChapter.id === '46' && <VisionTransformerExplorer />}
-                {currentChapter.id === '47' && <HumanPoseExplorer />}
-                {currentChapter.id === '48' && <ThreeDReconstructionExplorer />}
-                {currentChapter.id === '49' && <VisionEmbeddingExplorer />}
-                {currentChapter.id === '50' && <VisionEvaluationDashboard />}
-                {currentChapter.id === '51' && <MultimodalPipelineExplorer />}
-                {currentChapter.id === '52' && <VisionLanguageLab />}
-                {currentChapter.id === '53' && <AudioVisualFusionLab />}
-                {currentChapter.id === '54' && <CrossModalSearchLab />}
-                {currentChapter.id === '55' && <MultimodalApplicationStudio />}
-                {currentChapter.id === '56' && <RealTimeProcessingLab />}
-                {currentChapter.id === '57' && <EdgeAiOptimizationLab />}
-                {currentChapter.id === '58' && <MultimediaWebAppsLab />}
-                {currentChapter.id === '59' && <PerformanceProfilerLab />}
-                {currentChapter.id === '60' && <IntegratedCapstoneStudio />}
+                <LabRenderer labId={currentChapter.id === '10' ? 'image' : `ch${currentChapter.id}`} />
 
                 {/* Python Practice Section */}
                 <div className="card" style={{ padding: '1.75rem' }}>
@@ -1094,161 +1032,14 @@ export function App() {
         )}
 
         {/* =========================================================================
-            TAB 5: PLAYGROUNDS HUB (ALL 4 LABS)
+            TAB 5: PLAYGROUNDS HUB (63 INTERACTIVE LABORATORIES)
            ========================================================================= */}
         {currentTab === 'playgrounds' && (
-          <div className="container">
-            <div style={{ marginBottom: '2rem' }}>
-              <h1 style={{ fontSize: '2.2rem', fontWeight: 800, marginBottom: '0.5rem' }}>
-                Laboratorium Multimedia Interaktif
-              </h1>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
-                Laboratorium komputasi di sisi klien (client-side) tanpa ketergantungan server berat.
-              </p>
-            </div>
-
-            {/* Lab Switcher Tabs */}
-            <div style={{ display: 'flex', gap: '0.45rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-              {[
-                { key: 'ch01', label: '01. Data Explorer' },
-                { key: 'ch02', label: '02. Sampling & Quantization' },
-                { key: 'ch03', label: '03. Format & Storage' },
-                { key: 'ch04', label: '04. Python Setup' },
-                { key: 'ch05', label: '05. NumPy Arrays' },
-                { key: 'ch06', label: '06. Pixel Explorer' },
-                { key: 'ch07', label: '07. Color Converter' },
-                { key: 'ch08', label: '08. Enhancement LUT' },
-                { key: 'ch09', label: '09. Histogram & CLAHE' },
-                { key: 'image', label: '10. Spatial Convolution' },
-                { key: 'ch11', label: '11. 2D FFT Explorer' },
-                { key: 'ch12', label: '12. Restoration & PSNR' },
-                { key: 'ch13', label: '13. Canny & Harris' },
-                { key: 'ch14', label: '14. Morphology Lab' },
-                { key: 'ch15', label: '15. Segmentation Lab' },
-                { key: 'ch16', label: '16. Audio Signal Explorer' },
-                { key: 'ch17', label: '17. Sampling & Channels' },
-                { key: 'ch18', label: '18. FFT Spectral Analyzer' },
-                { key: 'ch19', label: '19. Audio Filtering & SNR' },
-                { key: 'ch20', label: '20. STFT Spectrogram' },
-                { key: 'ch21', label: '21. Feature Extraction' },
-                { key: 'ch22', label: '22. Speech & VAD' },
-                { key: 'ch23', label: '23. Speech (ASR & TTS)' },
-                { key: 'ch24', label: '24. Audio Classification' },
-                { key: 'ch25', label: '25. Intelligent Audio App' },
-                { key: 'ch26', label: '26. Video Fundamentals' },
-                { key: 'ch27', label: '27. Frame Capture' },
-                { key: 'ch28', label: '28. Video Codecs & GOP' },
-                { key: 'ch29', label: '29. Temporal Filtering' },
-                { key: 'ch30', label: '30. Optical Flow (LK)' },
-                { key: 'ch31', label: '31. Motion Detection' },
-                { key: 'ch32', label: '32. Kalman Tracking' },
-                { key: 'ch33', label: '33. Multi-Object SORT' },
-                { key: 'ch34', label: '34. Event & Tripwire' },
-                { key: 'ch35', label: '35. Video Analytics' },
-                { key: 'ch36', label: '36. Image Geometry' },
-                { key: 'ch37', label: '37. Feature Matching' },
-                { key: 'ch38', label: '38. Camera Calibration' },
-                { key: 'ch39', label: '39. Stereo Depth' },
-                { key: 'ch40', label: '40. Template Matching' },
-                { key: 'ch41', label: '41. CNN Fundamentals' },
-                { key: 'ch42', label: '42. CNN Classification' },
-                { key: 'ch43', label: '43. Transfer Learning' },
-                { key: 'ch44', label: '44. YOLO Detection' },
-                { key: 'ch45', label: '45. Deep Segmentation' },
-                { key: 'ch46', label: '46. Vision Transformer' },
-                { key: 'ch47', label: '47. Human Pose (COCO)' },
-                { key: 'ch48', label: '48. 3D Reconstruction' },
-                { key: 'ch49', label: '49. Vision Embeddings' },
-                { key: 'ch50', label: '50. Vision Evaluation' },
-                { key: 'ch51', label: '51. Multimodal Pipeline' },
-                { key: 'ch52', label: '52. Vision-Language CLIP' },
-                { key: 'ch53', label: '53. Audio-Visual Fusion' },
-                { key: 'ch54', label: '54. Cross-Modal Search' },
-                { key: 'ch55', label: '55. Multimodal Studio' },
-                { key: 'ch56', label: '56. Real-Time Processing' },
-                { key: 'ch57', label: '57. Edge AI Quantization' },
-                { key: 'ch58', label: '58. Web Multimedia APIs' },
-                { key: 'ch59', label: '59. Performance Profiler' },
-                { key: 'ch60', label: '60. Capstone Studio' },
-                { key: 'audio', label: 'Audio Synth Lab' },
-                { key: 'video', label: 'Video Motion Lab' },
-                { key: 'cv', label: 'Vision Kernel Lab' },
-              ].map((item) => (
-                <button
-                  key={item.key}
-                  className={`tab-btn ${activeLabTab === item.key ? 'active' : ''}`}
-                  onClick={() => setActiveLabTab(item.key as PlaygroundLabKey)}
-                  style={{ fontSize: '0.84rem', padding: '0.55rem 0.9rem', borderRadius: '8px', border: '1px solid var(--border)' }}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            {activeLabTab === 'ch01' && <MultimediaDataExplorer />}
-            {activeLabTab === 'ch02' && <SamplingQuantizationSimulator />}
-            {activeLabTab === 'ch03' && <FormatSizeExplorer />}
-            {activeLabTab === 'ch04' && <EnvironmentChecklist />}
-            {activeLabTab === 'ch05' && <ArrayExplorer />}
-            {activeLabTab === 'ch06' && <PixelImageExplorer />}
-            {activeLabTab === 'ch07' && <ColorSpaceConverterLab />}
-            {activeLabTab === 'ch08' && <ImageEnhancementLab />}
-            {activeLabTab === 'ch09' && <HistogramExplorerLab />}
-            {activeLabTab === 'image' && <ImageProcessingLab />}
-            {activeLabTab === 'ch11' && <FftExplorerLab />}
-            {activeLabTab === 'ch12' && <ImageRestorationLab />}
-            {activeLabTab === 'ch13' && <EdgeFeatureExplorerLab />}
-            {activeLabTab === 'ch14' && <MorphologyLab />}
-            {activeLabTab === 'ch15' && <SegmentationLab />}
-            {activeLabTab === 'ch16' && <AudioSignalExplorer />}
-            {activeLabTab === 'ch17' && <SamplingChannelLab />}
-            {activeLabTab === 'ch18' && <AudioFftAnalyzer />}
-            {activeLabTab === 'ch19' && <AudioFilteringLab />}
-            {activeLabTab === 'ch20' && <SpectrogramExplorer />}
-            {activeLabTab === 'ch21' && <AudioFeatureLab />}
-            {activeLabTab === 'ch22' && <SpeechSignalAnalyzer />}
-            {activeLabTab === 'ch23' && <SpeechProcessingLab />}
-            {activeLabTab === 'ch24' && <SoundClassificationLab />}
-            {activeLabTab === 'ch25' && <IntelligentAudioProjectLab />}
-            {activeLabTab === 'ch26' && <VideoFundamentalsExplorer />}
-            {activeLabTab === 'ch27' && <VideoFrameLab />}
-            {activeLabTab === 'ch28' && <VideoCompressionLab />}
-            {activeLabTab === 'ch29' && <VideoEnhancementLab />}
-            {activeLabTab === 'ch30' && <OpticalFlowExplorer />}
-            {activeLabTab === 'ch31' && <MotionDetectionLab />}
-            {activeLabTab === 'ch32' && <SingleObjectTrackingLab />}
-            {activeLabTab === 'ch33' && <MultiObjectTrackingLab />}
-            {activeLabTab === 'ch34' && <VideoEventAnalysisLab />}
-            {activeLabTab === 'ch35' && <IntelligentVideoAnalyticsLab />}
-            {activeLabTab === 'ch36' && <ImageGeometryExplorer />}
-            {activeLabTab === 'ch37' && <FeatureMatchingLab />}
-            {activeLabTab === 'ch38' && <CameraCalibrationExplorer />}
-            {activeLabTab === 'ch39' && <StereoDepthExplorer />}
-            {activeLabTab === 'ch40' && <ClassicalObjectRecognitionLab />}
-            {activeLabTab === 'ch41' && <CnnFundamentalsExplorer />}
-            {activeLabTab === 'ch42' && <ImageClassificationLab />}
-            {activeLabTab === 'ch43' && <TransferLearningExplorer />}
-            {activeLabTab === 'ch44' && <YoloObjectDetectionLab />}
-            {activeLabTab === 'ch45' && <DeepSegmentationLab />}
-            {activeLabTab === 'ch46' && <VisionTransformerExplorer />}
-            {activeLabTab === 'ch47' && <HumanPoseExplorer />}
-            {activeLabTab === 'ch48' && <ThreeDReconstructionExplorer />}
-            {activeLabTab === 'ch49' && <VisionEmbeddingExplorer />}
-            {activeLabTab === 'ch50' && <VisionEvaluationDashboard />}
-            {activeLabTab === 'ch51' && <MultimodalPipelineExplorer />}
-            {activeLabTab === 'ch52' && <VisionLanguageLab />}
-            {activeLabTab === 'ch53' && <AudioVisualFusionLab />}
-            {activeLabTab === 'ch54' && <CrossModalSearchLab />}
-            {activeLabTab === 'ch55' && <MultimodalApplicationStudio />}
-            {activeLabTab === 'ch56' && <RealTimeProcessingLab />}
-            {activeLabTab === 'ch57' && <EdgeAiOptimizationLab />}
-            {activeLabTab === 'ch58' && <MultimediaWebAppsLab />}
-            {activeLabTab === 'ch59' && <PerformanceProfilerLab />}
-            {activeLabTab === 'ch60' && <IntegratedCapstoneStudio />}
-            {activeLabTab === 'audio' && <AudioProcessingLab />}
-            {activeLabTab === 'video' && <VideoProcessingLab />}
-            {activeLabTab === 'cv' && <ComputerVisionLab />}
-          </div>
+          <LaboratoryCatalogView
+            activeLabId={activeLabTab}
+            onSelectLab={handleSelectLab}
+            onNavigateToChapter={navigateToChapter}
+          />
         )}
 
         {/* =========================================================================
@@ -1256,6 +1047,8 @@ export function App() {
            ========================================================================= */}
         {currentTab === 'advanced' && (
           <AdvancedCurriculumView
+            activeModuleId={activeAdvancedModuleId}
+            onSelectModule={handleSelectAdvancedModule}
             onSelectCoreChapter={navigateToChapter}
             onNavigateToResearch={() => handleTabChange('research')}
           />
@@ -1266,8 +1059,17 @@ export function App() {
            ========================================================================= */}
         {currentTab === 'research' && (
           <ResearchTracksView
+            activeTrackId={activeResearchTrackId}
+            onSelectTrack={handleSelectResearchTrack}
             onSelectCoreChapter={navigateToChapter}
-            onNavigateToAdvanced={() => handleTabChange('advanced')}
+            onNavigateToAdvanced={(mid) => {
+              if (mid) {
+                handleSelectAdvancedModule(mid);
+                setCurrentTab('advanced');
+              } else {
+                handleTabChange('advanced');
+              }
+            }}
           />
         )}
 

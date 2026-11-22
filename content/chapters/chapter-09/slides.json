@@ -10,7 +10,7 @@
     "id": 2,
     "title": "Anatomi & Interpretasi Histogram Citra",
     "lead": "Membaca karakteristik eksposur tanpa melihat gambar sekalipun",
-    "body": "### Profil Histogram 8-bit [0..255]\n- **Under-exposed (Gelap)**: Puncak histogram menumpuk di sisi kiri (0–70).\n- **Over-exposed (Silau)**: Puncak menumpuk di sisi kanan (185–255).\n- **Low Contrast (Berkabut)**: Histogram sempit terpusat di area tengah.\n- **Balanced High Contrast**: Terdistribusi merata sepanjang rentang penuh $0\\text{–}255$.",
+    "body": "### Profil Histogram 8-bit [0..255]\n- **Under-exposed (Gelap)**: Puncak histogram menumpuk di sisi kiri (0–70).\n- **Over-exposed (Silau)**: Puncak menumpuk di sisi kanan (185–255).\n- **Low Contrast (Berkabut)**: Histogram sempit terpusat di area tengah.\n- **Balanced High Contrast**: Terdistribusi merata sepanjang rentang penuh $0 - 255$.",
     "notes": "Ingatkan bahwa histogram tidak menyimpan informasi lokasi spasial piksel—dua gambar yang berbeda bisa memiliki histogram identik!"
   },
   {

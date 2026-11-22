@@ -71,7 +71,8 @@ Mari kita hitung secara analitik operasi **Scaled Dot-Product Attention** untuk 
 
 Diberikan matriks Query ($\mathbf{Q}$) dan Key ($\mathbf{K}$):
 
-$$\mathbf{Q} = \begin{bmatrix}
+$$
+\mathbf{Q} = \begin{bmatrix}
 1.0 & 0.0 & 1.0 & 0.0 \\
 0.0 & 2.0 & 0.0 & 1.0 \\
 1.0 & 1.0 & 0.0 & 0.0
@@ -80,23 +81,28 @@ $$\mathbf{Q} = \begin{bmatrix}
 1.0 & 0.0 & 1.0 & 0.0 \\
 0.0 & 1.0 & 0.0 & 2.0 \\
 0.0 & 0.0 & 1.0 & 1.0
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Matriks Value ($\mathbf{V}$):
 
-$$\mathbf{V} = \begin{bmatrix}
+$$
+\mathbf{V} = \begin{bmatrix}
 10.0 & 0.0 \\
 0.0 & 20.0 \\
 5.0 & 5.0
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 ### Langkah 1: Hitung Perkalian Matriks $\mathbf{Q} \mathbf{K}^T$
-$$\mathbf{K}^T = \begin{bmatrix}
+$$
+\mathbf{K}^T = \begin{bmatrix}
 1.0 & 0.0 & 0.0 \\
 0.0 & 1.0 & 0.0 \\
 1.0 & 0.0 & 1.0 \\
 0.0 & 2.0 & 1.0
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Hitung baris demi baris:
 - **Baris 0 $\mathbf{Q}$** $\cdot \mathbf{K}^T$:
@@ -112,18 +118,22 @@ Hitung baris demi baris:
   - $A_{2, 1} = (1)(0) + (1)(1) + (0)(0) + (0)(2) = 1.0$
   - $A_{2, 2} = (1)(0) + (1)(0) + (0)(1) + (0)(1) = 0.0$
 
-$$\mathbf{Q} \mathbf{K}^T = \begin{bmatrix}
+$$
+\mathbf{Q} \mathbf{K}^T = \begin{bmatrix}
 2.0 & 0.0 & 1.0 \\
 0.0 & 4.0 & 1.0 \\
 1.0 & 1.0 & 0.0
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 ### Langkah 2: Penskalaan dengan $\sqrt{d_k} = \sqrt{4} = 2.0$
-$$\frac{\mathbf{Q} \mathbf{K}^T}{\sqrt{d_k}} = \begin{bmatrix}
+$$
+\frac{\mathbf{Q} \mathbf{K}^T}{\sqrt{d_k}} = \begin{bmatrix}
 1.0 & 0.0 & 0.5 \\
 0.0 & 2.0 & 0.5 \\
 0.5 & 0.5 & 0.0
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 ### Langkah 3: Normalisasi Softmax pada Baris 0
 - Nilai logit baris 0: $[1.0, 0.0, 0.5]$

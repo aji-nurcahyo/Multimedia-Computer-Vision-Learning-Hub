@@ -63,10 +63,12 @@ Di mana:
 ### 3.2 Histeresis Temporal untuk Menghilangkan False Alarm
 
 Untuk mencegah kedipan alarm (*alarm flickering*), sistem menerapkan histeresis temporal sepanjang $H$ frame:
-$$\text{Trigger}(t) = \begin{cases} 
+$$
+\text{Trigger}(t) = \begin{cases} 
 \text{TRUE}, & \text{jika } \sum_{i=0}^{H-1} \mathbb{I}(F_{t-i} \ge \tau) = H \\
 \text{FALSE}, & \text{lainnya}
-\end{cases}$$
+\end{cases}
+$$
 Standar rekomendasi industri: $H = 3$ frame berturut-turut pada $\tau = 0.50$.
 
 ### 3.3 Dekomposisi Latensi & Metrik Kinerja

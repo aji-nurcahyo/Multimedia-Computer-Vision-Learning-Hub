@@ -53,7 +53,7 @@ Untuk sistem tracking (R02), analisis galat difokuskan pada pemutusan lintasan:
    - *Cross-Over IDSW:* Terjadi saat dua target berpapasan dengan lintasan silang.
    - *Post-Occlusion IDSW:* Terjadi setelah target keluar dari balik rintangan statis.
 2. **Trajectory Fragmentation (Frag):**
-   - Lintasan objek terputus menjadi potongan-potongan pendek karena deteksi hilang sesaat ($1–5$ frame).
+   - Lintasan objek terputus menjadi potongan-potongan pendek karena deteksi hilang sesaat (1–5 frame).
 3. **Ghost Trajectory (False Trajectory):**
    - Lintasan yang dibuat oleh pelacak di atas false positive latar belakang.
 

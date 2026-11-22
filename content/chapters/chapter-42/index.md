@@ -91,11 +91,13 @@ $$\mathcal{L}_{\text{CE}} = -\ln(\hat{y}_0) = -\ln(0.7142) \approx 0.3366$$
 ### Langkah 3: Evaluasi Metrik Matriks Kontingensi
 Misalkan pada kumpulan uji 100 sampel mini-dataset diperoleh matriks kontingensi berikut (Baris = Ground Truth, Kolom = Prediksi):
 
-$$\mathbf{C} = \begin{bmatrix}
+$$
+\mathbf{C} = \begin{bmatrix}
 35 & 5 & 2 \\
 4 & 28 & 3 \\
 1 & 2 & 20
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Untuk Kelas 0 (Kucing):
 - $TP_0 = 35$

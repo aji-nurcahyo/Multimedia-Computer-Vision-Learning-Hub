@@ -50,10 +50,12 @@ Diberikan model yang dipartisi menjadi feature extractor backbone berbobot $\bol
 ### 2.3 Penjadwalan Learning Rate: Cosine Annealing with Warmup
 Untuk mencegah bobot klasifikasi kepala acak yang belum terkonvergensi merusak bobot pretrained backbone pada awal epoch (*gradient shock*), diterapkan fase **Linear Warmup** diikuti **Cosine Annealing**:
 
-$$\eta_t = \begin{cases}
+$$
+\eta_t = \begin{cases}
 \eta_{\min} + \frac{t}{T_{\text{warm}}} (\eta_{\max} - \eta_{\min}) & \text{jika } t \le T_{\text{warm}} \\
-\eta_{\min} + \frac{1}{2}(\eta_{\max} - \eta_{\min}) \left(1 + \cos\left(\frac{t - T_{\text{warm}}}{T_{\max} - T_{\warm}} \pi\right)\right) & \text{jika } t > T_{\text{warm}}
-\end{cases}$$
+\eta_{\min} + \frac{1}{2}(\eta_{\max} - \eta_{\min}) \left(1 + \cos\left(\frac{t - T_{\text{warm}}}{T_{\max} - T_{\text{warm}}} \pi\right)\right) & \text{jika } t > T_{\text{warm}}
+\end{cases}
+$$
 
 ### 2.4 Dilema Batch Normalization saat Fine-Tuning
 Lapisan Batch Normalization (BN) mempertahankan running mean ($\boldsymbol{\mu}_{\text{run}}$) dan running variance ($\boldsymbol{\sigma}^2_{\text{run}}$). Saat fine-tuning dengan ukuran batch target yang sangat kecil (misal $B = 8$ atau $16$):

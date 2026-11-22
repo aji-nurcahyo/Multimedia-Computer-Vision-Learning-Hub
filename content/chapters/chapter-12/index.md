@@ -12,7 +12,7 @@
 
 Berbeda dengan *Image Enhancement* yang bersifat subjektif agar citra lebih enak dilihat mata, **Image Restoration** bertujuan merekonstruksi atau memulihkan citra yang terdegradasi kembali semirip mungkin dengan citra ideal aslinya berdasarkan model matematis degradasi fisik. Selama akuisisi maupun transmisi sinyal, sensor kamera memperkenalkan derau termal (**Gaussian noise**), gangguan sakelar elektronik atau bit rusak (**Salt-and-Pepper impulse noise**), maupun interferensi koheren radar/ultrasound (**Speckle noise**).
 
-Bab ini memformulasikan model degradasi citra, teknik estimasi karakteristik noise, algoritma peredam derau mulai dari Mean &amp; Median filtering hingga filter pelestari tepi mutakhir **Bilateral Filter**, **Non-Local Means (NLM)**, dan **Wiener Filter**, serta evaluasi objektif berbasis metrik kuantitatif **PSNR** dan **SSIM**.
+Bab ini memformulasikan model degradasi citra, teknik estimasi karakteristik noise, algoritma peredam derau mulai dari Mean & Median filtering hingga filter pelestari tepi mutakhir **Bilateral Filter**, **Non-Local Means (NLM)**, dan **Wiener Filter**, serta evaluasi objektif berbasis metrik kuantitatif **PSNR** dan **SSIM**.
 
 ---
 
@@ -50,13 +50,13 @@ Di mana $f(x, y)$ adalah citra ideal, $h(x, y)$ adalah fungsi sebaran titik (*Po
 2. **Salt-and-Pepper (Impulse) Noise**: Piksel rusak mendadak menjadi nilai ekstrem hitam ($0$) atau putih ($255$), biasanya dipicu kesalahan memori atau transmisi paket. Mean/Gaussian blur gagal menghilangkannya, sedangkan **Median Filter** mengatasinya dengan sangat bersih.
 3. **Speckle Noise ($g = f \cdot (1 + \eta)$)**: Derau multiplikatif di mana besarnya fluktuasi sebanding dengan intensitas sinyal lokal; sangat lazim dijumpai pada citra radar SAR dan USG medis (*ultrasound*).
 
-### 4.3 Penapis Canggih: Bilateral, Non-Local Means &amp; Wiener
+### 4.3 Penapis Canggih: Bilateral, Non-Local Means & Wiener
 
 ![Bilateral vs Non-Local Means vs Wiener](/media/diagrams/chapter-12-bilateral-wiener.svg)
 *Gambar 12.2 — Perbandingan arsitektur filter pelestari tepi: Bilateral Filter, Non-Local Means, dan Wiener Filter (MMSE).*  
 *Sumber: Aji Pamungkas Tri Nurcahyo (ITERA), Lisensi CC-BY-4.0.*
 
-- **Bilateral Filter (Tomasi &amp; Manduchi, 1998)**: Mengalikan dua bobot Gaussian sekaligus: jarak spasial $\sigma_s$ DAN selisih intensitas warna $\sigma_r$. Akibatnya, piksel di seberang batas tepi objek tidak ikut dirata-ratakan sehingga **tepi tetap tajam sembari area datar menjadi halus**.
+- **Bilateral Filter (Tomasi & Manduchi, 1998)**: Mengalikan dua bobot Gaussian sekaligus: jarak spasial $\sigma_s$ DAN selisih intensitas warna $\sigma_r$. Akibatnya, piksel di seberang batas tepi objek tidak ikut dirata-ratakan sehingga **tepi tetap tajam sembari area datar menjadi halus**.
 - **Non-Local Means (Buades et al., 2005)**: Alih-alih hanya membandingkan nilai satu piksel, NLM mencari kemiripan pola blok kecil (*patch*) di seluruh area pencarian, memanfaatkan pengulangan tekstur alami pada foto.
 - **Wiener Filter**: Solusi analitis *Minimum Mean Square Error* (MMSE) yang meminimalkan rata-rata kuadrat galat restorasi dengan mempertimbangkan rasio spektrum daya derau terhadap sinyal asli ($\text{SNR}$).
 
@@ -70,7 +70,7 @@ $$I^{\text{filtered}}(p) = \frac{1}{W_p} \sum_{q \in \Omega} I(q) \cdot \exp\lef
 ### 5.2 Wiener Filter (Domain Frekuensi)
 $$W(u, v) = \frac{H^*(u, v)}{|H(u, v)|^2 + \frac{S_{\eta\eta}(u, v)}{S_{ff}(u, v)}} \approx \frac{H^*(u, v)}{|H(u, v)|^2 + K}$$
 
-### 5.3 Metrik Kuantitatif Kualitas Citra: MSE, PSNR &amp; SSIM
+### 5.3 Metrik Kuantitatif Kualitas Citra: MSE, PSNR & SSIM
 
 1. **Mean Squared Error (MSE)**:
    $$\text{MSE} = \frac{1}{MN} \sum_{x=0}^{M-1} \sum_{y=0}^{N-1} \big[f(x, y) - \hat{f}(x, y)\big]^2$$
@@ -131,9 +131,9 @@ END
 
 ---
 
-## 8. Python &amp; OpenCV Implementation
+## 8. Python & OpenCV Implementation
 
-### Prasyarat &amp; Catatan
+### Prasyarat & Catatan
 - Instalasi: `pip install numpy opencv-python-headless`
 - Menggunakan `cv2.bilateralFilter`, `cv2.medianBlur`, dan `cv2.fastNlMeansDenoising` dengan seed acak deterministik (`np.random.seed(42)`).
 
@@ -183,17 +183,17 @@ if __name__ == "__main__":
 
 ## 9. Interactive Lab — Image Restoration Lab
 
-Pada tab **Laboratorium &amp; Python**, jelajahi **Image Restoration Lab**:
-- Pilih tipe noise (**Gaussian**, **Salt &amp; Pepper**, atau **Speckle**) dan atur intensitasnya.
+Pada tab **Laboratorium & Python**, jelajahi **Image Restoration Lab**:
+- Pilih tipe noise (**Gaussian**, **Salt & Pepper**, atau **Speckle**) dan atur intensitasnya.
 - Bandingkan performa berbagai algoritma pemulihan: **Bilateral Filter**, **Non-Local Means (NLM)**, **Median Filter**, **Adaptive Wiener**, dan **Box Mean Filter**.
 - Amati pembacaan metrik kuantitatif **PSNR (dB)** dan **SSIM** secara langsung sebelum vs sesudah restorasi!
 
 ---
 
-## 10. Experiments &amp; Analysis
+## 10. Experiments & Analysis
 
-1. **Salt-and-Pepper vs Mean/Bilateral vs Median**: Set tipe noise ke **Salt &amp; Pepper**, lalu coba terapkan *Box Mean* vs *Bilateral* vs *Median*. Mengapa *Bilateral Filter* gagal menghilangkan bintik putih/hitam ekstrem? Karena selisih intensitas piksel noise sangat besar sehingga *range weight*-nya mendekati nol dan piksel noise tetap mempertahankan nilai ekstremnya sendiri! Sedangkan **Median Filter** menyingkirkan impuls dalam sekejap dan menghasilkan lonjakan PSNR/SSIM tertinggi.
-2. **Bilateral &amp; NLM pada Gaussian Noise**: Set noise ke **Gaussian**, bandingkan ketajaman tepi persegi hasil *Box Mean* (buram) terhadap *Bilateral Filter* atau *Non-Local Means* (tepi tetap tegas dengan PSNR jauh lebih tinggi).
+1. **Salt-and-Pepper vs Mean/Bilateral vs Median**: Set tipe noise ke **Salt & Pepper**, lalu coba terapkan *Box Mean* vs *Bilateral* vs *Median*. Mengapa *Bilateral Filter* gagal menghilangkan bintik putih/hitam ekstrem? Karena selisih intensitas piksel noise sangat besar sehingga *range weight*-nya mendekati nol dan piksel noise tetap mempertahankan nilai ekstremnya sendiri! Sedangkan **Median Filter** menyingkirkan impuls dalam sekejap dan menghasilkan lonjakan PSNR/SSIM tertinggi.
+2. **Bilateral & NLM pada Gaussian Noise**: Set noise ke **Gaussian**, bandingkan ketajaman tepi persegi hasil *Box Mean* (buram) terhadap *Bilateral Filter* atau *Non-Local Means* (tepi tetap tegas dengan PSNR jauh lebih tinggi).
 
 ---
 
@@ -206,7 +206,7 @@ Buat fungsi detektor klasifikasi noise otomatis dalam Python yang:
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Gunakan tab **Presentasi Slide** untuk 10 slide materi kuliah dan catatan pengajar.
 
@@ -218,8 +218,8 @@ Gunakan tab **Presentasi Slide** untuk 10 slide materi kuliah dan catatan pengaj
 
 ## 13. Verified Academic References
 
-1. **Tomasi, C., &amp; Manduchi, R.** (1998). *Bilateral Filtering for Gray and Color Images*. IEEE International Conference on Computer Vision (ICCV), pp. 839–846.
-2. **Buades, A., Coll, B., &amp; Morel, J. M.** (2005). *A Non-Local Algorithm for Image Denoising*. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Vol. 2, pp. 60–65.
-3. **Wang, Z., Bovik, A. C., Sheikh, H. R., &amp; Simoncelli, E. P.** (2004). *Image Quality Assessment: From Error Visibility to Structural Similarity (SSIM)*. IEEE Transactions on Image Processing, 13(4), 600–612.
-4. **Gonzalez, R. C., &amp; Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 5: Image Restoration.
+1. **Tomasi, C., & Manduchi, R.** (1998). *Bilateral Filtering for Gray and Color Images*. IEEE International Conference on Computer Vision (ICCV), pp. 839–846.
+2. **Buades, A., Coll, B., & Morel, J. M.** (2005). *A Non-Local Algorithm for Image Denoising*. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), Vol. 2, pp. 60–65.
+3. **Wang, Z., Bovik, A. C., Sheikh, H. R., & Simoncelli, E. P.** (2004). *Image Quality Assessment: From Error Visibility to Structural Similarity (SSIM)*. IEEE Transactions on Image Processing, 13(4), 600–612.
+4. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 5: Image Restoration.
 

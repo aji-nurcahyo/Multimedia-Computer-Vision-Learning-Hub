@@ -31,9 +31,12 @@ export function PresentationViewer({
   const [slideTheme, setSlideTheme] = useState<SlideTheme>(() => {
     try {
       const saved = localStorage.getItem('slide_theme');
-      return saved === 'light' || saved === 'dark' ? saved : 'dark';
+      if (saved === 'light' || saved === 'dark') return saved;
+      // Inherit from global theme if not explicitly set
+      const globalTheme = typeof document !== 'undefined' ? document.documentElement.getAttribute('data-theme') : null;
+      return globalTheme === 'dark' ? 'dark' : 'light';
     } catch {
-      return 'dark';
+      return 'light';
     }
   });
 
@@ -134,12 +137,27 @@ export function PresentationViewer({
     const nodes: React.ReactNode[] = [];
     let inCode = false;
     let codeBuf: string[] = [];
+    let inMath = false;
+    let mathBuf: string[] = [];
+
+    const flushMath = (keyPrefix: string) => {
+      if (mathBuf.length > 0) {
+        nodes.push(
+          <div key={`slide-math-${keyPrefix}`} className="slide-math-block">
+            <MathView math={mathBuf.join('\n')} displayMode={true} />
+          </div>
+        );
+        mathBuf = [];
+      }
+      inMath = false;
+    };
 
     for (let idx = 0; idx < lines.length; idx++) {
       const raw = lines[idx];
       const trimmed = raw.trim();
 
       if (trimmed.startsWith('```')) {
+        if (inMath) flushMath(`${idx}-precode`);
         if (inCode) {
           nodes.push(
             <pre key={`code-${idx}`} className="slide-code-block">
@@ -157,6 +175,46 @@ export function PresentationViewer({
 
       if (inCode) {
         codeBuf.push(raw);
+        continue;
+      }
+
+      // Multi-line display math in slide body
+      if (inMath) {
+        if (trimmed === '$$') {
+          flushMath(`${idx}`);
+          continue;
+        }
+        if (trimmed.endsWith('$$')) {
+          const content = trimmed.slice(0, -2).trimEnd();
+          if (content) mathBuf.push(content);
+          flushMath(`${idx}`);
+          continue;
+        }
+        mathBuf.push(raw);
+        continue;
+      }
+
+      // Single-line display math ($$...$$)
+      if (trimmed.startsWith('$$') && trimmed.endsWith('$$') && trimmed.length > 4) {
+        nodes.push(
+          <div key={`math-${idx}`} className="slide-math-block">
+            <MathView math={trimmed.slice(2, -2)} displayMode={true} />
+          </div>
+        );
+        continue;
+      }
+
+      // Multi-line display math opener ($$)
+      if (trimmed === '$$') {
+        inMath = true;
+        mathBuf = [];
+        continue;
+      }
+
+      if (trimmed.startsWith('$$')) {
+        inMath = true;
+        const startText = trimmed.slice(2).trimStart();
+        mathBuf = startText ? [startText] : [];
         continue;
       }
 
@@ -184,21 +242,14 @@ export function PresentationViewer({
         continue;
       }
 
-      if (trimmed.startsWith('$$') && trimmed.endsWith('$$') && trimmed.length > 4) {
-        nodes.push(
-          <div key={idx} className="slide-math-block">
-            <MathView math={trimmed.slice(2, -2)} displayMode={true} />
-          </div>
-        );
-        continue;
-      }
-
       nodes.push(
         <p key={idx} className="slide-paragraph">
           {renderInlineText(trimmed)}
         </p>
       );
     }
+
+    if (inMath) flushMath('tail');
 
     return <div className="slide-body-text">{nodes}</div>;
   };

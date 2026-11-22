@@ -81,9 +81,7 @@ $$(f * w)(x, y) = \sum_{s=-a}^{a} \sum_{t=-b}^{b} w(s, t) \, f(x - s, \, y - t)$
 Perhatikan tanda negatif pada koordinat $f(x-s, y-t)$. Secara geometris, ini setara dengan **memutar (*flipping*) kernel sebesar $180^\circ$** (dicerminkan secara horizontal kemudian vertikal) sebelum melakukan operasi perkalian titik (*dot product*) dan penjumlahan.
 
 > **Catatan Akademik Penting**:  
-> Jika kernel filter bersifat simetris terhadap titik pusatnya (seperti kernel Gaussian, Mean, atau Laplacian standar), maka:
-> $$w(-s, -t) = w(s, t)$$
-> Sehingga hasil operasi **konvolusi** dan **korelasi** adalah **identik**. Pustaka seperti OpenCV `cv2.filter2D` mengimplementasikan korelasi secara komputasional demi efisiensi.
+> Jika kernel filter bersifat simetris terhadap titik pusatnya (seperti kernel Gaussian, Mean, atau Laplacian standar), maka $w(-s, -t) = w(s, t)$. Sehingga hasil operasi **konvolusi** dan **korelasi** adalah **identik**. Pustaka seperti OpenCV `cv2.filter2D` mengimplementasikan korelasi secara komputasional demi efisiensi.
 
 ### 5.3 Normalisasi Kernel
 
@@ -150,13 +148,15 @@ $$W = \frac{1}{16} \begin{bmatrix} 1 & 2 & 1 \\ 2 & 4 & 2 \\ 1 & 2 & 1 \end{bmat
 
 Nilai piksel tengah hasil filtering $g(x,y)$ dihitung sebagai perkalian *element-wise* antara $F$ dan $W$:
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 g(x,y) &= \frac{1}{16} [ (120 \times 1) + (140 \times 2) + (150 \times 1) \\
 &\quad + (110 \times 2) + (130 \times 4) + (160 \times 2) \\
 &\quad + (100 \times 1) + (120 \times 2) + (140 \times 1) ] \\
 &= \frac{1}{16} [ 120 + 280 + 150 + 220 + 520 + 320 + 100 + 240 + 140 ] \\
 &= \frac{1}{16} [ 2090 ] = 130.625 \approx 131
-\end{aligned}$$
+\end{aligned}
+$$
 
 Nilai piksel tengah yang awalnya $130$ mengalami penyesuaian menjadi $131$, merefleksikan nilai rata-rata terbobot dari tetangganya.
 
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 
 ## 9. Interactive Gaussian & Spatial Filtering Lab
 
-Pada platform ini, Anda dapat bereksperimen langsung melalui **Interactive Spatial Filtering &amp; Convolution Lab** (Tab **Laboratorium &amp; Python**) dengan mengunggah citra maupun memakai pola sintetis:
+Pada platform ini, Anda dapat bereksperimen langsung melalui **Interactive Spatial Filtering & Convolution Lab** (Tab **Laboratorium & Python**) dengan mengunggah citra maupun memakai pola sintetis:
 - Pilih mode penapis: **Gaussian Blur**, **Box Mean Filter**, **Median Filter (Non-Linear)**, **Laplacian Sharpening**, atau **Sobel**.
 - Ubah parameter ukuran jendela ($3\times 3, 5\times 5, 7\times 7$), standar deviasi $\sigma$, serta strategi penanganan batas (**Reflect**, **Replicate**, atau **Zero Padding**) untuk mengamati perbedaan di tepi citra dan mengunduh hasil PNG-nya.
 
@@ -252,18 +252,18 @@ Karena $99.7\%$ energi distribusi normal berada di dalam rentang $\pm 3\sigma$, 
 
 ---
 
-## 10. Experiments, Analysis &amp; Troubleshooting
+## 10. Experiments, Analysis & Troubleshooting
 
 ### Eksperimen Terstruktur
 1. **Perbandingan Border Padding**: Uji *Zero Padding* vs *Reflect Padding* pada Gaussian $7\times 7$. Amati bingkai hitam tipis pada tepi terluar jika menggunakan *Zero Padding*.
 2. **Evaluasi Median vs Gaussian pada Salt-and-Pepper Noise**: Bandingkan kemampuan penghapusan piksel ekstrem $0/255$ antara Gaussian blur (cenderung meninggalkan bercak abu-abu) dengan Median $3\times 3$.
-3. **Common Python Errors &amp; Troubleshooting**:
+3. **Common Python Errors & Troubleshooting**:
    - *Kesalahan `uint8` overflow saat Laplacian sharpening*: selalu ubah ke `np.float32` atau gunakan `cv2.CV_64F` sebelum mengaplikasikan `np.clip(..., 0, 255).astype(np.uint8)`.
    - *Ukuran kernel genap pada `cv2.GaussianBlur`*: OpenCV mewajibkan dimensi kernel positif ganjil (`(3, 3)`, `(5, 5)`).
 
 ---
 
-## 11. Mini Project — Pipeline Penajaman &amp; Pembersihan Dokumen Terpindai
+## 11. Mini Project — Pipeline Penajaman & Pembersihan Dokumen Terpindai
 
 Bangun skrip Python mandiri yang menerima citra halaman dokumen berderau (*synthetic salt-and-pepper + blur*):
 1. Terapkan Median Filter $3\times 3$ untuk membersihkan bintik debu impuls tanpa melunturkan tepi huruf.
@@ -272,7 +272,7 @@ Bangun skrip Python mandiri yang menerima citra halaman dokumen berderau (*synth
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Gunakan tab **Presentasi Slide** untuk menelaah 10 slide materi kuliah Chapter 10 yang dilengkapi catatan presenter.
 
@@ -285,7 +285,7 @@ Gunakan tab **Presentasi Slide** untuk menelaah 10 slide materi kuliah Chapter 1
 
 ---
 
-## 13. References &amp; Academic Citations
+## 13. References & Academic Citations
 
 1. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson. Chapter 3: Spatial Filtering.
 2. **Szeliski, R.** (2022). *Computer Vision: Algorithms and Applications* (2nd ed.). Springer. Chapter 3: Image Processing.

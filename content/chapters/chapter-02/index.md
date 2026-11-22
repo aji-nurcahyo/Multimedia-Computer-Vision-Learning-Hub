@@ -60,8 +60,7 @@ Secara matematis, kita membedakan sinyal ke dalam dua kategori utama:
 Bagaimana kita memastikan bahwa proses pencuplikan diskrit tidak menghilangkan informasi gelombang asli?
 
 > **Teorema Sampling Nyquist-Shannon**:  
-> Sebuah sinyal pita-terbatas (*band-limited*) kontinu $x(t)$ yang tidak memiliki komponen frekuensi lebih tinggi dari $f_{\max}$ dapat direkonstruksi secara sempurna dan eksak dari deretan sampelnya $x[n]$, jika dan hanya jika frekuensi sampling $f_s$ memenuhi kondisi:
-> $$f_s \ge 2 f_{\max}$$
+> Sebuah sinyal pita-terbatas (*band-limited*) kontinu $x(t)$ yang tidak memiliki komponen frekuensi lebih tinggi dari $f_{\max}$ dapat direkonstruksi secara sempurna dan eksak dari deretan sampelnya $x[n]$, jika dan hanya jika frekuensi sampling $f_s$ memenuhi kondisi: $f_s \ge 2 f_{\max}$.
 
 - **Laju Nyquist (*Nyquist Rate*)**: Nilai minimum frekuensi sampling yang diizinkan, yaitu $2 f_{\max}$.
 - **Frekuensi Nyquist (*Folding Frequency*)**: Batas frekuensi tertinggi yang dapat direpresentasikan tanpa distorsi pada laju cuplik $f_s$, yaitu $f_N = f_s / 2$.

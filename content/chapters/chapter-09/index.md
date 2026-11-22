@@ -131,9 +131,9 @@ END
 
 ---
 
-## 8. Python &amp; OpenCV Implementation
+## 8. Python & OpenCV Implementation
 
-### Prasyarat &amp; Perhatian Penting Citra Berwarna
+### Prasyarat & Perhatian Penting Citra Berwarna
 - Instalasi: `pip install numpy opencv-python-headless`
 - **Jangan pernah** menerapkan `cv2.equalizeHist` ke saluran R, G, dan B secara terpisah karena mengubah rasio warna dan memicu pergeseran rona parah! Sebaliknya, konversikan citra ke **YCrCb** atau **CIELAB**, terapkan HE/CLAHE **hanya pada kanal Luminansi ($Y$ atau $L^*$)**, lalu konversikan kembali ke RGB!
 
@@ -180,13 +180,13 @@ if __name__ == "__main__":
 
 ## 9. Interactive Lab — Histogram Explorer
 
-Buka tab **Laboratorium &amp; Python** dan gunakan **Histogram Explorer**:
+Buka tab **Laboratorium & Python** dan gunakan **Histogram Explorer**:
 - Bandingkan grafik histogram 256-bin + kurva **CDF (garis oranye)** antara citra asli vs hasil **CLAHE**, **Global Equalization**, dan **Min-Max Contrast Stretching**.
 - Ubah parameter **Clip Limit Factor** ($1.2 \dots 8.0$) dan **Tile Grid Size** ($2\times 2, 4\times 4, 8\times 8$) untuk menyaksikan bagaimana CLAHE memperjelas teks tersembunyi pada area berkontras rendah!
 
 ---
 
-## 10. Experiments &amp; Analysis
+## 10. Experiments & Analysis
 
 1. **Bentuk Kurva CDF Ideal**: Perhatikan garis oranye kurva CDF pada panel kanan setelah mengaktifkan **Global Histogram Equalization**. Mengapa kurva CDF berubah menjadi garis diagonal linier mendekati sudut $45^\circ$?
 2. **Dampak Clip Limit Terlalu Tinggi**: Naikkan *Clip Limit* CLAHE ke `8.0` pada foto yang sedikit berderau. Perhatikan munculnya bintik kasar di area abu-abu homogen—inilah alasan parameter standar `clipLimit` industri berkisar `2.0 – 3.0`.
@@ -202,7 +202,7 @@ Implementasikan skrip Python yang memproses citra grayscale medis/industri berka
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Gunakan tab **Presentasi Slide** untuk 10 slide ringkasan dan diskusi.
 
@@ -216,6 +216,6 @@ Gunakan tab **Presentasi Slide** untuk 10 slide ringkasan dan diskusi.
 ## 13. Verified Academic References
 
 1. **Zuiderveld, K.** (1994). *Contrast Limited Adaptive Histogram Equalization*. Graphics Gems IV, Academic Press, pp. 474–485.
-2. **Gonzalez, R. C., &amp; Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 3 (Section 3.3): Histogram Processing.
-3. **OpenCV Documentation**. (2024). *Histograms - 2: Histogram Equalization (equalizeHist &amp; CLAHE)*. Official OpenCV Tutorial.
+2. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 3 (Section 3.3): Histogram Processing.
+3. **OpenCV Documentation**. (2024). *Histograms - 2: Histogram Equalization (equalizeHist & CLAHE)*. Official OpenCV Tutorial.
 

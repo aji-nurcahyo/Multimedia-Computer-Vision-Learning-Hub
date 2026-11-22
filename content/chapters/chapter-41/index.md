@@ -86,7 +86,8 @@ di mana $\eta$ adalah learning rate dan $\lambda$ adalah koefisien weight decay.
 
 Mari kita hitung secara analitik forward-pass konvolusi 2D pada citra input berukuran $4 \times 4$ kanal tunggal dengan padding $P=0$ dan stride $S=1$ menggunakan kernel Sobel horizontal $3 \times 3$:
 
-$$\mathbf{X} = \begin{bmatrix}
+$$
+\mathbf{X} = \begin{bmatrix}
 10 & 20 & 20 & 10 \\
 30 & 50 & 40 & 20 \\
 10 & 60 & 50 & 30 \\
@@ -96,7 +97,8 @@ $$\mathbf{X} = \begin{bmatrix}
 -1 & -2 & -1 \\
 0 & 0 & 0 \\
 1 & 2 & 1
-\end{bmatrix}, \quad b = 5.0$$
+\end{bmatrix}, \quad b = 5.0
+$$
 
 ### Langkah 1: Tentukan Dimensi Output
 $$H_{\text{out}} = \left\lfloor \frac{4 - 3 + 2(0)}{1} \right\rfloor + 1 = 2$$
@@ -105,11 +107,13 @@ Output berupa matriks $2 \times 2$.
 
 ### Langkah 2: Hitung Elemen $\mathbf{Y}(0, 0)$
 Jendela input yang beririsan dengan kernel pada posisi $(0, 0)$:
-$$\mathbf{X}_{\text{sub}}^{(0, 0)} = \begin{bmatrix}
+$$
+\mathbf{X}_{\text{sub}}^{(0, 0)} = \begin{bmatrix}
 10 & 20 & 20 \\
 30 & 50 & 40 \\
 10 & 60 & 50
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Lakukan produk titik elemen-demi-elemen (*Hadamard product*) dan jumlahkan:
 $$\sum (\mathbf{X}_{\text{sub}}^{(0, 0)} \odot \mathbf{K}) = (10 \cdot -1) + (20 \cdot -2) + (20 \cdot -1) + (30 \cdot 0) + (50 \cdot 0) + (40 \cdot 0) + (10 \cdot 1) + (60 \cdot 2) + (50 \cdot 1)$$
@@ -123,11 +127,13 @@ $$\mathbf{A}(0, 0) = \max(0, 115.0) = 115.0$$
 
 ### Langkah 3: Hitung Elemen $\mathbf{Y}(0, 1)$
 Jendela input pada posisi $(0, 1)$:
-$$\mathbf{X}_{\text{sub}}^{(0, 1)} = \begin{bmatrix}
+$$
+\mathbf{X}_{\text{sub}}^{(0, 1)} = \begin{bmatrix}
 20 & 20 & 10 \\
 50 & 40 & 20 \\
 60 & 50 & 30
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 $$\sum (\mathbf{X}_{\text{sub}}^{(0, 1)} \odot \mathbf{K}) = (20 \cdot -1) + (20 \cdot -2) + (10 \cdot -1) + 0 + 0 + 0 + (60 \cdot 1) + (50 \cdot 2) + (30 \cdot 1)$$
 $$= -20 - 40 - 10 + 60 + 100 + 30 = 120$$

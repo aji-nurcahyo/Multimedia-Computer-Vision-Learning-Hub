@@ -28,7 +28,7 @@ Bab ini membahas pemetaan linier **Brightness** dan **Contrast**, **Image Negati
 
 ## 3. Prerequisites
 
-- Pemahaman representasi matriks 8-bit `uint8` dan konversi aman `float32` / `np.clip` [Chapter 05 &amp; 06].
+- Pemahaman representasi matriks 8-bit `uint8` dan konversi aman `float32` / `np.clip` [Chapter 05 & 06].
 
 ---
 
@@ -38,16 +38,16 @@ Bab ini membahas pemetaan linier **Brightness** dan **Contrast**, **Image Negati
 *Gambar 8.1 — Kurva fungsi pemetaan intensitas s = T(r) untuk Identity, Image Negative, Log / Gamma < 1, dan Gamma > 1.*  
 *Sumber: Aji Pamungkas Tri Nurcahyo (ITERA), Lisensi CC-BY-4.0.*
 
-### 4.1 Brightness &amp; Contrast (*Affine Intensity Mapping*)
+### 4.1 Brightness & Contrast (*Affine Intensity Mapping*)
 - **Brightness ($\beta$)**: Pergeseran aditif seragam ke seluruh piksel ($\beta > 0$ mencerahkan, $\beta < 0$ menggelapkan).
 - **Contrast ($\alpha$)**: Pengali gradien kemiringan pemetaan ($\alpha > 1$ memperlebar selisih gelap-terang, $0 < \alpha < 1$ mempersempit kontras).
 
-### 4.2 Image Negative, Log Transform &amp; Gamma Correction
+### 4.2 Image Negative, Log Transform & Gamma Correction
 - **Image Negative**: Membalik polaritas kecerahan ($0 \leftrightarrow 255$). Sangat berguna untuk memeriksa detail putih halus pada latar gelap seperti citra radiologi X-ray atau mammogram medis.
 - **Log Transformation**: Memperluas nilai piksel gelap berintensitas rendah sembari memampatkan nilai puncak ekstrem terang (contoh paling penting: menampilkan **Spektrum Magnitudo Fourier 2D** di Chapter 11!).
 - **Power-Law (Gamma) Correction**: Mengkompensasi respons non-linier layar monitor (yang memiliki $\gamma_{\text{display}} \approx 2.2$) dan meningkatkan kecerahan area bayangan ($\gamma < 1$) tanpa membakar area terang (*highlight clipping*).
 
-### 4.3 Piecewise Linear Contrast Stretching &amp; Normalization
+### 4.3 Piecewise Linear Contrast Stretching & Normalization
 
 ![Piecewise Contrast Stretching](/media/diagrams/chapter-08-contrast-stretching.svg)
 *Gambar 8.2 — Mekanisme peregangan kontras linier bertahap di sekitar titik belok (r₁, s₁) dan (r₂, s₂).*  
@@ -61,7 +61,7 @@ Berbeda dengan pengali konstan, *Contrast Stretching* memetakan rentang intensit
 
 Misalkan $r \in [0, L-1]$ (untuk 8-bit, $L - 1 = 255$):
 
-1. **Brightness &amp; Contrast Linier**:
+1. **Brightness & Contrast Linier**:
    $$s = \text{clip}\big(\alpha \cdot (r - 128) + 128 + \beta,\; 0,\; 255\big)$$
    *(atau dalam bentuk OpenCV `cv2.convertScaleAbs`: $s = \text{clip}(\alpha r + \beta, 0, 255)$).*
 
@@ -125,9 +125,9 @@ END
 
 ---
 
-## 8. Python &amp; OpenCV Implementation
+## 8. Python & OpenCV Implementation
 
-### Prasyarat &amp; Catatan Performa
+### Prasyarat & Catatan Performa
 - Instalasi: `pip install numpy opencv-python-headless`
 - Menggunakan **Look-Up Table (LUT)** jauh lebih cepat daripada memanggil fungsi eksponen `np.power()` jutaan kali pada citra 4K karena operasi pangkat hanya dihitung tepat **256 kali**.
 
@@ -181,28 +181,28 @@ if __name__ == "__main__":
 
 ## 9. Interactive Lab — Image Enhancement Lab
 
-Gunakan **Image Enhancement Lab** di tab **Laboratorium &amp; Python**:
+Gunakan **Image Enhancement Lab** di tab **Laboratorium & Python**:
 - Amati perubahan citra berlatar kontras rendah secara langsung saat menggeser **Brightness ($\beta$)**, **Contrast ($\alpha$)**, dan **Gamma ($\gamma$)**.
 - Bandingkan fungsi **Piecewise Contrast Stretching**, **Log Transform**, dan **Image Negative**, sembari mengamati bentuk kurva $s = T(r)$ yang bergerak secara waktu nyata di panel kanan!
 
 ---
 
-## 10. Experiments &amp; Analysis
+## 10. Experiments & Analysis
 
 1. **Eksperimen Gamma $\gamma = 0.4$ vs $\gamma = 2.2$**: Amati pergeseran kelengkungan kurva $T(r)$ dan perubahan histogram visual bayangan gelap.
 2. **Evaluasi Clipping Saturasi**: Naikkan *Contrast* ke $2.5\times$ bersama *Brightness* $+60$. Perhatikan bahwa piksel yang menyentuh batas $255$ mengalami *clipping* sehingga kehilangan tekstur permanen (kurva mendatar di bagian atas).
 
 ---
 
-## 11. Mini Project — Auto-Exposure &amp; Log-Dynamic Range Viewer
+## 11. Mini Project — Auto-Exposure & Log-Dynamic Range Viewer
 
 Buat skrip Python untuk aplikasi fotografi ilmiah:
-1. Bangkitkan matriks citra High Dynamic Range sintetik (`float64`) dengan puncak terang bernilai $100.000$ dan latar belakang lemah bernilai $1.0\text{–}10.0$.
+1. Bangkitkan matriks citra High Dynamic Range sintetik (`float64`) dengan puncak terang bernilai $100.000$ dan latar belakang lemah bernilai $1.0 - 10.0$.
 2. Bandingkan hasil normalisasi linier biasa (di mana area gelap terlihat hitam total) vs **Log Transformation** $s = c \log(1 + r)$ yang mampu menampakkan seluruh skala intensitas secara seimbang.
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Buka tab **Presentasi Slide** untuk 10 slide materi lengkap dengan persamaan matematis dan catatan dosen.
 
@@ -215,7 +215,7 @@ Buka tab **Presentasi Slide** untuk 10 slide materi lengkap dengan persamaan mat
 
 ## 13. Verified Academic References
 
-1. **Gonzalez, R. C., &amp; Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 3 (Sections 3.1–3.2): Intensity Transformations.
+1. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 3 (Sections 3.1–3.2): Intensity Transformations.
 2. **Szeliski, R.** (2022). *Computer Vision: Algorithms and Applications* (2nd ed.). Springer. Section 3.1: Point Operators.
-3. **OpenCV Documentation**. (2024). *Changing the contrast and brightness of an image! &amp; cv2.LUT*. Official Reference.
+3. **OpenCV Documentation**. (2024). *Changing the contrast and brightness of an image! & cv2.LUT*. Official Reference.
 

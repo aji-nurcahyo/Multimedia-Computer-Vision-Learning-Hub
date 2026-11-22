@@ -9,7 +9,7 @@
     "dev": "node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "validate": "node scripts/validate-content.mjs && node scripts/validate-media.mjs",
-    "test": "node --test tests/content.test.mjs tests/image-processing.test.mjs tests/audio-processing.test.mjs tests/video-processing.test.mjs tests/cv-processing.test.mjs tests/multimodal-processing.test.mjs tests/systems-processing.test.mjs tests/advanced-curriculum.test.mjs tests/advanced-cv-processing.test.mjs tests/research-learning.test.mjs tests/ui-typography-presentation.test.mjs",
+    "test": "node --test tests/content.test.mjs tests/image-processing.test.mjs tests/audio-processing.test.mjs tests/video-processing.test.mjs tests/cv-processing.test.mjs tests/multimodal-processing.test.mjs tests/systems-processing.test.mjs tests/advanced-curriculum.test.mjs tests/advanced-cv-processing.test.mjs tests/research-learning.test.mjs tests/ui-typography-presentation.test.mjs tests/laboratory-catalog.test.mjs tests/academic-content-lint.test.mjs tests/unified-advanced-research-ux.test.mjs",
     "build": "npm run validate && npm run typecheck && node node_modules/vite/bin/vite.js build",
     "preview": "node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 5173",
     "chapter:new": "node scripts/chapter-new.mjs"

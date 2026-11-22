@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import {
   Layers,
   GraduationCap,
-  Clock,
   ArrowRight,
+  ArrowLeft,
   BookOpen,
   Search,
-  ChevronDown,
-  ChevronUp,
+  X,
   FlaskConical,
   Code2,
   CheckCircle2,
   FileText,
-  Terminal,
-  Sparkles,
+  Compass,
+  RotateCcw,
 } from 'lucide-react';
 import {
   advancedModules,
   type AdvancedModule,
   getAdvancedText,
+  getAdvancedModuleById,
 } from '../lib/advancedContent';
 import { SvdOptimizationExplorerLab } from './playgrounds/SvdOptimizationExplorerLab';
 import { SyntheticMotArenaLab } from './playgrounds/SyntheticMotArenaLab';
@@ -31,29 +31,34 @@ import { EdgeVisionRooflineLab } from './playgrounds/EdgeVisionRooflineLab';
 import { MarkdownRenderer } from './MarkdownRenderer';
 
 interface AdvancedCurriculumViewProps {
+  activeModuleId?: string | null;
+  onSelectModule?: (moduleId: string | null) => void;
   onSelectCoreChapter: (chapterId: string) => void;
   onNavigateToResearch: () => void;
 }
 
-type ModuleTab = 'lab' | 'theory' | 'code' | 'syllabus';
+type ModuleTab = 'theory' | 'lab' | 'code' | 'syllabus';
 
 export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
+  activeModuleId: propActiveModuleId,
+  onSelectModule: propOnSelectModule,
   onSelectCoreChapter,
   onNavigateToResearch,
 }) => {
+  const [internalActiveId, setInternalActiveId] = useState<string | null>(null);
+  const currentModuleId = propActiveModuleId !== undefined ? propActiveModuleId : internalActiveId;
+
+  const handleSelectModule = (id: string | null) => {
+    if (propOnSelectModule) {
+      propOnSelectModule(id);
+    } else {
+      setInternalActiveId(id);
+    }
+  };
+
   const [selectedPillar, setSelectedPillar] = useState<number | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedModuleId, setExpandedModuleId] = useState<string | null>('adv-01');
-  const [activeTabByModule, setActiveTabByModule] = useState<Record<string, ModuleTab>>({
-    'adv-01': 'lab',
-    'adv-02': 'lab',
-    'adv-03': 'lab',
-    'adv-04': 'lab',
-    'adv-05': 'lab',
-    'adv-06': 'lab',
-    'adv-07': 'lab',
-    'adv-08': 'lab',
-  });
+  const [activeTab, setActiveTab] = useState<ModuleTab>('theory');
 
   const filteredModules = advancedModules.filter((mod) => {
     const matchesPillar = selectedPillar === 'all' || mod.pillar === selectedPillar;
@@ -67,14 +72,6 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
       mod.topics.some((t) => t.title.toLowerCase().includes(query));
     return matchesPillar && matchesSearch;
   });
-
-  const toggleExpand = (id: string) => {
-    setExpandedModuleId((prev) => (prev === id ? null : id));
-  };
-
-  const setModuleTab = (moduleId: string, tab: ModuleTab) => {
-    setActiveTabByModule((prev) => ({ ...prev, [moduleId]: tab }));
-  };
 
   const renderInteractiveLab = (moduleId: string) => {
     switch (moduleId) {
@@ -103,726 +100,484 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
     }
   };
 
-  return (
-    <div className="container" style={{ paddingBottom: '4rem' }}>
-      {/* Header */}
-      <header className="hero" style={{ marginBottom: '2rem' }}>
-        <div className="hero-tag">
-          <GraduationCap size={15} />
-          <span>L3 Advanced Depth · Intelligent Computer Vision</span>
-        </div>
-        <h1 className="hero-title">
-          Kurikulum Lanjut <span>(Advanced Curriculum)</span>
-        </h1>
-        <p className="hero-subtitle">
-          Arsitektur materi pascasarjana dan pendalaman matematis untuk riset Intelligent Computer Vision,
-          dibangun sebagai lapisan pembelajaran lanjut di atas Kurikulum Inti 60 Bab.
-        </p>
+  // =========================================================================
+  // VIEW MODE A: FOCUSED ACADEMIC WORKSPACE
+  // =========================================================================
+  const currentModule = currentModuleId ? getAdvancedModuleById(currentModuleId) : null;
 
-        {/* Status Callout */}
-        <div
-          style={{
-            marginTop: '1.5rem',
-            padding: '1rem 1.25rem',
-            borderRadius: '10px',
-            background: 'rgba(52, 211, 153, 0.08)',
-            border: '1px solid rgba(52, 211, 153, 0.3)',
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '0.75rem',
-            maxWidth: '900px',
-          }}
-        >
-          <CheckCircle2 size={20} color="var(--accent)" style={{ flexShrink: 0, marginTop: '2px' }} />
-          <div style={{ fontSize: '0.9rem', lineHeight: '1.5', color: 'var(--text)' }}>
-            <strong>Status Fase AD-09: Seluruh 8 Modul Lanjut (ADV-01 s.d. ADV-08) Telah Diterbitkan (Published).</strong> Delapan modul
-            fondasi dan spesialisasi telah lengkap 100% dengan laboratorium simulasi interaktif Tier-A in-browser (Canvas 2D / SVG),
-            teori eksperimen terpandu Tier-B, serta script komputasi dan notebook interaktif Tier-C.
-          </div>
-        </div>
+  if (currentModule) {
+    const theoryContent = getAdvancedText(currentModule.id, 'index.md');
+    const pythonCode = getAdvancedText(currentModule.id, 'examples/example-01.py');
 
-        {/* Quick Stats */}
-        <div className="hero-meta" style={{ marginTop: '1.5rem' }}>
-          <div className="hero-meta-item">
-            <span className="hero-meta-val">8</span>
-            <span className="hero-meta-label">Total Modul Lanjut</span>
-          </div>
-          <div className="hero-meta-item">
-            <span className="hero-meta-val" style={{ color: 'var(--accent)' }}>8</span>
-            <span className="hero-meta-label">Modul Aktif (AD-09)</span>
-          </div>
-          <div className="hero-meta-item">
-            <span className="hero-meta-val" style={{ color: 'var(--primary)' }}>8</span>
-            <span className="hero-meta-label">Lab Tier-A In-Browser</span>
-          </div>
-          <div className="hero-meta-item">
-            <span className="hero-meta-val">4</span>
-            <span className="hero-meta-label">Pilar Riset ISVWS</span>
-          </div>
-          <div className="hero-meta-item">
-            <span className="hero-meta-val">40</span>
-            <span className="hero-meta-label">Topik Analitis Khusus</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Filter and Search Bar */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          marginBottom: '2rem',
-          padding: '1rem',
-          borderRadius: 'var(--radius)',
-          background: 'var(--bg-subtle)',
-          border: '1px solid var(--border)',
-        }}
-      >
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => setSelectedPillar('all')}
-            style={{
-              padding: '0.4rem 0.85rem',
-              borderRadius: '20px',
-              border: selectedPillar === 'all' ? '1px solid var(--primary)' : '1px solid var(--border)',
-              background: selectedPillar === 'all' ? 'var(--primary-glow)' : 'var(--bg-card)',
-              color: selectedPillar === 'all' ? 'var(--primary)' : 'var(--text-muted)',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-            }}
-          >
-            Semua Pilar (8)
-          </button>
-          <button
-            onClick={() => setSelectedPillar(1)}
-            style={{
-              padding: '0.4rem 0.85rem',
-              borderRadius: '20px',
-              border: selectedPillar === 1 ? '1px solid var(--primary)' : '1px solid var(--border)',
-              background: selectedPillar === 1 ? 'var(--primary-glow)' : 'var(--bg-card)',
-              color: selectedPillar === 1 ? 'var(--primary)' : 'var(--text-muted)',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-            }}
-          >
-            Pilar 1: Intelligent CV (4)
-          </button>
-          <button
-            onClick={() => setSelectedPillar(2)}
-            style={{
-              padding: '0.4rem 0.85rem',
-              borderRadius: '20px',
-              border: selectedPillar === 2 ? '1px solid var(--primary)' : '1px solid var(--border)',
-              background: selectedPillar === 2 ? 'var(--primary-glow)' : 'var(--bg-card)',
-              color: selectedPillar === 2 ? 'var(--primary)' : 'var(--text-muted)',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-            }}
-          >
-            Pilar 2: Perception &amp; Sensing (2)
-          </button>
-          <button
-            onClick={() => setSelectedPillar(3)}
-            style={{
-              padding: '0.4rem 0.85rem',
-              borderRadius: '20px',
-              border: selectedPillar === 3 ? '1px solid var(--primary)' : '1px solid var(--border)',
-              background: selectedPillar === 3 ? 'var(--primary-glow)' : 'var(--bg-card)',
-              color: selectedPillar === 3 ? 'var(--primary)' : 'var(--text-muted)',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-            }}
-          >
-            Pilar 3: Multimodal (1)
-          </button>
-          <button
-            onClick={() => setSelectedPillar(4)}
-            style={{
-              padding: '0.4rem 0.85rem',
-              borderRadius: '20px',
-              border: selectedPillar === 4 ? '1px solid var(--primary)' : '1px solid var(--border)',
-              background: selectedPillar === 4 ? 'var(--primary-glow)' : 'var(--bg-card)',
-              color: selectedPillar === 4 ? 'var(--primary)' : 'var(--text-muted)',
-              fontSize: '0.85rem',
-              fontWeight: 600,
-              cursor: 'pointer',
-            }}
-          >
-            Pilar 4: Efficient Edge (1)
-          </button>
-        </div>
-
-        <div style={{ position: 'relative', minWidth: '260px' }}>
-          <Search size={16} color="var(--text-muted)" style={{ position: 'absolute', left: '12px', top: '10px' }} />
-          <input
-            type="text"
-            placeholder="Cari modul atau topik..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '0.5rem 0.75rem 0.5rem 2.25rem',
-              borderRadius: '8px',
-              border: '1px solid var(--border)',
-              background: 'var(--bg-card)',
-              color: 'var(--text)',
-              fontSize: '0.875rem',
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Modules List */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
-        {filteredModules.map((mod: AdvancedModule) => {
-          const isExpanded = expandedModuleId === mod.id;
-          const isPublished = mod.status === 'published';
-          const activeTab = activeTabByModule[mod.id] || (isPublished ? 'lab' : 'syllabus');
-
-          return (
-            <article
-              key={mod.id}
-              className="card"
-              style={{
-                padding: '1.75rem',
-                borderLeft: `4px solid ${
-                  mod.pillar === 1
-                    ? 'var(--primary)'
-                    : mod.pillar === 2
-                    ? 'var(--accent)'
-                    : mod.pillar === 3
-                    ? '#a855f7'
-                    : 'var(--warning)'
-                }`,
-              }}
+    return (
+      <div className="container" style={{ paddingBottom: '4rem' }}>
+        {/* Topbar Workspace */}
+        <div className="academic-workspace-topbar">
+          <div className="academic-workspace-topbar-left">
+            <button
+              onClick={() => handleSelectModule(null)}
+              className="academic-workspace-back-btn"
+              title="Kembali ke Katalog Modul L3"
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontWeight: 800,
-                      fontSize: '0.85rem',
-                      background: 'var(--bg-subtle)',
-                      padding: '0.2rem 0.5rem',
-                      borderRadius: '4px',
-                      color: 'var(--primary)',
-                      border: '1px solid var(--border)',
-                    }}
-                  >
-                    {mod.code}
-                  </span>
-                  {isPublished ? (
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        padding: '0.2rem 0.65rem',
-                        borderRadius: '12px',
-                        background: 'rgba(52, 211, 153, 0.12)',
-                        color: 'var(--accent)',
-                        border: '1px solid rgba(52, 211, 153, 0.4)',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.3rem',
-                      }}
-                    >
-                      <CheckCircle2 size={12} />
-                      Diterbitkan (Phase AD-07)
-                    </span>
-                  ) : (
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        padding: '0.2rem 0.6rem',
-                        borderRadius: '12px',
-                        background: 'rgba(245, 158, 11, 0.1)',
-                        color: 'var(--warning)',
-                        border: '1px solid rgba(245, 158, 11, 0.3)',
-                      }}
-                    >
-                      Planned (Fase AD-08/09)
-                    </span>
-                  )}
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                    {mod.pillarName}
-                  </span>
-                </div>
+              <ArrowLeft size={16} />
+              <span>Katalog L3</span>
+            </button>
+            <div className="academic-workspace-divider" />
+            <div className="academic-workspace-info">
+              <span className="academic-workspace-badge">{currentModule.code}</span>
+              <h2 className="academic-workspace-title">{currentModule.title}</h2>
+            </div>
+          </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                  <Clock size={14} />
-                  <span>{mod.estimatedHours} Jam Belajar</span>
-                </div>
-              </div>
-
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 700, margin: '0.75rem 0 0.25rem 0', color: 'var(--text)' }}>
-                {mod.title}
-              </h3>
-              <div style={{ fontSize: '0.95rem', color: 'var(--primary)', fontWeight: 500, marginBottom: '0.75rem' }}>
-                {mod.subtitle}
-              </div>
-
-              <p style={{ fontSize: '0.925rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1rem' }}>
-                {mod.description}
-              </p>
-
-              {/* Prerequisites Section */}
-              <div
-                style={{
-                  background: 'var(--bg-subtle)',
-                  padding: '0.85rem 1rem',
-                  borderRadius: '8px',
-                  marginBottom: '1rem',
-                }}
-              >
-                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.4rem' }}>
-                  Prasyarat Kurikulum Inti (Klik untuk membuka Bab):
-                </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                  {mod.prerequisites.coreChapters.map((cid) => (
-                    <button
-                      key={cid}
-                      onClick={() => onSelectCoreChapter(cid)}
-                      style={{
-                        padding: '0.2rem 0.6rem',
-                        borderRadius: '6px',
-                        background: 'var(--bg-card)',
-                        border: '1px solid var(--border)',
-                        color: 'var(--text)',
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.3rem',
-                      }}
-                      title={`Buka Bab ${cid}`}
-                    >
-                      <BookOpen size={12} color="var(--primary)" />
-                      Bab {cid}
-                    </button>
-                  ))}
-                  {mod.prerequisites.advancedModules.length > 0 && (
-                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'inline-flex', alignItems: 'center', marginLeft: '0.5rem' }}>
-                      Prasyarat Lanjut: {mod.prerequisites.advancedModules.map((m) => m.toUpperCase()).join(', ')}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <button
-                    onClick={() => toggleExpand(mod.id)}
-                    style={{
-                      background: isExpanded ? 'var(--primary)' : 'transparent',
-                      border: '1px solid var(--primary)',
-                      padding: '0.45rem 1rem',
-                      borderRadius: '6px',
-                      color: isExpanded ? 'var(--on-primary)' : 'var(--primary)',
-                      fontSize: '0.85rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                    }}
-                  >
-                    {isExpanded ? (
-                      <>
-                        Tutup Tampilan Modul <ChevronUp size={16} />
-                      </>
-                    ) : (
-                      <>
-                        {isPublished ? (
-                          <>
-                            <Sparkles size={16} /> Buka Lab &amp; Materi Modul
-                          </>
-                        ) : (
-                          <>
-                            Lihat Rincian Silabus ({mod.topics.length} Topik)
-                          </>
-                        )}
-                        <ChevronDown size={16} />
-                      </>
-                    )}
-                  </button>
-                </div>
-
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  Level: <strong style={{ color: 'var(--text)' }}>{mod.level}</strong>
-                </div>
-              </div>
-
-              {/* Expanded Module Content & Labs */}
-              {isExpanded && (
-                <div
+          <div className="academic-workspace-topbar-right">
+            {/* Prerequisite Core chapters links */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-dim)', fontWeight: 600 }}>Prasyarat:</span>
+              {currentModule.prerequisites.coreChapters.map((cid) => (
+                <button
+                  key={cid}
+                  onClick={() => onSelectCoreChapter(cid)}
                   style={{
-                    marginTop: '1.5rem',
-                    paddingTop: '1.5rem',
-                    borderTop: '1px dashed var(--border)',
+                    padding: '0.2rem 0.5rem',
+                    borderRadius: '5px',
+                    background: 'var(--bg-subtle)',
+                    border: '1px solid var(--border)',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    color: 'var(--primary)',
+                    cursor: 'pointer',
                   }}
+                  title={`Buka materi Kurikulum Inti Bab ${cid}`}
                 >
-                  {/* Module Sub-tabs */}
-                  {isPublished && (
-                    <div
-                      style={{
-                        display: 'flex',
-                        gap: '0.5rem',
-                        flexWrap: 'wrap',
-                        marginBottom: '1.5rem',
-                        borderBottom: '1px solid var(--border)',
-                        paddingBottom: '0.75rem',
-                      }}
-                    >
-                      <button
-                        onClick={() => setModuleTab(mod.id, 'lab')}
-                        style={{
-                          padding: '0.5rem 1rem',
-                          borderRadius: '6px',
-                          border: 'none',
-                          background: activeTab === 'lab' ? 'var(--primary)' : 'var(--bg-subtle)',
-                          color: activeTab === 'lab' ? 'var(--on-primary)' : 'var(--text-muted)',
-                          fontSize: '0.85rem',
-                          fontWeight: 700,
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                        }}
-                      >
-                        <FlaskConical size={16} />
-                        Lab Interaktif (Tier-A)
-                      </button>
-                      <button
-                        onClick={() => setModuleTab(mod.id, 'theory')}
-                        style={{
-                          padding: '0.5rem 1rem',
-                          borderRadius: '6px',
-                          border: 'none',
-                          background: activeTab === 'theory' ? 'var(--primary)' : 'var(--bg-subtle)',
-                          color: activeTab === 'theory' ? 'var(--on-primary)' : 'var(--text-muted)',
-                          fontSize: '0.85rem',
-                          fontWeight: 700,
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                        }}
-                      >
-                        <FileText size={16} />
-                        Teori &amp; Eksperimen Terpandu (Tier-B)
-                      </button>
-                      <button
-                        onClick={() => setModuleTab(mod.id, 'code')}
-                        style={{
-                          padding: '0.5rem 1rem',
-                          borderRadius: '6px',
-                          border: 'none',
-                          background: activeTab === 'code' ? 'var(--primary)' : 'var(--bg-subtle)',
-                          color: activeTab === 'code' ? 'var(--on-primary)' : 'var(--text-muted)',
-                          fontSize: '0.85rem',
-                          fontWeight: 700,
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                        }}
-                      >
-                        <Code2 size={16} />
-                        Python Script &amp; Notebook (Tier-C)
-                      </button>
-                      <button
-                        onClick={() => setModuleTab(mod.id, 'syllabus')}
-                        style={{
-                          padding: '0.5rem 1rem',
-                          borderRadius: '6px',
-                          border: 'none',
-                          background: activeTab === 'syllabus' ? 'var(--primary)' : 'var(--bg-subtle)',
-                          color: activeTab === 'syllabus' ? 'var(--on-primary)' : 'var(--text-muted)',
-                          fontSize: '0.85rem',
-                          fontWeight: 700,
-                          cursor: 'pointer',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '0.4rem',
-                        }}
-                      >
-                        <Layers size={16} />
-                        Silabus Topik &amp; Prasyarat
-                      </button>
-                    </div>
-                  )}
+                  Bab {cid}
+                </button>
+              ))}
+            </div>
 
-                  {/* TAB 1: INTERACTIVE LAB (TIER A) */}
-                  {isPublished && activeTab === 'lab' && (
-                    <div style={{ marginTop: '0.5rem' }}>
-                      <div
-                        style={{
-                          padding: '0.85rem 1.25rem',
-                          borderRadius: '8px',
-                          background: 'var(--bg-subtle)',
-                          marginBottom: '1.25rem',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          flexWrap: 'wrap',
-                          gap: '0.5rem',
-                        }}
-                      >
-                        <div>
-                          <strong style={{ color: 'var(--text)', fontSize: '0.95rem' }}>
-                            {mod.interactiveLab.title}
-                          </strong>
-                          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                            Laboratorium simulasi matematis berbasis HTML5 Canvas 2D / SVG berorientasi client-side tanpa dependensi backend.
-                          </div>
-                        </div>
-                        <span
-                          style={{
-                            fontSize: '0.75rem',
-                            fontWeight: 700,
-                            padding: '0.2rem 0.6rem',
-                            borderRadius: '10px',
-                            background: 'rgba(56, 189, 248, 0.15)',
-                            color: 'var(--primary)',
-                            border: '1px solid rgba(56, 189, 248, 0.3)',
-                          }}
-                        >
-                          Tier-A Interactive Lab
-                        </span>
-                      </div>
+            {/* Quick module switcher */}
+            <div className="academic-workspace-switcher">
+              <select
+                aria-label="Pilih Modul L3"
+                value={currentModule.id}
+                onChange={(e) => handleSelectModule(e.target.value)}
+                className="academic-workspace-select"
+              >
+                {advancedModules.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.code}: {m.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
 
-                      {renderInteractiveLab(mod.id)}
-                    </div>
-                  )}
+        {/* Module Description & Meta Banner */}
+        <div className="academic-workspace-desc-card">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.35rem' }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--primary)' }}>
+                  Pilar {currentModule.pillar}: {currentModule.pillarName}
+                </span>
+                <span style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>•</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>
+                  Level L3 (Pascasarjana &amp; Riset Terapan)
+                </span>
+                <span style={{ color: 'var(--text-dim)', fontSize: '0.8rem' }}>•</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--accent)', fontWeight: 600 }}>
+                  Estimasi: {currentModule.estimatedHours} Jam Belajar
+                </span>
+              </div>
+              <h1 style={{ fontSize: '1.45rem', fontWeight: 800, margin: '0 0 0.35rem', color: 'var(--text)' }}>
+                {currentModule.subtitle}
+              </h1>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '960px' }}>
+                {currentModule.description}
+              </p>
+            </div>
 
-                  {/* TAB 2: THEORY & GUIDED EXPERIMENT (TIER B) */}
-                  {isPublished && activeTab === 'theory' && (
-                    <div style={{ marginTop: '0.5rem' }}>
-                      <div
-                        style={{
-                          padding: '1.5rem',
-                          borderRadius: '8px',
-                          background: 'var(--bg-subtle)',
-                          border: '1px solid var(--border)',
-                        }}
-                      >
-                        <MarkdownRenderer content={getAdvancedText(mod.id, 'index.md')} />
-                      </div>
-                    </div>
-                  )}
+            <button
+              onClick={onNavigateToResearch}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.45rem 0.85rem',
+                borderRadius: '6px',
+                background: 'var(--bg-subtle)',
+                color: 'var(--primary)',
+                border: '1px solid var(--border)',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}
+              title="Lihat Jalur Riset L4"
+            >
+              <Compass size={14} />
+              <span>Jalur Riset L4</span>
+              <ArrowRight size={13} />
+            </button>
+          </div>
+        </div>
 
-                  {/* TAB 3: CODE & NOTEBOOK (TIER C) */}
-                  {isPublished && activeTab === 'code' && (
-                    <div style={{ marginTop: '0.5rem' }}>
-                      <div
-                        style={{
-                          padding: '1.25rem',
-                          borderRadius: '8px',
-                          background: 'var(--bg-subtle)',
-                          border: '1px solid var(--border)',
-                          marginBottom: '1.5rem',
-                        }}
-                      >
-                        <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text)' }}>
-                          Cara Menjalankan Eksperimen Komputasi (Tier C):
-                        </h4>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1rem' }}>
-                          Eksperimen Python dirancang mandiri menggunakan NumPy dan OpenCV (dengan opsi PyTorch jika tersedia) tanpa dependensi GPU lokal.
-                        </div>
+        {/* Workspace Learning Section Tabs */}
+        <div className="academic-workspace-tabs">
+          <button
+            className={`academic-workspace-tab-btn ${activeTab === 'theory' ? 'active' : ''}`}
+            onClick={() => setActiveTab('theory')}
+          >
+            <BookOpen size={16} />
+            <span>Teori &amp; Fondasi Matematis</span>
+          </button>
+          <button
+            className={`academic-workspace-tab-btn ${activeTab === 'lab' ? 'active' : ''}`}
+            onClick={() => setActiveTab('lab')}
+          >
+            <FlaskConical size={16} />
+            <span>Laboratorium Interaktif</span>
+          </button>
+          <button
+            className={`academic-workspace-tab-btn ${activeTab === 'code' ? 'active' : ''}`}
+            onClick={() => setActiveTab('code')}
+          >
+            <Code2 size={16} />
+            <span>Skrip Python &amp; Algoritma</span>
+          </button>
+          <button
+            className={`academic-workspace-tab-btn ${activeTab === 'syllabus' ? 'active' : ''}`}
+            onClick={() => setActiveTab('syllabus')}
+          >
+            <FileText size={16} />
+            <span>Silabus &amp; Capaian Pembelajaran</span>
+          </button>
+        </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
-                          <div style={{ padding: '0.85rem', borderRadius: '6px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, fontSize: '0.85rem', marginBottom: '0.4rem', color: 'var(--primary)' }}>
-                              <Terminal size={14} /> Standalone Python CLI
-                            </div>
-                            <pre style={{ margin: 0, padding: '0.5rem', borderRadius: '4px', background: 'var(--bg-subtle)', fontSize: '0.8rem', overflowX: 'auto' }}>
-                              <code>python content/advanced/{mod.id}/examples/example-01.py</code>
-                            </pre>
-                          </div>
-
-                          <div style={{ padding: '0.85rem', borderRadius: '6px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 700, fontSize: '0.85rem', marginBottom: '0.4rem', color: 'var(--accent)' }}>
-                              <BookOpen size={14} /> Jupyter Notebook
-                            </div>
-                            <pre style={{ margin: 0, padding: '0.5rem', borderRadius: '4px', background: 'var(--bg-subtle)', fontSize: '0.8rem', overflowX: 'auto' }}>
-                              <code>jupyter notebook content/advanced/{mod.id}/notebooks/{mod.id}-lab.ipynb</code>
-                            </pre>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div style={{ marginBottom: '1rem' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                          <strong style={{ fontSize: '0.9rem', color: 'var(--text)' }}>
-                            Source Code Standalone: <code>example-01.py</code>
-                          </strong>
-                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                            Verifikasi CPU NumPy/OpenCV
-                          </span>
-                        </div>
-                        <pre
-                          style={{
-                            margin: 0,
-                            padding: '1rem',
-                            borderRadius: '8px',
-                            background: '#0d1117',
-                            color: '#c9d1d9',
-                            fontSize: '0.825rem',
-                            maxHeight: '480px',
-                            overflowY: 'auto',
-                            fontFamily: 'var(--font-mono)',
-                            lineHeight: '1.5',
-                          }}
-                        >
-                          <code>{getAdvancedText(mod.id, 'examples/example-01.py')}</code>
-                        </pre>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* TAB 4: SYLLABUS, LEARNING OBJECTIVES & TOPICS (Always accessible or active for planned modules) */}
-                  {(activeTab === 'syllabus' || !isPublished) && (
-                    <div>
-                      {/* Learning Objectives */}
-                      <div style={{ marginBottom: '1.25rem' }}>
-                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text)' }}>
-                          Capaian Pembelajaran (Learning Objectives):
-                        </h4>
-                        <ul style={{ margin: 0, paddingLeft: '1.25rem', fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: '1.6' }}>
-                          {mod.learningObjectives.map((obj, idx) => (
-                            <li key={idx}>{obj}</li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* 5 Structured Topics */}
-                      <div style={{ marginBottom: '1.25rem' }}>
-                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text)' }}>
-                          Daftar Topik &amp; Fokus Matematis:
-                        </h4>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem' }}>
-                          {mod.topics.map((t) => (
-                            <div
-                              key={t.topicNumber}
-                              style={{
-                                padding: '0.6rem 0.8rem',
-                                background: 'var(--bg-subtle)',
-                                borderRadius: '6px',
-                                borderLeft: '3px solid var(--primary)',
-                                fontSize: '0.85rem',
-                              }}
-                            >
-                              <div style={{ fontWeight: 700, color: 'var(--text)' }}>
-                                Topik {t.topicNumber}: {t.title}
-                              </div>
-                              <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '0.2rem' }}>
-                                {t.mathematicalFocus}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Mathematical & Programming Competencies */}
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1.25rem' }}>
-                        <div style={{ padding: '0.85rem', borderRadius: '6px', background: 'var(--bg-subtle)' }}>
-                          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.4rem' }}>
-                            Kompetensi Matematika Diperlukan:
-                          </div>
-                          <ul style={{ margin: 0, paddingLeft: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                            {mod.prerequisites.mathCompetencies.map((mc, idx) => (
-                              <li key={idx}>{mc}</li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div style={{ padding: '0.85rem', borderRadius: '6px', background: 'var(--bg-subtle)' }}>
-                          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.4rem' }}>
-                            Kompetensi Pemrograman Diperlukan:
-                          </div>
-                          <ul style={{ margin: 0, paddingLeft: '1rem', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.5' }}>
-                            {mod.prerequisites.programmingCompetencies.map((pc, idx) => (
-                              <li key={idx}>{pc}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      {/* Benchmarks & Artifacts */}
-                      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                        <div>
-                          🔬 Lab Interaktif:{' '}
-                          <strong style={{ color: 'var(--text)' }}>
-                            {mod.interactiveLab.title} ({mod.interactiveLab.tier})
-                          </strong>
-                        </div>
-                        <div>
-                          📓 Notebook:{' '}
-                          <strong style={{ color: 'var(--text)' }}>{mod.notebooks[0]?.title}</strong>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+        {/* Workspace Body Content */}
+        <div className="academic-workspace-content">
+          {activeTab === 'theory' && (
+            <div className="card" style={{ padding: '2.5rem' }}>
+              {theoryContent ? (
+                <div className="prose">
+                  <MarkdownRenderer content={theoryContent} />
+                </div>
+              ) : (
+                <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
+                  Modul teori analitis sedang dimuat atau dalam penyiapan.
                 </div>
               )}
-            </article>
-          );
-        })}
+            </div>
+          )}
+
+          {activeTab === 'lab' && (
+            <div style={{ minHeight: '520px' }}>
+              {renderInteractiveLab(currentModule.id)}
+            </div>
+          )}
+
+          {activeTab === 'code' && (
+            <div className="card" style={{ padding: '2rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: 'var(--text)' }}>
+                    Implementasi Komputasi Mandiri (Python 3.10+ / NumPy / SciPy)
+                  </h3>
+                  <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                    Skrip deterministik tanpa ketergantungan framework berat untuk verifikasi formulasi analitis.
+                  </p>
+                </div>
+                <span className="card-badge badge-published">Terverifikasi Standar AD-07</span>
+              </div>
+
+              {pythonCode ? (
+                <pre style={{ borderRadius: '8px', overflowX: 'auto', maxHeight: '650px' }}>
+                  <code>{pythonCode}</code>
+                </pre>
+              ) : (
+                <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+                  Contoh kode komputasi untuk modul ini sedang dipersiapkan.
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeTab === 'syllabus' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {/* Learning Objectives */}
+              <div className="card" style={{ padding: '2rem' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text)' }}>
+                  Capaian Pembelajaran Khusus (Learning Objectives)
+                </h3>
+                <ul style={{ paddingLeft: '1.4rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>
+                  {currentModule.learningObjectives.map((obj, idx) => (
+                    <li key={idx} style={{ marginBottom: '0.4rem' }}>
+                      <strong style={{ color: 'var(--text)' }}>{obj}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Topics Breakdown */}
+              <div className="card" style={{ padding: '2rem' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text)' }}>
+                  Daftar Topik Perkuliahan (Academic Topics Breakdown)
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                  {currentModule.topics.map((top) => (
+                    <div
+                      key={top.topicNumber}
+                      style={{
+                        background: 'var(--bg-subtle)',
+                        padding: '1rem 1.25rem',
+                        borderRadius: '8px',
+                        borderLeft: '4px solid var(--primary)',
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
+                        <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)' }}>
+                          Topik {top.topicNumber}
+                        </span>
+                      </div>
+                      <h4 style={{ fontSize: '1.05rem', fontWeight: 700, margin: '0 0 0.3rem', color: 'var(--text)' }}>
+                        {top.title}
+                      </h4>
+                      <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                        <strong>Fokus Matematis:</strong> {top.mathematicalFocus}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Benchmarks & Verification Protocols */}
+              <div className="card" style={{ padding: '2rem' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--text)' }}>
+                  Tolok Ukur Standar &amp; Protokol Verifikasi
+                </h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {currentModule.benchmarks.map((bm, idx) => (
+                    <span
+                      key={idx}
+                      style={{
+                        padding: '0.4rem 0.85rem',
+                        borderRadius: '6px',
+                        background: 'var(--bg-subtle)',
+                        border: '1px solid var(--border)',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        color: 'var(--text)',
+                      }}
+                    >
+                      {bm}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // =========================================================================
+  // VIEW MODE B: STRUCTURED ACADEMIC CATALOG
+  // =========================================================================
+  return (
+    <div className="container" style={{ paddingBottom: '4rem' }}>
+      {/* Catalog Header */}
+      <div className="academic-catalog-header">
+        <div className="academic-catalog-badge">
+          <GraduationCap size={14} />
+          <span>L3 Advanced Depth · Pascasarjana &amp; Riset Terapan</span>
+        </div>
+        <h1 className="academic-catalog-title">
+          Kurikulum Lanjut (Advanced Curriculum L3)
+        </h1>
+        <p className="academic-catalog-subtitle">
+          8 Modul Tingkat Lanjut yang menjembatani kurikulum sarjana (Core L1–L2) menuju penelitian mandiri (Research L4)
+          dengan formulasi matematis analitis, algoritma deterministik, dan laboratorium interaktif client-side.
+        </p>
+
+        {/* Summary Metric Pills */}
+        <div className="academic-catalog-stats">
+          <div className="academic-stat-pill">
+            <strong>8 Modul</strong>
+            <span>Kurikulum Tingkat Lanjut (L3)</span>
+          </div>
+          <div className="academic-stat-pill">
+            <strong>4 Pilar</strong>
+            <span>Riset Terapan Terintegrasi</span>
+          </div>
+          <div className="academic-stat-pill">
+            <strong>8 Laboratorium</strong>
+            <span>Eksperimen Interaktif Client-Side</span>
+          </div>
+          <div className="academic-stat-pill">
+            <strong>100% Bebas</strong>
+            <span>Sirkularitas Ketergantungan (DAG)</span>
+          </div>
+        </div>
       </div>
 
-      {/* Footer Callout to Research */}
-      <div
-        style={{
-          marginTop: '3rem',
-          padding: '1.75rem',
-          borderRadius: 'var(--radius)',
-          background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%)',
-          border: '1px solid var(--border)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem',
-        }}
-      >
-        <div>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.25rem', color: 'var(--text)' }}>
-            Lanjut ke Jalur Penelitian Ilmiah (Research Tracks)?
-          </h3>
-          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', margin: 0 }}>
-            Eksplorasi 6 Research Tracks (R01–R06) dengan evaluasi benchmark resmi (COCO, MOT17), protokol multi-seed (N ≥ 3), dan target publikasi.
-          </p>
+      {/* Search & Filter Toolbar */}
+      <div className="academic-catalog-toolbar">
+        {/* Search Bar */}
+        <div className="academic-search-wrapper">
+          <Search size={18} className="academic-search-icon" />
+          <input
+            type="text"
+            className="academic-search-input"
+            placeholder="Cari modul L3 (contoh: SVD, ADV-01, Kalman, Attention, NeRF, LoRA, Roofline)..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="academic-search-clear-btn"
+              title="Bersihkan pencarian"
+            >
+              <X size={16} />
+            </button>
+          )}
         </div>
+
+        <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+          Menampilkan <strong>{filteredModules.length}</strong> dari {advancedModules.length} Modul
+        </div>
+      </div>
+
+      {/* Pillar Filter Pills */}
+      <div className="academic-filter-nav">
         <button
-          onClick={onNavigateToResearch}
-          style={{
-            padding: '0.6rem 1.25rem',
-            borderRadius: '8px',
-            background: 'var(--primary)',
-            color: 'var(--on-primary)',
-            border: 'none',
-            fontSize: '0.9rem',
-            fontWeight: 700,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-          }}
+          className={`academic-filter-btn ${selectedPillar === 'all' ? 'active' : ''}`}
+          onClick={() => setSelectedPillar('all')}
         >
-          Buka Research Tracks <ArrowRight size={16} />
+          <span>Semua Pilar</span>
+          <span className="academic-filter-count">{advancedModules.length}</span>
+        </button>
+        <button
+          className={`academic-filter-btn ${selectedPillar === 1 ? 'active' : ''}`}
+          onClick={() => setSelectedPillar(1)}
+        >
+          <span>Pilar 1: Intelligent CV &amp; Optimization</span>
+          <span className="academic-filter-count">
+            {advancedModules.filter((m) => m.pillar === 1).length}
+          </span>
+        </button>
+        <button
+          className={`academic-filter-btn ${selectedPillar === 2 ? 'active' : ''}`}
+          onClick={() => setSelectedPillar(2)}
+        >
+          <span>Pilar 2: Perception, Sensing &amp; Tracking</span>
+          <span className="academic-filter-count">
+            {advancedModules.filter((m) => m.pillar === 2).length}
+          </span>
+        </button>
+        <button
+          className={`academic-filter-btn ${selectedPillar === 3 ? 'active' : ''}`}
+          onClick={() => setSelectedPillar(3)}
+        >
+          <span>Pilar 3: Multimodal Perception &amp; Foundation Models</span>
+          <span className="academic-filter-count">
+            {advancedModules.filter((m) => m.pillar === 3).length}
+          </span>
+        </button>
+        <button
+          className={`academic-filter-btn ${selectedPillar === 4 ? 'active' : ''}`}
+          onClick={() => setSelectedPillar(4)}
+        >
+          <span>Pilar 4: Efficient Edge AI Architecture</span>
+          <span className="academic-filter-count">
+            {advancedModules.filter((m) => m.pillar === 4).length}
+          </span>
         </button>
       </div>
+
+      {/* Advanced Modules Grid */}
+      {filteredModules.length > 0 ? (
+        <div className="academic-grid">
+          {filteredModules.map((mod: AdvancedModule) => {
+            return (
+              <div
+                key={mod.id}
+                className="academic-card"
+                onClick={() => handleSelectModule(mod.id)}
+              >
+                <div>
+                  <div className="academic-card-header">
+                    <div className="academic-card-badge-row">
+                      <span className="academic-card-code-badge">{mod.code}</span>
+                      <span className="academic-card-pillar-badge">
+                        Pilar {mod.pillar}
+                      </span>
+                    </div>
+                    <span className="card-badge badge-published" style={{ fontSize: '0.72rem' }}>
+                      <CheckCircle2 size={11} style={{ marginRight: '3px' }} />
+                      L3 Terpublikasi
+                    </span>
+                  </div>
+
+                  <h3 className="academic-card-title">{mod.title}</h3>
+                  <div className="academic-card-subtitle">{mod.subtitle}</div>
+
+                  <p className="academic-card-desc">{mod.description}</p>
+
+                  <div className="academic-card-meta">
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{ color: 'var(--text-dim)' }}>Estimasi Durasi:</span>
+                      <strong style={{ color: 'var(--text)' }}>{mod.estimatedHours} Jam Belajar</strong>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <span style={{ color: 'var(--text-dim)' }}>Prasyarat Core:</span>
+                      <strong style={{ color: 'var(--primary)' }}>
+                        {mod.prerequisites.coreChapters.map((c) => `Bab ${c}`).join(', ')}
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="academic-card-actions">
+                  <button
+                    className="academic-card-primary-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectModule(mod.id);
+                    }}
+                  >
+                    <span>Buka Modul L3</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="academic-empty-state">
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem', color: 'var(--text-dim)' }}>
+            <Layers size={48} />
+          </div>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--text)' }}>
+            Modul Tingkat Lanjut Tidak Ditemukan
+          </h3>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', maxWidth: '480px', margin: '0 auto 1.5rem' }}>
+            Tidak ada modul L3 yang cocok dengan kata kunci &quot;{searchQuery}&quot; pada filter pilar saat ini.
+          </p>
+          <button
+            onClick={() => {
+              setSearchQuery('');
+              setSelectedPillar('all');
+            }}
+            className="control-btn"
+            style={{ background: 'var(--primary)', color: 'var(--on-primary)', fontWeight: 600 }}
+          >
+            <RotateCcw size={14} />
+            <span>Reset Pencarian &amp; Filter</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -177,9 +177,9 @@ function renderListItemContent(lines: string[]): ReactNode {
       continue;
     }
 
-    // Display math multi-line
-    if (trimmed === '$$') {
-      if (inMath) {
+    // Display math multi-line opener or closer
+    if (inMath) {
+      if (trimmed === '$$') {
         blocks.push(
           <div key={`math-${blocks.length}`} className="math-block">
             <MathView math={mathBuf.join('\n')} displayMode={true} />
@@ -187,18 +187,38 @@ function renderListItemContent(lines: string[]): ReactNode {
         );
         inMath = false;
         mathBuf = [];
-      } else {
+        continue;
+      }
+      if (trimmed.endsWith('$$')) {
+        const remaining = trimmed.slice(0, -2).trimEnd();
+        if (remaining) mathBuf.push(remaining);
+        blocks.push(
+          <div key={`math-${blocks.length}`} className="math-block">
+            <MathView math={mathBuf.join('\n')} displayMode={true} />
+          </div>
+        );
+        inMath = false;
+        mathBuf = [];
+        continue;
+      }
+      mathBuf.push(raw);
+      continue;
+    } else {
+      if (trimmed === '$$') {
         flushPara();
         flushNestedList();
         inMath = true;
         mathBuf = [];
+        continue;
       }
-      continue;
-    }
-
-    if (inMath) {
-      mathBuf.push(raw);
-      continue;
+      if (trimmed.startsWith('$$')) {
+        flushPara();
+        flushNestedList();
+        inMath = true;
+        const remaining = trimmed.slice(2).trimStart();
+        mathBuf = remaining ? [remaining] : [];
+        continue;
+      }
     }
 
     // Nested unordered list (- or *)
@@ -408,10 +428,10 @@ export function MarkdownRenderer({ content }: { content: string }) {
       continue;
     }
 
-    // Display Math ($$...$$) multi-line block delimiter
-    if (trimmed === '$$') {
-      flushAll();
-      if (inMathBlock) {
+    // Display Math ($$...$$) multi-line block delimiter and handlers
+    if (inMathBlock) {
+      if (trimmed === '$$') {
+        flushAll();
         elements.push(
           <div key={`math-${elements.length}`} className="math-block">
             <MathView math={mathBuffer.join('\n')} displayMode={true} />
@@ -419,15 +439,23 @@ export function MarkdownRenderer({ content }: { content: string }) {
         );
         inMathBlock = false;
         mathBuffer = [];
-      } else {
-        inMathBlock = true;
-        mathBuffer = [];
+        lastWasImage = false;
+        continue;
       }
-      lastWasImage = false;
-      continue;
-    }
-
-    if (inMathBlock) {
+      if (trimmed.endsWith('$$')) {
+        const remaining = trimmed.slice(0, -2).trimEnd();
+        if (remaining) mathBuffer.push(remaining);
+        flushAll();
+        elements.push(
+          <div key={`math-${elements.length}`} className="math-block">
+            <MathView math={mathBuffer.join('\n')} displayMode={true} />
+          </div>
+        );
+        inMathBlock = false;
+        mathBuffer = [];
+        lastWasImage = false;
+        continue;
+      }
       mathBuffer.push(rawLine);
       continue;
     }
@@ -440,6 +468,24 @@ export function MarkdownRenderer({ content }: { content: string }) {
           <MathView math={trimmed.slice(2, -2)} displayMode={true} />
         </div>
       );
+      lastWasImage = false;
+      continue;
+    }
+
+    // Display Math opener ($$)
+    if (trimmed === '$$') {
+      flushAll();
+      inMathBlock = true;
+      mathBuffer = [];
+      lastWasImage = false;
+      continue;
+    }
+
+    if (trimmed.startsWith('$$')) {
+      flushAll();
+      inMathBlock = true;
+      const remaining = trimmed.slice(2).trimStart();
+      mathBuffer = remaining ? [remaining] : [];
       lastWasImage = false;
       continue;
     }

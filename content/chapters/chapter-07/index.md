@@ -137,7 +137,7 @@ END
 
 ### Prasyarat & Perhatian Penting OpenCV
 - Instalasi: `pip install numpy opencv-python-headless`
-- **Jebakan Skala OpenCV**: Untuk mengemas sudut $0^\circ\text{–}360^\circ$ ke dalam 1 Byte `uint8` $[0, 255]$, OpenCV membagi nilai Hue dengan 2, sehingga **$H_{\text{OpenCV}} \in [0, 179]$**!
+- **Jebakan Skala OpenCV**: Untuk mengemas sudut $0^\circ - 360^\circ$ ke dalam 1 Byte `uint8` $[0, 255]$, OpenCV membagi nilai Hue dengan 2, sehingga **$H_{\text{OpenCV}} \in [0, 179]$**!
 
 ```python
 """
@@ -184,27 +184,27 @@ if __name__ == "__main__":
 
 ## 9. Interactive Lab — Color Space Converter
 
-Pada tab **Laboratorium &amp; Python**, gunakan **Color Space Converter**:
+Pada tab **Laboratorium & Python**, gunakan **Color Space Converter**:
 - Unggah citra Anda sendiri atau pakai pola bilah warna bawaan.
 - Beralih antar ruang warna (**RGB**, **Grayscale**, **HSV**, **HSL**, **YCbCr**, dan **CIELAB**) untuk memvisualisasikan ketiga saluran terpisah secara berdampingan.
-- Aktifkan kotak centang **Segmentasi Warna HSV** lalu geser sudut **Target Hue** ($0^\circ\text{–}360^\circ$) dan toleransi untuk mengisolasi warna tertentu secara langsung.
+- Aktifkan kotak centang **Segmentasi Warna HSV** lalu geser sudut **Target Hue** ($0^\circ - 360^\circ$) dan toleransi untuk mengisolasi warna tertentu secara langsung.
 
 ---
 
-## 10. Experiments &amp; Analysis
+## 10. Experiments & Analysis
 
 1. **Inspeksi Kanal Kroma YCbCr**: Pilih mode **YCbCr** pada gambar beraneka warna. Perhatikan bagaimana saluran **Y** menampilkan detail tekstur hitam-putih lengkap, sementara saluran **Cb** dan **Cr** terlihat jauh lebih halus dengan warna putih cerah hanya pada area biru atau merah.
 2. **Ketahanan Bayangan pada HSV vs RGB**: Amati citra objek berwarna yang memiliki gradasi pencahayaan dari terang ke bayangan. Bandingkan kestabilan nilai pada saluran **Hue (H)** vs nilai **R/G/B**.
 
 ---
 
-## 11. Mini Project — Detektor Kematangan Buah Berbasis CIELAB &amp; HSV
+## 11. Mini Project — Detektor Kematangan Buah Berbasis CIELAB & HSV
 
-Rancang skrip Python yang memisahkan objek buah berwarna kuning/oranye matang (Hue $15^\circ\text{–}45^\circ$ atau $a^*, b^*$ tinggi di CIELAB) dari daun hijau menggunakan segmentasi HSV + pembersihan masker dengan `cv2.inRange`, lalu hitung persentase luas area objek matang terhadap keseluruhan objek.
+Rancang skrip Python yang memisahkan objek buah berwarna kuning/oranye matang (Hue $15^\circ - 45^\circ$ atau $a^*, b^*$ tinggi di CIELAB) dari daun hijau menggunakan segmentasi HSV + pembersihan masker dengan `cv2.inRange`, lalu hitung persentase luas area objek matang terhadap keseluruhan objek.
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Akses tab **Presentasi Slide** untuk 10 slide ringkas dan catatan pengajar bab ini.
 
@@ -217,7 +217,7 @@ Akses tab **Presentasi Slide** untuk 10 slide ringkas dan catatan pengajar bab i
 
 ## 13. Verified Academic References
 
-1. **Gonzalez, R. C., &amp; Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 6: Color Image Processing.
+1. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 6: Color Image Processing.
 2. **Szeliski, R.** (2022). *Computer Vision: Algorithms and Applications* (2nd ed.). Springer. Section 2.3.2: Color.
 3. **OpenCV Documentation**. (2024). *Changing Colorspaces — HSV Object Tracking*. Official OpenCV Tutorial.
 

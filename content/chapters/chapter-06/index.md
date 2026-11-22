@@ -224,23 +224,23 @@ if __name__ == "__main__":
 
 ---
 
-## 9. Interactive Lab — Pixel &amp; Image Explorer
+## 9. Interactive Lab — Pixel & Image Explorer
 
-Buka tab **Laboratorium &amp; Python** untuk mencoba **Pixel &amp; Image Explorer**:
+Buka tab **Laboratorium & Python** untuk mencoba **Pixel & Image Explorer**:
 - Arahkan kursor ke atas citra untuk membaca koordinat $(x, y)$, indeks array `[y, x]`, serta nilai $(R, G, B)$ dan Grayscale secara *real-time*.
 - Isolasi kanal Merah, Hijau, Biru, atau Grayscale.
 - Geser *slider* **Kedalaman Bit ($1\dots 8$ bit)** untuk menyaksikan munculnya *false contouring*, serta *slider* **Downsampling Spasial** untuk mengamati efek *pixelation*, lalu unduh hasilnya dalam format PNG.
 
 ---
 
-## 10. Experiments &amp; Analysis
+## 10. Experiments & Analysis
 
 1. **Eksperimen Ambang False Contouring**: Turunkan slider kedalaman bit dari 8-bit bertahap ke 5-bit, 4-bit, 3-bit, hingga 2-bit pada foto bergradien halus (misalnya foto langit atau wajah). Catat pada kedalaman bit berapa pita garis patah mulai tampak jelas oleh mata manusia.
 2. **Analisis Resolusi vs Informasi**: Ubah faktor *downsampling* spasial ke $8\times$ dan $16\times$, lalu amati detail teks/garis berfrekuensi tinggi yang hilang akibat pelanggaran kriteria sampling Nyquist spasial.
 
 ---
 
-## 11. Mini Project — Pixel Diagnostic &amp; Storage Profiler
+## 11. Mini Project — Pixel Diagnostic & Storage Profiler
 
 Rancang utilitas baris perintah Python yang membaca sembarang berkas gambar dari direktori lokal (PNG dan JPEG) dan mencetak laporan diagnostik lengkap:
 1. Dimensi spasial $(W \times H)$, jumlah saluran, dan tipe data memori.
@@ -249,7 +249,7 @@ Rancang utilitas baris perintah Python yang membaca sembarang berkas gambar dari
 
 ---
 
-## 12. Summary &amp; Presentation Slides
+## 12. Summary & Presentation Slides
 
 Akses tab **Presentasi Slide** untuk menyimak 10 slide materi perkuliahan yang mencakup ilustrasi koordinat, kuantisasi bit depth, dan contoh soal numerik.
 
@@ -262,7 +262,7 @@ Akses tab **Presentasi Slide** untuk menyimak 10 slide materi perkuliahan yang m
 
 ## 13. Verified Academic References
 
-1. **Gonzalez, R. C., &amp; Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 2: Digital Image Fundamentals.
+1. **Gonzalez, R. C., & Woods, R. E.** (2018). *Digital Image Processing* (4th ed.). Pearson Education. Chapter 2: Digital Image Fundamentals.
 2. **Szeliski, R.** (2022). *Computer Vision: Algorithms and Applications* (2nd ed.). Springer. Chapter 2: Image Formation.
 3. **OpenCV Documentation**. (2024). *Basic Operations on Images — Accessing and Modifying Pixel Values*. OpenCV Official Reference.
 
