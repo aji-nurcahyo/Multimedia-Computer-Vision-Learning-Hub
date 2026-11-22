@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv04-01",
+    "question": "Mengapa arsitektur Deformable Attention (Zhu et al.) jauh lebih efisien untuk deteksi objek skala besar dibandingkan multi-head self-attention standar?",
+    "options": [
+      "Karena tidak menggunakan fungsi aktivasi non-linier",
+      "Karena hanya mengambil sampel K titik kunci di sekitar titik referensi (kompleksitas O(N_q * K * C)) alih-alih menghitung atensi padat ke seluruh H x W token (kompleksitas O((H*W)^2 * C))",
+      "Karena mengganti operasi perkalian matriks dengan filter morfologi",
+      "Karena mengharuskan citra berukuran seragam 224 x 224 piksel"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pada self-attention standar, setiap query membandingkan diri ke seluruh H*W token (kompleksitas kuadratik). Deformable attention hanya memproyeksikan K sampling offsets adaptif per head, mereduksi kompleksitas menjadi linier terhadap jumlah query dan memungkinkan pemrosesan piramida fitur resolusi tinggi."
+  },
+  {
+    "id": "quiz-adv04-02",
+    "question": "Apa perbedaan konseptual mendasar antara Hungarian matching pada pelacakan objek (MOT) dan Hungarian matching pada detektor DETR?",
+    "options": [
+      "Pada MOT mencocokkan track historis ke deteksi baru berdasarkan jarak spasial/gerak, sedangkan pada DETR mencocokkan query bebas-urutan ke ground truth untuk komputasi gradient loss langsung",
+      "Algoritma Hungarian pada DETR memiliki kompleksitas O(N!)",
+      "DETR tidak menggunakan matriks biaya untuk optimasi penugasan",
+      "MOT hanya dapat menggunakan algoritma greedy sedangkan DETR wajib Hungarian"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada MOT, pencocokan bipartit menghubungkan tracklets temporal yang ada ke observasi baru berderau. Pada DETR, penugasan bipartit digunakan sebagai fungsi loss end-to-end (permutation-invariant set prediction loss) untuk menghitung gradien backpropagation terhadap query kotak pembatas tanpa memerlukan NMS."
+  },
+  {
+    "id": "quiz-adv04-03",
+    "question": "Bagaimana modulasi gradien (1 - p_t)^gamma pada Focal Loss mengatasi masalah ketidakseimbangan kelas latar belakang vs objek?",
+    "options": [
+      "Dengan mengalikan loss kelas minoritas dengan nilai tak hingga",
+      "Dengan menekan penalti gradien dari contoh latar belakang yang sudah terklasifikasi dengan benar dengan keyakinan tinggi (p_t mendekati 1) hingga mendekati nol, memfokuskan pembelajaran pada contoh sulit",
+      "Dengan menghapus sampel latar belakang dari dataset pelatihan",
+      "Dengan mengganti fungsi logaritma dengan fungsi eksponensial"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dalam deteksi objek padat, mayoritas anchor/query berada pada latar belakang mudah (easy negatives dengan p_t ~ 0.99). Faktor modulasi (1 - 0.99)^2 = 0.0001 meredam gradien contoh mudah sebesar 10.000x, memastikan gradien akumulatif didominasi oleh objek sulit yang belum terdeteksi sempurna."
+  }
+]
+

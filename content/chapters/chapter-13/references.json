@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ref-13-01",
+    "title": "A Computational Approach to Edge Detection",
+    "authors": "John Canny",
+    "year": 1986,
+    "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+    "url": "https://ieeexplore.ieee.org/document/4767851",
+    "type": "article",
+    "annotation": "Makalah fundamental yang memperkenalkan algoritma deteksi tepi Canny dengan Non-Maximum Suppression dan Hysteresis."
+  },
+  {
+    "id": "ref-13-02",
+    "title": "A Combined Corner and Edge Detector",
+    "authors": "Chris Harris, Mike Stephens",
+    "year": 1988,
+    "publisher": "Proceedings of the Alvey Vision Conference",
+    "url": "http://www.bmva.org/bmvc/1988/avc-88-023.pdf",
+    "type": "article",
+    "annotation": "Merumuskan skor sudut Harris berbasis determinan dan trace structure tensor gradien."
+  },
+  {
+    "id": "ref-13-03",
+    "title": "Canny Edge Detection & Harris Corner Detection — OpenCV Docs",
+    "authors": "OpenCV Developer Team",
+    "year": 2024,
+    "publisher": "OpenCV Foundation",
+    "url": "https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html",
+    "type": "documentation",
+    "annotation": "Dokumentasi resmi penggunaan cv2.Canny, cv2.Sobel, dan cv2.cornerHarris."
+  }
+]
+

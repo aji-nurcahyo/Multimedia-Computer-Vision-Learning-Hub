@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-37-1",
+    "title": "Prinsip Deteksi Sudut Harris & Matriks Autokorelasi",
+    "path": "/media/diagrams/chapter-37-harris-corner-detector.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-37-2",
+    "title": "Pencocokan Fitur & Penolakan Outlier via RANSAC",
+    "path": "/media/diagrams/chapter-37-feature-matching-and-ransac.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

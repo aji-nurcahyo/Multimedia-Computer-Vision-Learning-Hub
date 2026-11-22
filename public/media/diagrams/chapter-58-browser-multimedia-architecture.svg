@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Arsitektur Pemrosesan Multimedia Modern pada Browser</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Integrasi MediaDevices API, Canvas Rendering, Web Workers, dan Akselerasi WebGL / WebGPU</text>
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <g transform="translate(45, 105)">
+    <!-- Block 1: Device Ingestion -->
+    <rect x="0" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#38bdf8" />
+    <rect x="10" y="30" width="130" height="28" rx="4" fill="#0284c7" />
+    <text x="75" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Input Multimedia</text>
+    <text x="15" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• navigator.mediaDevices</text>
+    <text x="15" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• getUserMedia({video})</text>
+    <text x="15" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Web Audio Context</text>
+    <text x="15" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• MediaStreamTrack</text>
+    <rect x="15" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="75" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">Privasi Client-Side</text>
+    <text x="75" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Izin Akses Kamera</text>
+
+    <!-- Arrow 1 -->
+    <line x1="150" y1="125" x2="195" y2="125" stroke="#38bdf8" stroke-width="2" />
+    <polygon points="195,125 187,120 187,130" fill="#38bdf8" />
+
+    <!-- Block 2: DOM & Canvas -->
+    <rect x="200" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#f59e0b" />
+    <rect x="210" y="30" width="130" height="28" rx="4" fill="#d97706" />
+    <text x="275" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Main Thread &amp; DOM</text>
+    <text x="215" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• HTML5 &lt;video&gt; Sink</text>
+    <text x="215" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• &lt;canvas&gt; 2D Context</text>
+    <text x="215" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• ctx.drawImage(video)</text>
+    <text x="215" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#f59e0b">• requestAnimationFrame</text>
+    <rect x="215" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="275" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Bebas Jitter UI</text>
+    <text x="275" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Responsivitas 60 FPS</text>
+
+    <!-- Arrow 2 -->
+    <line x1="350" y1="125" x2="395" y2="125" stroke="#f59e0b" stroke-width="2" />
+    <polygon points="395,125 387,120 387,130" fill="#f59e0b" />
+
+    <!-- Block 3: Off-Main Thread Worker -->
+    <rect x="400" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#818cf8" />
+    <rect x="410" y="30" width="130" height="28" rx="4" fill="#6366f1" />
+    <text x="475" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Dedicated Web Worker</text>
+    <text x="415" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• OffscreenCanvas</text>
+    <text x="415" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• ImageBitmap Transfer</text>
+    <text x="415" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Zero-Copy ArrayBuffer</text>
+    <text x="415" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#818cf8">• CV Filtering &amp; Math</text>
+    <rect x="415" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="475" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#818cf8" text-anchor="middle">Non-blocking Thread</text>
+    <text x="475" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">postMessage Event Loop</text>
+
+    <!-- Arrow 3 -->
+    <line x1="550" y1="125" x2="595" y2="125" stroke="#818cf8" stroke-width="2" />
+    <polygon points="595,125 587,120 587,130" fill="#818cf8" />
+
+    <!-- Block 4: HW Acceleration -->
+    <rect x="600" y="20" width="140" height="210" rx="8" fill="#1e293b" stroke="#34d399" />
+    <rect x="610" y="30" width="120" height="28" rx="4" fill="#059669" />
+    <text x="670" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Akselerasi GPU/WASM</text>
+    <text x="615" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• WebAssembly SIMD</text>
+    <text x="615" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• WebGL Shaders</text>
+    <text x="615" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">• WebGPU Compute</text>
+    <text x="615" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">• ONNX Runtime Web</text>
+    <rect x="610" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="670" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" text-anchor="middle">Near-Native Speed</text>
+    <text x="670" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Zero Cloud Server Cost</text>
+  </g>
+
+  <!-- Bottom Panel -->
+  <g transform="translate(45, 360)">
+    <rect width="710" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Keunggulan Pemrosesan In-Browser:</text>
+    <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Data piksel dan audio tidak pernah meninggalkan perangkat pengguna, menjamin privasi absolut dan latensi nol-jaringan.</text>
+  </g>
+
+  <text x="400" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Multimedia &amp; Computer Vision Learning Hub • Institut Teknologi Sumatera (ITERA)</text>
+</svg>
+

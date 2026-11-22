@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-13-01",
+    "title": "Alur Algoritma Canny Edge Detector (4 Tahap Optimal)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-13-canny-pipeline.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-13-02",
+    "title": "Klasifikasi Region Fitur Harris: Flat vs Edge vs Corner",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-13-harris-corners.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

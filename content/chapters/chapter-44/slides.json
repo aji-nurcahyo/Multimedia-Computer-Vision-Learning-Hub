@@ -1,0 +1,144 @@
+[
+  {
+    "id": 1,
+    "title": "Object Detection with YOLO",
+    "subtitle": "Chapter 44 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Perumusan tugas deteksi objek: Klasifikasi spasial dan regresi bounding box",
+      "Perbandingan paradigma: Two-Stage (R-CNN) vs One-Stage (YOLO/SSD)",
+      "Evolusi YOLO: Dari pembagian grid cell sederhana menuju Anchor-Free Decoupled Head",
+      "Metrik evaluasi standar industri: mAP@[0.5:0.95]"
+    ],
+    "notes": "Selamat datang di kuliah Deteksi Objek YOLO. Kita akan mengupas tuntas arsitektur deteksi real-time terpopuler di dunia."
+  },
+  {
+    "id": 2,
+    "title": "Two-Stage vs One-Stage Detectors",
+    "subtitle": "Trade-off Antara Latensi Komputasi dan Presisi Lokalisasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Two-Stage (Faster R-CNN): Memisahkan pembangkitan proposal (RPN) dan klasifikasi",
+      "Akurat namun latensi tinggi (5-15 FPS), berat untuk implementasi IoT/drone",
+      "One-Stage (YOLO): Memperlakukan deteksi sebagai satu masalah regresi matematis tunggal",
+      "Sangat cepat (30-140 FPS), memungkinkan inferensi real-time pada video streaming"
+    ],
+    "notes": "Tunjukkan diagram alir perbedaan pipeline two-stage dan one-stage detector."
+  },
+  {
+    "id": 3,
+    "title": "Prinsip Dasar Arsitektur YOLOv1",
+    "subtitle": "Membagi Citra Menjadi Grid Sel S x S",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Citra dibagi menjadi grid 7x7; sel yang memuat pusat objek bertanggung jawab mendeteksinya",
+      "Setiap sel memprediksi B kotak pembatas: (x, y, w, h) dan confidence score",
+      "Confidence = P(Object) * IoU_pred_true",
+      "Prediksi kelas bersyarat: P(Class_i | Object)",
+      "Output tensor akhir: S x S x (B * 5 + C)"
+    ],
+    "notes": "Jelaskan bagaimana pemetaan grid sel membatasi jumlah objek yang dapat dideteksi dalam satu area spasial."
+  },
+  {
+    "id": 4,
+    "title": "Evolusi Anchor-Based Menuju Anchor-Free",
+    "subtitle": "Peningkatan Presisi dan Penyederhanaan Hyperparameter",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Anchor-Based (YOLOv2-v5): Menggunakan kotak jangkar pra-definisi hasil k-means clustering",
+      "Kelemahan anchor: Membutuhkan tuning rasio aspek manual dan alokasi memori berlebih",
+      "Anchor-Free (YOLOv8): Meregresikan jarak batas (left, top, right, bottom) langsung dari titik pusat",
+      "Mengurangi hyperparameter kotak dan meningkatkan kemampuan deteksi bentuk ekstrem"
+    ],
+    "notes": "Anchor-free sekarang menjadi standar baku pada detektor generasi mutakhir."
+  },
+  {
+    "id": 5,
+    "title": "Fungsi Kerugian Geometri: Dari MSE ke CIoU",
+    "subtitle": "Mengapa Mean Squared Error Gagal Mengoptimalkan Bounding Box",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "L2/MSE loss mengabaikan hubungan korelasi antara lebar dan tinggi",
+      "IoU Loss: Invarian terhadap skala absolut, namun gradien hilang jika kotak tidak bertumpuk",
+      "CIoU Loss: Memadukan overlap IoU, jarak Euclidean titik pusat rho^2/c^2, dan rasio aspek v",
+      "L_CIoU = 1 - IoU + rho^2/c^2 + alpha * v"
+    ],
+    "notes": "Bedah komponen penalti pada rumus CIoU dan diskusikan contoh perhitungan analitis dari teks materi."
+  },
+  {
+    "id": 6,
+    "title": "Post-Processing: Non-Maximum Suppression (NMS)",
+    "subtitle": "Mengeliminasi Prediksi Berulang dari Jaringan",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Satu objek fisik sering memicu respons aktivasi pada banyak sel grid bertetangga",
+      "Langkah 1: Urutkan kotak berdasarkan nilai confidence score",
+      "Langkah 2: Ambil kotak skor tertinggi, eliminasi kotak lain dengan IoU >= ambang batas",
+      "Langkah 3: Ulangi hingga semua kandidat terfilter",
+      "Soft-NMS: Menurunkan confidence secara mulus untuk mendeteksi kerumunan padat"
+    ],
+    "notes": "Tunjukkan diagram ilustrasi NMS dan peragaan filter kotak tumpang tindih."
+  },
+  {
+    "id": 7,
+    "title": "Protokol Evaluasi: Mean Average Precision (mAP)",
+    "subtitle": "Standar Emas Pengukuran Performa Deteksi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Kurva Precision-Recall (PR Curve): Menilai presisi pada berbagai tingkat sensitivitas deteksi",
+      "Average Precision (AP): Area di bawah kurva PR dengan interpolasi numerik",
+      "mAP@0.50: Rata-rata AP pada ambang batas IoU longgar 0.50 (standar PASCAL VOC)",
+      "mAP@[0.5:0.95]: Standar ketat MS COCO yang menguji keakuratan geometri kotak pembatas"
+    ],
+    "notes": "Jelaskan mengapa mAP COCO jauh lebih menantang dibandingkan akurasi klasifikasi biasa."
+  },
+  {
+    "id": 8,
+    "title": "Feature Pyramid Network (FPN & PANet)",
+    "subtitle": "Menangani Variasi Skala Objek dari Kecil hingga Raksasa",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Lapisan dangkal memiliki resolusi spasial tinggi (cocok untuk mendeteksi objek kecil)",
+      "Lapisan dalam memiliki semantik yang kaya namun resolusi spasial rendah",
+      "FPN menyalurkan semantik dari atas ke bawah (top-down)",
+      "PANet menambahkan jalur agregasi dari bawah ke atas (bottom-up path augmentation)"
+    ],
+    "notes": "Kombinasi FPN dan PANet adalah tulang punggung integrasi multi-skala pada YOLO modern."
+  },
+  {
+    "id": 9,
+    "title": "Analisis Mode Kegagalan & Penanganan",
+    "subtitle": "Tantangan Operasional pada Sistem Nyata",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Objek sangat kecil (<16 piksel): Tambahkan detection head resolusi tinggi (P2 stride 4)",
+      "Oklusi parah pada kerumunan: Terapkan Soft-NMS atau DETR berbasis Hungarian matching",
+      "Dominasi latar belakang: Gunakan Focal Loss untuk menekan gradien easy negatives",
+      "Penurunan FPS pada edge: Terapkan kuantisasi TensorRT INT8"
+    ],
+    "notes": "Bahas implementasi praktis pada robotika dan kamera pemantau lalu lintas cerdas."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Eksperimen Laboratorium",
+    "subtitle": "Rangkuman Materi & Tugas Eksplorasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "YOLO menyatukan kecepatan inferensi real-time dan keakuratan lokalisasi tingkat tinggi",
+      "Skrip mandiri CIoU, NMS, dan 11-point AP telah diverifikasi di example-01.py",
+      "Notebook praktikum deteksi objek interaktif tersedia di chapter-44-lab.ipynb",
+      "Bab berikutnya (Chapter 45): Semantic & Instance Segmentation (U-Net, Mask R-CNN)"
+    ],
+    "notes": "Ajak mahasiswa menjalankan YoloObjectDetectionLab pada platform web."
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-02-01",
+    "title": "Latihan 1: Deteksi Ambang Nyquist dan Simulasi Aliasing Sinyal",
+    "difficulty": "beginner",
+    "instruction": "Tuliskan fungsi Python bernama `check_sampling_condition(f_signal, f_sampling)` yang mengembalikan tuple `(is_valid, nyquist_rate, alias_freq)`. Jika f_sampling >= 2 * f_signal, kembalikan `(True, 2 * f_signal, f_signal)`. Jika undersampled, kembalikan `(False, 2 * f_signal, abs(f_signal - round(f_signal / f_sampling) * f_sampling))`.",
+    "starterCode": "def check_sampling_condition(f_signal: float, f_sampling: float) -> tuple:\n    # TODO: Tuliskan logika evaluasi Nyquist\n    pass\n",
+    "solution": "def check_sampling_condition(f_signal: float, f_sampling: float) -> tuple:\n    nyquist_rate = 2.0 * f_signal\n    is_valid = f_sampling >= nyquist_rate\n    if is_valid:\n        alias_freq = f_signal\n    else:\n        alias_freq = abs(f_signal - round(f_signal / f_sampling) * f_sampling)\n    return is_valid, nyquist_rate, alias_freq\n"
+  },
+  {
+    "id": "ex-02-02",
+    "title": "Latihan 2: Kuantisasi Citra 8-Bit ke Resolusi Rendah (Bit-Depth Reduction)",
+    "difficulty": "intermediate",
+    "instruction": "Tuliskan fungsi `reduce_bit_depth(image_uint8, target_bits)` yang mengkuantisasi citra grayscale 8-bit (0..255) ke dalam kedalaman target_bits (1 <= target_bits <= 8) dan memetakan kembali nilainya ke rentang visual 0..255.",
+    "starterCode": "import numpy as np\n\ndef reduce_bit_depth(image_uint8: np.ndarray, target_bits: int) -> np.ndarray:\n    # TODO: Lakukan pergeseran bit atau kuantisasi uniform\n    pass\n",
+    "solution": "import numpy as np\n\ndef reduce_bit_depth(image_uint8: np.ndarray, target_bits: int) -> np.ndarray:\n    shift = 8 - target_bits\n    # Turunkan bit lalu geser kembali untuk rentang dinamis penuh\n    quantized = (image_uint8 >> shift) << shift\n    return quantized.astype(np.uint8)\n"
+  }
+]

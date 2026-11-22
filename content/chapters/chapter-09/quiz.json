@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-09-01",
+    "question": "Jika histogram citra 8-bit seluruhnya menumpuk sempit pada rentang intensitas [85..125] dengan hampir nol piksel di bawah 80 maupun di atas 130, kondisi apakah yang dialami citra tersebut?",
+    "options": [
+      "Citra berkontras rendah (low contrast / tampak berkabut atau pudar)",
+      "Citra mengalami white clipping (over-exposed parah)",
+      "Citra telah mengalami Global Histogram Equalization",
+      "Citra merupakan citra biner 1-bit"
+    ],
+    "correctIndex": 0,
+    "explanation": "Histogram yang terkonsentrasi pada rentang sempit menandakan selisih antara piksel tergelap dan terterang sangat kecil, menghasilkan tampilan pudar/low-contrast."
+  },
+  {
+    "id": "q-09-02",
+    "question": "Apa fungsi utama parameter `clipLimit` dalam algoritma CLAHE dibandingkan Adaptive Histogram Equalization (AHE) biasa?",
+    "options": [
+      "Membatasi kemiringan kurva CDF lokal dengan memotong dan meredistribusi puncak histogram agar noise di area seragam tidak teramplifikasi berlebihan",
+      "Memotong ukuran dimensi resolusi gambar menjadi setengahnya",
+      "Menghapus piksel berwarna biru pada gambar RGB",
+      "Mengonversi kernel Gaussian menjadi kernel Sobel"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tanpa clipLimit, AHE pada ubin latar belakang yang nyaris homogen (misal langit) memiliki CDF yang sangat curam sehingga noise sensor kecil ikut diperbesar menjadi bercak kasar. Clip limit membatasi penguatan kontras tersebut."
+  },
+  {
+    "id": "q-09-03",
+    "question": "Mengapa kita disarankan mengonversi citra warna RGB ke ruang YCrCb atau CIELAB terlebih dahulu sebelum menerapkan Histogram Equalization?",
+    "options": [
+      "Agar ekualisasi hanya diterapkan pada saluran luminansi (Y atau L*) sehingga warna asli (hue) tidak terdistorsi aneh",
+      "Karena fungsi cv2.equalizeHist hanya menerima array 4 dimensi",
+      "Untuk mengecilkan ukuran file JPEG sebelum dikirim lewat jaringan",
+      "Agar setiap saluran R, G, dan B mendapatkan skala transformasi yang berbeda-beda"
+    ],
+    "correctIndex": 0,
+    "explanation": "Mengekualisasi R, G, dan B secara independen menggunakan tiga CDF berbeda akan mengubah rasio warna antar-kanal dan menghasilkan warna artifisial yang aneh."
+  },
+  {
+    "id": "q-09-04",
+    "question": "Dalam CLAHE, mengapa dilakukan interpolasi bilinear antar pusat ubin (tiles) setelah menghitung histogram lokal?",
+    "options": [
+      "Untuk menghilangkan batas garis kotak (blocking artifacts) yang terlihat di perbatasan antartile",
+      "Untuk memutar gambar 180 derajat",
+      "Untuk mengubah format uint8 menjadi citra biner",
+      "Untuk mendeteksi sudut Harris di setiap ubin"
+    ],
+    "correctIndex": 0,
+    "explanation": "Setiap tile memiliki LUT pemetaan lokal sendiri. Tanpa interpolasi bilinear antar 4 tile terdekat, batas antar-tile akan tampak seperti sambungan kotak papan catur."
+  },
+  {
+    "id": "q-09-05",
+    "question": "Dalam pemetaan Global Histogram Equalization pada citra grayscale dengan 1000 piksel (L = 256), jika jumlah kumulatif piksel hingga intensitas r=80 adalah 500 piksel (asumsi CDF_min ≈ 0), berapakah nilai intensitas keluaran untuk r=80?",
+    "options": [
+      "Sekitar 128",
+      "Sekitar 40",
+      "Sekitar 255",
+      "Sekitar 20"
+    ],
+    "correctIndex": 0,
+    "explanation": "CDF(80) = 500 / 1000 = 0.50. Maka s = round(255 * 0.50) = round(127.5) = 128."
+  }
+]
+

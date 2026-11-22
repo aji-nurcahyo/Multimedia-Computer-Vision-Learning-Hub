@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-44-1",
+    "title": "Arsitektur Grid & Anchor Box Deteksi Objek YOLO",
+    "path": "/media/diagrams/chapter-44-yolo-grid-and-anchor-boxes.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-44-2",
+    "title": "Intersection-over-Union (IoU) & Non-Maximum Suppression (NMS)",
+    "path": "/media/diagrams/chapter-44-iou-and-non-max-suppression.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

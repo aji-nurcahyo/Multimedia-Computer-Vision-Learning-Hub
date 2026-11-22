@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Pipeline Kuantisasi Model Vision untuk Edge AI</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Post-Training Quantization (PTQ): Konversi Tensor FP32 32-bit ke INT8 dengan Kalibrasi Rentang Dinamis</text>
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <g transform="translate(45, 105)">
+    <!-- Stage 1: Float32 Model -->
+    <rect x="0" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <rect x="10" y="30" width="130" height="28" rx="4" fill="#0284c7" />
+    <text x="75" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Model FP32 Baseline</text>
+    <text x="15" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• 32-bit Floating Point</text>
+    <text x="15" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Bobot w ∈ [-2.0, 6.0]</text>
+    <text x="15" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Memori: 4 Byte/param</text>
+    <text x="15" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Akurasi Maksimal</text>
+    <rect x="15" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="75" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">Ukuran: ~100 MB</text>
+    <text x="75" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Tingkat Daya Tinggi</text>
+
+    <!-- Arrow 1 -->
+    <line x1="150" y1="125" x2="195" y2="125" stroke="#38bdf8" stroke-width="2" />
+    <polygon points="195,125 187,120 187,130" fill="#38bdf8" />
+
+    <!-- Stage 2: Calibration -->
+    <rect x="200" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" />
+    <rect x="210" y="30" width="130" height="28" rx="4" fill="#d97706" />
+    <text x="275" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Dataset Kalibrasi</text>
+    <text x="215" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• 100–500 Sampel Gambar</text>
+    <text x="215" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Forward Pass Sim</text>
+    <text x="215" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Profiling Rentang [r_min, r_max]</text>
+    <text x="215" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#f59e0b">• KL Divergence / MinMax</text>
+    <rect x="215" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="275" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">Estimasi Distribusi</text>
+    <text x="275" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Tanpa Retraining Penuh</text>
+
+    <!-- Arrow 2 -->
+    <line x1="350" y1="125" x2="395" y2="125" stroke="#f59e0b" stroke-width="2" />
+    <polygon points="395,125 387,120 387,130" fill="#f59e0b" />
+
+    <!-- Stage 3: Scale & Zero-Point Mapping -->
+    <rect x="400" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5" />
+    <rect x="410" y="30" width="130" height="28" rx="4" fill="#6366f1" />
+    <text x="475" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Pemetaan Affine</text>
+    <text x="415" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Hitung Skala S:</text>
+    <text x="420" y="98" font-family="monospace" font-size="10" fill="#818cf8">S = (r_max-r_min)/255</text>
+    <text x="415" y="125" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Hitung Titik Nol Z:</text>
+    <text x="420" y="143" font-family="monospace" font-size="10" fill="#818cf8">Z = round(-r_min/S)</text>
+    <text x="415" y="165" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Integer Clamping [0, 255]</text>
+    <rect x="415" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="475" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#818cf8" text-anchor="middle">S=0.0314, Z=64</text>
+    <text x="475" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Asymmetric Quantization</text>
+
+    <!-- Arrow 3 -->
+    <line x1="550" y1="125" x2="595" y2="125" stroke="#818cf8" stroke-width="2" />
+    <polygon points="595,125 587,120 587,130" fill="#818cf8" />
+
+    <!-- Stage 4: INT8 Edge Engine -->
+    <rect x="600" y="20" width="140" height="210" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5" />
+    <rect x="610" y="30" width="120" height="28" rx="4" fill="#059669" />
+    <text x="670" y="49" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Model INT8 Edge</text>
+    <text x="615" y="80" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• 8-bit Integer</text>
+    <text x="615" y="105" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• Memori: 1 Byte/param</text>
+    <text x="615" y="130" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">• SIMD / NPU Fast Math</text>
+    <text x="615" y="155" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">• Akurasi ~99% FP32</text>
+    <rect x="610" y="175" width="120" height="40" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="670" y="193" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" text-anchor="middle">Ukuran: ~25 MB (4x)</text>
+    <text x="670" y="207" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Hemat Daya &amp; Bandwidth</text>
+  </g>
+
+  <!-- Formula Panel -->
+  <g transform="translate(45, 360)">
+    <rect width="710" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Persamaan Transformasi Kuantisasi &amp; Rekonstruksi:</text>
+    <text x="20" y="42" font-family="monospace" font-size="11" fill="#38bdf8">Kuantisasi: q = clamp(round(r / S + Z), 0, 255)   |   Dequantisasi: r ≈ S × (q - Z)</text>
+    <text x="560" y="34" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">Pengurangan Memori: 75%</text>
+  </g>
+
+  <text x="400" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Multimedia &amp; Computer Vision Learning Hub • Institut Teknologi Sumatera (ITERA)</text>
+</svg>
+

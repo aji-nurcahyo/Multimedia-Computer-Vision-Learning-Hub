@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-03-01",
+    "title": "Arsitektur Multimedia: Container, Codec, dan Streams",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-03-format-containers-codecs.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-03-02",
+    "title": "Kurva Rate-Distortion dan Trade-off Kompresi Lossy vs Lossless",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-03-compression-tradeoffs.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

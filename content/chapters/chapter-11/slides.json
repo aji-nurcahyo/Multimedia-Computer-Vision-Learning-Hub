@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Frequency Domain Image Processing",
+    "lead": "Section 03 — Advanced Digital Image Processing · Chapter 11",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: 2D DFT, Algoritma FFT, Spectrum Shifting, Teorema Konvolusi, LPF/HPF & Ringing Artifacts",
+    "notes": "Buka kuliah dengan membandingkan sudut pandang spasial vs spektral pada citra."
+  },
+  {
+    "id": 2,
+    "title": "Makna Fisis Frekuensi Spasial",
+    "lead": "Apa arti frekuensi tinggi dan rendah pada gambar diam?",
+    "body": "### Interpretasi Komponen Spektral\n- **Frekuensi Nol ($DC = F(0,0)$)**: Menunjukkan total/rata-rata kecerahan citra.\n- **Frekuensi Rendah** (dekat pusat): Daerah seragam, gradasi pencahayaan lambat.\n- **Frekuensi Tinggi** (menjauhi pusat): Tepi benda tajam, garis rapat, pola berulang (*texture*), dan derau piksel acak.",
+    "notes": "Gunakan analogi sinyal suara: nada bass lambat = bidang datar citra; suara gemericik cepat = tepi & detail tekstur."
+  },
+  {
+    "id": 3,
+    "title": "Formulasi 2D Discrete Fourier Transform (DFT)",
+    "lead": "Transformasi dua arah kompleks berpresisi penuh",
+    "body": "### Transformasi Maju & Balik\n$$F(u, v) = \\sum_{x=0}^{M-1} \\sum_{y=0}^{N-1} f(x, y)\\, e^{-j2\\pi (ux/M + vy/N)}$$\n$$f(x, y) = \\frac{1}{MN} \\sum_{u=0}^{M-1} \\sum_{v=0}^{N-1} F(u, v)\\, e^{+j2\\pi (ux/M + vy/N)}$$\n- Kompleksitas DFT langsung: $\\mathcal{O}(M^2 N^2)$.\n- Kompleksitas **FFT (Fast Fourier Transform)**: $\\mathcal{O}(MN \\log_2(MN))$.",
+    "notes": "Jelaskan peran algoritma Cooley-Tukey yang membuat analisis frekuensi citra praktis pada CPU modern."
+  },
+  {
+    "id": 4,
+    "title": "Centering (fftshift) & Log Visualization",
+    "lead": "Mengapa spektrum FFT perlu digeser dan dilogaritmakan?",
+    "body": "### Dua Langkah Wajib Visualisasi\n- **`np.fft.fftshift`**: Memindahkan titik asal $(0,0)$ dari pojok ke tengah $(M/2, N/2)$ agar simetri spektrum mudah dibaca.\n- **Transformasi Logaritmik**: $S(u, v) = c \\cdot \\log(1 + |F(u, v)|)$ menekan dominasi puncak DC yang $10^5$ kali lebih besar dibanding frekuensi tepi.",
+    "notes": "Tanyakan apa yang terlihat jika kita lupa melakukan log() saat menampilkan spektrum: hanya 1 titik putih kecil di tengah dan gelap total di tempat lain."
+  },
+  {
+    "id": 5,
+    "title": "Teorema Konvolusi 2D",
+    "lead": "Jembatan sakral antara domain spasial dan domain frekuensi",
+    "body": "### Kesetaraan Matematis\n$$(f * h)(x, y) \\iff F(u, v) \\cdot H(u, v)$$\n- Konvolusi mahal di domain spasial menjadi perkalian elemen sederhana di domain frekuensi!\n- Untuk kernel berukuran besar ($K \\ge 31$), pipeline `FFT -> Perkalian -> IFFT` jauh lebih efisien.",
+    "notes": "Kaitkan kembali dengan Chapter 10 (Spatial Convolution)."
+  },
+  {
+    "id": 6,
+    "title": "Desain Filter: Ideal, Butterworth & Gaussian",
+    "lead": "Mengontrol profil pelolosan berdasarkan jarak radial D(u,v)",
+    "body": "### Tiga Keluarga Filter Utama\n- **Ideal Filter**: Cut-off biner $0$ atau $1$ tepat pada radius $D_0$.\n- **Butterworth Orde $n$**: $H = \\frac{1}{1 + (D/D_0)^{2n}}$ — semakin besar $n$, semakin mendekati Ideal.\n- **Gaussian Filter**: $H = e^{-D^2 / (2 D_0^2)}$ — paling mulus secara analitis.",
+    "notes": "Tunjukkan bagaimana nilai D0 mengendalikan seberapa kuat smoothing/blurring."
+  },
+  {
+    "id": 7,
+    "title": "High-Pass Filtering & Penajaman Frekuensi",
+    "lead": "Menyumbat pusat spektrum untuk mengekstrak tepi",
+    "body": "### Formulasi Komplemen\n$$H_{\\text{HPF}}(u, v) = 1 - H_{\\text{LPF}}(u, v)$$\n- Menghapus komponen DC ($F(0,0) = 0$) membuat rata-rata citra menjadi 0, menyisakan garis kontur bergradien tinggi.\n- **High-Frequency Emphasis**: $H(u, v) = a + b \\cdot H_{\\text{HPF}}(u, v)$ menjaga kecerahan latar sembari menajamkan tepi.",
+    "notes": "Jelaskan alasan citra HPF murni perlu nilai absolut atau offset +128 agar tidak negatif."
+  },
+  {
+    "id": 8,
+    "title": "Fenomena Artifak Gibbs Ringing",
+    "lead": "Bahaya pemotongan patah Ideal Cut-Off Filter",
+    "body": "### Mengapa Muncul Efek Riak (Ringing)?\n- Fungsi langkah (*boxcar / top-hat*) pada Ideal LPF di domain frekuensi berkorespondensi dengan fungsi **sinc** ($\\frac{\\sin x}{x}$) yang berosilasi tak hingga di domain spasial!\n- Konvolusi tepi benda dengan ekor sinc menghasilkan garis gelombang berulang.\n- **Solusi**: Gunakan **Gaussian Filter** karena transformasi Fourier dari Gaussian tetaplah Gaussian (tanpa osilasi negatif).",
+    "notes": "Demonstrasikan perbandingan langsung Ideal vs Gaussian pada 2D FFT Explorer."
+  },
+  {
+    "id": 9,
+    "title": "Implementasi Python & NumPy FFT",
+    "lead": "Sintaks ringkas 2D FFT dan IFFT",
+    "body": "### Kode Referensi\n```python\nF_shift = np.fft.fftshift(np.fft.fft2(img_gray))\nG_shift = F_shift * H_mask\nreconstructed = np.real(np.fft.ifft2(np.fft.ifftshift(G_shift)))\n```",
+    "notes": "Ingatkan penggunaan np.real() karena IFFT numerik menyisakan bagian imajiner sangat kecil (1e-16) akibat pembulatan floating point."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 11",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- **2D FFT** membuka analisis frekuensi periodik dan penyaringan spektral cepat.\n- **fftshift + log** esensial untuk membaca spektrum magnitudo.\n- **Gaussian Filter** adalah pilihan paling bersih bebas artifak ringing.\n\n### Rujukan\n- Gonzalez & Woods (2018), *Digital Image Processing*, Bab 4.",
+    "notes": "Arahkan ke tab Laboratorium 2D FFT Explorer dan kuis."
+  }
+]
+

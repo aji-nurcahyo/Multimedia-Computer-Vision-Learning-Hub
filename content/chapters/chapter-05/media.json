@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-05-01",
+    "title": "Dimensi Tensor Array N-Dimensi NumPy dalam Multimedia",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-05-numpy-tensors.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-05-02",
+    "title": "Dekomposisi Saluran Warna RGB dan Konvensi BGR OpenCV",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-05-color-channels.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

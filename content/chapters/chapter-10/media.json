@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fig-10-01",
+    "title": "Diagram Mekanisme Spatial Filtering & Konvolusi Diskrit 2D",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-10-overview.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-10-02",
+    "title": "Distribusi Gaussian 2D dan Sifat Separabilitas Kernel",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-10-gaussian-kernel.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-10-03",
+    "title": "Strategi Penanganan Batas Citra (Boundary Padding)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-10-padding-strategies.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

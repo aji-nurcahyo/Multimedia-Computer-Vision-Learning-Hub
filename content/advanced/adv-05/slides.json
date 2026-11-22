@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Geometri Multi-Pandang & Rekonstruksi 3D Komputer Vision",
+    "lead": "Modul ADV-05 · L3 Advanced Depth",
+    "body": "Transisi dari pengolahan citra 2D menuju **rekonstruksi 3D metrik berbasis geometri proyektif**: model kamera lubang jarum (*pinhole*), geometri epipolar dua pandang, triangulasi DLT, dan penyesuaian berkas (*Bundle Adjustment*).",
+    "notes": "Jelaskan bahwa ADV-05 secara ketat membahas geometri proyektif 3D klasik dan modern (Multiple View Geometry), bukan model generatif deep learning (VAE/Diffusion)."
+  },
+  {
+    "id": 2,
+    "title": "Proyeksi Kamera Lubang Jarum & Kalibrasi",
+    "lead": "Pemetaan Proyektif $\\mathbb{P}^3 \\to \\mathbb{P}^2$",
+    "body": "Hubungan proyeksi perspektif titik 3D $\\tilde{X} = [X, Y, Z, 1]^T$ ke koordinat piksel $\\tilde{x} = [u, v, 1]^T$:\n$$\\tilde{x} \\sim K [R \\mid \\mathbf{t}] \\tilde{X} = P \\tilde{X}$$\n- $K = \\begin{bmatrix} f_x & s & c_x \\\\ 0 & f_y & c_y \\\\ 0 & 0 & 1 \\end{bmatrix}$: Matriks kalibrasi intrinsik\n- $[R \\mid \\mathbf{t}] \\in \\text{SE}(3)$: Transformasi ekstrinsik pose kamera\n- $P \\in \\mathbb{R}^{3 \\times 4}$: Matriks proyeksi kamera penuh berderajat kebebasan 11.",
+    "notes": "Tekankan peran kalibrasi intrinsik dalam menghubungkan metrik sensor fisik piksel dengan geometri sinar proyektif kanonik di ruang 3D."
+  },
+  {
+    "id": 3,
+    "title": "Geometri Epipolar & Matriks Fundamental F",
+    "lead": "Penyempitan Ruang Pencarian Korespondensi 2D Menjadi 1D",
+    "body": "Kendala epipolar bilinear untuk dua pandangan:\n$$\\tilde{x}_2^T F \\tilde{x}_1 = 0$$\n- Garis epipolar kamera 2: $\\mathbf{l}_2 = F \\tilde{x}_1$\n- Garis epipolar kamera 1: $\\mathbf{l}_1 = F^T \\tilde{x}_2$\n- Sifat aljabar fundamental: $\\text{rank}(F) = 2$ dan $\\det(F) = 0$.\n\nUntuk kamera terkalibrasi, Essential Matrix:\n$$E = [\\mathbf{t}]_\\times R, \\quad \\tilde{x}_{c2}^T E \\tilde{x}_{c1} = 0$$",
+    "notes": "Garis epipolar adalah perpotongan bidang epipolar dengan sensor. Mengetahui F mempercepat pencarian korespondensi dari seluruh citra (O(N^2)) menjadi hanya sepanjang garis 1D (O(N))."
+  },
+  {
+    "id": 4,
+    "title": "Algoritma 8-Titik Ternormalisasi & Triangulasi DLT",
+    "lead": "Hartley Normalization & Direct Linear Transformation",
+    "body": "Tahapan estimasi matriks $F$ stabil menurut Hartley (1997):\n1. **Normalisasi Koordinat:** Translasi pusat ke origin dan skala rata-rata $\\sqrt{2}$.\n2. **Solusi SVD Linier:** $A \\mathbf{f} = 0$, ambil vektor singular dari nilai terkecil $\\sigma_9$.\n3. **Penegakan Kendala Peringkat-2:** SVD pada $\\hat{F}$, nolkan $\\sigma_3$, lalu denormalisasi.\n\n**Triangulasi DLT:** Menyelesaikan $A X = 0$ ($4 \\times 4$) dari $\\tilde{x} \\times (P X) = 0$ via SVD.",
+    "notes": "Jelaskan mengapa algoritma 8-titik tanpa normalisasi gagal secara numerik akibat perbedaan skala koordinat piksel (10^2) dan konstanta (1)."
+  },
+  {
+    "id": 5,
+    "title": "Optimasi Non-linear Bundle Adjustment",
+    "lead": "Minimisasi Galat Reproyeksi Geometris & Gauge Freedom",
+    "body": "Fungsi tujuan optimasi gabungan parameter pose kamera $C_i = \\{R_i, \\mathbf{t}_i\\}$ dan titik 3D $X_j$:\n$$\\min_{\\{C_i\\}, \\{X_j\\}} \\sum_{i=1}^m \\sum_{j=1}^n \\rho\\left( \\|\\mathbf{x}_{ij} - \\pi(C_i, X_j)\\|^2 \\right)$$\n- $\\pi(C, X)$: Fungsi proyeksi tak-linear\n- Diselesaikan via algoritma Levenberg-Marquardt dengan trik komplement Schur pada matriks Hessian jarang (*sparse Hessian*).\n- Mematok kamera 1 pada $[I \\mid 0]$ mengeliminasi ambiguitas kesamaan 7-DoF (*gauge freedom*).",
+    "notes": "Tekankan bahwa Bundle Adjustment adalah standar emas (gold standard) penentu akurasi akhir dalam seluruh sistem SfM (COLMAP) dan visual SLAM (ORB-SLAM)."
+  }
+]
+

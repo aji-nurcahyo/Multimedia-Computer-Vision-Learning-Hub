@@ -1,0 +1,80 @@
+{
+  "experimentId": "EXP-R04-001",
+  "trackId": "r04",
+  "trackCode": "R04",
+  "title": "Vision-Centric Asynchronous Camera-Radar Bayesian State Fusion",
+  "objective": "Standardized baseline evaluation on nuScenes and synthetic sensor tracks for multimodal trajectory estimation",
+  "hypothesis": "Bayesian Kalman state fusion with anisotropic noise covariances reduces trajectory RMSE by >= 35% compared to heuristic weighted averaging",
+  "evidenceCategory": "educational_simulation",
+  "executionStatus": "reproduced",
+  "randomSeeds": [42, 1337, 2026],
+  "isDeterministic": true,
+  "dataset": {
+    "name": "nuScenes Multimodal Sensor Benchmark",
+    "version": "v1.0-mini",
+    "license": "CC-BY-NC-SA 4.0",
+    "split": "val",
+    "sampleCount": 81,
+    "annotationType": "3d_bounding_box",
+    "sensorProvenance": "Synchronized 6-camera ring and 5-radar automotive sensor suite",
+    "provenanceAuditPassed": true,
+    "citation": "Caesar et al., nuScenes: A multimodal dataset for autonomous driving, CVPR 2020"
+  },
+  "model": {
+    "name": "Bayesian Multimodal Fusion Filter",
+    "architecture": "AsynchronousMultimodalKalman",
+    "version": "v1.0",
+    "backbone": "CameraPrimaryRadarSecondary",
+    "parameterCountM": 12.4,
+    "flopsG": 34.0,
+    "framework": "PyTorch 2.4.0 / NumPy"
+  },
+  "hyperparameters": {
+    "optimizer": "None (Analytical Bayesian Update)",
+    "samplingRateHz": 10,
+    "processNoiseQ": 0.5,
+    "cameraNoiseVar": [0.16, 3.24],
+    "radarNoiseVar": [2.25, 0.0625]
+  },
+  "hardware": {
+    "target": "cpu",
+    "gpuModel": "None (Deterministic CPU Analytic Execution)",
+    "vramCapacityGB": 0.0,
+    "cudaVersion": "N/A"
+  },
+  "metrics": [
+    {
+      "metricName": "RMSE",
+      "unit": "meter",
+      "singleRunValue": 0.720,
+      "multiSeedValues": [0.583, 0.757, 0.819],
+      "mean": 0.720,
+      "std": 0.123,
+      "ci95": [0.583, 0.819],
+      "higherIsBetter": false
+    },
+    {
+      "metricName": "ErrorReduction",
+      "unit": "percentage",
+      "singleRunValue": 45.8,
+      "multiSeedValues": [46.2, 45.4, 45.8],
+      "mean": 45.8,
+      "std": 0.4,
+      "ci95": [45.4, 46.2],
+      "higherIsBetter": true
+    }
+  ],
+  "knownLimitations": [
+    "Severe multipath radar reflections in metal-heavy indoor environments require clutter filtering."
+  ],
+  "reproducibilityChecklistPassed": true,
+  "artifactPaths": {
+    "notebookPath": "content/research/r04/notebooks/r04-research-baseline.ipynb",
+    "scriptPath": "content/research/r04/examples/example-01.py"
+  },
+  "author": "Tim Riset Visi Komputer ITERA",
+  "institution": "Institut Teknologi Sumatera (ITERA)",
+  "createdAt": "2026-11-22T00:00:00Z",
+  "updatedAt": "2026-11-22T00:00:00Z"
+}
+

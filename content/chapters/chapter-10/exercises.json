@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-10-01",
+    "title": "Eksperimen 1: Implementasi Separable 1D Gaussian vs 2D Full Convolution",
+    "difficulty": "intermediate",
+    "instruction": "Tuliskan fungsi Python menggunakan NumPy yang membandingkan waktu eksekusi antara konvolusi 2D penuh dengan konvolusi separabel 2-tahap (1D baris lalu 1D kolom). Buktikan bahwa kedua metode menghasilkan nilai piksel yang identik dalam toleransi floating point (np.allclose).",
+    "starterCode": "import numpy as np\nimport time\n\ndef compare_separable_speed(image_shape=(512, 512), ksize=15, sigma=2.5):\n    # 1. Buat citra acak\n    img = np.random.rand(*image_shape)\n    \n    # 2. Buat kernel 1D Gaussian\n    ax = np.arange(-ksize // 2 + 1., ksize // 2 + 1.)\n    kernel_1d = np.exp(-0.5 * (ax / sigma)**2)\n    kernel_1d /= np.sum(kernel_1d)\n    \n    # TODO: Hitung waktu dan bandingkan hasil 2D vs Separable\n    pass\n",
+    "solution": "import numpy as np\nimport time\nfrom scipy.signal import convolve2d\n\ndef compare_separable_speed(image_shape=(512, 512), ksize=15, sigma=2.5):\n    img = np.random.rand(*image_shape)\n    ax = np.linspace(-(ksize // 2), ksize // 2, ksize)\n    kernel_1d = np.exp(-0.5 * (ax / sigma)**2)\n    kernel_1d = (kernel_1d / np.sum(kernel_1d)).reshape(1, -1)\n    kernel_2d = np.dot(kernel_1d.T, kernel_1d)\n    \n    # 1. Full 2D\n    t0 = time.perf_counter()\n    res_2d = convolve2d(img, kernel_2d, mode='same', boundary='symm')\n    t_2d = time.perf_counter() - t0\n    \n    # 2. Separable 1D horizontal then vertical\n    t0 = time.perf_counter()\n    res_h = convolve2d(img, kernel_1d, mode='same', boundary='symm')\n    res_sep = convolve2d(res_h, kernel_1d.T, mode='same', boundary='symm')\n    t_sep = time.perf_counter() - t0\n    \n    print(f\"Time 2D: {t_2d:.4f}s | Time Separable: {t_sep:.4f}s | Speedup: {t_2d/t_sep:.2f}x\")\n    assert np.allclose(res_2d, res_sep, atol=1e-5), \"Hasil tidak identik!\"\n    print(\"Verifikasi numerik berhasil!\")\n"
+  },
+  {
+    "id": "ex-10-02",
+    "title": "Eksperimen 2: Unsharp Masking dengan Spatial Filtering",
+    "difficulty": "intermediate",
+    "instruction": "Lakukan penajaman citra (sharpening) dengan teknik unsharp masking: g(x,y) = f(x,y) + k * g_mask(x,y), di mana g_mask = f(x,y) - f_smooth(x,y). Amati pengaruh faktor pengali k terhadap ketajaman tepi dan timbulnya noise.",
+    "starterCode": "import cv2\nimport numpy as np\n\ndef unsharp_mask(image, k=1.5, sigma=1.0):\n    # TODO: Terapkan Gaussian blur, hitung mask, dan tambahkan kembali ke citra asli\n    pass\n",
+    "solution": "import cv2\nimport numpy as np\n\ndef unsharp_mask(image, k=1.5, sigma=1.0):\n    blurred = cv2.GaussianBlur(image, (0, 0), sigmaX=sigma, borderType=cv2.BORDER_REFLECT)\n    mask = cv2.subtract(image, blurred)\n    sharpened = cv2.addWeighted(image, 1.0, mask, k, 0)\n    return sharpened\n"
+  }
+]

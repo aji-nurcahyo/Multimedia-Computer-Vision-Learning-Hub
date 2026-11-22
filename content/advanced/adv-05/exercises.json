@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-adv05-01",
+    "title": "Penurunan Persamaan Geometri Epipolar Fundamental",
+    "difficulty": "advanced",
+    "instruction": "Tunjukkan penurunan analitis bahwa untuk dua kamera dengan matriks proyeksi P1 = K1 [I | 0] dan P2 = K2 [R | t], pasangan titik korespondensi piksel homogen x1 dan x2 memenuhi kendala epipolar bilinear x2^T F x1 = 0, di mana matriks fundamental diberikan oleh F = K2^-T [t]_x R K1^-1.",
+    "starterCode": "# 1. Nyatakan sinar proyeksi dalam koordinat ternormalisasi kamera 1: x_c1 = K1^-1 x1\n# 2. Nyatakan transformasi titik 3D ke kamera 2: X_c2 = R X_c1 + t\n# 3. Kalikan vektor silang dengan t: [t]_x X_c2 = [t]_x R X_c1\n# 4. Kalikan skalar dengan X_c2^T dan gunakan sifat X_c2^T [t]_x X_c2 = 0\n# 5. Transformasikan kembali ke koordinat piksel x2 = K2 x_c2.",
+    "solution": "# 1. Koordinat bidang citra ternormalisasi:\n#    x_c1 = K1^-1 * x1,  x_c2 = K2^-1 * x2\n# 2. Hubungan kedalaman dan posisi titik 3D:\n#    Z2 * x_c2 = R * (Z1 * x_c1) + t\n# 3. Lakukan perkalian silang (outer cross product) dengan vektor translasi t:\n#    Z2 * ([t]_x * x_c2) = Z1 * ([t]_x * R * x_c1) + [t]_x * t\n#    Karena perkalian silang vektor dengan dirinya sendiri adalah nol ([t]_x * t = 0):\n#    Z2 * ([t]_x * x_c2) = Z1 * ([t]_x * R * x_c1)\n# 4. Lakukan perkalian titik (inner product) dengan x_c2^T:\n#    Z2 * x_c2^T * [t]_x * x_c2 = Z1 * x_c2^T * [t]_x * R * x_c1\n#    Karena [t]_x adalah matriks simetri-miring, x_c2^T * [t]_x * x_c2 = 0 secara identik untuk semua x_c2:\n#    0 = x_c2^T * [t]_x * R * x_c1\n# 5. Definisikan Essential Matrix E = [t]_x * R, maka: x_c2^T * E * x_c1 = 0\n# 6. Substitusikan kembali x_c1 = K1^-1 * x1 dan x_c2 = K2^-1 * x2:\n#    (K2^-1 * x2)^T * E * (K1^-1 * x1) = 0\n#    x2^T * (K2^-T * E * K1^-1) * x1 = 0\n# 7. Terbukti: F = K2^-T * [t]_x * R * K1^-1, dan memenuhi x2^T * F * x1 = 0."
+  },
+  {
+    "id": "ex-adv05-02",
+    "title": "Formulasi Linear DLT Triangulasi Titik 3D",
+    "difficulty": "advanced",
+    "instruction": "Dari hubungan proyeksi perspektif x ~ P X, turunkan matriks linier 4x4 berperingkat A sedemikian rupa sehingga A X = 0, dan jelaskan bagaimana koordinat 3D X diestimasi melalui dekomposisi nilai singular (SVD).",
+    "starterCode": "import numpy as np\n\ndef form_triangulation_matrix_A(p1: tuple, p2: tuple, P1: np.ndarray, P2: np.ndarray) -> np.ndarray:\n    \"\"\"\n    Membentuk matriks kendala linier A (4x4) dari dua pengamatan proyeksi kamera.\n    \"\"\"\n    # Gunakan kendala x x (P X) = 0\n    pass",
+    "solution": "import numpy as np\n\ndef form_triangulation_matrix_A(p1: tuple, p2: tuple, P1: np.ndarray, P2: np.ndarray) -> np.ndarray:\n    u1, v1 = p1\n    u2, v2 = p2\n    # x x (P X) = 0 menghasilkan 2 persamaan independen per kamera:\n    # u * p^3T X - p^1T X = 0\n    # v * p^3T X - p^2T X = 0\n    A = np.array([\n        u1 * P1[2, :] - P1[0, :],\n        v1 * P1[2, :] - P1[1, :],\n        u2 * P2[2, :] - P2[0, :],\n        v2 * P2[2, :] - P2[1, :]\n    ])\n    # Vektor koordinat homogen X* adalah kolom terakhir dari matriks V pada SVD(A) = U S V^T\n    return A"
+  }
+]
+

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-08-01",
+    "title": "Kurva Pemetaan Titik Intensitas s = T(r): Negative, Log & Gamma",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-08-intensity-curves.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-08-02",
+    "title": "Transformasi Linear Bertahap (Piecewise Contrast Stretching)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-08-contrast-stretching.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

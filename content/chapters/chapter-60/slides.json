@@ -1,0 +1,73 @@
+[
+  {
+   "id": "slide-1",
+   "title": "Bab 60: Integrated Multimedia & Computer Vision Capstone",
+   "content": "Proyek Akhir Terintegrasi: Sistem Pemantauan Visual Cerdas dengan Fusi Sensorik Multimodal Opsional\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+   "diagram": null,
+   "notes": "Slide puncak kurikulum. Sambut mahasiswa di bab penutup ke-60 dari kurikulum master Multimedia & Computer Vision Learning Hub."
+  },
+  {
+   "id": "slide-2",
+   "title": "Puncak Sintesis Akademik: Bab 01 hingga 59",
+   "content": "Integrasi Kompetensi Empat Pilar Utama:\\n1. Sinyal Media Digital (Bab 01–20): Citra, audio spektrogram, dan video terstempel waktu\\n2. Computer Vision & Deep Learning (Bab 21–50): YOLO, MobileNet, segmentasi, dan pelacakan\\n3. Multimodal Perception (Bab 51–55): Penyelarasan temporal dan fusi konsensus adaptif\\n4. Multimedia Systems Engineering (Bab 56–59): Buffer antrean, kuantisasi INT8, dan optimasi 60 FPS",
+   "diagram": null,
+   "notes": "Jelaskan bagaimana Proyek Capstone menguji pemahaman menyeluruh mahasiswa di setiap pilar kurikulum."
+  },
+  {
+   "id": "slide-3",
+   "title": "Arsitektur Sistem Proyek Capstone",
+   "content": "Alur Kerja End-to-End Sistem Pemantauan Mandiri:\\n• Modul Akuisisi: Kamera RTSP/Webcam HD + Mikrofon PCM + Telemetri Konteks\\n• Modul Inferensi: MobileNet INT8 (Visual) + Mel-Spectrogram CNN (Audio)\\n• Mesin Fusi Bayesian: Menggabungkan skor kepercayaan dengan histeresis temporal\\n• Dashboard Web Interaktif: Menampilkan video feed, bounding box, dan telemetri latensi",
+   "diagram": "/media/diagrams/chapter-60-integrated-capstone-architecture.svg",
+   "notes": "Gunakan diagram arsitektur capstone untuk menunjukkan integrasi modul secara menyeluruh."
+  },
+  {
+   "id": "slide-4",
+   "title": "Alur Verifikasi Insiden & Respons Capstone Multimodal",
+   "content": "Diagram Keputusan & Ketahanan Sensor:\\n• Pemicu 1: Deteksi Visual S_v (Bobot 60%)\\n• Pemicu 2: Anomali Akustik S_a (Bobot 25%)\\n• Pemicu 3: Konteks Spasio-Temporal S_c (Bobot 15%)\\n\\nFusi Konsensus: F = 0.6·S_v + 0.25·S_a + 0.15·S_c >= 0.50?\\n- Lolos Ambang: Verifikasi insiden, rekam snapshot, kirim alert\\n- Redam Noise: Jika kamera tertutup kabut atau audio berderau, alarm palsu diredam",
+   "diagram": "/media/diagrams/chapter-60-multimodal-monitoring-workflow.svg",
+   "notes": "Gunakan diagram alur kerja respons insiden untuk menjelaskan pohon keputusan dan peredaman false alarm."
+  },
+  {
+   "id": "slide-5",
+   "title": "Tiga Tingkat Kedalaman Proyek (Level A / B / C)",
+   "content": "Pilihan Standar Kelulusan Capstone:\\n• Level A (Undergraduate Core): Pipeline visual murni real-time + dashboard FPS (Grade: B / BC)\\n• Level B (Undergraduate Complete): Visual + Audio + Kuantisasi INT8 + Fail-Safe (Grade: A / AB)\\n• Level C (Research Ready): Level B + Evaluasi mAP/F1-score kuantitatif + benchmarking multi-device + keselarasan ISVWS (Grade: A+)",
+   "diagram": null,
+   "notes": "Bahas matriks tingkat kedalaman agar mahasiswa memahami target capaian yang mereka pilih."
+  },
+  {
+   "id": "slide-6",
+   "title": "Contoh Numerik: Verifikasi Insiden Malam Hari",
+   "content": "Skenario Deteksi di Fasilitas Kritis ITERA:\\n• Input Sensor: S_v = 0.85, S_a = 0.60, S_c = 0.90 (Malam hari)\\n• Skor Fusi: F = 0.6(0.85) + 0.25(0.60) + 0.15(0.90) = 0.51 + 0.15 + 0.135 = 0.795\\n• Keputusan: F = 0.795 >= 0.50 -> Insiden Terverifikasi!\\n\\nUji Fail-Safe (Kamera Terhalang Kabut S_v = 0.10):\\n• Skor Fallback: F_fog = 0.6(0.10) + 0.25(0.60) + 0.15(0.90) = 0.345 < 0.50 -> False alarm diredam!",
+   "diagram": null,
+   "notes": "Jelaskan perhitungan numerik langkah demi langkah. Tunjukkan keunggulan fusi multimodal dibanding sensor tunggal."
+  },
+  {
+   "id": "slide-7",
+   "title": "Histeresis Temporal untuk Mengeliminasi Kedipan Alarm",
+   "content": "Mekanisme Penguncian 3-Frame (K = 3):\\n• Kedipan Sensor Sesaat (1 frame) tidak akan memicu sirene alarm\\n• Sirene hanya diaktifkan jika kondisi F >= 0.50 bertahan selama minimal 3 frame berturut-turut\\n• Hasil Simulasi: Mengeliminasi 100% false trigger yang disebabkan oleh noise kamera acak",
+   "diagram": null,
+   "notes": "Bahas aspek kestabilan sistem dalam industri nyata, di mana operator sangat membenci false alarm."
+  },
+  {
+   "id": "slide-8",
+   "title": "Rubrik Penilaian Akademik Capstone (Skala 100 Poin)",
+   "content": "Empat Komponen Penilaian Resmi:\\n1. Arsitektur Sistem & Rekayasa Software (25 Poin): Diagram alir, modularitas, Web Workers\\n2. Implementasi & Efisiensi Algoritma (35 Poin): Real-time >30 FPS, kuantisasi INT8, zero memory leaks\\n3. Evaluasi Eksperimental & Verifikasi Kinerja (25 Poin): Precision-Recall, mAP, profiling latensi\\n4. Dokumentasi Ilmiah & Reproducibility (15 Poin): Laporan IEEE, README lengkap, script 1-klik",
+   "diagram": null,
+   "notes": "Jelaskan rubrik penilaian secara transparan kepada mahasiswa agar mereka fokus pada kriteria yang dinilai."
+  },
+  {
+   "id": "slide-9",
+   "title": "Panduan Presentasi Sidang & Keterulangan Pengujian",
+   "content": "Kiat Sukses Ujian Capstone:\\n• 2 Menit Pertama: Langsung lakukan live demo sistem yang berjalan lancar\\n• Sediakan Sampel Offline: Jangan bergantung pada koneksi internet kampus saat sidang\\n• Checklist Reproducibility: Script test_pipeline.py harus mengembalikan exit code 0 tanpa error",
+   "diagram": null,
+   "notes": "Berikan tips praktis menghadapi sidang tugas akhir dan presentasi industri."
+  },
+  {
+   "id": "slide-10",
+   "title": "Selamat! Puncak Kurikulum & Menatap Roadmap ISVWS 2026–2040",
+   "content": "Pintu Gerbang Menuju Riset Tingkat Lanjut:\\n• Anda telah menuntaskan seluruh 60 bab master curriculum!\\n• Portofolio Capstone ini menjadi fondasi riset skripsi S1 di ITERA dan publikasi ilmiah\\n• Melangkah mantap menuju riset masa depan Intelligent Sensing & Vision-Centric Wireless Systems (ISVWS 2026–2040)",
+   "diagram": null,
+   "notes": "Tutup sesi dengan apresiasi hangat atas dedikasi dan kerja keras mahasiswa menuntaskan seluruh kurikulum."
+  }
+]
+

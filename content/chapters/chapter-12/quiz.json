@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-12-01",
+    "question": "Penapis manakah yang paling tepat dan efektif untuk membersihkan derau Salt-and-Pepper (impulse noise 0/255) tanpa melunturkan tepi objek?",
+    "options": [
+      "Median Filter",
+      "Gaussian Blur Filter",
+      "Box Mean Filter",
+      "High-Pass Ideal Filter"
+    ],
+    "correctIndex": 0,
+    "explanation": "Median filter bekerja dengan mengurutkan nilai intensitas tetangga dan mengambil nilai tengah. Karena nilai noise ekstrem (0 atau 255) berada di ujung urutan, nilai tersebut langsung tersingkir tanpa mendistorsi tetangganya."
+  },
+  {
+    "id": "q-12-02",
+    "question": "Mengapa Bilateral Filter mampu menjaga ketajaman batas tepi objek sementara tetap menghaluskan permukaan datar?",
+    "options": [
+      "Karena bobot filter merupakan hasil kali Gaussian jarak spasial DAN Gaussian selisih intensitas warna (range kernel)",
+      "Karena Bilateral Filter hanya memproses piksel pada baris genap saja",
+      "Karena Bilateral Filter mengubah gambar ke ruang frekuensi FFT terlebih dahulu",
+      "Karena Bilateral Filter menetapkan bobot sama rata 1/9 untuk semua tetangga"
+    ],
+    "correctIndex": 0,
+    "explanation": "Range kernel mengecilkan bobot tetangga secara eksponensial apabila selisih intensitas |I(p) - I(q)| besar, sehingga piksel di seberang batas tepi objek tidak ikut tercampur ke dalam rata-rata lokal."
+  },
+  {
+    "id": "q-12-03",
+    "question": "Jika suatu algoritma denoising berhasil menurunkan nilai Mean Squared Error (MSE) dari 250 menjadi 25, berapakah besar peningkatan PSNR yang dicapai?",
+    "options": [
+      "+10.00 dB",
+      "+2.50 dB",
+      "+25.00 dB",
+      "+100.00 dB"
+    ],
+    "correctIndex": 0,
+    "explanation": "Delta PSNR = 10 * log10(MSE_lama / MSE_baru) = 10 * log10(250 / 25) = 10 * log10(10) = +10.00 dB."
+  },
+  {
+    "id": "q-12-04",
+    "question": "Apa perbedaan mendasar antara metrik kualitas gambar PSNR dan SSIM?",
+    "options": [
+      "PSNR hanya mengukur selisih kuadrat piksel per piksel, sedangkan SSIM mengevaluasi kesamaan struktur, luminansi, dan kontras lokal sesuai persepsi manusia",
+      "PSNR bernilai negatif sedangkan SSIM selalu di atas 100",
+      "SSIM hanya dapat dihitung untuk file berformat PNG",
+      "PSNR membutuhkan dua citra sedangkan SSIM hanya membutuhkan satu citra"
+    ],
+    "correctIndex": 0,
+    "explanation": "SSIM dirancang oleh Wang et al. (2004) untuk menangkap informasi korelasi struktural lokal pada citra, sehingga lebih mencerminkan penilaian kualitas oleh sistem visual manusia."
+  },
+  {
+    "id": "q-12-05",
+    "question": "Noise model manakah yang bersifat multiplikatif (g = f * (1 + eta)) dan sering muncul pada pencitraan medis Ultrasound dan radar SAR?",
+    "options": [
+      "Speckle Noise",
+      "Gaussian Additive Noise",
+      "Salt-and-Pepper Noise",
+      "Uniform Quantization Error"
+    ],
+    "correctIndex": 0,
+    "explanation": "Speckle noise bersifat multiplikatif akibat interferensi konstruktif dan destruktif gelombang koheren pada citra radar SAR dan ultrasound medis."
+  }
+]
+

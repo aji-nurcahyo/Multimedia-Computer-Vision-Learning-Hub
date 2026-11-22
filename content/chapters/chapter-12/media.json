@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-12-01",
+    "title": "Model Degradasi & Restorasi Citra serta Metrik PSNR/SSIM",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-12-degradation-noise.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-12-02",
+    "title": "Penapis Pelestari Tepi: Bilateral Filter, Non-Local Means, dan Wiener Filter",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-12-bilateral-wiener.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

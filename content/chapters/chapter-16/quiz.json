@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q1",
+    "question": "Apa konsep dasar yang menjadi landasan utama pada materi Digital Audio Fundamentals?",
+    "options": [
+      "Representasi sinyal akustik dalam bentuk diskrit terkuantisasi dengan pelestarian dinamika informasi",
+      "Penyimpanan sinyal analog secara langsung ke dalam memori RAM komputer tanpa konversi",
+      "Pengurangan frekuensi sampling di bawah frekuensi Nyquist untuk menghemat penyimpanan",
+      "Penghilangan total seluruh komponen frekuensi tinggi tanpa analisis spektral"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada Digital Audio Fundamentals, sinyal akustik kontinu dikonversi dan diproses dalam format numerik diskrit dengan tetap menjaga karakteristik spektral dan dinamika energinya."
+  },
+  {
+    "id": "q2",
+    "question": "Mengapa pemahaman domain waktu dan frekuensi sangat krusial dalam pemrosesan audio?",
+    "options": [
+      "Karena beberapa karakteristik seperti periodisitas dan harmonik hanya dapat diamati secara jelas di domain frekuensi",
+      "Karena domain waktu tidak dapat diputar melalui speaker komputer",
+      "Karena domain frekuensi menghapus seluruh distorsi dan noise secara otomatis tanpa filter",
+      "Karena transformasi Fourier hanya dapat diterapkan pada format MP3"
+    ],
+    "correctIndex": 0,
+    "explanation": "Domain frekuensi mengungkapkan persebaran energi harmonik sinyal yang tidak tampak jelas pada representasi waveform waktu murni."
+  },
+  {
+    "id": "q3",
+    "question": "Dalam evaluasi performa algoritma audio, apa tujuan utama dilakukannya normalisasi amplitudo sinyal ke rentang [-1.0, 1.0]?",
+    "options": [
+      "Mencegah terjadinya fenomena clipping dan menjaga kompatibilitas representasi floating-point audio standar",
+      "Memperkecil ukuran file WAV menjadi sepersepuluh ukuran aslinya",
+      "Mengubah sinyal stereo menjadi sinyal surround 7.1 saluran",
+      "Menaikkan frekuensi fundamental sinyal secara otomatis"
+    ],
+    "correctIndex": 0,
+    "explanation": "Rentang standar [-1.0, 1.0] (0 dBFS peak) mencegah clipping digital dan memastikan perhitungan matematika numerik stabil."
+  },
+  {
+    "id": "q4",
+    "question": "Manakah dari pernyataan berikut yang paling tepat mengenai karakteristik komputasi audio pada topik ini?",
+    "options": [
+      "Vektorisasi larik NumPy memungkinkan komputasi numerik berkecepatan tinggi yang mendekati performa bahasa C",
+      "Perulangan for-loop manual Python selalu lebih cepat dibandingkan fungsi built-in NumPy",
+      "Sinyal audio digital tidak terikat oleh keterbatasan memori atau latensi perangkat keras",
+      "Semua jenis filter audio digital pasti memiliki fasa linier tanpa distorsi fasa"
+    ],
+    "correctIndex": 0,
+    "explanation": "Operasi vektorisasi NumPy diimplementasikan dalam kode C teroptimasi (SIMD) yang mengeksekusi komputasi sinyal secara paralel dan efisien."
+  },
+  {
+    "id": "q5",
+    "question": "Bagaimana relevansi materi Digital Audio Fundamentals terhadap pengembangan sistem kecerdasan buatan visual dan audio modern?",
+    "options": [
+      "Menyediakan representasi fitur akustik esensial yang menjadi input bagi model machine learning dan deep learning",
+      "Menggantikan seluruh kebutuhan kamera pada sistem computer vision masa depan",
+      "Menghilangkan kebutuhan komputasi GPU pada pelatihan model deep learning berskala besar",
+      "Membuat arsitektur jaringan saraf tidak memerlukan data latih (training data)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pemrosesan sinyal digital menyediakan fitur representatif (seperti MFCC, spektrogram, dan VAD) yang menjadi input kunci bagi model klasifikasi dan inferensi AI."
+  }
+]

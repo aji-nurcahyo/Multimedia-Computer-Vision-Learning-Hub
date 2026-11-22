@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-48-1",
+    "title": "Alur Rekonstruksi 3D: Structure from Motion (SfM)",
+    "path": "/media/diagrams/chapter-48-structure-from-motion-pipeline.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-48-2",
+    "title": "Geometri Triangulasi Titik 3D Multi-Kamera",
+    "path": "/media/diagrams/chapter-48-multiview-triangulation-geometry.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

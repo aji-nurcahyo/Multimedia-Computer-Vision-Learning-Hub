@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q01-01",
+    "question": "Manakah pernyataan yang paling tepat membedakan antara Digital Image Processing dan Computer Vision?",
+    "options": [
+      "Image Processing menghasilkan citra baru yang ditingkatkan mutunya (pixel-in, pixel-out), sedangkan Computer Vision menghasilkan keputusan atau label semantik dari citra (pixel-in, semantic understanding)",
+      "Image Processing hanya menggunakan algoritma Deep Learning, sedangkan Computer Vision hanya menggunakan filter analog",
+      "Image Processing berfokus pada data audio, sedangkan Computer Vision berfokus pada data teks",
+      "Computer Vision hanya dapat diterapkan pada citra diam 2D, sedangkan Image Processing hanya untuk video 3D"
+    ],
+    "correctIndex": 0,
+    "explanation": "Image processing beroperasi pada tingkat rendah hingga menengah dengan tujuan transformasi visual (masukan citra, keluaran citra). Computer vision beroperasi pada tingkat tinggi dengan tujuan pemahaman semantik mesin menyerupai kognisi visual manusia (masukan citra, keluaran pemahaman makna/keputusan)."
+  },
+  {
+    "id": "q01-02",
+    "question": "Pada rantai pemrosesan multimedia (multimedia pipeline), proses manakah yang mengubah sinyal fisik kontinu dari sensor menjadi representasi diskrit biner?",
+    "options": [
+      "Digitization (Sampling dan Quantization)",
+      "Feature Matching",
+      "Semantic Segmentation",
+      "Deep Learning Inference"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tahap digitalisasi (digitization) terdiri atas sampling (diskretisasi domain waktu/ruang) dan quantization (diskretisasi amplitudo sinyal) untuk mengonversi tegangan analog sensor menjadi bilangan diskrit di memori komputer."
+  },
+  {
+    "id": "q01-03",
+    "question": "Sebuah sistem Computer Vision memproses streaming video kamera pada laju 30 frame per detik (FPS). Berapakah batas waktu latensi maksimum per frame agar sistem dapat beroperasi secara real-time?",
+    "options": [
+      "33.3 milidetik",
+      "100 milidetik",
+      "1 detik",
+      "3.3 milidetik"
+    ],
+    "correctIndex": 0,
+    "explanation": "Untuk video 30 FPS, interval waktu antar frame adalah T = 1 / 30 detik = 0.0333 detik = 33.3 milidetik. Algoritma harus menyelesaikan pemrosesan setiap frame dalam waktu <= 33.3 ms agar tidak terjadi penumpukan antrean frame (frame drop / lag)."
+  },
+  {
+    "id": "q01-04",
+    "question": "Apa kelemahan utama dari pendekatan rekayasa fitur klasik (hand-crafted features) dibandingkan dengan Deep Learning?",
+    "options": [
+      "Rentan terhadap variasi iluminasi, oklusi, dan perubahan sudut pandang ekstrem yang tidak diantisipasi dalam pemodelan matematis",
+      "Membutuhkan miliaran parameter bobot jaringan dan GPU berdaya tinggi",
+      "Tidak dapat dijalankan pada CPU standar",
+      "Hasil perhitungannya bersifat black-box dan tidak dapat dijelaskan rumusnya"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fitur klasik (seperti Sobel, Harris corner, atau SIFT) dirancang manual berdasarkan asumsi matematis tertentu sehingga cenderung rapuh (brittle) bila dihadapkan pada gangguan lingkungan dunia nyata yang kompleks dan dinamis."
+  },
+  {
+    "id": "q01-05",
+    "question": "Berapakah bentuk dimensi array NumPy (shape) yang merepresentasikan citra berwarna RGB dengan tinggi 720 piksel dan lebar 1280 piksel?",
+    "options": [
+      "(720, 1280, 3)",
+      "(1280, 720, 3)",
+      "(3, 720, 1280, 1)",
+      "(720, 1280)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Secara standar dalam NumPy dan konvensi matriks citra digital, dimensi diurutkan berdasarkan (Height / baris, Width / kolom, Channels / saluran warna), sehingga dimensi yang tepat adalah (720, 1280, 3)."
+  }
+]

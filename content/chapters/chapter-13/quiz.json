@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-13-01",
+    "question": "Dalam 4 tahap algoritma Canny Edge Detector, fungsi apakah yang bertugas menipiskan garis tepi yang tebal menjadi kontur tipis tepat 1 piksel?",
+    "options": [
+      "Non-Maximum Suppression (NMS)",
+      "Gaussian Smoothing",
+      "Histogram Equalization",
+      "Chroma Subsampling"
+    ],
+    "correctIndex": 0,
+    "explanation": "Non-Maximum Suppression memeriksa apakah magnitudo gradien piksel merupakan puncak lokal dibandingkan dua tetangganya di sepanjang arah gradien. Piksel non-puncak dinolkan sehingga hanya punggungan tipis 1 piksel yang tersisa."
+  },
+  {
+    "id": "q-13-02",
+    "question": "Mengapa kita wajib menggunakan tipe data bertanda presisi tinggi (seperti cv2.CV_64F atau np.float32) saat memanggil cv2.Sobel daripada langsung menggunakan cv2.CV_8U?",
+    "options": [
+      "Karena transisi terang ke gelap menghasilkan nilai gradien negatif yang akan terpotong menjadi 0 jika langsung disimpan sebagai uint8",
+      "Karena CV_8U hanya berfungsi untuk gambar berwarna biru",
+      "Karena CV_64F mengurangi ukuran file gambar di disk",
+      "Karena OpenCV melarang pemanggilan fungsi numpy pada uint8"
+    ],
+    "correctIndex": 0,
+    "explanation": "Kernel Sobel memiliki bobot -1 dan +1. Transisi dari intensitas 255 ke 0 menghasilkan turunan negatif besar, yang dalam uint8 akan ter-clip menjadi 0 sehingga separuh tepi objek hilang."
+  },
+  {
+    "id": "q-13-03",
+    "question": "Pada Harris Corner Detector dengan respons R = det(M) - k * trace(M)^2, nilai karakteristik apakah yang menandakan lokasi tersebut adalah titik SUDUT (Corner)?",
+    "options": [
+      "R bernilai positif besar (R >> 0) karena kedua nilai eigen lambda_1 dan lambda_2 sama-sama besar",
+      "R bernilai negatif besar (R << 0)",
+      "|R| mendekati nol",
+      "det(M) tepat sama dengan 0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sudut memiliki gradien intensitas kuat di dua arah ortogonal (lambda_1 dan lambda_2 sama-sama besar), membuat det(M) = lambda_1 * lambda_2 jauh melampaui penalti k * trace(M)^2 sehingga R positif besar."
+  },
+  {
+    "id": "q-13-04",
+    "question": "Bagaimana cara kerja Double Threshold Hysteresis dalam algoritma Canny Edge Detector?",
+    "options": [
+      "Piksel di atas T_high langsung diterima sebagai tepi kuat, sedangkan piksel antara T_low dan T_high hanya dipertahankan jika terhubung secara spasial dengan tepi kuat",
+      "Menjumlahkan nilai ambang atas dan bawah lalu membagi dua",
+      "Menghapus seluruh tepi yang terhubung dengan sudut gambar",
+      "Mengubah gambar grayscale menjadi HSV"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hysteresis melacak konektivitas piksel lemah (weak edges) terhadap piksel kuat (strong edges), menjaga kontinuitas garis tepi sembari membuang titik lemah terisolasi akibat noise."
+  },
+  {
+    "id": "q-13-05",
+    "question": "Apa kelemahan utama Harris Corner Detector dibandingkan deskriptor fitur modern seperti SIFT atau ORB multi-skala?",
+    "options": [
+      "Harris invarian terhadap rotasi, namun TIDAK invarian terhadap perubahan skala (zoom perbesaran/pengecilan objek)",
+      "Harris tidak dapat dijalankan pada citra grayscale",
+      "Harris hanya mendeteksi tepi horizontal",
+      "Harris selalu membutuhkan GPU CUDA untuk gambar 100x100"
+    ],
+    "correctIndex": 0,
+    "explanation": "Jika citra diperbesar, sudut tajam di jendela kecil berubah tampak seperti garis tepi landai dalam jendela berukuran tetap, sehingga skor R Harris tidak lagi mempertahankan titik kunci tersebut (tidak scale-invariant)."
+  }
+]
+

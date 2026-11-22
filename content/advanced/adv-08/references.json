@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ref-adv08-01",
+    "title": "Quantizing Deep Convolutional Networks for Efficient Inference: A Whitepaper",
+    "authors": "Raghuraman Krishnamoorthi",
+    "year": 2018,
+    "publisher": "arXiv preprint arXiv:1806.08342",
+    "url": "https://arxiv.org/abs/1806.08342",
+    "type": "Technical Report",
+    "annotation": "The foundational industrial whitepaper formulating uniform affine quantization, scale and zero-point parameterization, and Quantization-Aware Training with Straight-Through Estimators."
+  },
+  {
+    "id": "ref-adv08-02",
+    "title": "Roofline: An Insightful Visual Performance Model for Multicore Architectures",
+    "authors": "Samuel Williams, Andrew Waterman, David Patterson",
+    "year": 2009,
+    "publisher": "Communications of the ACM, Vol. 52, No. 4, pp. 65-76",
+    "url": "https://doi.org/10.1145/1498765.1498785",
+    "type": "Journal Article",
+    "annotation": "The seminal paper establishing the Roofline visual performance model, linking operational arithmetic intensity to hardware compute ceilings and memory bandwidth boundaries."
+  },
+  {
+    "id": "ref-adv08-03",
+    "title": "Pruning Filters for Efficient ConvNets",
+    "authors": "Hao Li, Asim Kadav, Igor Durdanovic, Hanan Samet, Hans Peter Graf",
+    "year": 2017,
+    "publisher": "International Conference on Learning Representations (ICLR)",
+    "url": "https://arxiv.org/abs/1608.08710",
+    "type": "Conference Paper",
+    "annotation": "Pioneers structured filter pruning in deep convolutional networks using L1-norm magnitude metrics, proving that dense matrix reduction achieves real latency speedups on generic hardware."
+  },
+  {
+    "id": "ref-adv08-04",
+    "title": "MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications",
+    "authors": "Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, Hartwig Adam",
+    "year": 2017,
+    "publisher": "arXiv preprint arXiv:1704.04861",
+    "url": "https://arxiv.org/abs/1704.04861",
+    "type": "Technical Report",
+    "annotation": "Introduces depthwise separable convolutions for edge vision, drastically reducing compute parameters while highlighting memory bandwidth trade-offs on mobile and embedded chipsets."
+  }
+]

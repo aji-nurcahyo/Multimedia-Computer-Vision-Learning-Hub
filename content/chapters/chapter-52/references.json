@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-52-1",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "authors": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever",
+    "year": 2021,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v139/radford21a.html",
+    "annotation": "Makalah dasar yang memperkenalkan model dual-encoder CLIP, fungsi rugi simetris kontras citra-teks, dan kemampuan klasifikasi zero-shot."
+  },
+  {
+    "id": "ref-52-2",
+    "title": "Visual Instruction Tuning (LLaVA)",
+    "authors": "Haotian Liu, Chunyuan Li, Qingyang Wu, Yong Jae Lee",
+    "year": 2023,
+    "publisher": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "url": "https://doi.org/10.48550/arXiv.2304.08485",
+    "annotation": "Mempelopori integrasi visual encoder dengan Large Language Model autoregresif melalui visual instruction tuning untuk penalaran multimodal interaktif."
+  },
+  {
+    "id": "ref-52-3",
+    "title": "Sigmoid Loss for Language Image Pre-Training (SigLIP)",
+    "authors": "Xiaohua Zhai, Basil Mustafa, Alexander Kolesnikov, Lucas Beyer",
+    "year": 2023,
+    "publisher": "IEEE/CVF International Conference on Computer Vision (ICCV)",
+    "url": "https://doi.org/10.1109/ICCV51070.2023.01099",
+    "annotation": "Mengganti softmax cross-entropy global dengan loss sigmoid biner independen per-pasangan, menghilangkan kebutuhan normalisasi batch global dan meningkatkan skalabilitas."
+  },
+  {
+    "id": "ref-52-4",
+    "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+    "authors": "Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katie Millican, Malcolm Reynolds, Roman Ring, Eliza Rutherford, Serkan Cabi, Tengda Han, Zhitao Gong, Sina Samangooei, Marianne Monteiro, Jacob Menick, Sebastian Borgeaud, Andrew Brock, Aida Nematzadeh, Sahand Sharifzadeh, Mikolaj Binkowski, Ricardo Barreira, Oriol Vinyals, Andrew Zisserman, Karen Simonyan",
+    "year": 2022,
+    "publisher": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/960a172bc7fbf0177ccccbb411a7d800-Abstract.html",
+    "annotation": "Arsitektur VLM generatif terkemuka yang memperkenalkan lapisan cross-attention berpagar (Gated Cross-Attention) dan Perceiver Resampler untuk memproses sekuens video dan citra interleaved."
+  }
+]

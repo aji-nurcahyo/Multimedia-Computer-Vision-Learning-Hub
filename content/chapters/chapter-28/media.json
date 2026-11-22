@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-28-01",
+    "title": "Struktur Group of Pictures (GOP): I-Frame, P-Frame & B-Frame",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-28-video-compression-gop.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-28-02",
+    "title": "Evolusi Standar Video Codec & Efisiensi Kompresi",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-28-video-codecs-evolution.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

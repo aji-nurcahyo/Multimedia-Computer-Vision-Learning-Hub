@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-18-01",
+    "title": "An Algorithm for the Machine Calculation of Complex Fourier Series",
+    "authors": "James W. Cooley, John W. Tukey",
+    "year": 1965,
+    "publisher": "Mathematics of Computation",
+    "url": "https://doi.org/10.1090/S0025-5718-1965-0178586-1",
+    "type": "paper",
+    "annotation": "Makalah seminal yang memperkenalkan algoritma Fast Fourier Transform (FFT) dengan reduksi kompleksitas O(N^2) ke O(N log N)."
+  },
+  {
+    "id": "ref-18-02",
+    "title": "On the Use of Windows for Harmonic Analysis with the Discrete Fourier Transform",
+    "authors": "Fredric J. Harris",
+    "year": 1978,
+    "publisher": "Proceedings of the IEEE",
+    "url": "https://doi.org/10.1109/PROC.1978.10837",
+    "type": "paper",
+    "annotation": "Karya klasik yang membandingkan performa matematis berbagai fungsi jendela (windowing) dalam meredam kebocoran spektral."
+  },
+  {
+    "id": "ref-18-03",
+    "title": "Understanding Digital Signal Processing (3rd Edition)",
+    "authors": "Richard G. Lyons",
+    "year": 2010,
+    "publisher": "Prentice Hall",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/understanding-digital-signal-processing/P200000003308",
+    "type": "book",
+    "annotation": "Penjelasan intuitif dan visual mengenai DFT, FFT, resolusi frekuensi delta-f, dan interpretasi spektrum daya."
+  }
+]

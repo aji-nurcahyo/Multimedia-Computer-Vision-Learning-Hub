@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="330" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 06 · SPATIAL RESOLUTION &amp; BIT DEPTH</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Dampak Kuantisasi Kedalaman Bit (Bit Depth) vs Resolusi Spasial</text>
+  <text x="36" y="104" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Reduksi bit depth menyebabkan efek false contouring, sementara reduksi piksel menghasilkan pixelation</text>
+
+  <!-- 8-bit smooth ramp -->
+  <g transform="translate(50, 140)">
+    <defs>
+      <linearGradient id="ramp8" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#000000" />
+        <stop offset="100%" stop-color="#ffffff" />
+      </linearGradient>
+    </defs>
+    <rect width="260" height="60" rx="6" fill="url(#ramp8)" stroke="#38bdf8" />
+    <text x="130" y="85" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">8-bit (256 Level Keabuan)</text>
+    <text x="130" y="104" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Gradasi kontinu halus tanpa pita</text>
+  </g>
+
+  <!-- 2-bit false contouring -->
+  <g transform="translate(350, 140)">
+    <rect x="0" y="0" width="65" height="60" fill="#000000" />
+    <rect x="65" y="0" width="65" height="60" fill="#555555" />
+    <rect x="130" y="0" width="65" height="60" fill="#aaaaaa" />
+    <rect x="195" y="0" width="65" height="60" fill="#ffffff" />
+    <rect width="260" height="60" rx="6" fill="none" stroke="#f59e0b" />
+    <text x="130" y="85" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">2-bit (4 Level: 0, 85, 170, 255)</text>
+    <text x="130" y="104" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Efek banding / false contouring</text>
+  </g>
+
+  <!-- 1-bit binary -->
+  <g transform="translate(650, 140)">
+    <rect x="0" y="0" width="130" height="60" fill="#000000" />
+    <rect x="130" y="0" width="130" height="60" fill="#ffffff" />
+    <rect width="260" height="60" rx="6" fill="none" stroke="#ef4444" />
+    <text x="130" y="85" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">1-bit Biner (2 Level: 0 / 255)</text>
+    <text x="130" y="104" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Hanya hitam &amp; putih (dokumen OCR)</text>
+  </g>
+
+  <!-- Summary note box -->
+  <rect x="50" y="275" width="860" height="50" rx="8" fill="#1e293b" stroke="#334155" />
+  <text x="70" y="305" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Kualitas perseptual citra memerlukan keseimbangan Nyquist Spasial (M × N) dan Kuantisasi Intensitas (L = 2^b ≥ 64 level).</text>
+  <text x="924" y="344" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

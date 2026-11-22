@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-24-01",
+    "title": "Pipeline Klasifikasi Audio & Deteksi Peristiwa Suara (SED)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-24-audio-classification-pipeline.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-24-02",
+    "title": "Matriks Kebingungan (Confusion Matrix) & Metrik Akurasi Audio",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-24-confusion-matrix-metrics.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

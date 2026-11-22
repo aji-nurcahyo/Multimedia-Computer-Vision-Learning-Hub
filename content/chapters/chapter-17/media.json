@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-17-01",
+    "title": "Teorema Sampling Nyquist-Shannon & Fenomena Aliasing",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-17-audio-sampling-nyquist.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-17-02",
+    "title": "Struktur Multichannel Audio & Kalkulasi Bitrate",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-17-audio-channels-bitrate.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

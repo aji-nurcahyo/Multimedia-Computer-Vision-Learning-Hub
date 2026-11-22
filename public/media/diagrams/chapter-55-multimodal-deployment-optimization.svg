@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Optimasi Penerapan Edge AI & Proteksi Privasi Multimodal</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Kuantisasi INT8, Pengecekan Integritas Sensor, dan Pemrosesan Lokal Tanpa Cloud</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <g transform="translate(60, 110)">
+        <rect width="680" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <g transform="translate(40, 30)">
+          <rect width="270" height="190" rx="6" fill="#0f172a" stroke="#38bdf8"/>
+          <text x="20" y="30" fill="#38bdf8" font-size="13" font-weight="bold">Optimasi Inferensi Edge</text>
+          <text x="20" y="65" fill="#e2e8f0" font-size="11">• Kuantisasi Model FP32 ➔ INT8</text>
+          <text x="20" y="90" fill="#94a3b8" font-size="10">Menghemat 75% RAM &amp; akselerasi NPU</text>
+          <text x="20" y="120" fill="#e2e8f0" font-size="11">• Dynamic Modality Gating</text>
+          <text x="20" y="145" fill="#94a3b8" font-size="10">Matikan sensor kamera bila audio hening</text>
+          <text x="20" y="170" fill="#34d399" font-size="10">Efisiensi daya baterai perangkat IoT</text>
+        </g>
+        <g transform="translate(350, 30)">
+          <rect width="290" height="190" rx="6" fill="#0f172a" stroke="#10b981"/>
+          <text x="20" y="30" fill="#34d399" font-size="13" font-weight="bold">Privasi &amp; Kepatuhan Regulasi</text>
+          <text x="20" y="65" fill="#e2e8f0" font-size="11">• On-Device Processing (Zero-Cloud Upload)</text>
+          <text x="20" y="90" fill="#94a3b8" font-size="10">Data biometrik tidak keluar dari perangkat</text>
+          <text x="20" y="120" fill="#e2e8f0" font-size="11">• Anonimisasi Representasi Vektor</text>
+          <text x="20" y="145" fill="#94a3b8" font-size="10">Hanya embedding fitur 1D yang diproses</text>
+          <text x="20" y="170" fill="#fbbf24" font-size="10">Mematuhi etika AI dan regulasi privasi data</text>
+        </g>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

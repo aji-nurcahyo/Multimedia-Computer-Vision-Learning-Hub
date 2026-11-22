@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-14-01",
+    "title": "Latihan 1: Pipeline Pembersihan Masker (Opening + Closing)",
+    "difficulty": "beginner",
+    "instruction": "Diberikan masker biner bernoise speckles di luar dan lubang 3x3 di dalam objek. Susun pipeline OpenCV menggunakan MORPH_OPEN diikuti MORPH_CLOSE agar objek utama bersih sempurna.",
+    "starterCode": "import cv2, numpy as np\n\ndef clean_binary_mask(mask: np.ndarray, ksize: int = 5) -> np.ndarray:\n    # TODO: Buat structuring element ellipse lalu terapkan OPEN -> CLOSE\n    pass\n",
+    "solution": "import cv2, numpy as np\n\ndef clean_binary_mask(mask: np.ndarray, ksize: int = 5) -> np.ndarray:\n    se = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (ksize, ksize))\n    opened = cv2.morphologyEx(mask, cv2.MORPH_OPEN, se)\n    return cv2.morphologyEx(opened, cv2.MORPH_CLOSE, se)\n"
+  },
+  {
+    "id": "ex-14-02",
+    "title": "Latihan 2: Koreksi Latar Tak Merata dengan White Top-Hat",
+    "difficulty": "intermediate",
+    "instruction": "Terapkan White Top-Hat (cv2.MORPH_TOPHAT) dengan SE berukuran besar (17x17) untuk memisahkan butiran terang kecil di atas gradien latar belakang miring.",
+    "starterCode": "import cv2, numpy as np\n\ndef extract_bright_objects_uneven_bg(gray: np.ndarray) -> np.ndarray:\n    # TODO: Gunakan MORPH_TOPHAT untuk menghilangkan gradien latar lambat\n    pass\n",
+    "solution": "import cv2, numpy as np\n\ndef extract_bright_objects_uneven_bg(gray: np.ndarray) -> np.ndarray:\n    se = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (17, 17))\n    return cv2.morphologyEx(gray, cv2.MORPH_TOPHAT, se)\n"
+  }
+]
+

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-45-1",
+    "title": "Taksonomi Segmentasi: Semantik, Instansi, dan Panoptik",
+    "path": "/media/diagrams/chapter-45-semantic-vs-instance-segmentation.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-45-2",
+    "title": "Arsitektur Jaringan U-Net & Skip Connections",
+    "path": "/media/diagrams/chapter-45-unet-encoder-decoder-architecture.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

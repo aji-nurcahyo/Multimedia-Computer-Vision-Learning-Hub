@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-adv04-01",
+    "title": "End-to-End Object Detection with Transformers",
+    "authors": "Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, Sergey Zagoruyko",
+    "year": 2020,
+    "publisher": "European Conference on Computer Vision (ECCV)",
+    "url": "https://doi.org/10.1007/978-3-030-58452-8_13",
+    "type": "Conference Paper",
+    "annotation": "Introduces the DEtection TRansformer (DETR) architecture, replacing handcrafted anchors and non-maximum suppression (NMS) with direct set prediction and bipartite Hungarian matching loss."
+  },
+  {
+    "id": "ref-adv04-02",
+    "title": "Deformable DETR: Deformable Transformers for End-to-End Object Detection",
+    "authors": "Xizhou Zhu, Weijie Su, Lewei Lu, Bin Li, Xiaogang Wang, Jifeng Dai",
+    "year": 2021,
+    "publisher": "International Conference on Learning Representations (ICLR)",
+    "url": "https://arxiv.org/abs/2010.04159",
+    "type": "Conference Paper",
+    "annotation": "Resolves DETR slow convergence and high computational complexity by attending only to a small set of key sampling points around reference locations across multi-scale feature pyramids."
+  },
+  {
+    "id": "ref-adv04-03",
+    "title": "Focal Loss for Dense Object Detection",
+    "authors": "Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, Piotr Dollar",
+    "year": 2017,
+    "publisher": "IEEE International Conference on Computer Vision (ICCV)",
+    "url": "https://doi.org/10.1109/ICCV.2017.324",
+    "type": "Conference Paper",
+    "annotation": "Proposes the focal loss formulation and the RetinaNet architecture, demonstrating that dynamically scaled cross-entropy addresses severe class imbalance in one-stage dense visual detection."
+  },
+  {
+    "id": "ref-adv04-04",
+    "title": "Generalized Intersection over Union: A Metric and A Loss for Bounding Box Regression",
+    "authors": "Hamid Rezatofighi, Nathan Tsoi, Jianwei Stan Choi, Amar Shah, Silvio Savarese",
+    "year": 2019,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2019.00075",
+    "type": "Conference Paper",
+    "annotation": "Formulates Generalized IoU (GIoU), resolving the vanishing gradient limitation of standard IoU when predicted and ground-truth bounding boxes have zero intersection."
+  }
+]
+

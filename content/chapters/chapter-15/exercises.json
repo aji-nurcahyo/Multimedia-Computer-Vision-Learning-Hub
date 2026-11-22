@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-15-01",
+    "title": "Latihan 1: Implementasi Otsu Optimal Thresholding Manual & Komparasi OpenCV",
+    "difficulty": "advanced",
+    "instruction": "Hitung fungsi objektif variansi antar-kelas Otsu sigma_B^2(t) untuk t=0..255 menggunakan histogram ternormalisasi NumPy dan verifikasi ambang optimalnya sama dengan cv2.threshold(..., cv2.THRESH_OTSU).",
+    "starterCode": "import numpy as np, cv2\n\ndef manual_otsu_threshold(gray: np.ndarray) -> int:\n    # TODO: Hitung hist, probabilitas p_i, omega_0, mu_0, mu_1, maksimalkan var_between\n    pass\n",
+    "solution": "import numpy as np, cv2\n\ndef manual_otsu_threshold(gray: np.ndarray) -> int:\n    hist = np.bincount(gray.ravel(), minlength=256).astype(np.float64)\n    p = hist / hist.sum()\n    bins = np.arange(256)\n    total_mean = np.sum(bins * p)\n    w0, sum0, max_var, best_t = 0.0, 0.0, -1.0, 0\n    for t in range(256):\n        w0 += p[t]\n        if w0 == 0 or w0 == 1.0:\n            continue\n        w1 = 1.0 - w0\n        sum0 += t * p[t]\n        m0 = sum0 / w0\n        m1 = (total_mean - sum0) / w1\n        var_b = w0 * w1 * ((m0 - m1) ** 2)\n        if var_b > max_var:\n            max_var, best_t = var_b, t\n    return best_t\n"
+  },
+  {
+    "id": "ex-15-02",
+    "title": "Latihan 2: Pengukuran Circularity Kontur & Evaluasi IoU/Dice",
+    "difficulty": "intermediate",
+    "instruction": "Gunakan cv2.findContours pada masker biner untuk menghitung luas area, keliling perimeter, dan metrik Circularity = 4*pi*A / P^2 guna membedakan lingkaran dari persegi panjang tipis.",
+    "starterCode": "import cv2, numpy as np\n\ndef measure_contours_circularity(binary_mask: np.ndarray):\n    # TODO: Ekstrak kontur eksternal, hitung area, perimeter, circularity\n    pass\n",
+    "solution": "import cv2, numpy as np\n\ndef measure_contours_circularity(binary_mask: np.ndarray):\n    contours, _ = cv2.findContours(binary_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)\n    results = []\n    for cnt in contours:\n        area = cv2.contourArea(cnt)\n        perim = cv2.arcLength(cnt, True)\n        circ = (4.0 * np.pi * area / (perim ** 2)) if perim > 0 else 0.0\n        results.append({'area': area, 'perimeter': perim, 'circularity': circ})\n    return results\n"
+  }
+]
+

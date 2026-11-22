@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-23-01",
+    "title": "Arsitektur Pengenalan Wicara (ASR) & Metrik Evaluasi WER",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-23-asr-pipeline-wer.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-23-02",
+    "title": "Arsitektur Sintesis Suara Text-to-Speech (TTS)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-23-tts-synthesis-architecture.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

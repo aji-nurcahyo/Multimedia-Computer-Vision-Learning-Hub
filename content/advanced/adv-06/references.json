@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-adv06-01",
+    "title": "Single Image Haze Removal Using Dark Channel Prior",
+    "authors": "Kaiming He, Jian Sun, Xiaoou Tang",
+    "year": 2011,
+    "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+    "url": "https://ieeexplore.ieee.org/document/5567108",
+    "type": "Journal Article",
+    "annotation": "The seminal paper on single-image dehazing introducing the Dark Channel Prior for transmission map estimation without paired ground truth."
+  },
+  {
+    "id": "ref-adv06-02",
+    "title": "On Calibration of Modern Neural Networks",
+    "authors": "Chuan Guo, Geoff Pleiss, Yu Sun, Kilian Q. Weinberger",
+    "year": 2017,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://arxiv.org/abs/1706.04599",
+    "type": "Conference Paper",
+    "annotation": "Foundational paper defining Expected Calibration Error (ECE) and demonstrating that modern deep networks are severely miscalibrated and overconfident."
+  },
+  {
+    "id": "ref-adv06-03",
+    "title": "Benchmarking Single-Image Dehazing and Beyond",
+    "authors": "Boyi Li, Wenqi Ren, Dengpan Fu, Dacheng Tao, Dan Feng, Wenjun Zeng, Zhangyang Wang",
+    "year": 2018,
+    "publisher": "IEEE Transactions on Image Processing (TIP)",
+    "url": "https://ieeexplore.ieee.org/document/8451944",
+    "type": "Journal Article",
+    "annotation": "Introduces the comprehensive RESIDE benchmark dataset containing synthetic and real-world hazy scenes with standardized PSNR/SSIM evaluation protocols."
+  },
+  {
+    "id": "ref-adv06-04",
+    "title": "Benchmarking Neural Network Robustness to Common Corruptions and Perturbations",
+    "authors": "Dan Hendrycks, Thomas Dietterich",
+    "year": 2019,
+    "publisher": "International Conference on Learning Representations (ICLR)",
+    "url": "https://arxiv.org/abs/1903.12261",
+    "type": "Conference Paper",
+    "annotation": "Establishes ImageNet-C and Mean Corruption Error (mCE) across 15 real-world noise, blur, weather, and digital corruption types."
+  }
+]
+

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+
+  <!-- Header Banner -->
+  <rect x="30" y="25" width="740" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="52" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold">Struktur Multichannel Audio & Kalkulasi Bitrate</text>
+  <text x="50" y="72" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">Chapter 17: Bitrate = Sample Rate * Bit Depth * Jumlah Channel | Multimedia &amp; Computer Vision Hub - ITERA</text>
+
+  <!-- Main Graphical Content -->
+  
+      <g transform="translate(70, 120)">
+        <rect width="310" height="260" rx="8" fill="#090d16" stroke="#38bdf8" stroke-width="1" />
+        <text x="155" y="35" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="bold">Interleaved Stereo Frame (L/R)</text>
+        <g transform="translate(25, 60)">
+          <rect x="0" y="0" width="120" height="40" rx="4" fill="#0284c7" />
+          <text x="60" y="25" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">Ch 1: Left</text>
+          <rect x="130" y="0" width="120" height="40" rx="4" fill="#10b981" />
+          <text x="190" y="25" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">Ch 2: Right</text>
+        </g>
+        <g transform="translate(25, 120)">
+          <rect x="0" y="0" width="120" height="40" rx="4" fill="#0284c7" />
+          <text x="60" y="25" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">Ch 1: Left</text>
+          <rect x="130" y="0" width="120" height="40" rx="4" fill="#10b981" />
+          <text x="190" y="25" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="11" font-weight="bold">Ch 2: Right</text>
+        </g>
+        <text x="155" y="215" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="11">Format Interleaved Standar RIFF WAV</text>
+      </g>
+      <g transform="translate(420, 120)">
+        <rect width="310" height="260" rx="8" fill="#090d16" stroke="#f59e0b" stroke-width="1" />
+        <text x="155" y="35" text-anchor="middle" fill="#fbbf24" font-family="sans-serif" font-size="13" font-weight="bold">Perhitungan Bandwidth CD Audio</text>
+        <text x="30" y="80" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Sample Rate: 44,100 Hz</text>
+        <text x="30" y="115" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Bit Depth: 16-bit (2 byte)</text>
+        <text x="30" y="150" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Channels: 2 (Stereo)</text>
+        <rect x="25" y="180" width="260" height="50" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1" />
+        <text x="155" y="210" text-anchor="middle" fill="#fcd34d" font-family="monospace" font-size="14" font-weight="bold">1,411.2 kbps (176.4 kB/s)</text>
+      </g>
+    
+
+  <!-- Footer Watermark -->
+  <text x="400" y="432" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Institut Teknologi Sumatera (ITERA) • Created by Aji Pamungkas Tri Nurcahyo • CC-BY-4.0</text>
+</svg>

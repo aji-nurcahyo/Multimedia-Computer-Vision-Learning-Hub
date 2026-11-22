@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q04-01",
+    "question": "Mengapa pengembang perangkat lunak multimedia sangat disarankan menggunakan Virtual Environment (venv) daripada menginstal paket langsung secara global?",
+    "options": [
+      "Untuk mengisolasi dependensi antar-proyek sehingga mencegah konflik versi (dependency conflicts) dan tidak merusak interpreter Python bawaan sistem operasi",
+      "Karena virtual environment membuat kecepatan CPU menjadi dua kali lebih cepat",
+      "Karena Python tidak dapat dijalankan di terminal tanpa virtual environment",
+      "Untuk menghapus seluruh file sementara di hard drive secara otomatis"
+    ],
+    "correctIndex": 0,
+    "explanation": "Virtual environment mengisolasi paket site-packages untuk proyek tertentu sehingga proyek yang membutuhkan pustaka berbeda tidak saling menimpa atau memicu konflik versi (dependency hell)."
+  },
+  {
+    "id": "q04-02",
+    "question": "Perintah PowerShell apakah yang digunakan untuk mengaktifkan virtual environment bernama .venv pada sistem operasi Windows?",
+    "options": [
+      ".venv\\Scripts\\Activate.ps1",
+      "source .venv/bin/activate",
+      "python start .venv",
+      "activate .venv --run"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada Windows PowerShell, skrip aktivasi berada di dalam folder .venv\\Scripts\\Activate.ps1 (sedangkan 'source .venv/bin/activate' digunakan pada Linux dan macOS)."
+  },
+  {
+    "id": "q04-03",
+    "question": "Jika Anda men-deploy pipeline Computer Vision pada server cloud tanpa monitor grafis (Docker / headless server), varian paket OpenCV manakah yang paling direkomendasikan?",
+    "options": [
+      "opencv-python-headless",
+      "opencv-python-gui-full",
+      "opencv-desktop-standalone",
+      "cv2-full-graphics"
+    ],
+    "correctIndex": 0,
+    "explanation": "Paket opencv-python-headless menghilangkan dependensi pustaka GUI X11, Wayland, dan Qt sehingga mencegah error 'libGL.so cannot open shared object' pada lingkungan server/container tanpa antarmuka layar."
+  },
+  {
+    "id": "q04-04",
+    "question": "Perintah pip apakah yang digunakan untuk mencatat dan membekukan seluruh versi paket yang terpasang pada virtual environment ke dalam berkas requirements.txt?",
+    "options": [
+      "pip freeze > requirements.txt",
+      "pip export all --save",
+      "pip save requirements.txt",
+      "python -m pip lock"
+    ],
+    "correctIndex": 0,
+    "explanation": "Perintah 'pip freeze > requirements.txt' membaca seluruh pustaka yang terpasang pada lingkungan aktif beserta nomor versinya secara eksak dan menyimpannya ke berkas teks."
+  },
+  {
+    "id": "q04-05",
+    "question": "Apa penyebab paling umum pesan error 'ImportError: DLL load failed while importing cv2' saat mengimpor OpenCV di Windows?",
+    "options": [
+      "Belum terpasangnya pustaka runtime Microsoft Visual C++ Redistributable (x64) pada sistem operasi",
+      "Resolusi monitor komputer terlalu rendah",
+      "Folder instalasi Python belum diubah namanya menjadi OpenCV",
+      "Komputer tidak terhubung ke jaringan internet"
+    ],
+    "correctIndex": 0,
+    "explanation": "OpenCV dibangun menggunakan bahasa C++ yang membutuhkan modul pustaka dinamis (DLL) dari Microsoft Visual C++ Redistributable. Jika paket ini belum terpasang di Windows, modul C++ tidak dapat dimuat oleh interpreter Python."
+  }
+]

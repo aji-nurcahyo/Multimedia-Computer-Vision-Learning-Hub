@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv07-01",
+    "question": "Mengapa inisialisasi bobot matriks B pada adaptasi LoRA (W = W0 + (alpha/r) * B * A) harus bernilai nol (B = 0) pada awal pelatihan?",
+    "options": [
+      "Agar determinan matriks bobot selalu bernilai positif",
+      "Agar pada langkah iterasi pertama (t = 0), nilai delta W = (alpha/r) * B * A bernilai nol, sehingga keluaran model teradaptasi identik 100% dengan model dasar pretrained sebelum pelatihan",
+      "Untuk mencegah terjadinya pembagian dengan angka nol pada fungsi Softmax",
+      "Karena algoritma AdamW hanya dapat memproses matriks sparse"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dengan menginisialisasi B = 0 dan A dengan distribusi Gaussian, perkalian delta W = B * A bernilai nol tepat pada awal pelatihan. Ini menjamin bahwa proses adaptasi dimulai secara stabil dari kapabilitas representasi optimal model dasar pretrained tanpa lonjakan galat awal."
+  },
+  {
+    "id": "quiz-adv07-02",
+    "question": "Bagaimana pengaruh parameter temperatur tau pada fungsi loss InfoNCE dalam pembelajaran representasi multimodal CLIP?",
+    "options": [
+      "Temperatur yang terlalu tinggi (tau >> 1) membuat distribusi probabilitas menjadi seragam (under-confident), sedangkan temperatur yang terlalu rendah (tau << 0.01) membuat loss sangat sensitif terhadap pasangan negatif terdekat dan memicu vanishing gradients",
+      "Temperatur hanya mempengaruhi kecepatan kipas pendingin GPU",
+      "Temperatur bernilai negatif untuk membalikkan arah gradien",
+      "Temperatur mengubah dimensi ruang embedding visual"
+    ],
+    "correctIndex": 0,
+    "explanation": "Temperatur mengontrol kekerasan (hardness) distribusi softmax di atas bola satuan. Temperatur kecil memusatkan atensi hanya pada pasangan negatif tersulit (hard negatives), namun bila terlalu kecil menyebabkan gradien meledak/saturasi. Nilai optimal biasanya dipelajari secara dinamis (sekitar tau ~ 0.07)."
+  },
+  {
+    "id": "quiz-adv07-03",
+    "question": "Mengapa representasi visual mandiri DINOv2 sangat istimewa untuk tugas segmentasi tanpa supervisi dibandingkan representasi terawasi (supervised)?",
+    "options": [
+      "Karena DINOv2 tidak menggunakan arsitektur Vision Transformer",
+      "Karena metode self-distillation tanpa label pada DINOv2 memunculkan sifat semantik emergensi (emergent semantic segmentation) di mana token patch secara alami membentuk klaster objek yang koheren tanpa pernah dilatih dengan anotasi piksel",
+      "Karena DINOv2 membutuhkan lebih sedikit komputasi daripada CNN LeNet-5",
+      "Karena DINOv2 menghapus seluruh layer atensi"
+    ],
+    "correctIndex": 1,
+    "explanation": "Oquab et al. (2023) menunjukkan bahwa pembelajaran mandiri DINOv2 melalui self-distillation dengan penalti ko-segmentasi memicu representasi semantik emergensi, di mana vektor patch memiliki kemiripan kosinus tinggi untuk bagian objek yang serupa bahkan tanpa anotasi manusia."
+  }
+]
+

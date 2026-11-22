@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="380" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 12 · BILATERAL &amp; NON-LOCAL MEANS DENOISING</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Penapis Pelestari Tepi: Bilateral Filter vs Non-Local Means vs Wiener</text>
+
+  <g transform="translate(50, 125)">
+    <rect width="275" height="175" rx="10" fill="#1e293b" stroke="#38bdf8" />
+    <text x="20" y="32" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="15" font-weight="700">1. Bilateral Filter</text>
+    <text x="20" y="62" fill="#e2e8f0" font-family="monospace" font-size="11">w = G_space(‖p-q‖) · G_range(|I_p-I_q|)</text>
+    <text x="20" y="96" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Menolak piksel tetangga yang beda</text>
+    <text x="20" y="116" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">intensitas tajam → Tepi tetap tajam!</text>
+    <text x="20" y="150" fill="#34d399" font-family="monospace" font-size="11">cv2.bilateralFilter(img, d, σc, σs)</text>
+  </g>
+
+  <g transform="translate(345, 125)">
+    <rect width="275" height="175" rx="10" fill="#1e293b" stroke="#34d399" />
+    <text x="20" y="32" fill="#34d399" font-family="system-ui, sans-serif" font-size="15" font-weight="700">2. Non-Local Means (NLM)</text>
+    <text x="20" y="62" fill="#e2e8f0" font-family="monospace" font-size="11">w(p,q) = exp(-‖Patch(p)-Patch(q)‖² / h²)</text>
+    <text x="20" y="96" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Memanfaatkan pengulangan tekstur</text>
+    <text x="20" y="116" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">di seluruh area jendela pencarian.</text>
+    <text x="20" y="150" fill="#34d399" font-family="monospace" font-size="11">cv2.fastNlMeansDenoising()</text>
+  </g>
+
+  <g transform="translate(640, 125)">
+    <rect width="275" height="175" rx="10" fill="#1e293b" stroke="#f59e0b" />
+    <text x="20" y="32" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="15" font-weight="700">3. Wiener Filter (MMSE)</text>
+    <text x="20" y="62" fill="#e2e8f0" font-family="monospace" font-size="11">W(u,v) = H* / (|H|² + S_nn / S_ff)</text>
+    <text x="20" y="96" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Menyeimbangkan dekonvolusi invers</text>
+    <text x="20" y="116" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">dan supresi penguatan noise SNR.</text>
+    <text x="20" y="150" fill="#fde68a" font-family="monospace" font-size="11">Minimum Mean Square Error</text>
+  </g>
+  <text x="924" y="344" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

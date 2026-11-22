@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q02-01",
+    "question": "Sebuah sinyal audio wicara manusia memiliki rentang frekuensi maksimum f_max = 4.000 Hz. Berapakah frekuensi sampling minimum (Nyquist Rate) yang dibutuhkan agar sinyal dapat direkonstruksi tanpa aliasing?",
+    "options": [
+      "8.000 Hz (sampel per detik)",
+      "4.000 Hz (sampel per detik)",
+      "16.000 Hz (sampel per detik)",
+      "2.000 Hz (sampel per detik)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Berdasarkan Teorema Sampling Nyquist-Shannon, laju cuplik minimum fs >= 2 * f_max = 2 * 4.000 Hz = 8.000 Hz (inilah alasan mengapa standar telepon digital narrowband menggunakan sampling 8 kHz)."
+  },
+  {
+    "id": "q02-02",
+    "question": "Jika sebuah sinyal sinusoidal murni berfrekuensi 700 Hz dicuplik pada frekuensi sampling fs = 1.000 Hz, berapakah frekuensi semu (aliased apparent frequency) yang akan terdengar pada hasil rekonstruksi?",
+    "options": [
+      "300 Hz",
+      "700 Hz",
+      "500 Hz",
+      "1.700 Hz"
+    ],
+    "correctIndex": 0,
+    "explanation": "Frekuensi Nyquist adalah fs/2 = 500 Hz. Karena 700 Hz > 500 Hz, terjadi aliasing. Frekuensi lipat yang timbul dihitung dengan f_alias = |f - fs| = |700 - 1000| = 300 Hz."
+  },
+  {
+    "id": "q02-03",
+    "question": "Jika kedalaman bit kuantisasi (bit depth) dinaikkan sebesar 3 bit (misalnya dari 8 bit ke 11 bit), berapakah perkiraan kenaikan rasio Signal-to-Quantization-Noise Ratio (SQNR) secara teoritis?",
+    "options": [
+      "Sekitar 18.06 dB",
+      "Sekitar 6.02 dB",
+      "Sekitar 3 dB",
+      "Sekitar 30 dB"
+    ],
+    "correctIndex": 0,
+    "explanation": "Berdasarkan aturan 6 dB per bit (SQNR approx 6.02 * b + 1.76 dB), setiap kenaikan 1 bit meningkatkan SQNR sebesar ~6.02 dB. Untuk kenaikan 3 bit, peningkatan SQNR adalah 3 * 6.02 dB = 18.06 dB."
+  },
+  {
+    "id": "q02-04",
+    "question": "Berapakah nilai variansi daya derau kuantisasi ideal (sigma_e^2) untuk kuantiser seragam dengan ukuran langkah delta?",
+    "options": [
+      "delta^2 / 12",
+      "delta / 2",
+      "delta^2 / 4",
+      "delta^2 / 6"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dengan asumsi galat kuantisasi berdistribusi seragam kontinu pada interval [-delta/2, +delta/2], integral nilai ekspektasi E[e^2] menghasilkan variansi sigma_e^2 = delta^2 / 12."
+  },
+  {
+    "id": "q02-05",
+    "question": "Fungsi interpolasi matematis apakah yang digunakan dalam formula Whittaker-Shannon untuk merekonstruksi sinyal kontinu ideal dari deretan sampel diskrit?",
+    "options": [
+      "Fungsi sinc: sinc(u) = sin(pi * u) / (pi * u)",
+      "Fungsi polinomial kuadratik",
+      "Fungsi eksponensial murni exp(u)",
+      "Fungsi sigmoid"
+    ],
+    "correctIndex": 0,
+    "explanation": "Formula interpolasi Whittaker-Shannon menggunakan fungsi sinc terbobot x(t) = sum x[n] * sinc((t - n*Ts)/Ts), yang merupakan respon impuls dari filter lolos-rendah ideal (ideal brick-wall lowpass filter)."
+  }
+]

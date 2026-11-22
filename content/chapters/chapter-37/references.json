@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-37-1",
+    "title": "Distinctive Image Features from Scale-Invariant Keypoints (SIFT)",
+    "authors": "David G. Lowe",
+    "year": 2004,
+    "publisher": "International Journal of Computer Vision (IJCV), 60(2), 91-110",
+    "url": "https://doi.org/10.1023/B:VISI.0000029664.99615.94",
+    "annotation": "Makalah kanonikal paling berpengaruh dalam visi komputer yang memperkenalkan detektor Difference-of-Gaussians, orientasi kanonikal, deskriptor 128D invarian skala, dan Lowe's Ratio Test."
+  },
+  {
+    "id": "ref-37-2",
+    "title": "ORB: An Efficient Alternative to SIFT or SURF",
+    "authors": "Ethan Rublee, Vincent Rabaud, Kurt Konolige, Gary Bradski",
+    "year": 2011,
+    "publisher": "IEEE International Conference on Computer Vision (ICCV), 2564-2571",
+    "url": "https://doi.org/10.1109/ICCV.2011.6126544",
+    "annotation": "Memperkenalkan Oriented FAST and Rotated BRIEF, deskriptor biner 256-bit bebas paten berkecepatan komputasi hingga ratusan kali lebih cepat dibandingkan SIFT untuk edge computing."
+  },
+  {
+    "id": "ref-37-3",
+    "title": "Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis",
+    "authors": "Martin A. Fischler, Robert C. Bolles",
+    "year": 1981,
+    "publisher": "Communications of the ACM, 24(6), 381-395",
+    "url": "https://doi.org/10.1145/358669.358692",
+    "annotation": "Makalah dasar penemu algoritma RANSAC, metodologi estimasi parameter model matematis yang tangguh terhadap keberadaan data pencilan (outliers) ekstrem."
+  },
+  {
+    "id": "ref-37-4",
+    "title": "A Combined Corner and Edge Detector",
+    "authors": "Chris Harris, Mike Stephens",
+    "year": 1988,
+    "publisher": "Proceedings of the 4th Alvey Vision Conference, 147-151",
+    "url": "http://www.bmva.org/bmvc/1988/avc-88-023.pdf",
+    "annotation": "Formulasi dasar fungsi respon sudut Harris berbasis autokorelasi lokal dan penghindaran komputasi eigenvalue langsung."
+  }
+]

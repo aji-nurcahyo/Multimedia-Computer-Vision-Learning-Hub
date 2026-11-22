@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ex-59-1",
+    "title": "Verifikasi Skrip Profiling Latensi & Hukum Amdahl",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip `examples/example-01.py` dan verifikasi perhitungan latensi total 13.0 ms, sisa headroom +3.67 ms, percepatan Amdahl 1.8571x, serta ukuran bundel statis 66.0 KB tervalidasi 100%.",
+    "solution": "# Eksekusi pengujian mandiri:\npython content/chapters/chapter-59/examples/example-01.py"
+  },
+  {
+    "id": "ex-59-2",
+    "title": "Eksperimen Optimasi Multitarget Hukum Amdahl",
+    "difficulty": "advanced",
+    "instruction": "Misalkan sistem memiliki dua tahapan lambat: Inferensi (p1 = 0.50, dipercepat s1 = 3.0x) dan Prapemrosesan (p2 = 0.30, dipercepat s2 = 2.0x). Turunkan formula Hukum Amdahl untuk banyak tahapan dan hitung percepatan keseluruhan sistem.",
+    "solution": "# Rumus ekstensi multi-stage Amdahl: S_overall = 1 / [ (1 - sum(p_i)) + sum(p_i / s_i) ].\n# Dengan p_sisa = 1 - 0.50 - 0.30 = 0.20.\n# Penyebut = 0.20 + (0.50 / 3) + (0.30 / 2) = 0.20 + 0.1667 + 0.15 = 0.5167.\n# S_overall = 1 / 0.5167 ≈ 1.935x."
+  }
+]
+

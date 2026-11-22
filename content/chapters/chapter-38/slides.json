@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 38: Camera Calibration & Perspective Transformation",
+    "content": "Multimedia & Computer Vision Learning Hub\n\nInstitut Teknologi Sumatera (ITERA)\nAuthor: Aji Pamungkas Tri Nurcahyo\nTopik Utama: Model Kamera Pinhole, Matriks Intrinsik K, Ekstrinsik [R|t], Distorsi Lensa Brown, dan Metode Zhang.",
+    "diagram": null,
+    "notes": "Slide pembuka: Tekankan pentingnya kalibrasi kamera sebagai jembatan matematis antara piksel 2D pada citra dengan jarak metrik nyata di dunia 3D."
+  },
+  {
+    "id": "slide-2",
+    "title": "Model Kamera Lubang Jarum (Pinhole Camera)",
+    "content": "- Proyeksi Berkas Sinar 3D -> 2D melewati pusat optik kamera C.\n- Persamaan Proyeksi Penuh: lambda * [u, v, 1]^T = P * [Xw, Yw, Zw, 1]^T\n- Matriks Proyeksi Kamera P = K * [R | t] (berukuran 3x4, 11 Derajat Kebebasan).\n- Parameter lambda merepresentasikan skala kedalaman metrik Zc.",
+    "diagram": "/media/diagrams/chapter-38-pinhole-camera-model.svg",
+    "notes": "Jelaskan Gambar 38.1 dan tunjukkan urutan transformasi dari koordinat dunia, koordinat kamera 3D, hingga bidang fokal sensor piksel."
+  },
+  {
+    "id": "slide-3",
+    "title": "Matriks Parameter Intrinsik K",
+    "content": "K = [fx, s, cx; 0, fy, cy; 0, 0, 1]\n\n- fx, fy: Panjang fokus kamera dalam satuan piksel (fx = f * mx, fy = f * my).\n- (cx, cy): Titik utama pusat optik (principal point), idealnya di tengah sensor (W/2, H/2).\n- s: Parameter kemiringan sensor (skew), s ~ 0 pada sensor kamera digital modern.",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana fisis ukuran piksel sensor kamera menentukan nilai fx dan fy dalam satuan piksel digital."
+  },
+  {
+    "id": "slide-4",
+    "title": "Matriks Parameter Ekstrinsik [R | t]",
+    "content": "Transformasi Rigid 3D Dunia -> Kamera:\nXc = R * Xw + t\n\n- R in SO(3): Matriks rotasi ortogonal 3x3 (3 DoF: yaw, pitch, roll).\n- t in R^3: Vektor translasi posisi 3D kamera terhadap origin dunia (3 DoF).\n- Ekstrinsik berubah setiap kali kamera bergerak atau diposisikan ulang.",
+    "diagram": null,
+    "notes": "Tekankan perbedaan prinsip: intrinsik konstan selama optik tidak diubah; ekstrinsik dinamis mengikuti gerak wahana."
+  },
+  {
+    "id": "slide-5",
+    "title": "Distorsi Lensa Optik (Model Brown-Conrady)",
+    "content": "Penyimpangan Berkas Cahaya Akibat Kelengkungan Lensa Fisik:\n1. Distorsi Radial (k1, k2, k3):\n   x_rad = x * (1 + k1*r^2 + k2*r^4 + k3*r^6)\n   * k1 < 0: Barrel distortion (lensa sudut lebar/fisheye)\n   * k1 > 0: Pincushion distortion (lensa telefoto)\n2. Distorsi Tangensial (p1, p2):\n   x_tan = 2*p1*x*y + p2*(r^2 + 2*x^2)",
+    "diagram": "/media/diagrams/chapter-38-radial-tangential-distortion.svg",
+    "notes": "Bahas Gambar 38.2: tunjukkan garis lurus yang tampak melengkung akibat distorsi barrel dan perlunya proses undistortion."
+  },
+  {
+    "id": "slide-6",
+    "title": "Metode Kalibrasi Bidang Datar Zhang (2000)",
+    "content": "- Keunggulan: Hanya memerlukan papan catur 2D yang difoto dari >= 3 orientasi berbeda.\n- Dengan menetapkan Zw = 0, proyeksi tereduksi menjadi homografi H = lambda * K * [r1, r2, t].\n- Memanfaatkan kendala ortonormal vektor rotasi: r1^T * r2 = 0 dan ||r1|| = ||r2|| = 1.\n- Menghasilkan 2 persamaan linear per citra terhadap matriks simetris B = K^-T * K^-1.",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana metode Zhang mengeliminasi kebutuhan alat kalibrasi 3D khusus yang mahal dan rumit."
+  },
+  {
+    "id": "slide-7",
+    "title": "Estimasi Tertutup & Optimasi Non-Linear Levenberg-Marquardt",
+    "content": "1. Solusi Analitis Tertutup: SVD dan faktorisasi Cholesky mengekstrak estimasi awal K.\n2. Ekstraksi Ekstrinsik: r1, r2, r3 = r1 x r2, dan t dihitung per citra.\n3. Optimasi Non-Linear (LM): Meminimalkan jumlah kuadrat galat reproyeksi dari seluruh titik dan seluruh sudut pandang citra.",
+    "diagram": null,
+    "notes": "Bahas peranan Levenberg-Marquardt dalam menghaluskan estimasi awal yang dipengaruhi derau deteksi titik sudut."
+  },
+  {
+    "id": "slide-8",
+    "title": "Evaluasi Kalibrasi: Mean Reprojection Error (MRE)",
+    "content": "RMSE = sqrt( (1/N) * sum || x_terukur - project(X_3D, K, D, R, t) ||^2 )\n\n- Standar Kualitas Kalibrasi:\n  * MRE < 0.5 piksel: Sangat Baik (Presisi Tinggi)\n  * 0.5 - 1.0 piksel: Cukup (Dapat Digunakan)\n  * > 1.0 piksel: Buruk (Wajib Diulang karena ada outlier deteksi)",
+    "diagram": null,
+    "notes": "Tekankan bahwa MRE diukur dalam satuan piksel dan menjadi metrik utama penerimaan kalibrasi pada industri otomotif."
+  },
+  {
+    "id": "slide-9",
+    "title": "Inverse Perspective Mapping (Bird's Eye View)",
+    "content": "Aplikasi ADAS & Kendaraan Otonom:\n- Menghilangkan efek distorsi perspektif jalan raya (garis marka jalan yang konvergen di horizon diproyeksikan menjadi sejajar paralel).\n- Dihitung menggunakan homografi 4-titik korespondensi antara bidang jalan nyata dengan bidang tampak atas (BEV).\n- Memungkinkan pengukuran jarak metrik antar kendaraan secara langsung.",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana IPM mengubah perspektif kamera dashboard mobil menjadi pandangan tampak atas helikopter."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Keterkaitan Bab",
+    "content": "1. Matriks K dan koefisien distorsi D adalah identitas optik kamera yang wajib diketahui.\n2. Kalibrasi yang presisi adalah fondasi mutlak untuk Bab 39 (Stereo Vision & Depth Estimation).\n3. Bab berikutnya: Menggunakan pasangan kamera terkalibrasi untuk mengestimasi kedalaman 3D lingkungan secara metrik.",
+    "diagram": null,
+    "notes": "Tutup dengan mengaitkan kalibrasi kamera menuju stereo vision dan estimasi disparitas pada Bab 39."
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-07-01",
+    "title": "Latihan 1: Implementasi Manual Konversi RGB ke HSV",
+    "difficulty": "intermediate",
+    "instruction": "Tulis fungsi Python yang menerima nilai (r, g, b) dalam rentang [0..255] dan mengembalikan (h_deg, s, v) secara analitis, lalu bandingkan akurasinya dengan cv2.cvtColor untuk piksel berwarna murni dan netral.",
+    "starterCode": "import numpy as np\n\ndef pixel_rgb_to_hsv(r: int, g: int, b: int):\n    # TODO: Implementasikan rumus RGB -> HSV ternormalisasi\n    pass\n",
+    "solution": "import numpy as np\n\ndef pixel_rgb_to_hsv(r: int, g: int, b: int):\n    rn, gn, bn = r / 255.0, g / 255.0, b / 255.0\n    cmax = max(rn, gn, bn)\n    cmin = min(rn, gn, bn)\n    delta = cmax - cmin\n    h = 0.0\n    if delta > 1e-8:\n        if cmax == rn:\n            h = 60.0 * (((gn - bn) / delta) % 6)\n        elif cmax == gn:\n            h = 60.0 * (((bn - rn) / delta) + 2)\n        else:\n            h = 60.0 * (((rn - gn) / delta) + 4)\n    s = 0.0 if cmax == 0 else delta / cmax\n    return h, s, cmax\n"
+  },
+  {
+    "id": "ex-07-02",
+    "title": "Latihan 2: Segmentasi Dua Rentang Hue untuk Objek Merah di HSV OpenCV",
+    "difficulty": "intermediate",
+    "instruction": "Karena rona warna merah pada roda Hue terbelah di sekitar batas 0°/360° (H_cv 0..10 dan 170..179), gabungkan dua operasi cv2.inRange dengan cv2.bitwise_or untuk menyegmentasikan piksel merah.",
+    "starterCode": "import cv2, numpy as np\n\ndef segment_red_hsv(img_rgb: np.ndarray) -> np.ndarray:\n    # TODO: Konversi ke HSV dan gabungkan mask bawah + mask atas\n    pass\n",
+    "solution": "import cv2, numpy as np\n\ndef segment_red_hsv(img_rgb: np.ndarray) -> np.ndarray:\n    hsv = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2HSV)\n    mask1 = cv2.inRange(hsv, np.array([0, 70, 50]), np.array([10, 255, 255]))\n    mask2 = cv2.inRange(hsv, np.array([170, 70, 50]), np.array([179, 255, 255]))\n    return cv2.bitwise_or(mask1, mask2)\n"
+  }
+]
+

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-49-1",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "authors": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever",
+    "year": 2021,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v139/radford21a.html",
+    "annotation": "Makalah pengenal model fondasi CLIP yang memelopori pra-pelatihan kontrastif multimodal citra-teks dan klasifikasi zero-shot berskala masif."
+  },
+  {
+    "id": "ref-49-2",
+    "title": "Masked Autoencoders Are Scalable Vision Learners",
+    "authors": "Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, Ross Girshick",
+    "year": 2022,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR52688.2022.01553",
+    "annotation": "Karya penting dalam pemodelan citra bermasker (MIM) menggunakan arsitektur ViT asimetris dan masking rasio tinggi 75% untuk pra-pelatihan representasi visual mandiri."
+  },
+  {
+    "id": "ref-49-3",
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "authors": "Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V. Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Russell Howes, Po-Yao Huang, Hu Xu, Vasu Sharma, Shang-Wen Li, Jaemin Cho, Mido Assran, Nicolas Ballas, Gabriel Synnaeve, Mark Tygert, Armand Joulin, Michael Rabbat, Hervé Jégou, Julien Mairal, Patrick Labatut, Armand Joulin, Piotr Bojanowski",
+    "year": 2023,
+    "publisher": "Transactions on Machine Learning Research (TMLR) / arXiv:2304.07193",
+    "url": "https://arxiv.org/abs/2304.07193",
+    "annotation": "Evolusi model distilasi mandiri tanpa label skala besar yang menghasilkan representasi fitur visual tingkat tinggi untuk segmentasi dense dan klasifikasi beku."
+  },
+  {
+    "id": "ref-49-4",
+    "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+    "authors": "Ting Chen, Simon Kornblith, Mohammad Norouzi, Geoffrey Hinton",
+    "year": 2020,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v119/chen20j.html",
+    "annotation": "Arsitektur SimCLR yang mendefinisikan standar modern augmentasi data visual terpadu, proyeksi non-linier, dan optimasi fungsi rugi InfoNCE."
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-adv06-01",
+    "title": "Perhitungan Inversi Transmisi Koschmieder",
+    "difficulty": "intermediate",
+    "instruction": "Hitung radiansi asli J jika piksel teramati I = 170, airlight A = 220, koefisien beta = 0.4, dan kedalaman d = 2.5 km.",
+    "starterCode": "# 1. Hitung transmisi t = exp(-beta * d)\n# 2. Inversikan: J = (I - A) / t + A\n# Berikan nilai numerik J.",
+    "solution": "# 1. beta * d = 0.4 * 2.5 = 1.0\n# 2. t = exp(-1.0) ~ 0.36788\n# 3. I - A = 170 - 220 = -50.0\n# 4. J = (-50.0 / 0.36788) + 220 = -135.91 + 220 = 84.09\n# Radiansi asli adalah J ~ 84.1"
+  },
+  {
+    "id": "ex-adv06-02",
+    "title": "Implementasi Temperature Scaling Post-Processing",
+    "difficulty": "advanced",
+    "instruction": "Tuliskan fungsi Python temperature_scaling(logits, T) yang menerapkan normalisasi temperatur pada matriks logit (N x C) dan mengembalikan probabilitas softmax yang telah terkalibrasi.",
+    "starterCode": "import numpy as np\n\ndef temperature_scaling(logits: np.ndarray, T: float = 1.5) -> np.ndarray:\n    \"\"\"\n    Mengembalikan probabilitas softmax terkalibrasi dari logits (N x C).\n    \"\"\"\n    pass",
+    "solution": "import numpy as np\n\ndef temperature_scaling(logits: np.ndarray, T: float = 1.5) -> np.ndarray:\n    scaled_logits = logits / T\n    # Numerically stable softmax: subtract max per row\n    exp_logits = np.exp(scaled_logits - np.max(scaled_logits, axis=1, keepdims=True))\n    probs = exp_logits / np.sum(exp_logits, axis=1, keepdims=True)\n    return probs"
+  }
+]
+

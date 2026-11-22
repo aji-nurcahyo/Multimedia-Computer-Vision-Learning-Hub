@@ -1,0 +1,23 @@
+[
+  {
+    "id": "diagram-59-1",
+    "title": "Dekomposisi Latensi & Analisis Hukum Amdahl",
+    "path": "/media/diagrams/chapter-59-performance-profiling-bottlenecks.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-59-2",
+    "title": "Pipeline Optimasi Bundel Web & Distribusi Statis Edge",
+    "path": "/media/diagrams/chapter-59-static-deployment-optimization.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]
+

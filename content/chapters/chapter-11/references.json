@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ref-11-01",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson Education",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-image-processing/P200000003306",
+    "type": "book",
+    "annotation": "Bab 4 menyajikan teori lengkap 2D DFT, centering, teorema konvolusi, serta Ideal, Butterworth, dan Gaussian filtering."
+  },
+  {
+    "id": "ref-11-02",
+    "title": "An Algorithm for the Machine Calculation of Complex Fourier Series",
+    "authors": "James W. Cooley, John W. Tukey",
+    "year": 1965,
+    "publisher": "Mathematics of Computation",
+    "url": "https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/",
+    "type": "article",
+    "annotation": "Publikasi bersejarah algoritma Fast Fourier Transform (FFT) yang menurunkan kompleksitas ke O(N log N)."
+  },
+  {
+    "id": "ref-11-03",
+    "title": "Discrete Fourier Transform (numpy.fft) Documentation",
+    "authors": "NumPy Developers",
+    "year": 2024,
+    "publisher": "NumPy Project",
+    "url": "https://numpy.org/doc/stable/reference/routines.fft.html",
+    "type": "documentation",
+    "annotation": "Dokumentasi resmi rutin fft2, ifft2, fftshift, dan ifftshift dalam Python NumPy."
+  }
+]
+

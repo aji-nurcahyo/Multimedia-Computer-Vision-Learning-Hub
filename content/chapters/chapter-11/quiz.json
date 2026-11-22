@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-11-01",
+    "question": "Setelah menjalankan np.fft.fftshift(np.fft.fft2(img)), informasi fisis apakah yang direpresentasikan oleh piksel tepat di titik pusat spektrum (M/2, N/2)?",
+    "options": [
+      "Komponen DC (frekuensi nol) yang bernilai sebanding dengan total/rata-rata kecerahan seluruh citra",
+      "Frekuensi tepi vertikal tertinggi dalam gambar",
+      "Noise salt-and-pepper pada sudut gambar",
+      "Nilai perbedaan antara warna merah dan biru"
+    ],
+    "correctIndex": 0,
+    "explanation": "Titik pusat spektrum tergeser merepresentasikan u=0, v=0 (komponen DC), yaitu F(0,0) = sum(f(x,y)) = M * N * mean(f)."
+  },
+  {
+    "id": "q-11-02",
+    "question": "Mengapa Ideal Low-Pass Filter menghasilkan gelombang riak berulang (artifak Gibbs ringing) di sekitar tepi tajam objek?",
+    "options": [
+      "Karena batas fungsi kotak (step function) pada Ideal LPF berkorespondensi dengan fungsi sinc yang berosilasi negatif-positif di domain spasial",
+      "Karena citra dikonversi menjadi HSV terlebih dahulu",
+      "Karena ukuran gambar selalu genap",
+      "Karena komponen DC bernilai nol"
+    ],
+    "correctIndex": 0,
+    "explanation": "Transformasi balik Fourier dari fungsi cakram/persegi tajam di frekuensi adalah fungsi sinc/Jinc yang memiliki riak gelombang samping (sidelobes), sehingga saat berkonvolusi dengan tepi tajam akan mencetak riak."
+  },
+  {
+    "id": "q-11-03",
+    "question": "Berdasarkan Teorema Konvolusi 2D, operasi apakah di domain frekuensi yang ekuivalen dengan konvolusi spasial (f * h)(x, y)?",
+    "options": [
+      "Perkalian titik demi titik (element-wise multiplication) antara F(u, v) dan H(u, v)",
+      "Penjumlahan eksponensial antara F(u, v) dan H(u, v)",
+      "Pengurutan median di sekitar titik pusat spektrum",
+      "Pemisahan kuadran kiri dan kanan matriks citra"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sifat mendasar Fourier Transform mengubah operasi konvolusi integral/diskrit yang mahal di domain spasial menjadi perkalian element-wise F(u,v) * H(u,v) di domain frekuensi."
+  },
+  {
+    "id": "q-11-04",
+    "question": "Mengapa Gaussian Low-Pass Filter sepenuhnya bebas dari artifak Gibbs ringing?",
+    "options": [
+      "Karena transformasi Fourier dari sebuah fungsi Gaussian tetap berbentuk fungsi Gaussian yang selalu non-negatif tanpa osilasi",
+      "Karena Gaussian LPF membuang seluruh nilai frekuensi rendah",
+      "Karena filter Gaussian hanya berlaku pada citra biner",
+      "Karena filter Gaussian menggunakan orde Butterworth tak hingga"
+    ],
+    "correctIndex": 0,
+    "explanation": "Invers Fourier dari kurva Gaussian 2D juga merupakan kurva Gaussian mulus yang menurun monoton menuju nol tanpa riak berosilasi."
+  },
+  {
+    "id": "q-11-05",
+    "question": "Dalam Butterworth Low-Pass Filter H(u,v) = 1 / (1 + (D/D0)^(2n)), efek apakah yang terjadi jika kita memperbesar orde n dari n=1 menjadi n=10?",
+    "options": [
+      "Transisi pita filter menjadi jauh lebih curam mendekati Ideal LPF dan mulai memunculkan artifak ringing",
+      "Filter berubah menjadi High-Pass Filter secara otomatis",
+      "Citra menjadi 10 kali lebih terang",
+      "Waktu eksekusi FFT menjadi 100 kali lebih lambat"
+    ],
+    "correctIndex": 0,
+    "explanation": "Saat orde n menuju tak hingga, kurva transisi Butterworth menyempit tajam hingga menyerupai diskontinuitas Ideal Filter beserta efek ringing-nya."
+  }
+]
+

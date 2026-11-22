@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-55-1",
+    "title": "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference",
+    "authors": "Benoit Jacob, Skirmantas Kligys, Bo Chen, Menglong Zhu, Matthew Tang, Andrew Howard, Hartwig Adam, Dmitry Kalenichenko",
+    "year": 2018,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2018.00286",
+    "annotation": "Makalah dasar kuantisasi INT8 pasca-pelatihan dan quantization-aware training untuk mempercepat inferensi jaringan syaraf pada perangkat komputasi tepi (Edge AI)."
+  },
+  {
+    "id": "ref-55-2",
+    "title": "Designing Network Design Spaces (RegNet)",
+    "authors": "Ilija Radosavovic, Raj Prateek Kosaraju, Ross Girshick, Kaiming He, Piotr Dollár",
+    "year": 2020,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR42600.2020.01044",
+    "annotation": "Prinsip perancangan arsitektur jaringan visual ringan dan berkinerja tinggi yang teroptimasi untuk keseimbangan akurasi dan latensi inferensi."
+  },
+  {
+    "id": "ref-55-3",
+    "title": "A Generalist Agent (Gato)",
+    "authors": "Scott Reed, Konrad Zolna, Emilio Parisotto, Sergio Gomez Colmenarejo, Alexander Novikov, Gabriel Barth-Maron, Mai Gimenez, Yufeng Zou, Jost Tobias Springenberg, Firas Dunkley, Nimrod Ofir, Nando de Freitas",
+    "year": 2022,
+    "publisher": "Transactions on Machine Learning Research (TMLR) / DeepMind",
+    "url": "https://arxiv.org/abs/2205.06175",
+    "annotation": "Model fondasi multimodal terpadu yang memproses teks, citra penglihatan, dan tindakan motorik robotik dalam satu arsitektur Transformer terpadu (Embodied AI perspective)."
+  },
+  {
+    "id": "ref-55-4",
+    "title": "Multimodal Machine Learning: A Survey and Taxonomy",
+    "authors": "Tadas Baltrušaitis, Chaitanya Ahuja, Louis-Philippe Morency",
+    "year": 2019,
+    "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+    "url": "https://doi.org/10.1109/TPAMI.2018.2798607",
+    "annotation": "Tinjauan komprehensif mengenai tantangan praktis implementasi fusi multimodal, penanganan data hilang (missing data), dan ketidakpastian sensor."
+  }
+]

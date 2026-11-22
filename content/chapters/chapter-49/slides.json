@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 49: Self-Supervised & Foundation Vision Models",
+    "content": "Pembelajaran Representasi Visual Mandiri & Model Fondasi Multimodal Modern\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 49. Tekankan pergeseran paradigma dari pembelajaran terawasi berlabel mahal ke model fondasi swa-pantau yang mampu menggeneralisasi lintas ratusan tugas visual."
+  },
+  {
+    "id": "slide-2",
+    "title": "Arsitektur Kontrastif & Model Fondasi CLIP",
+    "content": "Pembelajaran Kontrastif Citra dan Teks:\\n- Image Encoder f_img & Text Encoder f_txt\\n- Batch N pasangan citra-teks -> Matriks Kesamaan N x N\\n- Pasangan diagonal: Positif (dimaksimalkan)\\n- Elemen non-diagonal: Negatif (diminimalkan)\\n- Fungsi rugi simetris Cross-Entropy dengan temperatur tau",
+    "diagram": "/media/diagrams/chapter-49-contrastive-learning-clip.svg",
+    "notes": "Jelaskan diagram arsitektur CLIP. Tunjukkan bagaimana citra dan deskripsi teks dipetakan ke dalam satu ruang representasi yang sama sehingga konsep semantik dapat dicocokkan."
+  },
+  {
+    "id": "slide-3",
+    "title": "Landasan Matematis: Fungsi Rugi InfoNCE",
+    "content": "Formulasi Rugi InfoNCE:\\nL_InfoNCE = -log [ exp(sim(q, k+) / tau) / ( exp(sim(q, k+) / tau) + sum_j exp(sim(q, k_j^-) / tau) ) ]\\n\\nProperti Matematika:\\n- sim(u, v) = u^T v pada vektor ternormalisasi L2\\n- Menjamin batas bawah mutual information I(q; k+) >= log(K+1) - L_InfoNCE\\n- Parameter temperatur tau mengendalikan sensitivitas margin hard negatives",
+    "diagram": null,
+    "notes": "Turunkan persamaan InfoNCE di papan tulis. Bandingkan dengan categorical cross-entropy di mana kunci positif bertindak sebagai kelas ground-truth target."
+  },
+  {
+    "id": "slide-4",
+    "title": "Peran Kritis Parameter Temperatur tau",
+    "content": "Pengaruh Suhu tau terhadap Dinamika Gradien:\\n- Gradien dL/d(s_j^-) = (1/tau) * P(j)\\n- tau Sangat Kecil (< 0.05):\\n  Sangat tajam, fokus ekstrim pada hard negatives terdekat, rawan ledakan gradien\\n- tau Terlalu Besar (> 0.5):\\n  Distribusi mendekati seragam (uniform), model gagal menangkap perbedaan semantik halus\\n- Rentang Empiris Optimal: tau in [0.07, 0.20]",
+    "diagram": null,
+    "notes": "Jelaskan analogi termodinamika: temperatur menentukan tingkat energi dalam eksplorasi ruang fitur embedding."
+  },
+  {
+    "id": "slide-5",
+    "title": "Ruang Vektor Embedding Bersama (Joint Space)",
+    "content": "Penyelarasan Geometris Multimodal:\\n- Vektor citra dan teks berada pada hypersphere unit S^{D-1}\\n- Cluster semantik: 'Anjing', 'Kucing', 'Kendaraan' terbentuk secara alami\\n- Pencarian visual semantik: kueri teks dapat mengambil citra yang relevan secara langsung tanpa metadata teks manual",
+    "diagram": "/media/diagrams/chapter-49-multimodal-embedding-space.svg",
+    "notes": "Gunakan diagram ruang embedding bersama untuk menunjukkan bagaimana vektor teks prompt berada sangat dekat dengan vektor embedding citra objek yang sesuai."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Perhitungan InfoNCE",
+    "content": "Kasus D=2, tau = 0.1, q = [0.8, 0.6]^T:\\n- Kunci positif: k+ = [0.7071, 0.7071]^T -> sim = 0.9899\\n- Kunci negatif 1: k1^- = [-0.6, 0.8]^T -> sim = 0.0\\n- Kunci negatif 2: k2^- = [-0.8, -0.6]^T -> sim = -1.0\\n\\nKalkulasi Softmax:\\nz+ = 9.8995 -> exp = 19920.6\\nz1 = 0.0 -> exp = 1.0\\nz2 = -10.0 -> exp = 0.000045\\nP(+) = 19920.6 / 19921.6 = 0.99995\\nLoss InfoNCE = -ln(0.99995) = 5.02 x 10^-5",
+    "diagram": null,
+    "notes": "Pandu mahasiswa melalui kalkulasi angka per angka. Tekankan bagaimana logit positif yang dominan menekan rugi InfoNCE mendekati nol."
+  },
+  {
+    "id": "slide-7",
+    "title": "Masked Autoencoders (MAE) & DINOv2",
+    "content": "Pendekatan Tanpa Pasangan Negatif:\\n1. Masked Autoencoders (MAE):\\n   - Masking 75% patch piksel secara acak\\n   - ViT Encoder hanya memproses 25% patch yang tampak (efisiensi 16x)\\n   - Rekonstruksi MSE pada piksel tersembunyi\\n2. DINOv2 (Self-Distillation):\\n   - Pembaruan guru secara EMA: theta_t <- alpha * theta_t + (1-alpha) * theta_s\\n   - Centering & sharpening mencegah representasi kolaps",
+    "diagram": null,
+    "notes": "Bandingkan pendekatan kontras (CLIP/SimCLR) dengan pendekatan rekonstruksi (MAE) dan distilasi tanpa label (DINOv2)."
+  },
+  {
+    "id": "slide-8",
+    "title": "Klasifikasi Citra Zero-Shot (Zero-Shot Transfer)",
+    "content": "Mekanisme Inferensi Tanpa Pelatihan Kategori:\\n1. Bentuk prompt teks: t_c = 'a photo of a {class_name}'\\n2. Hitung embedding teks: T_c = f_txt(t_c) untuk setiap kelas\\n3. Ekstraksi embedding citra: I = f_img(image)\\n4. Prediksi probabilitas:\\n   P(class = c | image) = exp( (I . T_c) / tau ) / sum_k exp( (I . T_k) / tau )\\n5. Hasil: Akurasi bersaing dengan model supervised tanpa fine-tuning",
+    "diagram": null,
+    "notes": "Tunjukkan kekuatan zero-shot classification: model dapat mengenali kelas-kelas baru yang belum pernah dilihat dalam pelatihan terawasi hanya melalui deskripsi bahasa."
+  },
+  {
+    "id": "slide-9",
+    "title": "Mode Kegagalan & Penanganan Praktis",
+    "content": "Tantangan Utama SSL & Solusi Rekayasa:\\n1. Representation Collapse:\\n   Solusi: Stop-gradient (BYOL), SimSiam predictor, centering (DINO)\\n2. False Negative Sampling (dua gambar kelas sama diadu negatif):\\n   Solusi: Debiased contrastive learning, Supervised contrastive loss\\n3. Pergeseran Domain Spesifik (e.g. citra medis/radar satelit):\\n   Solusi: Domain-adapted continual pretraining pada data tanpa label",
+    "diagram": null,
+    "notes": "Jelaskan mengapa representasi kolaps adalah momok terbesar pada SSL non-kontrastif dan bagaimana mekanisme matematis mencegahnya."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Agenda Riset Vision-Language",
+    "content": "Fondasi Kurikulum Menuju ISVWS 2026-2040:\\n- Foundation models menyatukan persepsi visual dengan representasi semantik global\\n- Skrip verifikasi: examples/example-01.py (InfoNCE & cosine similarity deterministik)\\n- Laboratorium interaktif: VisionEmbeddingExplorer.tsx\\n- Masa depan: Visual reasoning multimodal, embodied AI otonom, dan edge foundation models.",
+    "diagram": null,
+    "notes": "Slide penutup: arahkan mahasiswa untuk membuka notebook bab 49 dan menguji model fondasi zero-shot secara langsung."
+  }
+]

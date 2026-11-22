@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-58-1",
+    "question": "Berapakah ukuran memori mentah satu frame gambar pada resolusi Full HD (1920x1080) dengan format 4-saluran RGBA?",
+    "options": [
+      "8,294,400 Bytes (~7.91 Megabytes)",
+      "2,073,600 Bytes (~1.98 Megabytes)",
+      "1,048,576 Bytes (~1.00 Megabyte)",
+      "16,588,800 Bytes (~15.82 Megabytes)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ukuran dihitung dengan W × H × 4 = 1920 × 1080 × 4 = 8,294,400 Bytes. Dalam satuan Megabyte biner: 8,294,400 / (1024 * 1024) ≈ 7.910 MB."
+  },
+  {
+    "id": "q-58-2",
+    "question": "Apa fungsi utama dari penggunaan Dedicated Web Worker dalam aplikasi computer vision berbasis web?",
+    "options": [
+      "Menjalankan algoritma pemrosesan citra intensif pada thread latar belakang agar Main UI Thread tetap responsif pada 60 FPS",
+      "Mengganti elemen kanvas HTML5 menjadi berkas teks",
+      "Memperbesar resolusi fisik kamera perangkat pengguna",
+      "Menonaktifkan proteksi HTTPS pada situs web"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Web Worker memisahkan komputasi berat dari Main Thread, sehingga antarmuka pengguna tidak membeku (*no UI freezing*) saat algoritma visi bekerja."
+  },
+  {
+    "id": "q-58-3",
+    "question": "Bagaimanakah mekanisme Transferable Objects mempercepat pengiriman buffer citra antara Main Thread dan Web Worker?",
+    "options": [
+      "Mengalihkan kepemilikan pointer memori ArrayBuffer secara zero-copy tanpa melakukan penyalinan byte",
+      "Mengonversi gambar menjadi berkas ZIP terkompresi",
+      "Mengunggah gambar ke server cloud terlebih dahulu",
+      "Mengurangi jumlah piksel citra menjadi separuh"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Transferable Objects mentransfer kepemilikan referensi memori secara instan (overhead < 1 ms), mengeliminasi alokasi ganda dan proses penyalinan data."
+  },
+  {
+    "id": "q-58-4",
+    "question": "Strategi apakah yang paling efektif untuk meminimalkan beban memori bus saat menjalankan model visi di browser sambil menampilkan video Full HD?",
+    "options": [
+      "Mengekstrak buffer untuk inferensi model pada resolusi VGA (640x480), sementara tampilan pengguna tetap menggunakan elemen video HD",
+      "Memaksa layar peramban berjalan pada 1 FPS",
+      "Menghapus seluruh saluran warna dan hanya menyisakan saluran Alpha",
+      "Mengubah seluruh piksel menjadi nilai nol"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sebagian besar model visi modern beroperasi optimal pada resolusi input rendah (seperti 224x224 atau 640x480). Menurunkan resolusi inferensi menghemat bandwidth memori hingga >90%."
+  },
+  {
+    "id": "q-58-5",
+    "question": "Mengapa alokasi objek buffer (seperti createImageData) berulang kali di dalam loop requestAnimationFrame harus dihindari?",
+    "options": [
+      "Memicu siklus Garbage Collector yang sering sehingga menimbulkan jeda mendadak (micro-stutters) pada animasi",
+      "Merusak komponen perangkat keras monitor",
+      "Mematikan sambungan internet browser secara permanen",
+      "Membuat nilai piksel selalu bernilai acak"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Alokasi memori dinamis yang berlebihan membebani engine JavaScript garbage collection, yang secara periodik menghentikan eksekusi script untuk membersihkan memori."
+  }
+]
+

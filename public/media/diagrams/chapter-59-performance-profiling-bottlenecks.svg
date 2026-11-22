@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Dekomposisi Latensi &amp; Analisis Hukum Amdahl</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Profil Waktu Pipeline: Capture (2.5ms), Preprocess (1.5ms), Inferensi DNN (8.0ms), Postprocess (1.0ms)</text>
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <g transform="translate(45, 95)">
+    <!-- Frame Budget Bar (16.67 ms Target for 60 FPS) -->
+    <text x="0" y="20" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#f8fafc">Alokasi Anggaran Waktu Frame (Frame Budget = 16.67 ms untuk 60 FPS)</text>
+
+    <!-- Total Budget Outline -->
+    <rect x="0" y="35" width="710" height="36" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1.5" />
+
+    <!-- Stage 1: Capture (2.5ms / 16.67ms -> 15.0% -> 106.5px) -->
+    <rect x="2" y="37" width="105" height="32" rx="4" fill="#0284c7" />
+    <text x="54" y="57" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">Capture 2.5ms</text>
+
+    <!-- Stage 2: Preprocess (1.5ms -> 64px) -->
+    <rect x="109" y="37" width="64" height="32" rx="4" fill="#d97706" />
+    <text x="141" y="57" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">Prep 1.5ms</text>
+
+    <!-- Stage 3: Inference (8.0ms -> 340px) - Bottleneck -->
+    <rect x="175" y="37" width="340" height="32" rx="4" fill="#6366f1" />
+    <text x="345" y="57" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Inferensi Model DNN 8.0ms (Bottleneck: 61.5%)</text>
+
+    <!-- Stage 4: Postprocess (1.0ms -> 43px) -->
+    <rect x="517" y="37" width="43" height="32" rx="4" fill="#059669" />
+    <text x="538" y="57" font-family="system-ui, sans-serif" font-size="9" font-weight="bold" fill="#fff" text-anchor="middle">Post 1ms</text>
+
+    <!-- Headroom (3.67ms -> 146px) -->
+    <rect x="562" y="37" width="146" height="32" rx="4" fill="#1e293b" stroke="#34d399" stroke-dasharray="3 3" />
+    <text x="635" y="57" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#34d399" text-anchor="middle">Headroom: +3.67ms OK</text>
+
+    <!-- Amdahl's Law Visual Box -->
+    <g transform="translate(0, 100)">
+      <rect width="710" height="150" rx="8" fill="#1e293b" stroke="#334155" />
+      <text x="20" y="28" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#38bdf8">Prinsip Optimasi Hukum Amdahl (Amdahl's Law)</text>
+      <text x="20" y="52" font-family="monospace" font-size="12" fill="#f8fafc">Speedup_overall = 1 / ( (1 - p) + (p / s) )</text>
+      <text x="20" y="78" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• p = Proporsi waktu tahapan yang dapat dioptimasi (misal: Inferensi DNN = 61.5% atau 8.0ms dari 13.0ms total).</text>
+      <text x="20" y="100" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">• s = Faktor percepatan tahapan tersebut (misal: kuantisasi INT8 / NPU memberikan s = 4.0× pada inferensi).</text>
+      <text x="20" y="122" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">• Hasil: Waktu inferensi berkurang dari 8.0ms menjadi 2.0ms → Total waktu turun ke 7.0ms (142 FPS, S_overall = 1.86×).</text>
+      <text x="20" y="140" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b">Peringatan Kritis: Mengoptimasi tahapan yang bukan bottleneck (p kecil) memberikan pengembalian performa marjinal!</text>
+    </g>
+  </g>
+
+  <!-- Bottom Panel -->
+  <g transform="translate(45, 360)">
+    <rect width="710" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Aturan Emas Pemrosesan Multimedia:</text>
+    <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Selalu profil latensi aktual sebelum melakukan refactoring, dan prioritaskan tahapan dengan proporsi runtime terbesar (p &gt; 0.5).</text>
+  </g>
+
+  <text x="400" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Multimedia &amp; Computer Vision Learning Hub • Institut Teknologi Sumatera (ITERA)</text>
+</svg>
+

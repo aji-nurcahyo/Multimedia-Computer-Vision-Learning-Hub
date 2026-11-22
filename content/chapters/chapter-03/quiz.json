@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q03-01",
+    "question": "Manakah pernyataan berikut yang paling tepat menjelaskan perbedaan antara Container dan Codec dalam video digital?",
+    "options": [
+      "Container adalah format wadah pembungkus (seperti .mp4 atau .mkv) yang menyatukan aliran video, audio, dan metadata, sedangkan Codec adalah algoritma kompresi-dekompresi (seperti H.264 atau AV1)",
+      "Container adalah algoritma kompresi audio, sedangkan Codec adalah resolusi piksel layar",
+      "Container hanya dapat digunakan pada sistem operasi Windows, sedangkan Codec khusus Linux",
+      "Codec adalah ekstensi berkas visual, sedangkan Container adalah kartu grafis GPU"
+    ],
+    "correctIndex": 0,
+    "explanation": "Container (wadah) bertindak sebagai amplop multiplexing untuk menampung aliran video, audio, subtitle, dan timing sinkronisasi. Codec adalah algoritma yang mengompresi dan mendekomprensi aliran data media mentah."
+  },
+  {
+    "id": "q03-02",
+    "question": "Format citra manakah yang menggunakan algoritma kompresi Lossless dan mendukung saluran transparansi Alpha 8-bit?",
+    "options": [
+      "PNG (Portable Network Graphics)",
+      "JPEG standar",
+      "BMP tanpa header",
+      "MPEG-1"
+    ],
+    "correctIndex": 0,
+    "explanation": "PNG dirancang sebagai standar kompresi lossless berbasis DEFLATE (LZ77 + Huffman) dengan dukungan penuh saluran Alpha transparency (RGBA) 8-bit per saluran."
+  },
+  {
+    "id": "q03-03",
+    "question": "Berapakah perkiraan ukuran memori RAM mentah tak terkompresi yang dibutuhkan untuk menyimpan satu frame citra berwarna RGB beresolusi Full HD (1920 x 1080 piksel) dengan kedalaman 8-bit per saluran?",
+    "options": [
+      "Sekitar 6.22 Megabytes (MB)",
+      "Sekitar 100 Kilobytes (KB)",
+      "Sekitar 24 Gigabytes (GB)",
+      "Sekitar 1.5 Megabytes (MB)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ukuran dihitung dengan rumus W * H * C * (b/8) = 1920 * 1080 * 3 * 1 Byte = 6.220.800 Bytes = 6.220.800 / (1024 * 1024) MB approx 5.93 MiB atau 6.22 MB desimal."
+  },
+  {
+    "id": "q03-04",
+    "question": "Jenis redundansi apakah yang dieksploitasi oleh codec kompresi video dengan cara menganalisis kemiripan piksel antar-frame waktu berurutan (motion compensation)?",
+    "options": [
+      "Temporal Redundancy",
+      "Spatial Redundancy",
+      "Spectral Redundancy",
+      "Entropy Coding Limit"
+    ],
+    "correctIndex": 0,
+    "explanation": "Redundansi temporal (temporal redundancy) mengacu pada fakta bahwa frame video yang berdekatan dalam waktu (t dan t+1) umumnya memiliki latar belakang dan objek yang sama, sehingga hanya perbedaan vektor gerak yang perlu disimpan."
+  },
+  {
+    "id": "q03-05",
+    "question": "Berapakah ukuran berkas audio mentah PCM tak terkompresi berdurasi 60 detik dengan format stereo (2 kanal), frekuensi cuplik 44.1 kHz, dan resolusi 16-bit?",
+    "options": [
+      "Sekitar 10.58 MB (10.584.000 Bytes)",
+      "Sekitar 1.41 MB",
+      "Sekitar 100 MB",
+      "Sekitar 500 KB"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ukuran audio dihitung dengan formula fs * Channels * (b/8) * t = 44100 * 2 * (16/8) * 60 = 44100 * 2 * 2 * 60 = 10.584.000 Bytes approx 10.58 MB."
+  }
+]

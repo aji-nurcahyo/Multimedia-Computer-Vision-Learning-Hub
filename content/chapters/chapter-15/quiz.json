@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-15-01",
+    "question": "Kriteria matematis apakah yang dimaksimalkan oleh Metode Otsu (1979) dalam menentukan ambang batas (threshold T*) secara otomatis?",
+    "options": [
+      "Variansi antar-kelas (between-class variance) antara distribusi piksel latar belakang dan objek",
+      "Total jumlah piksel putih pada tepi kanan gambar",
+      "Frekuensi komponen DC pada spektrum 2D FFT",
+      "Rata-rata jarak Euclidean ruang warna RGB"
+    ],
+    "correctIndex": 0,
+    "explanation": "Otsu menguji semua kemungkinan ambang t in [0..255] untuk mencari nilai yang memaksimalkan separasi antar kedua kelas, yaitu sigma_B^2(t) = w0 * w1 * (mu0 - mu1)^2."
+  },
+  {
+    "id": "q-15-02",
+    "question": "Metode segmentasi manakah yang paling tepat untuk memisahkan objek dokumen teks di atas kertas foto yang sebagian sisinya tertutup bayangan gelap tidak merata?",
+    "options": [
+      "Adaptive Thresholding (ambang lokal berbasis jendela ketetanggaan)",
+      "Global Manual Thresholding (ambang tunggal konstan)",
+      "Otsu Global Thresholding tanpa pra-pemrosesan",
+      "Image Negative"
+    ],
+    "correctIndex": 0,
+    "explanation": "Bayangan miring membuat intensitas kertas di sisi gelap lebih rendah daripada huruf di sisi terang, sehingga tidak ada satu pun ambang global yang dapat memisahkan huruf di seluruh gambar. Adaptive thresholding menghitung ambang lokal untuk setiap piksel."
+  },
+  {
+    "id": "q-15-03",
+    "question": "Jika dua objek bulat yang saling bersentuhan dalam masker biner ingin dipisahkan menjadi dua label independen sebelum dihitung jumlahnya, kombinasi algoritma manakah yang paling efektif?",
+    "options": [
+      "Distance Transform diikuti Watershed Segmentation",
+      "Global Thresholding diikuti Brightness Adjustment",
+      "Ideal Low-Pass Filter diikuti Downsampling",
+      "4-Connectivity Connected Components langsung tanpa pemisahan"
+    ],
+    "correctIndex": 0,
+    "explanation": "Distance Transform menghasilkan puncak jarak lokal di tengah masing-masing objek yang berfungsi sebagai marker pengisian pada Watershed untuk membangun batas pemisah tepat di titik sentuhan."
+  },
+  {
+    "id": "q-15-04",
+    "question": "Diberikan masker prediksi segmentasi dan ground truth dengan TP = 60 piksel, FP = 10 piksel, dan FN = 30 piksel. Berapakah nilai Intersection over Union (IoU)?",
+    "options": [
+      "0.60 (60%)",
+      "0.75 (75%)",
+      "0.90 (90%)",
+      "0.40 (40%)"
+    ],
+    "correctIndex": 0,
+    "explanation": "IoU = TP / (TP + FP + FN) = 60 / (60 + 10 + 30) = 60 / 100 = 0.60."
+  },
+  {
+    "id": "q-15-05",
+    "question": "Dalam keluaran fungsi cv2.connectedComponentsWithStats(binary_mask), berapakah indeks label yang merepresentasikan latar belakang (background bernilai 0)?",
+    "options": [
+      "Label 0",
+      "Label 1",
+      "Label -1",
+      "Label 255"
+    ],
+    "correctIndex": 0,
+    "explanation": "OpenCV dan mayoritas pustaka visi komputer menetapkan indeks 0 sebagai background, sementara objek terdeteksi pertama dimulai dari label indeks 1 hingga num_labels - 1."
+  }
+]
+

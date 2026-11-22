@@ -1,0 +1,19 @@
+[
+  {
+   "id": "ex-adv07-01",
+   "title": "Batas Bawah Informasi Mutual pada InfoNCE Loss",
+   "difficulty": "advanced",
+   "instruction": "Tunjukkan penurunan analitis bahwa fungsi loss InfoNCE L_InfoNCE = - E[ log( exp(f(x, y)/tau) / (exp(f(x, y)/tau) + sum_i exp(f(x, y_i)/tau)) ) ] menyediakan batas bawah bagi informasi mutual I(X; Y) >= log(K + 1) - L_InfoNCE, dan buktikan bahwa memperbesar jumlah sampel negatif K memperketat batas bawah tersebut.",
+   "starterCode": "# 1. Definisikan distribusi bersama p(x, y) dan distribusi marginal p(x) p(y).\n# 2. Misalkan satu pasangan positif diundi dari p(x, y) dan K sampel negatif diundi dari p(y).\n# 3. Hitung probabilitas posterior bahwa pasangan pertama adalah pasangan positif.\n# 4. Terapkan pertidaksamaan Jensen untuk menghubungkan L_InfoNCE dengan divergensi KL.",
+   "solution": "# 1. Probabilitas bahwa sampel positif k+ berasal dari distribusi gabungan p(x, y), sementara K sampel negatif berasal dari marginal p(y) adalah:\n#    P(D=1 | x, y, {y_i}) = p(x, y) prod p(y_i) / [ p(x, y) prod p(y_i) + sum_j p(x, y_j) p(y) prod_{i != j} p(y_i) ]\n#    = [ p(x, y) / p(x) p(y) ] / [ p(x, y) / p(x) p(y) + sum_j p(x, y_j) / p(x) p(y_j) ].\n# 2. Mensubstitusikan rasio densitas f(x, y) = log(p(x, y) / p(x) p(y)) ke dalam cross-entropy loss menghasilkan L_InfoNCE.\n# 3. Berdasarkan pertidaksamaan Jensen: E[L_InfoNCE] >= - E[ log( (p(x, y)/p(x)p(y)) / ((p(x, y)/p(x)p(y)) + K) ) ]\n#    = - I(X; Y) + log(K + 1).\n# 4. Sehingga I(X; Y) >= log(K + 1) - L_InfoNCE. Ketika K bertambah besar, log(K + 1) meningkat, memperketat batas bawah estimasi informasi mutual."
+  },
+  {
+   "id": "ex-adv07-02",
+   "title": "Analisis Kompleksitas Memori & FLOPs Adaptasi LoRA",
+   "difficulty": "advanced",
+   "instruction": "Tuliskan fungsi Python murni untuk menghitung perbandingan memori bobot (dalam megabyte pada FP16) dan FLOPs inferensi antara model Transformer penuh vs model dengan adaptor LoRA terpasang pada proyeksi Q, K, V.",
+   "starterCode": "def lora_memory_flops_analysis(num_layers: int, d_model: int, seq_len: int, rank: int, dtype_bytes: int = 2):\n    \"\"\"\n    Menghitung ukuran bobot penuh vs bobot LoRA (bytes/MB) dan FLOPs per token.\n    \"\"\"\n    pass",
+   "solution": "def lora_memory_flops_analysis(num_layers: int, d_model: int, seq_len: int, rank: int, dtype_bytes: int = 2):\n    # Tiap layer memiliki 3 matriks proyeksi utama: Q, K, V\n    full_params_per_layer = 3 * (d_model * d_model)\n    lora_params_per_layer = 3 * 2 * (d_model * rank)\n    \n    total_full_params = num_layers * full_params_per_layer\n    total_lora_params = num_layers * lora_params_per_layer\n    \n    full_mem_mb = (total_full_params * dtype_bytes) / (1024 * 1024)\n    lora_mem_mb = (total_lora_params * dtype_bytes) / (1024 * 1024)\n    \n    # Tambahan FLOPs per token untuk perkalian B * (A * x)\n    # A * x: 2 * rank * d_model; B * (A * x): 2 * d_model * rank => 4 * d_model * rank per matriks\n    additional_flops_per_token = num_layers * 3 * (4 * d_model * rank)\n    \n    return {\n        'full_params': total_full_params,\n        'lora_params': total_lora_params,\n        'full_mem_mb': full_mem_mb,\n        'lora_mem_mb': lora_mem_mb,\n        'savings_pct': ((total_full_params - total_lora_params) / total_full_params) * 100,\n        'extra_flops_per_token': additional_flops_per_token\n    }"
+  }
+]
+

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-55-1",
+    "title": "Arsitektur Sistem Multimodal Terintegrasi Berstandar Industri",
+    "path": "/media/diagrams/chapter-55-integrated-multimodal-system-architecture.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-55-2",
+    "title": "Strategi Optimasi Inferensi Edge, Kuantisasi & Penanganan Sensor Dropout",
+    "path": "/media/diagrams/chapter-55-multimodal-deployment-optimization.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

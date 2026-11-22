@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Image Segmentation & Object Analysis",
+    "lead": "Section 03 — Advanced Digital Image Processing · Chapter 15",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Global/Adaptive/Otsu Thresholding, Watershed, Connected Components, Contours, Morfometri & IoU/Dice",
+    "notes": "Puncak dari modul pemrosesan citra digital: berpindah dari matriks piksel menuju pemahaman objek dan pengukuran kuantitatif."
+  },
+  {
+    "id": 2,
+    "title": "Definisi Formal Segmentasi Citra",
+    "lead": "Mempartisi domain citra R ke dalam sub-region bermakna",
+    "body": "### Kondisi Partisi Himpunan\n- Seluruh region $\\{R_1, R_2, \\dots, R_n\\}$ harus **lengkap** ($\\bigcup R_i = R$), **terpisah** ($R_i \\cap R_j = \\emptyset$), dan **homogen** secara internal.\n- **Semantic Segmentation**: Melabeli seluruh piksel per kelas kategori (mis. 'mobil' vs 'jalan').\n- **Instance / Object Analysis**: Memisahkan dan mengukur setiap individu objek.",
+    "notes": "Bedakan konsep segmentasi klasik sebagai fondasi menuju segmentasi semantik deep learning di Chapter 45."
+  },
+  {
+    "id": 3,
+    "title": "Global vs Adaptive Thresholding",
+    "lead": "Memilih ambang tunggal vs ambang lokal berbasis ketetanggaan",
+    "body": "### Kapan Global Thresholding Gagal?\n- **Global ($T$ konstan)**: Optimal jika pencahayaan seragam; hancur bila separuh kertas berada di bawah bayangan!\n- **Adaptive Thresholding**: $T(x, y) = \\mu_{\\text{local}}(x, y) - C$. Setiap piksel dibandingkan terhadap rata-rata lingkungan lokalnya (dipercepat menjadi $\\mathcal{O}(1)$ lewat **Integral Image**).",
+    "notes": "Berikan contoh pemindaian foto struk belanja atau kuitansi dengan bayangan tangan pengguna."
+  },
+  {
+    "id": 4,
+    "title": "Otsu Optimal Thresholding (1979)",
+    "lead": "Pemilihan ambang otomatis berbasis analisis variansi histogram",
+    "body": "### Fungsi Objektif Otsu\n$$\\sigma_B^2(t) = \\omega_0(t) \\, \\omega_1(t) \\, [\\mu_0(t) - \\mu_1(t)]^2, \\qquad T^* = \\arg\\max_{t} \\sigma_B^2(t)$$\n- $\\omega_0, \\omega_1$: Proporsi piksel kelas Background & Foreground.\n- $\\mu_0, \\mu_1$: Rata-rata intensitas kedua kelas.\n- Memaksimalkan **variansi antar-kelas** ekuivalen matematis dengan meminimalkan **variansi dalam-kelas**!",
+    "notes": "Jelaskan mengapa metode Otsu tetap membutuhkan histogram yang kira-kira bimodal (memiliki dua puncak)."
+  },
+  {
+    "id": 5,
+    "title": "Region Growing & Watershed Segmentation",
+    "lead": "Solusi ampuh memisahkan objek yang saling bersentuhan",
+    "body": "### Analogi Topografi Banjir Watershed\n- Jika dua koin atau sel saling bersentuhan, Connected Components biasa menggabungkannya jadi 1 objek besar.\n- **Distance Transform (`cv2.distanceTransform`)** mengukur jarak ke piksel hitam terdekat → titik tengah masing-masing objek membentuk puncak bukit (atau lembah jika dibalik).\n- **Watershed** membangun tanggul batas tepat di garis pertemuan dua cekungan!",
+    "notes": "Gunakan ilustrasi air membanjiri lembah gunung yang sangat mudah dicerna mahasiswa."
+  },
+  {
+    "id": 6,
+    "title": "Connected Components Labeling (CCL)",
+    "lead": "Mengelompokkan dan memberi ID unik bagi setiap pulau piksel",
+    "body": "### 4-Connectivity vs 8-Connectivity\n- **4-Connectivity**: Hanya atas, bawah, kiri, kanan.\n- **8-Connectivity**: Menyertakan 4 tetangga diagonal.\n- Output fungsi **`cv2.connectedComponentsWithStats`**: Jumlah label, matriks ID piksel, statistik (`AREA`, Bounding Box `LEFT, TOP, WIDTH, HEIGHT`), serta `centroids (cx, cy)`!",
+    "notes": "Ingatkan bahwa label 0 selalu merepresentasikan latar belakang (background), sedangkan objek dimulai dari label 1."
+  },
+  {
+    "id": 7,
+    "title": "Ekstraksi Kontur & Fitur Morfometri Objek",
+    "lead": "Mengukur bentuk geometris: Area, Perimeter & Circularity",
+    "body": "### Deskriptor Bentuk Klasik\n- **Area ($A$)**: Total piksel di dalam objek (`cv2.contourArea`).\n- **Perimeter ($P$)**: Panjang kurva keliling kontur (`cv2.arcLength`).\n- **Circularity**: $C = \\frac{4\\pi A}{P^2}$. Lingkaran sejati memiliki $C \\approx 1.0$; garis tipis atau bintang bergerigi mendekati $0$.",
+    "notes": "Tunjukkan bagaimana Circularity memungkinkan klasifikasi otomatis bentuk bulat (koin/buah) vs bentuk memanjang (daun/sekrup)."
+  },
+  {
+    "id": 8,
+    "title": "Evaluasi Segmentasi: IoU & Dice Score",
+    "lead": "Membandingkan masker prediksi P terhadap Ground Truth G",
+    "body": "### Metrik Standar Industri & Riset\n$$\\text{IoU (Jaccard)} = \\frac{|P \\cap G|}{|P \\cup G|} = \\frac{\\text{TP}}{\\text{TP} + \\text{FP} + \\text{FN}}$$\n$$\\text{Dice (F1-Pixel)} = \\frac{2 |P \\cap G|}{|P| + |G|} = \\frac{2\\,\\text{TP}}{2\\,\\text{TP} + \\text{FP} + \\text{FN}}$$\n- Hubungan aljabar: $\\text{Dice} = \\frac{2 \\cdot \\text{IoU}}{1 + \\text{IoU}} \\ge \\text{IoU}$.",
+    "notes": "Jelaskan mengapa IoU jauh lebih ketat daripada Pixel Accuracy biasa jika objek target berukuran kecil (imbalanced classes)."
+  },
+  {
+    "id": 9,
+    "title": "Implementasi Python & OpenCV",
+    "lead": "Pipeline Otsu + ConnectedComponentsWithStats",
+    "body": "### Kode Referensi\n```python\n_, mask = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)\nn_lbl, labels, stats, centroids = cv2.connectedComponentsWithStats(mask)\nfor i in range(1, n_lbl):\n    area = stats[i, cv2.CC_STAT_AREA]\n    cx, cy = centroids[i]\n```",
+    "notes": "Tunjukkan bahwa looping dimulai dari indeks 1 agar tidak menghitung background (indeks 0)."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 15 & Penutup Section 03",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- **Otsu** mencari ambang otomatis; **Adaptive** menang atas bayangan; **Watershed** membelah objek bersentuhan.\n- **CCL & Contours** mengekstrak ukuran geometris nyata dari setiap objek.\n- Evaluasi masker memakai **IoU** dan **Dice**, bukan akurasi piksel mentah.\n\n### Rujukan\n- Otsu (1979); Gonzalez & Woods (2018), Bab 10.",
+    "notes": "Arahkan mahasiswa mempraktikkan Segmentation Lab dan mengamati Tabel Pengukuran Morfometri."
+  }
+]
+

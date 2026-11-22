@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-02-01",
+    "title": "Discrete-Time Signal Processing (3rd Edition)",
+    "authors": "Alan V. Oppenheim, Ronald W. Schafer",
+    "year": 2010,
+    "publisher": "Prentice Hall",
+    "url": "https://www.pearson.com",
+    "type": "book",
+    "annotation": "Karya kanonikal pemrosesan sinyal digital waktu diskrit. Bab 4 menyajikan penurunan analitis mendalam teorema sampling Whittaker-Shannon dan analisis distorsi aliasing."
+  },
+  {
+    "id": "ref-02-02",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson",
+    "url": "https://www.pearson.com",
+    "type": "book",
+    "annotation": "Bab 2 membahas secara komprehensif sampling spasial dan kuantisasi intensitas citra digital, efek Moiré akibat aliasing 2D, serta pengaruh kedalaman bit terhadap kontras."
+  },
+  {
+    "id": "ref-02-03",
+    "title": "Communication Systems (5th Edition)",
+    "authors": "Simon Haykin, Michael Moher",
+    "year": 2009,
+    "publisher": "Wiley",
+    "url": "https://www.wiley.com",
+    "type": "book",
+    "annotation": "Bab 3 menguraikan formulasi matematis derau kuantisasi (quantization noise variance), penurunan rumus rasio SQNR 6.02b + 1.76 dB, dan modulasi pulsa kode (PCM)."
+  }
+]

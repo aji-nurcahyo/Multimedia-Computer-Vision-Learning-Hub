@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ref-58-1",
+    "title": "Media Capture and Streams (W3C Candidate Recommendation Snapshot)",
+    "authors": "Daniel C. Burnett, Adam Bergkvist, Cullen Jennings, Anant Narayanan, Bernard Aboba",
+    "year": 2021,
+    "publisher": "World Wide Web Consortium (W3C)",
+    "url": "https://www.w3.org/TR/mediacapture-streams/",
+    "annotation": "Spesifikasi standar resmi W3C untuk antarmuka getUserMedia, MediaStreamTrack, dan mekanisme batasan resolusi audio-video di peramban web modern."
+  },
+  {
+    "id": "ref-58-2",
+    "title": "Web Audio API: Advanced Sound for the Web",
+    "authors": "Boris Smus",
+    "year": 2013,
+    "publisher": "O'Reilly Media",
+    "url": "https://www.oreilly.com/library/view/web-audio-api/9781449332679/",
+    "annotation": "Panduan fundamental arsitektur Web Audio API, perutean audio node modular, analisis spektrum FFT real-time, dan pemrosesan sinyal digital berbasis browser."
+  },
+  {
+    "id": "ref-58-3",
+    "title": "Real-Time Communication with WebRTC",
+    "authors": "Salvatore Loreto, Simon Pietro Romano",
+    "year": 2014,
+    "publisher": "O'Reilly Media",
+    "url": "https://www.oreilly.com/library/view/real-time-communication-with/9781449371869/",
+    "annotation": "Buku referensi komprehensif mengenai komunikasi multimedia peer-to-peer, negosiasi codec SDP, NAT traversal, dan protokol transmisi berlatensi rendah di peramban."
+  }
+]
+

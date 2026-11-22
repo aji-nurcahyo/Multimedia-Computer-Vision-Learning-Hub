@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv05-01",
+    "question": "Mengapa matriks Fundamental F dalam geometri dua pandang harus memiliki peringkat tepat rank(F) = 2 (determinan det(F) = 0)?",
+    "options": [
+      "Karena koordinat piksel hanya memiliki 2 dimensi (u, v)",
+      "Karena seluruh garis epipolar pada citra kamera berpotongan di satu titik tunggal (epipole e), sehingga matriks F memiliki ruang nol berdimensi satu yang memenuhi F e = 0",
+      "Karena kamera menggunakan sensor gambar CMOS",
+      "Agar matriks F dapat diinversi menggunakan eliminasi Gauss"
+    ],
+    "correctIndex": 1,
+    "explanation": "Matriks Fundamental F memetakan titik x1 ke garis epipolar l2 = F x1. Karena seluruh garis epipolar di kamera 2 melewati epipole e2 (proyeksi pusat optik kamera 1 ke kamera 2), maka e2^T (F x1) = 0 untuk setiap x1. Ini berarti e2^T F = 0, sehingga F harus memiliki ruang nol berdimensi satu dan rank(F) = 2."
+  },
+  {
+    "id": "quiz-adv05-02",
+    "question": "Pada dekomposisi matriks Essential E = U diag(1, 1, 0) V^T, terdapat 4 pasangan kandidat pose relatif [R | t]. Uji kriteria apakah yang digunakan untuk memilih pose fisik yang benar?",
+    "options": [
+      "Kriteria Frobenius terkecil",
+      "Uji cheirality (kedalaman positif Z > 0 di kedua kamera) melalui triangulasi titik uji",
+      "Uji determinan positif matriks kalibrasi K",
+      "Uji sudut Euler terkecil"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dekomposisi E menghasilkan 4 kemungkinan solusi geometris: [R1 | +t], [R1 | -t], [R2 | +t], [R2 | -t]. Dari keempatnya, hanya tepat satu pasangan pose yang menempatkan titik 3D hasil triangulasi di depan kedua bidang fokal kamera (kedalaman positif Z1 > 0 dan Z2 > 0), yang dikenal sebagai uji cheirality."
+  },
+  {
+    "id": "quiz-adv05-03",
+    "question": "Dalam optimasi Bundle Adjustment non-linear, mengapa kita perlu mematok pose kamera pertama (atau menerapkan kendala pengukur / gauge freedom constraint)?",
+    "options": [
+      "Untuk menghindari inversi matriks singular berukuran 3x3",
+      "Karena rekonstruksi 3D dari citra uncalibrated/calibrated memiliki ambiguitas kesamaan 7-derajat kebebasan (3 rotasi, 3 translasi, 1 skala metrik absolut) yang membuat matriks Hessian BA singular jika tidak dipatok",
+      "Karena kamera kedua selalu mengalami distorsi lensa radial",
+      "Karena algoritma Levenberg-Marquardt hanya dapat mengoptimalkan satu parameter per iterasi"
+    ],
+    "correctIndex": 1,
+    "explanation": "Rekonstruksi struktur dari gerak (Structure-from-Motion) memiliki ambiguitas transformasi koordinat dunia (gauge freedom) 7-DoF: 3 rotasi global, 3 translasi global, dan 1 faktor skala global. Mematok kamera pertama pada [I | 0] dan menetapkan norma baseline menghilangkan ambiguitas ini sehingga matriks Hessian menjadi teratur dan dapat dibalik."
+  }
+]
+

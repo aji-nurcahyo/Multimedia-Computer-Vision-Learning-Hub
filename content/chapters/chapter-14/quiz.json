@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-14-01",
+    "question": "Operasi morfologi komposit manakah yang paling tepat digunakan untuk menghapus titik-titik noise putih kecil di latar belakang tanpa menyusutkan ukuran objek utama?",
+    "options": [
+      "Opening (Erosion diikuti Dilation dengan SE yang sama)",
+      "Closing (Dilation diikuti Erosion)",
+      "Dilation berulang 3 kali",
+      "Morphological Gradient"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tahap Erosion pada Opening menghancurkan titik noise yang lebih kecil dari Structuring Element, lalu tahap Dilation memulihkan ukuran objek utama kembali mendekati ukuran aslinya."
+  },
+  {
+    "id": "q-14-02",
+    "question": "Bagaimana definisi matematis operasi Morphological Gradient untuk mengekstrak garis batas tepi objek biner maupun grayscale?",
+    "options": [
+      "Dilate(A, B) - Erode(A, B)",
+      "A - Open(A, B)",
+      "Close(A, B) - A",
+      "Erode(A, B) + Dilate(A, B)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Mengurangkan versi tererosi dari versi terdilasi tepat menyisakan pita kontur batas tepi di sekeliling objek."
+  },
+  {
+    "id": "q-14-03",
+    "question": "Operasi manakah yang sangat efektif digunakan pada citra grayscale untuk mengisolasi teks atau goresan gelap kecil di atas latar belakang terang yang pencahayaannya tidak merata?",
+    "options": [
+      "Black-Hat Transform (Close(A, B) - A)",
+      "White Top-Hat (A - Open(A, B))",
+      "Erosion 3x3",
+      "Global Histogram Equalization"
+    ],
+    "correctIndex": 0,
+    "explanation": "Closing dengan SE cukup besar akan menghapus huruf gelap sehingga menyisakan estimasi latar belakang terang saja. Mengurangkan citra asli dari hasil Closing (Close - A) tepat mengisolasi teks gelap dengan latar datar."
+  },
+  {
+    "id": "q-14-04",
+    "question": "Apa arti dari sifat 'Idempoten' pada operasi Opening dan Closing dalam aljabar morfologi?",
+    "options": [
+      "Menerapkan operasi Opening berulang kali dengan Structuring Element B yang sama tidak akan mengubah hasil setelah iterasi pertama",
+      "Hasil Erosion selalu sama dengan hasil Dilation",
+      "Structuring Element berbentuk lingkaran tidak dapat diubah ke kotak",
+      "Ukuran file output selalu setengah ukuran file input"
+    ],
+    "correctIndex": 0,
+    "explanation": "Secara matematis (A o B) o B = A o B. Semua komponen yang lebih kecil dari B sudah bersih pada langkah pertama, sehingga iterasi kedua dengan B yang sama bersifat netral."
+  },
+  {
+    "id": "q-14-05",
+    "question": "Dalam morfologi citra grayscale, operasi Dilation pada jendela Structuring Element B secara komputasional ekuivalen dengan operator statistik lokal...",
+    "options": [
+      "Nilai Maksimum (Max) dari tetangga piksel yang tertutup elemen aktif B",
+      "Nilai Minimum (Min) dari tetangga piksel",
+      "Nilai Rata-rata (Mean) aritmatika",
+      "Nilai Variansi standar deviasi"
+    ],
+    "correctIndex": 0,
+    "explanation": "Untuk citra grayscale bernilai intensitas riil, Dilation menggantikan piksel pusat dengan nilai intensitas maksimum lokal pada lingkungan B, sedangkan Erosion mengambil nilai minimum lokal."
+  }
+]
+

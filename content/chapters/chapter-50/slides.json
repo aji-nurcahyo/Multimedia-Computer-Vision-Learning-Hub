@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 50: Advanced Vision Model Evaluation",
+    "content": "Metodologi Evaluasi Komprehensif: Presisi-Recall, mAP, Kalibrasi ECE & Efisiensi Edge\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 50. Tekankan bahwa dalam sistem visi komputer kritis, metrik akurasi skalar tidak memadai dan seringkali menyesatkan akibat class imbalance dan overconfidence."
+  },
+  {
+    "id": "slide-2",
+    "title": "Kurva Precision-Recall & Metrik Average Precision",
+    "content": "Evaluasi Deteksi Objek Terinterpolasi:\\n- Trade-off Precision vs Recall pada ambang IoU tertentu\\n- P_interp(r) = max_{r' >= r} P(r')\\n- Area under curve: AP = sum (R_k - R_{k-1}) * P_interp(R_k)\\n- Standar MS COCO: mAP@[0.50:0.95] (rata-rata lintas 10 ambang IoU dan seluruh kelas)",
+    "diagram": "/media/diagrams/chapter-50-precision-recall-and-map.svg",
+    "notes": "Jelaskan diagram kurva PR dan teknik interpolasi all-point untuk menghilangkan fluktuasi zig-zag pada urutan prediksi."
+  },
+  {
+    "id": "slide-3",
+    "title": "Masalah Kalibrasi Model: The Overconfidence Problem",
+    "content": "Fenomena Kalibrasi Jaringan Syaraf Tiruan Modern:\\n- Model akurat belum tentu terkalibrasi dengan baik\\n- Arsitektur berkapasitas besar sering overconfident (misal confidence 95%, namun akurasi hanya 70%)\\n- Bahaya nyata pada sistem keselamatan tinggi: mobil otonom dan diagnosis medis membutuhkan estimasi probabilitas yang jujur",
+    "diagram": null,
+    "notes": "Paparkan temuan Guo et al. (2017) mengenai degradasi kalibrasi pada jaringan dalam modern akibat over-parameterization dan minimasi NLL tanpa regularisasi."
+  },
+  {
+    "id": "slide-4",
+    "title": "Expected Calibration Error (ECE) & Brier Score",
+    "content": "Formulasi Matematis ECE:\\nECE = sum_{m=1}^M (|B_m| / N) * | acc(B_m) - conf(B_m) |\\n\\nMetrik Brier Score:\\nBS = (1/N) * sum_{i} sum_{k} (p_{ik} - y_{ik})^2\\n- Mengukur penyimpangan kuadratik prediksi probabilitas terhadap label biner\\n- Nilai 0.0 menunjukkan kalibrasi sempurna",
+    "diagram": null,
+    "notes": "Jelaskan pembagian ke dalam M bin interval confidence sama lebar dan cara menghitung selisih absolut antara akurasi empiris dan rata-rata kepercayaan."
+  },
+  {
+    "id": "slide-5",
+    "title": "Matriks Konfusi Multi-Kelas & Analisis Sensitivitas",
+    "content": "Visualisasi Distribusi Prediksi Multi-Kategori:\\n- Diagonal utama: True Positives (klasifikasi tepat)\\n- Elemen non-diagonal: Pola kebingungan antar-kelas (misal: 'Kucing' vs 'Anjing')\\n- Normalisasi per-baris: Sensitivitas / Recall kelas\\n- Identifikasi kelemahan spesifik arsitektur model sebelum deployment",
+    "diagram": "/media/diagrams/chapter-50-confusion-matrix-and-roc-metrics.svg",
+    "notes": "Tunjukkan diagram matriks konfusi multi-kelas. Jelaskan pentingnya normalisasi untuk mendeteksi kelas minoritas yang tenggelam oleh kelas mayoritas."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Perhitungan AP & ECE",
+    "content": "Dataset Uji 10 Deteksi (5 Ground Truth):\\n- Hasil Evaluasi AP Terinterpolasi: AP = 0.7945 (79.45%)\\n- Pembagian 3 Bin Kalibrasi:\\n  * Bin 1 (p <= 0.40): acc = 0.333, conf = 0.250 -> err = 0.083\\n  * Bin 2 (0.4 < p <= 0.7): acc = 0.333, conf = 0.560 -> err = 0.227\\n  * Bin 3 (p > 0.70): acc = 0.750, conf = 0.855 -> err = 0.105\\nTotal ECE = 0.1350 (13.50% deviasi kepercayaan)",
+    "diagram": null,
+    "notes": "Bimbing mahasiswa melalui tabel deteksi peringkat. Tunjukkan bagaimana akumulasi TP/FP menghasilkan nilai AP dan bagaimana pengelompokan bin menghasilkan nilai ECE."
+  },
+  {
+    "id": "slide-7",
+    "title": "Post-Processing Kalibrasi: Temperature Scaling",
+    "content": "Solusi Komputasi Ringan Pasca-Pelatihan:\\np_i = exp(z_i / T) / sum_j exp(z_j / T)\\n- Parameter tunggal T > 0 dioptimasi pada set validasi\\n- T > 1 melunakkan probabilitas dan menghilangkan overconfidence\\n- Tidak mengubah peringkat urutan kelas (Akurasi dan AP tetap utuh 100%)\\n- Mengurangi nilai ECE secara drastis hingga < 2%",
+    "diagram": null,
+    "notes": "Tekankan keunggulan Temperature Scaling: sangat sederhana, tidak memerlukan pelatihan ulang model, dan mempertahankan akurasi klasifikasi secara identik."
+  },
+  {
+    "id": "slide-8",
+    "title": "Evaluasi Ketahanan: Out-of-Distribution & ImageNet-C",
+    "content": "Pengujian Ketahanan di Bawah Gangguan Dunia Nyata:\\n1. Korupsi Fotometrik: Derau Gaussian, Shot Noise, Speckle\\n2. Distorsi Optik & Gerak: Motion Blur, Defocus Blur, Fog, Frost\\n3. Distorsi Kompresi Digital: JPEG compression artifacts\\n\\nMetrik mCE (Mean Corruption Error):\\nMembandingkan degradasi model relatif terhadap model standar (ResNet-50)",
+    "diagram": null,
+    "notes": "Jelaskan mengapa performa pada dataset bersih (clean test set) seringkali anjlok drastis saat kamera terkena kabut, hujan, atau guncangan getaran kendaraan."
+  },
+  {
+    "id": "slide-9",
+    "title": "Profil Komputasi & Latensi Inferensi Edge",
+    "content": "Dimensi Evaluasi Perangkat Keras:\\n- Distribusi Latensi: P50 (median), P95, dan P99 (tail latency spikes)\\n- Throughput: Frame Per Second (FPS) pada batch size 1\\n- Memory Footprint: Peak VRAM dan model size (MB)\\n- Keseimbangan Pareto: Trade-off akurasi mAP versus konsumsi daya (Watt)",
+    "diagram": null,
+    "notes": "Bahas realitas deployment di industri: model dengan mAP tertinggi tidak berguna jika latensi melebihi batas siklus kontrol real-time (misal 33 ms untuk 30 FPS)."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman Seksi 10 & Fondasi Riset Masa Depan",
+    "content": "Penutupan Bab 50 & Seksi Advanced Computer Vision:\\n- Evaluasi menyeluruh menjembatani riset teoretis ke implementasi produksi\\n- Skrip verifikasi: examples/example-01.py (AP, ECE & Brier score deterministik)\\n- Laboratorium interaktif: VisionEvaluationDashboard.tsx\\n- Kesiapan Kurikulum: Menuju Seksi 11 (Multimodal AI & Foundation Models Ch 51-55).",
+    "diagram": null,
+    "notes": "Slide penutup: apresiasi pemahaman komprehensif mahasiswa sepanjang Seksi 10 (Bab 46-50) dan arahkan ke praktikum evaluasi visual interaktif."
+  }
+]

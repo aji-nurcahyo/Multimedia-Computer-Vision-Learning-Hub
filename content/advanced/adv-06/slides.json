@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Persepsi Visual Kokoh Dalam Kondisi Buruk",
+    "lead": "Modul ADV-06 · L3 Advanced Depth",
+    "body": "Fisika hamburan atmosfer, restorasi berbasis prior fisik **Dark Channel Prior**, teori **Retinex**, dan kalibrasi ketidakpastian neural (**ECE**).",
+    "notes": "Jelaskan relevansi khusus modul ini terhadap tantangan lingkungan tropis Sumatera: hujan badai lebat, kabut asap lahan gambut, dan pencahayaan redup malam hari."
+  },
+  {
+    "id": 2,
+    "title": "Model Hamburan Atmosfer Koschmieder (1924)",
+    "lead": "Persamaan Transfer Radiasi Fisik",
+    "body": "$$I(\\mathbf{x}) = J(\\mathbf{x}) t(\\mathbf{x}) + A (1 - t(\\mathbf{x}))$$\n- $J(\\mathbf{x})$: Radiansi pemandangan asli yang bersih (scene radiance)\n- $t(\\mathbf{x}) = \\exp(-\\beta d(\\mathbf{x}))$: Peta transmisi medium terhadap kedalaman\n- $A$: Vektor cahaya kabut global (airlight)",
+    "notes": "Tekankan bahwa semakin jauh jarak kedalaman objek, kontras warna meluruh menuju cahaya airlight secara eksponensial."
+  },
+  {
+    "id": 3,
+    "title": "Dark Channel Prior (He et al., TPAMI 2011)",
+    "lead": "Restorasi Citra Tanpa Pasangan",
+    "body": "Observasi statistik pada citra luar ruangan non-langit:\n$$J^{\\text{dark}}(\\mathbf{x}) = \\min_{c \\in \\{R,G,B\\}} \\left( \\min_{\\mathbf{y} \\in \\Omega(\\mathbf{x})} J^c(\\mathbf{y}) \\right) \\approx 0$$\nEstimasi peta transmisi langsung:\n$$\\tilde{t}(\\mathbf{x}) = 1 - \\omega \\min_c \\left( \\min_{\\mathbf{y}} \\frac{I^c(\\mathbf{y})}{A^c} \\right)$$",
+    "notes": "Jelaskan bahwa prior ini memanfaatkan bayangan pekat, objek berwarna mencolok, dan permukaan gelap yang selalu ada di alam."
+  },
+  {
+    "id": 4,
+    "title": "Kalibrasi Ketidakpastian Neural & ECE",
+    "lead": "Expected Calibration Error dalam Visi Kritis Keselamatan",
+    "body": "$$\\text{ECE} = \\sum_{m=1}^M \\frac{|B_m|}{N} |\\text{acc}(B_m) - \\text{conf}(B_m)|$$\n- Di bawah domain shift cuaca buruk, neural network cenderung **overconfident** pada prediksi salah.\n- **Temperature Scaling:** Menormalkan logit melalui $z / T$ ($T > 1$) untuk mengembalikan kalibrasi.",
+    "notes": "Tunjukkan bahwa metrik akurasi tinggi tidak cukup untuk sistem otonom; model harus tahu kapan ia tidak yakin akan prediksinya."
+  },
+  {
+    "id": 5,
+    "title": "PSNR vs Akurasi Deteksi Hilir (Downstream Task)",
+    "lead": "Paradoks Restorasi Citra",
+    "body": "- Meningkatkan PSNR atau SSIM **tidak secara otomatis** meningkatkan performa deteksi bounding box.\n- Algoritma restorasi sering memperkenalkan artefak halus (*hallucinated edges*) yang mengacaukan ekstraksi fitur layer awal CNN.\n- Solusi SOTA: Pelatihan bersama (*joint restoration-detection learning*) atau adaptasi domain langsung.",
+    "notes": "Peringatkan mahasiswa agar tidak hanya terpaku pada metrik kualitas gambar saat merancang sistem deteksi kendaraan atau orang pada cuaca buruk."
+  }
+]
+

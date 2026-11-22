@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Edge Detection & Classical Feature Extraction",
+    "lead": "Section 03 — Advanced Digital Image Processing · Chapter 13",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Image Gradients, Sobel, Prewitt, Laplacian, Canny Edge Detector & Harris Corner Detector",
+    "notes": "Mulai dengan menghubungkan deteksi fitur tepi dan sudut sebagai jembatan menuju Computer Vision klasik."
+  },
+  {
+    "id": 2,
+    "title": "Konsep Gradien Citra & Turunan Diskrit",
+    "lead": "Mendeteksi diskontinuitas tajam intensitas f(x,y)",
+    "body": "### Definisi Vektor Gradien 2D\n$$\\nabla f = \\begin{bmatrix} G_x \\\\ G_y \\end{bmatrix} = \\begin{bmatrix} \\frac{\\partial f}{\\partial x} \\\\ \\frac{\\partial f}{\\partial y} \\end{bmatrix}$$\n- **Magnitudo (Kekuatan Tepi)**: $M(x, y) = \\sqrt{G_x^2 + G_y^2}$.\n- **Orientasi (Arah Tegak Lurus Tepi)**: $\\theta(x, y) = \\operatorname{atan2}(G_y, G_x)$.",
+    "notes": "Ingatkan mahasiswa untuk selalu memakai presisi bertanda (float64) saat menghitung turunan gradien."
+  },
+  {
+    "id": 3,
+    "title": "Operator Prewitt, Sobel & Laplacian",
+    "lead": "Turunan orde pertama vs orde kedua",
+    "body": "### Komparasi Operator Klasik\n- **Prewitt ($3\\times 3$)**: Bobot merata $[-1, 0, 1]$ pada ketiga baris/kolom.\n- **Sobel ($3\\times 3$)**: Memberi bobot ekstra $2$ pada pusat ($[-1,-2,-1] / [1,2,1]$) → efek smoothing built-in lebih tahan noise!\n- **Laplacian ($\\nabla^2 f$)**: Turunan kedua isotropik ($\\sum w = 0$), sangat tipis di tepi namun sangat sensitif noise jika tanpa Gaussian blur.",
+    "notes": "Tunjukkan kernel Sobel secara eksplisit sebagai kombinasi Gaussian smoothing 1D dan finite difference 1D."
+  },
+  {
+    "id": 4,
+    "title": "Tiga Kriteria Optimal Canny (1986)",
+    "lead": "Mengapa Canny menjadi standar emas deteksi tepi selama hampir 40 tahun",
+    "body": "### Prinsip Desain John Canny\n1. **Good Detection**: Probabilitas tinggi mendeteksi tepi asli dan probabilitas rendah salah mendeteksi noise.\n2. **Good Localization**: Jarak antara piksel tepi terdeteksi dengan garis tepi sejati harus seminimum mungkin.\n3. **Single Response**: Hanya menghasilkan **satu piksel tipis** untuk setiap satu tepi (bebas garis tepi tebal ganda).",
+    "notes": "Sobel mentah selalu menghasilkan garis tepi yang tebal (2-5 piksel); Canny menyempurnakannya menjadi 1 piksel."
+  },
+  {
+    "id": 5,
+    "title": "Empat Tahapan Canny Edge Detector",
+    "lead": "Pipeline berurutan untuk kontur tajam dan bersih",
+    "body": "### Alur Algoritma\n1. **Gaussian Smoothing**: Redam derau frekuensi tinggi dengan kernel $G_\\sigma$.\n2. **Gradient Computation**: Hitung magnitudo $M$ dan orientasi $\\theta$ memakai Sobel.\n3. **Non-Maximum Suppression (NMS)**: Pertahankan piksel hanya jika merupakan puncak lokal sepanjang arah gradien.\n4. **Double Threshold & Hysteresis**: Hubungkan piksel tepi lemah ($T_{\\text{low}} \\le M < T_{\\text{high}}$) hanya jika tersambung ke tepi kuat ($M \\ge T_{\\text{high}}$).",
+    "notes": "Jelaskan peran hysteresis dalam menyambung garis tepi yang sedikit memudar tanpa mengambil noise terisolasi."
+  },
+  {
+    "id": 6,
+    "title": "Masalah Apertur & Mengapa Sudut Itu Penting",
+    "lead": "Transisi dari Edges (1D-ambiguous) menuju Corners (2D-unique)",
+    "body": "### The Aperture Problem\n- Jika kita menggeser jendela pengamatan kecil sepanjang garis tepi lurus, tampilan di dalam jendela **tidak berubah** → tidak unik untuk pelacakan/pencocokan!\n- Pada titik **Sudut (Corner)**, menggeser jendela ke **arah mana pun** menyebabkan perubahan intensitas yang drastis → ideal sebagai *feature keypoint*!",
+    "notes": "Ini fondasi untuk pelacakan objek optik (Optical Flow Lucas-Kanade) dan panorama stitching."
+  },
+  {
+    "id": 7,
+    "title": "Harris Corner Detector (1988)",
+    "lead": "Analisis nilai eigen structure tensor gradien M",
+    "body": "### Formulasi Structure Tensor & Skor R\n$$M = \\sum_{W} w \\begin{bmatrix} I_x^2 & I_x I_y \\\\ I_x I_y & I_y^2 \\end{bmatrix}, \\qquad R = \\det(M) - k \\cdot [\\operatorname{trace}(M)]^2$$\n- **Flat** ($|R|$ kecil): $\\lambda_1, \\lambda_2$ kecil.\n- **Edge** ($R < 0$): Salah satu $\\lambda$ besar, lainnya kecil.\n- **Corner** ($R \\gg 0$): $\\lambda_1$ dan $\\lambda_2$ sama-sama besar!",
+    "notes": "Jelaskan mengapa memakai det(M) - k*trace(M)^2 jauh lebih cepat daripada menghitung akar kuadrat eigenvalue pada setiap piksel."
+  },
+  {
+    "id": 8,
+    "title": "Pengantar Deskriptor Fitur Klasik",
+    "lead": "Dari deteksi titik kunci menuju pencocokan lintas skala & rotasi",
+    "body": "### Dari Harris ke SIFT, SURF & ORB\n- **Harris**: Invarian terhadap rotasi, namun **sensitif terhadap perubahan skala (zoom)**.\n- **Multi-Scale & Descriptors**: Algoritma seperti **SIFT**, **ORB** (FAST + rBRIEF), dan **HOG** mengekstrak vektor ciri gradien berorientasi di sekitar *keypoint* agar objek tetap dikenali meski diperbesar atau diputar (dibahas penuh di Chapter 37).",
+    "notes": "Berikan pratinjau keterkaitan bab ini dengan Seksi 08 Computer Vision."
+  },
+  {
+    "id": 9,
+    "title": "Implementasi Python & OpenCV",
+    "lead": "Menguji Sobel, Canny, dan Harris Corner Detector",
+    "body": "### Kode Referensi\n```python\n# 1. Canny (rasio standar 1:2 atau 1:3)\nedges = cv2.Canny(gray, threshold1=50, threshold2=150)\n\n# 2. Harris Corner Detector (masukan float32)\nresp = cv2.cornerHarris(gray.astype(np.float32), blockSize=3, ksize=3, k=0.04)\ncorners = resp > 0.05 * resp.max()\n```",
+    "notes": "Pastikan mahasiswa mengingat cv2.cornerHarris mewajibkan tipe data np.float32!"
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 13",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- **Sobel** menghitung gradien berbobot tahan derau.\n- **Canny** mengekstrak tepi 1-piksel yang akurat dan terhubung lewat NMS + Hysteresis.\n- **Harris** mengidentifikasi titik sudut invarian rotasi menggunakan skor $R = \\det(M) - k\\,\\text{tr}(M)^2$.\n\n### Rujukan\n- Canny (1986), IEEE PAMI; Harris & Stephens (1988); Gonzalez & Woods (2018).",
+    "notes": "Arahkan mahasiswa menguji Edge & Feature Explorer di tab Laboratorium."
+  }
+]
+

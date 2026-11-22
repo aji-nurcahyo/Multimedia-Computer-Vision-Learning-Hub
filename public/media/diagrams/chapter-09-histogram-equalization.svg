@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="100%" height="100%">
+  <rect width="960" height="380" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="350" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 09 · HISTOGRAM EQUALIZATION (CDF)</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Transformasi Histogram Global Menggunakan Cumulative Distribution Function</text>
+
+  <!-- Narrow Low Contrast Hist -->
+  <g transform="translate(50, 125)">
+    <rect width="260" height="175" rx="8" fill="#090d16" stroke="#475569" />
+    <text x="130" y="24" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Sebelum: Kontras Sempit</text>
+    <rect x="85" y="100" width="12" height="55" fill="#38bdf8" />
+    <rect x="102" y="70" width="12" height="85" fill="#38bdf8" />
+    <rect x="119" y="55" width="12" height="100" fill="#38bdf8" />
+    <rect x="136" y="85" width="12" height="70" fill="#38bdf8" />
+    <rect x="153" y="115" width="12" height="40" fill="#38bdf8" />
+    <line x1="20" y1="155" x2="240" y2="155" stroke="#64748b" />
+  </g>
+
+  <!-- CDF Transform Formula -->
+  <g transform="translate(345, 160)">
+    <rect width="260" height="110" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="130" y="34" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">s_k = (L-1) · ∑ p(r_j)</text>
+    <text x="130" y="64" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Pemetaan CDF Monoton</text>
+    <text x="130" y="88" fill="#34d399" font-family="monospace" font-size="11" text-anchor="middle">cv2.equalizeHist(gray)</text>
+  </g>
+
+  <!-- Spread Equalized Hist -->
+  <g transform="translate(640, 125)">
+    <rect width="270" height="175" rx="8" fill="#090d16" stroke="#34d399" />
+    <text x="135" y="24" fill="#34d399" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Sesudah: Terdistribusi Merata</text>
+    <rect x="25" y="95" width="14" height="60" fill="#34d399" />
+    <rect x="65" y="90" width="14" height="65" fill="#34d399" />
+    <rect x="105" y="88" width="14" height="67" fill="#34d399" />
+    <rect x="145" y="92" width="14" height="63" fill="#34d399" />
+    <rect x="190" y="95" width="14" height="60" fill="#34d399" />
+    <rect x="230" y="90" width="14" height="65" fill="#34d399" />
+    <line x1="15" y1="155" x2="255" y2="155" stroke="#64748b" />
+  </g>
+  <text x="924" y="362" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

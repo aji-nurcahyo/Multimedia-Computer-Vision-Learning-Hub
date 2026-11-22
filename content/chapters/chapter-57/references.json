@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ref-57-1",
+    "title": "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference",
+    "authors": "Benoit Jacob, Skirmantas Kligys, Bo Chen, Menglong Zhu, Matthew Tang, Andrew Howard, Hartwig Adam, Dmitry Kalenichenko",
+    "year": 2018,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2018.00286",
+    "annotation": "Makalah klasik Google yang meletakkan dasar matematis skema kuantisasi affine asimetris INT8 untuk inferensi model vision hanya-integer pada prosesor mobile dan TPU."
+  },
+  {
+    "id": "ref-57-2",
+    "title": "MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications",
+    "authors": "Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, Hartwig Adam",
+    "year": 2017,
+    "publisher": "arXiv preprint arXiv:1704.04861",
+    "url": "https://arxiv.org/abs/1704.04861",
+    "annotation": "Arsitektur jaringan konvolusi ringan perintis yang memperkenalkan depthwise separable convolutions untuk memangkas parameter dan beban FLOPS secara dramatis."
+  },
+  {
+    "id": "ref-57-3",
+    "title": "Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding",
+    "authors": "Song Han, Huizi Mao, William J. Dally",
+    "year": 2016,
+    "publisher": "International Conference on Learning Representations (ICLR)",
+    "url": "https://arxiv.org/abs/1510.00149",
+    "annotation": "Karya penting dalam kompresi model deep learning yang memadukan pemangkasan bobot (pruning), kuantisasi berbasis klaster, dan pengkodean Huffman untuk mereduksi ukuran model hingga 49 kali."
+  }
+]
+

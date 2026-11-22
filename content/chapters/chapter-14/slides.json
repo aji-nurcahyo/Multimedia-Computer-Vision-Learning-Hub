@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Morphological Image Processing",
+    "lead": "Section 03 — Advanced Digital Image Processing · Chapter 14",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Binary Morphology, Structuring Elements, Erosion, Dilation, Opening, Closing, Gradient & Top-Hat",
+    "notes": "Jelaskan pergeseran paradigma dari filter intensitas linier menuju pengolahan geometri bentuk himpunan."
+  },
+  {
+    "id": 2,
+    "title": "Himpunan Citra Biner & Structuring Element (SE)",
+    "lead": "Probe geometris penentu hasil transformasi bentuk",
+    "body": "### Konsep Dasar\n- Citra biner dipandang sebagai himpunan koordinat piksel aktif $A \\subset \\mathbb{Z}^2$.\n- **Structuring Element ($B$)**: Matriks kecil berisi $1$ dan $0$ dengan titik pusat (*anchor*).\n- **Tiga Bentuk Baku**: `MORPH_RECT` (Kotak), `MORPH_CROSS` (Palang $+$), dan `MORPH_ELLIPSE` (Cakram/Elips).",
+    "notes": "Jelaskan bahwa pemilihan bentuk SE (mis. elips vs kotak) langsung membentuk kelengkungan sudut hasil morfologi."
+  },
+  {
+    "id": 3,
+    "title": "Dua Operasi Inti: Erosion & Dilation",
+    "lead": "Fondasi pembangun seluruh filter morfologi tingkat lanjut",
+    "body": "### Definisi Formal & Efek Visual\n- **Erosion ($A \\ominus B$)**: Piksel keluaran = $1$ hanya jika seluruh $B$ muat utuh di dalam $A$. Efek: **mengecilkan objek & menghapus bridges tipis**.\n- **Dilation ($A \\oplus B$)**: Piksel keluaran = $1$ jika minimal satu piksel $B$ menyentuh $A$. Efek: **memperbesar objek & menyambungkan celah putus**.",
+    "notes": "Pada grayscale, Erosion setara operator MIN lokal dan Dilation setara operator MAX lokal."
+  },
+  {
+    "id": 4,
+    "title": "Opening & Closing: Pembersihan Tanpa Distorsi Skala",
+    "lead": "Mengombinasikan Erosi dan Dilasi secara berurutan",
+    "body": "### Operasi Komposit Utama\n- **Opening ($A \\circ B = (A \\ominus B) \\oplus B$)**: Erosi → Dilasi. Menghapus titik noise kecil di luar objek sembari mengembalikan ukuran objek utama ke semula.\n- **Closing ($A \\bullet B = (A \\oplus B) \\ominus B$)**: Dilasi → Erosi. Menutup lubang-lubang kecil di dalam objek tanpa memperbesar ukuran luarnya.",
+    "notes": "Tekankan aturan pengingat: Opening = membersihkan luar; Closing = menambal lubang dalam."
+  },
+  {
+    "id": 5,
+    "title": "Sifat Dualitas & Idempotensi",
+    "lead": "Simetri aljabar himpunan dalam morfologi matematis",
+    "body": "### Properti Matematis\n- **Dualitas Erosi-Dilasi**: $(A \\ominus B)^c = A^c \\oplus \\hat{B}$ (Mengerosi foreground = Mendilasi background!).\n- **Idempotensi**: $(A \\circ B) \\circ B = A \\circ B$. Setelah disapu bersih sekali dengan Opening ukuran $B$, mengulang Opening dengan SE $B$ yang sama tidak mengubah apa-apa lagi.",
+    "notes": "Hubungkan dualitas dengan pertanyaan mengapa Opening dan Closing tidak saling membalikkan tetapi membersihkan komponen berbeda."
+  },
+  {
+    "id": 6,
+    "title": "Morphological Gradient, Top-Hat & Black-Hat",
+    "lead": "Mengekstrak kontur dan mengoreksi pencahayaan miring",
+    "body": "### Operasi Selisih Morfologis\n- **Morphological Gradient**: $\\text{Dilate}(A) - \\text{Erode}(A)$ → menghasilkan garis batas tepi objek.\n- **White Top-Hat**: $A - \\text{Open}(A)$ → mengekstrak detail terang kecil di atas latar belakang terang tak merata.\n- **Black-Hat**: $\\text{Close}(A) - A$ → mengekstrak teks/celah gelap di atas latar tak merata.",
+    "notes": "White Top-Hat sangat sering dipakai pada pemindaian mikroskop sel & koreksi halaman buku melengkung."
+  },
+  {
+    "id": 7,
+    "title": "Morphological Reconstruction",
+    "lead": "Memulihkan bentuk objek secara presisi tanpa membulatkan sudut",
+    "body": "### Prinsip Marker & Mask\n- Terdiri dari citra **Marker** (titik awal hasil erosi) dan **Mask** (citra biner asli batas maksimal).\n- Marker didilasi berulang kali menggunakan **geodesic dilation** dibatasi di dalam Mask hingga konvergen.\n- **Keunggulan**: Menghilangkan komponen tak diinginkan sepenuhnya namun mempertahankan 100% bentuk tepi objek yang bertahan!",
+    "notes": "Bandingkan dengan Opening biasa yang cenderung melengkungkan sudut persegi panjang."
+  },
+  {
+    "id": 8,
+    "title": "Implementasi Python & OpenCV",
+    "lead": "Fungsi getStructuringElement dan morphologyEx",
+    "body": "### Kode Referensi\n```python\nse = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))\nopened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, se)\nclosed = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, se)\ngradient = cv2.morphologyEx(closed, cv2.MORPH_GRADIENT, se)\n```",
+    "notes": "Pastikan urutan Opening lalu Closing atau sebaliknya dipilih berdasarkan dominasi noise (speckles vs holes)."
+  },
+  {
+    "id": 9,
+    "title": "Aplikasi Praktis Visi Industri & Medis",
+    "lead": "Pipeline pasca-segmentasi di dunia nyata",
+    "body": "### Studi Kasus\n- **OCR & Dokumen**: Menyambung huruf terputus akibat hasil pindaian buram (Closing/Dilation horizontal).\n- **Inspeksi PCB**: Mendeteksi jalur tembaga terputus atau *solder bridge*.\n- **Biomedis**: Memisahkan inti sel yang berdempetan (*distance transform + erosion marker*).",
+    "notes": "Berikan transisi ke Chapter 15 di mana masker bersih hasil morfologi akan dihitung dan diukur."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 14",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- **Erosion** & **Dilation** adalah blok penyusun dasar morfologi bentuk.\n- **Opening** membersihkan titik noise latar belakang; **Closing** menutup lubang internal objek.\n- **Top-Hat / Black-Hat** mengekstrak fitur kecil sekalipun pencahayaan latar tidak merata.\n\n### Rujukan\n- Gonzalez & Woods (2018), *Digital Image Processing*, Bab 9.",
+    "notes": "Arahkan mahasiswa mempraktikkan variasi bentuk SE di Morphology Lab."
+  }
+]
+

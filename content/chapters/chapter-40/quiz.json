@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q-40-1",
+    "question": "Apa tujuan utama dari konsep yang dibahas dalam Bab 40 (Classical Object Recognition & Scene Analysis)?",
+    "options": [
+      "Meningkatkan pemahaman matematis dan akurasi representasi data visual",
+      "Mengurangi ukuran file teks tanpa kompresi",
+      "Menghilangkan kebutuhan kalibrasi perangkat keras",
+      "Mengabaikan resolusi spasial citra"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bab ini secara spesifik berfokus pada peningkatan akurasi komputasi dan representasi data visual."
+  },
+  {
+    "id": "q-40-2",
+    "question": "Dalam formulasi matematis bab ini, parameter apa yang bertindak sebagai pembatas kestabilan?",
+    "options": [
+      "Ambang batas numerik / nilai eigen terkecil",
+      "Kecepatan refresh layar monitor",
+      "Format penamaan berkas citra",
+      "Kapasitas hard disk eksternal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Kestabilan inversi matriks dan pemrosesan numerik ditentukan oleh nilai eigen dan ambang batas matematis."
+  },
+  {
+    "id": "q-40-3",
+    "question": "Manakah pernyataan yang BENAR mengenai diagram teknis Pipeline Deskriptor Histogram of Oriented Gradients (HOG)?",
+    "options": [
+      "Menggambarkan alur transformasi dan struktur representasi algoritma secara sistematis",
+      "Merupakan gambar dekoratif acak tanpa keterkaitan teknis",
+      "Hanya berlaku pada sistem operasi monolitik jadul",
+      "Mengharuskan penggunaan sensor analog"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Diagram teknis mendokumentasikan prinsip kerja dan alur transformasi sistem secara baku."
+  },
+  {
+    "id": "q-40-4",
+    "question": "Bagaimana strategi optimasi komputasi yang direkomendasikan pada bab ini?",
+    "options": [
+      "Pemanfaatan vektorisasi tensor dan pemrosesan terkuantisasi efisien",
+      "Loop bersarang iteratif tanpa kompilasi JIT",
+      "Alokasi array dinamis terus-menerus di dalam loop utama",
+      "Penyalinan buffer memori redundant"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Vektorisasi komputasi dan efisiensi alokasi memori adalah prinsip utama akselerasi sistem visi."
+  },
+  {
+    "id": "q-40-5",
+    "question": "Metrik apakah yang digunakan untuk memverifikasi performa algoritma pada bab ini?",
+    "options": [
+      "Metrik kuantitatif matematis deterministik (misal: RMSE, IoU, Accuracy, F1-Score)",
+      "Penilaian estetika subyektif tanpa angka numerik",
+      "Ukuran dimensi fisik monitor pengguna",
+      "Jumlah baris komentar kode sumber"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Verifikasi ilmiah visi komputer wajib menggunakan metrik numerik kuantitatif terukur."
+  }
+]

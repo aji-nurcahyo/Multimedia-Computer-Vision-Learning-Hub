@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-32-01",
+    "title": "Siklus Prediksi & Koreksi Filter Kalman (Kalman Filter Loop)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-32-kalman-filter-cycle.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-32-02",
+    "title": "Paradigma Pelacakan Tracking-by-Detection",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-32-tracking-by-detection.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

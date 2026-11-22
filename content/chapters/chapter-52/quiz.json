@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q-52-1",
+    "question": "Apa tujuan utama dari pendekatan multimodal yang dipelajari pada Bab 52 (Vision-Language Models)?",
+    "options": [
+      "Mengintegrasikan informasi komplementer dari beragam modalitas sensor untuk menghasilkan persepsi yang lebih akurat dan tangguh",
+      "Mengurangi ukuran bit rate berkas teks menjadi nol",
+      "Mengganti seluruh komputasi visual dengan sensor suhu tunggal",
+      "Menolak penggunaan representasi numerik terstandarisasi"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sistem multimodal menggabungkan informasi komplementer antar-modalitas untuk mengatasi kelemahan model unimodal."
+  },
+  {
+    "id": "q-52-2",
+    "question": "Mengapa normalisasi L2 pada vektor representasi fitur sangat penting dalam ruang embedding bersama?",
+    "options": [
+      "Menjadikan besar magnitudo konstan sehingga kemiripan kosinus proporsional langsung dengan jarak Euclidean",
+      "Menghapus seluruh nilai negatif pada matriks citra",
+      "Mempercepat koneksi internet pengguna",
+      "Memaksa resolusi citra menjadi berukuran 1x1 piksel"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Dengan vektor ternormalisasi L2, ||z1 - z2||^2 = 2(1 - cos(theta)), menjamin konsistensi metrik geometri."
+  },
+  {
+    "id": "q-52-3",
+    "question": "Manakah pernyataan yang BENAR mengenai diagram teknis Arsitektur Kontrastif Dual-Encoder Vision-Language (CLIP)?",
+    "options": [
+      "Mendokumentasikan alur data dan prinsip struktural fusi sistem secara sistematis",
+      "Merupakan ilustrasi dekoratif tanpa landasan matematis",
+      "Hanya dapat diterapkan pada sistem analog tabung vakum",
+      "Mengharuskan resolusi layar bernilai ganjil"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Diagram teknis menyajikan arsitektur dataflow, interaksi modul, dan perataan dimensi representasi sistem."
+  },
+  {
+    "id": "q-52-4",
+    "question": "Bagaimana peranan parameter temperatur tau dalam fungsi Softmax pada inferensi zero-shot multimodal?",
+    "options": [
+      "Mengatur ketajaman distribusi probabilitas prediksi untuk mencegah kompresi varians probabilitas",
+      "Menurunkan suhu fisik chip prosesor secara langsung",
+      "Menghapus lapisan bobot tersembunyi pada neural network",
+      "Menambahkan noise acak tanpa batas pada keluaran"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temperatur tau mengkalibrasi distribusi logit menjadi probabilitas yang percaya diri dan terkalibrasi secara statistik."
+  },
+  {
+    "id": "q-52-5",
+    "question": "Metrik apakah yang menjadi tolak ukur evaluasi keberhasilan sistem pada bab ini?",
+    "options": [
+      "Metrik kuantitatif terstandarisasi (misal: Precision@K, Recall@K, MRR, atau Akurasi Bimodal Fused)",
+      "Penilaian subyektif perseorangan tanpa angka numerik",
+      "Ukuran dimensi fisik mouse komputer penguji",
+      "Jumlah karakter dalam nama berkas input"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Evaluasi sistem multimedia dan AI multimodal wajib berbasis pengukuran kuantitatif numerik yang dapat direproduksi."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-26-01",
+    "title": "Digital Video and HD: Algorithms and Interfaces (2nd Edition)",
+    "authors": "Charles Poynton",
+    "year": 2012,
+    "publisher": "Morgan Kaufmann",
+    "url": "https://www.sciencedirect.com/book/9780123919267/digital-video-and-hd",
+    "type": "book",
+    "annotation": "Karya rujukan otoritatif internasional mengenai matematika video digital, ruang warna YCbCr, subsampling kroma, dan standar sinkronisasi video broadcast."
+  },
+  {
+    "id": "ref-26-02",
+    "title": "Video Demystified: A Handbook for the Digital Engineer (5th Edition)",
+    "authors": "Keith Jack",
+    "year": 2007,
+    "publisher": "Newnes / Elsevier",
+    "url": "https://www.sciencedirect.com/book/9780750683951/video-demystified",
+    "type": "book",
+    "annotation": "Buku pegangan teknik mengenai format video digital, konversi analog-ke-digital, progressive scanning, dan arsitektur interface display."
+  },
+  {
+    "id": "ref-26-03",
+    "title": "Recommendation ITU-R BT.601-7: Studio encoding parameters of digital television",
+    "authors": "International Telecommunication Union",
+    "year": 2011,
+    "publisher": "ITU Radiocommunication Sector",
+    "url": "https://www.itu.int/rec/R-REC-BT.601/en",
+    "type": "documentation",
+    "annotation": "Standar resmi ITU-R untuk pengkodean sinyal video digital format 4:2:2 dan matriks konversi luminansi-krominansi standar."
+  }
+]

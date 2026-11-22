@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-31-01",
+    "title": "Adaptive background mixture models for real-time tracking (MOG)",
+    "authors": "Chris Stauffer, W. Eric L. Grimson",
+    "year": 1999,
+    "publisher": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.1999.784637",
+    "type": "paper",
+    "annotation": "Karya pionir pemodelan latar belakang multimodal berbasis Mixture of Gaussians (MOG) yang mampu menangani dedaunan bergerak dan riak air."
+  },
+  {
+    "id": "ref-31-02",
+    "title": "Improved adaptive Gaussian mixture model for background subtraction (MOG2)",
+    "authors": "Zoran Zivkovic",
+    "year": 2004,
+    "publisher": "International Conference on Pattern Recognition (ICPR)",
+    "url": "https://doi.org/10.1109/ICPR.2004.1333992",
+    "type": "paper",
+    "annotation": "Penyempurnaan algoritma MOG dengan pemilihan jumlah komponen Gaussian dinamis per piksel dan fitur deteksi bayangan terintegrasi."
+  },
+  {
+    "id": "ref-31-03",
+    "title": "Background Subtraction: Theory and Practice",
+    "authors": "Ahmed Elgammal",
+    "year": 2014,
+    "publisher": "Synthesis Lectures on Computer Vision, Morgan & Claypool Publishers",
+    "url": "https://doi.org/10.2200/S00588ED1V01Y201407COV006",
+    "type": "book",
+    "annotation": "Survei mendalam mengenai taksonomi metode background subtraction parametrik dan non-parametrik serta metrik evaluasinya."
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-18-01",
+    "title": "Transformasi Fourier Cepat (FFT) & Karakteristik Jendela",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-18-audio-fft-windows.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-18-02",
+    "title": "Mekanisme Terjadinya Spectral Leakage pada Analisis DFT/FFT",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-18-spectral-leakage.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

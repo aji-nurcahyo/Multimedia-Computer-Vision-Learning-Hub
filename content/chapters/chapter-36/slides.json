@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 36: Computer Vision Foundations & Image Geometry",
+    "content": "Multimedia & Computer Vision Learning Hub\n\nInstitut Teknologi Sumatera (ITERA)\nAuthor: Aji Pamungkas Tri Nurcahyo\nTopik Utama: Sistem Koordinat Citra, Ruang Homogen P^2, dan Transformasi Geometri 2D.",
+    "diagram": null,
+    "notes": "Slide pembuka: Tekankan kepada mahasiswa bahwa visi komputer berbeda secara fundamental dari pengolahan citra karena berorientasi pada pemodelan spasial dan pemahaman 3D."
+  },
+  {
+    "id": "slide-2",
+    "title": "Sistem Koordinat Citra: Piksel vs Cartesian Kontinu",
+    "content": "- Piksel Diskrit (u, v): Indeks integer baris-kolom dengan origin (0, 0) di sudut kiri-atas.\n- Koordinat Cartesian Kontinu (x, y): Titik fisik pada sensor optik dengan satuan metrik kontinu.\n- Kebutuhan Ruang Homogen P^2: Memungkinkan operasi translasi, rotasi, skala, dan shear disatukan dalam satu perkalian matriks linear tunggal.",
+    "diagram": "/media/diagrams/chapter-36-coordinate-systems-and-geometry.svg",
+    "notes": "Jelaskan Gambar 36.1 dan tunjukkan bagaimana origin koordinat piksel berbeda dengan origin sistem Cartesian analitis."
+  },
+  {
+    "id": "slide-3",
+    "title": "Hierarki Transformasi Geometri 2D",
+    "content": "1. Isometri / Rigid (3 DoF): Menjaga panjang Euclidean dan sudut antar garis.\n2. Similaritas (4 DoF): Menjaga sudut dan perbandingan rasio panjang.\n3. Afinitas (6 DoF): Menjaga garis lurus dan paralelisme (garis sejajar tetap sejajar).\n4. Homografi Proyektif (8 DoF): Memetakan bidang datar di bawah proyeksi perspektif sembarang.",
+    "diagram": "/media/diagrams/chapter-36-affine-vs-perspective-warping.svg",
+    "notes": "Tunjukkan perbandingan derajat kebebasan (DoF) dan sifat invariansi geometris pada masing-masing kelompok transformasi."
+  },
+  {
+    "id": "slide-4",
+    "title": "Formulasi Matriks Transformasi Afinitas",
+    "content": "Perkalian matriks homogen 3x3:\n[x', y', 1]^T = M_affine * [x, y, 1]^T\n\nDi mana sub-matriks 2x2 A = R(theta) * S(sx, sy) merepresentasikan rotasi, skala, dan shear.\n- Memerlukan minimal 3 pasang titik korespondensi non-kolinear untuk solusi unik.",
+    "diagram": null,
+    "notes": "Turunkan persamaan linear untuk 6 parameter afinitas dari 3 pasang titik korespondensi."
+  },
+  {
+    "id": "slide-5",
+    "title": "Matriks Homografi Proyektif 2D",
+    "content": "Pemetaan proyektif antar-bidang:\n[x', y', 1]^T ~ H * [x, y, 1]^T\n\nKoordinat Cartesian tak-homogen:\nx' = (h11*x + h12*y + h13) / (h31*x + h32*y + h33)\ny' = (h21*x + h22*y + h23) / (h31*x + h32*y + h33)\n- Memerlukan minimal 4 pasang titik korespondensi melalui Direct Linear Transformation (DLT).",
+    "diagram": null,
+    "notes": "Tekankan pembagian dengan entri baris ketiga (w') yang membedakan homografi perspektif dari transformasi afinitas."
+  },
+  {
+    "id": "slide-6",
+    "title": "Forward Mapping vs Inverse Mapping",
+    "content": "- Forward Mapping (p -> M*p): Menyebabkan celah kosong (voids) dan lubang pada citra hasil pembesaran.\n- Inverse Mapping (p' -> M^-1 * p'): Menelusuri setiap koordinat piksel integer pada citra target, lalu menginterpolasi intensitas dari citra sumber.\n- Standar Industri: Inverse mapping selalu digunakan dalam seluruh fungsi warping (OpenCV cv2.warpAffine / cv2.warpPerspective).",
+    "diagram": null,
+    "notes": "Jelaskan mengapa inverse mapping mencegah terjadinya distorsi lubang dan selalu menghasilkan citra target yang padat."
+  },
+  {
+    "id": "slide-7",
+    "title": "Formulasi Interpolasi Bilinear",
+    "content": "Diberikan koordinat riil kontinu (x, y) dengan fraksi alpha = x - floor(x), beta = y - floor(y):\n\nI(x, y) = (1-alpha)(1-beta)*I(x1, y1) + alpha*(1-beta)*I(x2, y1) + (1-alpha)*beta*I(x1, y2) + alpha*beta*I(x2, y2)\n\nKombinasi cembung (convex combination) dari 4 piksel tetangga dengan total bobot tepat 1.00.",
+    "diagram": null,
+    "notes": "Bahas contoh numerik manual: bagaimana titik (1.4, 2.7) menghasilkan bobot [0.18, 0.12, 0.42, 0.28] dan intensitas 148.2."
+  },
+  {
+    "id": "slide-8",
+    "title": "Normalisasi Koordinat Hartley",
+    "content": "Masalah Numerik: Nilai koordinat piksel (ratusan piksel) menyebabkan matriks DLT poorly-conditioned.\n\nSolusi Algoritma Hartley:\n1. Translasi titik sehingga titik berat (centroid) berada di (0, 0).\n2. Skala koordinat sehingga jarak rata-rata ke origin bernilai sqrt(2).\n3. Estimasi H_norm lalu denormalisasi: H = T_dst^-1 * H_norm * T_src.",
+    "diagram": null,
+    "notes": "Tekankan pentingnya normalisasi koordinat untuk mencegah galat numerik pada estimasi matriks homografi."
+  },
+  {
+    "id": "slide-9",
+    "title": "Evaluasi Geometris & Reprojection Error",
+    "content": "Metrik Mean Reprojection Error (MRE):\nRMSE = sqrt( (1/N) * sum_{i=1}^N || x'_i - f(x_i, H) ||^2 )\n\n- Mengukur deviasi spasial antara lokasi titik terprediksi dengan lokasi titik acuan pada citra target.\n- Nilai MRE < 0.5 piksel menunjukkan estimasi transformasi yang akurat dan stabil.",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana MRE digunakan dalam kalibrasi kamera dan penghilangan outlier menggunakan algoritma RANSAC."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Keterkaitan Bab",
+    "content": "1. Koordinat homogen P^2 menyatukan aljabar transformasi linier dan translasi 2D.\n2. Inverse mapping dan interpolasi bilinear menjamin integritas visual rekonstruksi citra.\n3. Fondasi geometri citra ini menjadi prasyarat esensial untuk Bab 37 (Feature Matching), Bab 38 (Camera Calibration), dan Bab 39 (Stereo Vision).",
+    "diagram": null,
+    "notes": "Tutup dengan mengaitkan materi Bab 36 ke deteksi fitur dan kalibrasi kamera pada bab-bab berikutnya."
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+   "id": "slide-1",
+   "title": "Bab 59: Performance Optimization & Deployment",
+   "content": "Dekomposisi Anggaran Latensi, Hukum Amdahl & Distribusi Aplikasi Web Statis\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+   "diagram": null,
+   "notes": "Slide pengantar Bab 59. Tekankan filosofi optimasi berbasis bukti ilmiah: 'Ukur, Identifikasi Bottleneck, Optimasi, Validasi'."
+  },
+  {
+   "id": "slide-2",
+   "title": "Alokasi Anggaran Waktu Frame (Frame-Time Budgeting)",
+   "content": "Target Laju Frame Sistem Multimedia:\\n• 60 FPS = 16.67 milidetik per frame (Batas kenyamanan interaksi mata manusia)\\n• 30 FPS = 33.33 milidetik per frame (Standar video broadcast)\\n\\nDekomposisi Latensi Pipa (T_total = sum T_k):\\n- Headroom (Sisa Waktu Cadangan): T_headroom = T_budget - T_total\\n- Jika T_headroom < 0: Terjadi pelanggaran tenggat waktu (deadline missed) dan frame drop",
+   "diagram": null,
+   "notes": "Jelaskan konsep frame budget 16.67 ms. Tekankan bahwa setiap milidetik yang dihemat memperbesar ruang toleransi sistem."
+  },
+  {
+   "id": "slide-3",
+   "title": "Dekomposisi Latensi & Analisis Titik Hambat (Bottleneck)",
+   "content": "Profil Waktu Nyata Pipeline Computer Vision:\\n• Capture (2.5 ms): Transfer frame kamera ke memori\\n• Preprocess (1.5 ms): Resize dan normalisasi tensor\\n• Inferensi Model DNN (8.0 ms): Komputasi konvolusi CNN (Bottleneck: 61.5%)\\n• Postprocess (1.0 ms): Non-Maximum Suppression dan rendering overlay\\nTotal = 13.0 ms < 16.67 ms (Throughput: 76.92 FPS, Headroom: +3.67 ms OK)",
+   "diagram": "/media/diagrams/chapter-59-performance-profiling-bottlenecks.svg",
+   "notes": "Gunakan diagram dekomposisi latensi untuk menunjukkan tahapan pipa dan bagaimana tahapan inferensi menjadi bottleneck dominan."
+  },
+  {
+   "id": "slide-4",
+   "title": "Prinsip Matematis Hukum Amdahl (Amdahl's Law)",
+   "content": "Batas Teoretis Percepatan Sistem Keseluruhan:\\nS_overall = 1 / [ (1 - p) + (p / s) ]\\n\\nKomponen Kunci:\\n- p = Proporsi durasi tahapan yang dapat dipercepat (0 <= p <= 1)\\n- s = Faktor kelipatan percepatan tahapan tersebut\\n- Batas Asimtotik (s -> tak hingga): S_max = 1 / (1 - p)\\n\\nPeringatan Kritis: Mengoptimasi tahapan kecil (p < 0.1) adalah kesia-siaan rekayasa!",
+   "diagram": null,
+   "notes": "Turunkan persamaan Hukum Amdahl di papan tulis. Tunjukkan grafik asimtotik percepatan saat s membesar."
+  },
+  {
+   "id": "slide-5",
+   "title": "Contoh Numerik Penerapan Hukum Amdahl",
+   "content": "Studi Kasus Akselerasi WebGPU pada Inferensi:\\n• Durasi Awal: Total = 13.0 ms (Inferensi = 8.0 ms -> p = 61.54%)\\n• Akselerasi Inferensi 4x (s = 4.0 -> Durasi inferensi turun ke 2.0 ms)\\n\\nPerhitungan Amdahl:\\nS_overall = 1 / [ (1 - 0.6154) + (0.6154 / 4) ] = 1 / 0.5385 ≈ 1.857x\\n\\nDurasi Baru: 2.5 + 1.5 + 2.0 + 1.0 = 7.0 ms -> Throughput melonjak ke 142.86 FPS!",
+   "diagram": null,
+   "notes": "Bahas hasil numerik. Tunjukkan mengapa percepatan sistem 1.86x bukan 4x, karena tahapan non-inferensi (5 ms) tetap konstan."
+  },
+  {
+   "id": "slide-6",
+   "title": "Alat & Metrik Profiling Peramban Modern",
+   "content": "Instrumen Pengukuran Performa Perangkat Lunak:\\n1. Chrome DevTools Performance Panel: Merekam flame-graph eksekusi fungsi CPU & GPU\\n2. API performance.now(): Stempel waktu presisi sub-milidetik (< 5 mikrodetik)\\n3. Memory Profiler (Heap Snapshot): Mendeteksi memory leaks dan siklus retained objects\\n4. Core Web Vitals: LCP (Largest Contentful Paint), CLS (Cumulative Layout Shift)",
+   "diagram": null,
+   "notes": "Jelaskan bagaimana mahasiswa dapat menggunakan DevTools untuk menguji aplikasi multimedia mereka sendiri."
+  },
+  {
+   "id": "slide-7",
+   "title": "Pipeline Optimasi Bundel Web & Distribusi Statis",
+   "content": "Arsitektur Build Vite / Rollup Menuju Produksi:\\n• Tree Shaking: Menghapus modul dan fungsi mati yang tidak pernah diimpor\\n• Minifikasi ESBuild: Memangkas spasi, komentar, dan menyingkat nama variabel\\n• Pemisahan Chunk (Code Splitting): Memisahkan dependensi vendor dari kode aplikasi\\n• Kompresi Tingkat Lanjut: Gzip (Level 9) & Brotli (Level 11) memangkas ukuran hingga 70%",
+   "diagram": "/media/diagrams/chapter-59-static-deployment-optimization.svg",
+   "notes": "Gunakan diagram optimasi deployment statis untuk menjelaskan alur dari kode sumber TypeScript ke file dist/ terkompresi."
+  },
+  {
+   "id": "slide-8",
+   "title": "Strategi Caching & Hosting Edge CDN",
+   "content": "Memaksimalkan Kecepatan Akses Global:\\n1. Immutable Asset Hashing: Nama file dist/[name].[hash].js memiliki cache 1 tahun penuh\\n2. Cache-Control Header: max-age=31536000, immutable untuk file statis ber-hash\\n3. Zero-Backend Static Hosting: GitHub Pages / Cloudflare Pages / Vercel Edge\\n4. Time-to-First-Byte (TTFB) < 30 ms di seluruh dunia",
+   "diagram": null,
+   "notes": "Jelaskan konsep hash pada nama file aset dan mengapa hal itu memungkinkan browser menyimpan cache selamanya secara aman."
+  },
+  {
+   "id": "slide-9",
+   "title": "Analisis Jejak Jaringan: Ukuran Bundel vs Waktu Muat",
+   "content": "Simulasi Akses di Berbagai Kondisi Jaringan:\\n• Total Modul Mentah: 220.0 KB\\n• Ukuran Terkompresi Gzip (30%): 66.0 KB\\n\\nEstimasi Waktu Pemuatan:\\n- Jaringan Seluler 3G (750 kbps / 93.75 KB/s): ~704 ms (< 1 detik)\\n- Jaringan Cepat 4G (25 Mbps / 3,125 KB/s): ~21 ms (Instan!)\\nAplikasi dapat diakses lancar di pelosok wilayah dengan koneksi terbatas.",
+   "diagram": null,
+   "notes": "Sorot komitmen inklusivitas digital ITERA: platform didesain seringan mungkin agar dapat diakses mahasiswa dari berbagai daerah."
+  },
+  {
+   "id": "slide-10",
+   "title": "Gerbang Menuju Proyek Akhir Capstone (Bab 60)",
+   "content": "Standar Evaluasi Rekayasa Sistem Bab 60:\\n• Mahasiswa wajib menyertakan telemetri latensi per tahapan dalam proyek Capstone\\n• Membuktikan kepatuhan frame budget pada perangkat target (Edge / Laptop)\\n• Menyediakan dokumentasi profil performa sebelum dan sesudah optimasi",
+   "diagram": null,
+   "notes": "Tutup kuliah dengan menghubungkan Bab 59 sebagai prasyarat kualitas wajib sebelum melangkah ke Capstone Project di Bab 60."
+  }
+]
+

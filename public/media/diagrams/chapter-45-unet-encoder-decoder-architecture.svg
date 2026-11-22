@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Arsitektur Jaringan U-Net & Skip Connections</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Enkoder Kontraksi Spasial, Dekoder Ekspansi, dan Penggabungan Fitur Resolusi Tinggi</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <g transform="translate(50, 110)">
+        <rect width="700" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <!-- Left Encoder Steps -->
+        <rect x="50" y="50" width="80" height="40" fill="#0f172a" stroke="#38bdf8"/>
+        <text x="65" y="75" fill="#38bdf8" font-size="11">Conv 1</text>
+        <rect x="90" y="110" width="80" height="40" fill="#0f172a" stroke="#38bdf8"/>
+        <text x="105" y="135" fill="#38bdf8" font-size="11">Conv 2</text>
+        <rect x="130" y="170" width="80" height="40" fill="#0f172a" stroke="#38bdf8"/>
+        <text x="145" y="195" fill="#38bdf8" font-size="11">Bottleneck</text>
+        <!-- Right Decoder Steps -->
+        <rect x="530" y="110" width="80" height="40" fill="#0f172a" stroke="#34d399"/>
+        <text x="545" y="135" fill="#34d399" font-size="11">UpConv 2</text>
+        <rect x="570" y="50" width="80" height="40" fill="#0f172a" stroke="#34d399"/>
+        <text x="585" y="75" fill="#34d399" font-size="11">UpConv 1</text>
+        <!-- Skip connections (horizontal arrows) -->
+        <line x1="130" y1="70" x2="570" y2="70" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4"/>
+        <text x="320" y="65" fill="#fbbf24" font-size="11">Skip Connection 1</text>
+        <line x1="170" y1="130" x2="530" y2="130" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4"/>
+        <text x="320" y="125" fill="#fbbf24" font-size="11">Skip Connection 2</text>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

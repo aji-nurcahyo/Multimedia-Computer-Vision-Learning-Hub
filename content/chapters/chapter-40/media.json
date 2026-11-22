@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-40-1",
+    "title": "Pipeline Deskriptor Histogram of Oriented Gradients (HOG)",
+    "path": "/media/diagrams/chapter-40-hog-feature-pipeline.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-40-2",
+    "title": "Pengenalan Objek Klasik: Template Matching NCC",
+    "path": "/media/diagrams/chapter-40-template-matching-ncc.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

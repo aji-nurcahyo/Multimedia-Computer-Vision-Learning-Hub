@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv02-01",
+    "question": "Menurut kriteria Hadamard, kondisi apa yang dilanggar oleh masalah inversi dekonvolusi citra y = A*x + n tanpa regularisasi?",
+    "options": [
+      "Solusi tidak ada (non-existence) untuk semua nilai y",
+      "Solusi tidak stabil (instabilitas numerik), di mana perturbasi derau kecil pada pengamatan y menyebabkan galat tak terbatas pada rekonstruksi x",
+      "Matriks degradasi A tidak dapat dipetakan ke domain Fourier",
+      "Solusi memiliki nilai intensitas negatif"
+    ],
+    "correctIndex": 1,
+    "explanation": "Masalah inversi citra ill-posed terutama melanggar syarat ke-3 Hadamard (kestabilan). Karena nilai singular matriks degradasi A meluruh cepat mendekati nol pada frekuensi tinggi, inversi langsung mengalikan derau berfrekuensi tinggi dengan faktor 1/sigma_i yang sangat besar, menghancurkan rekonstruksi."
+  },
+  {
+    "id": "quiz-adv02-02",
+    "question": "Mengapa regularisasi Total Variation (ROF Model) jauh lebih unggul dalam mempertahankan ketajaman tepi diskontinuitas dibandingkan regularisasi kuadrat Tikhonov?",
+    "options": [
+      "Karena Total Variation menghitung nilai eigen matriks kovariansi",
+      "Karena regularisasi Tikhonov (L2 norm gradien) menghukum lonjakan gradien besar secara kuadratik sehingga memaksa tepi menjadi landai (buram), sedangkan Total Variation (L1 norm gradien) menghukum gradien secara linear",
+      "Karena Total Variation tidak memerlukan estimasi variansi derau",
+      "Karena regularisasi Tikhonov hanya berlaku untuk citra satu dimensi"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pada regularisasi Tikhonov (L2), penalti kuadratik ||nabla x||_2^2 sangat sensitif terhadap nilai turunan tinggi sehingga meredam step edge dan memudarkan ketajaman batas objek. Sebaliknya, penalti L1 pada Total Variation mengizinkan turunan tinggi bernilai jarang (sparse gradients), melestarikan ketajaman tepi batas secara tegas."
+  },
+  {
+    "id": "quiz-adv02-03",
+    "question": "Pada algoritma ADMM untuk Total Variation Denoising dengan pemisahan variabel z = nabla x, parameter apakah yang dipantau untuk menentukan kriteria penghentian (stopping criteria)?",
+    "options": [
+      "Hanya penurunan nilai fungsi tujuan primer f(x)",
+      "Residu primer ||r^k||_F = ||nabla x^k - z^k||_F dan residu ganda ||s^k||_F = ||-rho (z^k - z^{k-1})||_F",
+      "Waktu komputasi CPU dan jumlah thread worker",
+      "Determinan dari matriks Hessian sistem linier"
+    ],
+    "correctIndex": 1,
+    "explanation": "Algoritma ADMM menjamin kelayakan primer dan ganda saat residu primer ||r^k||_F = ||nabla x^k - z^k||_F dan residu ganda ||s^k||_F = rho ||z^k - z^{k-1}||_F meluruh di bawah batas toleransi numerik yang ditentukan."
+  }
+]
+

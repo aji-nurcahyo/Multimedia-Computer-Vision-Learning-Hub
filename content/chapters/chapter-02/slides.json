@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Digital Signals, Sampling & Quantization",
+    "lead": "Section 01 — Multimedia & Signal Foundations · Chapter 02",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Kuliah**: Analog-to-Digital Conversion (ADC), Teorema Nyquist-Shannon, Distorsi Aliasing, dan Derau Kuantisasi (SQNR)",
+    "notes": "Selamat datang di kuliah Bab 02. Sesi ini membahas jembatan matematis antara gelombang fisik alamiah dengan bitstream komputasi digital."
+  },
+  {
+    "id": 2,
+    "title": "Tujuan Pembelajaran Perkuliahan",
+    "lead": "Capaian esensial konversi sinyal analog ke diskrit",
+    "body": "### Target Pembelajaran\n- Memahami perbedaan analitis sinyal kontinu $x(t)$ dan diskrit $x[n]$.\n- Membuktikan syarat batas Teorema Sampling Nyquist-Shannon ($f_s \\ge 2 f_{\\max}$).\n- Menganalisis fenomena lipat frekuensi (Aliasing) dan dampaknya pada audio dan citra.\n- Menghitung ukuran langkah kuantisasi $\\Delta$, variansi derau kuantisasi $\\sigma_e^2$, dan rasio SQNR.\n- Memahami prinsip interpolasi sinc Whittaker-Shannon untuk rekonstruksi sinyal sempurna.",
+    "notes": "Tekankan pentingnya teorema Nyquist dalam perancangan kamera digital dan perekaman audio."
+  },
+  {
+    "id": 3,
+    "title": "Prinsip Analog-to-Digital Conversion (ADC)",
+    "lead": "Dua tahapan fundamental: Waktu Diskrit dan Amplitudo Diskrit",
+    "body": "### Dua Pilar Digitalisasi\n1. **Sampling (Pencuplikan)**:\n   - Diskretisasi domain sumbu horizontal (waktu $t$ atau ruang spasial $x,y$).\n   - Sinyal kontinu $x(t)$ dicuplik periodik setiap $T_s$ detik: $x[n] = x(n T_s)$.\n\n2. **Quantization (Kuantisasi)**:\n   - Diskretisasi domain sumbu vertikal (amplitudo intensitas/tegangan).\n   - Memetakan nilai riil kontinu yang tak terhingga ke dalam $L = 2^b$ level terhingga.",
+    "notes": "Jelaskan bahwa sampling mengubah sumbu X menjadi bilangan bulat, sedangkan kuantisasi mengubah sumbu Y menjadi kode biner."
+  },
+  {
+    "id": 4,
+    "title": "Teorema Sampling Nyquist-Shannon",
+    "lead": "Kondisi matematis mutlak untuk rekonstruksi eksak",
+    "body": "### Formulasi Batas Teorema\n$$f_s \\ge 2 f_{\\max}$$\n- **Laju Nyquist (Nyquist Rate)**: Nilai frekuensi sampling minimum $2 f_{\\max}$.\n- **Frekuensi Nyquist (Folding Frequency)**: $f_N = f_s / 2$.\n\n### Analisis Domain Frekuensi\n- Pencuplikan dalam domain waktu setara dengan replikasi spektrum secara periodik dengan jarak $f_s$.\n- Jika $f_s < 2 f_{\\max}$, replikasi spektrum akan saling bertumpuk (*overlap*), menyebabkan hilangnya informasi asli.",
+    "notes": "Tunjukkan bahwa sampling di atas laju Nyquist menjamin tidak adanya tumpang tindih spektral."
+  },
+  {
+    "id": 5,
+    "title": "Fenomena Aliasing & Frekuensi Semu",
+    "lead": "Ketika sinyal berfrekuensi tinggi menyamar menjadi frekuensi rendah",
+    "body": "### Rumus Frekuensi Lipat Aliasing\n$$f_{\\text{alias}} = |f - k \\cdot f_s|$$\n- **Contoh Kasus**:\n  - Sinyal nada $f = 850\\text{ Hz}$, dicuplik pada $f_s = 1000\\text{ Hz}$.\n  - Laju Nyquist: $f_s/2 = 500\\text{ Hz}$. Syarat dilanggar ($850 > 500$).\n  - Frekuensi palsu yang muncul: $|850 - 1000| = \\mathbf{150\\text{ Hz}}$!\n\n### Manifestasi pada Multimedia\n- **Audio**: Suara instrumen berdecit kasar dan bernada salah.\n- **Citra / Video**: Efek Moiré pada pola bergaris rapat dan *wagon-wheel effect*.",
+    "notes": "Jelaskan mengapa filter anti-aliasing analog (lowpass filter) wajib dipasang di depan ADC."
+  },
+  {
+    "id": 6,
+    "title": "Pemodelan Matematis Kuantisasi Seragam",
+    "lead": "Ukuran langkah $\\Delta$ dan variansi derau kuantisasi",
+    "body": "### Ukuran Langkah Kuantisasi (Step Size $\\Delta$)\n$$\\Delta = \\frac{V_{\\max} - V_{\\min}}{2^b}$$\n- $b$ = kedalaman bit resolusi (*bit depth*), $L = 2^b$ level diskrit.\n\n### Variansi Derau Kuantisasi (Noise Power)\n- Galat kuantisasi: $e[n] = Q(x[n]) - x[n] \\in [-\\Delta/2, +\\Delta/2]$.\n- Karena galat berdistribusi seragam: $p(e) = 1/\\Delta$.\n$$\\sigma_e^2 = \\int_{-\\Delta/2}^{+\\Delta/2} e^2 \\left(\\frac{1}{\\Delta}\\right) de = \\frac{\\Delta^2}{12}$$",
+    "notes": "Tunjukkan penurunan rumus integral variansi galat kuantisasi Delta^2 / 12 secara transparan."
+  },
+  {
+    "id": 7,
+    "title": "Rasio SQNR: Aturan Emas 6 dB per Bit",
+    "lead": "Penurunan matematis kualitas rasio sinyal terhadap derau",
+    "body": "### Rumus Rasio SQNR Sinusoidal Penuh\n$$\\text{SQNR} = 10 \\log_{10}\\left(\\frac{P_{\\text{signal}}}{P_{\\text{noise}}}\\right) \\approx \\mathbf{6.02 \\, b + 1.76 \\text{ dB}}$$\n\n### Implikasi Praktis Rekayasa\n- Setiap penambahan **1 bit** meningkatkan kualitas sinyal sebesar $\\approx 6\\text{ dB}$.\n- **8-Bit (Citra uint8)**: $\\text{SQNR} \\approx 49.9\\text{ dB}$ (Cukup untuk mata manusia).\n- **16-Bit (CD Audio)**: $\\text{SQNR} \\approx 98.1\\text{ dB}$ (Rentang dinamis studio profesional).\n- **24-Bit (High-Res Audio)**: $\\text{SQNR} \\approx 146.2\\text{ dB}$ (Menghilangkan desis kuantisasi mutlak).",
+    "notes": "Jelaskan mengapa 8-bit dipilih untuk citra digital (256 gradasi cukup halus bagi mata manusia)."
+  },
+  {
+    "id": 8,
+    "title": "Rekonstruksi Whittaker-Shannon Sinc Interpolation",
+    "lead": "Memulihkan gelombang analog mulus dari titik-titik sampel diskrit",
+    "body": "### Rumus Interpolasi Ideal\n$$x(t) = \\sum_{n=-\\infty}^{\\infty} x[n] \\cdot \\text{sinc}\\left(\\frac{t - n T_s}{T_s}\\right)$$\n- Di mana $\\text{sinc}(u) = \\frac{\\sin(\\pi u)}{\\pi u}$.\n- **Mekanisme**: Setiap titik sampel $x[n]$ membangkitkan fungsi lonceng sinc berbobot.\n- Superposisi penjumlahan seluruh kurva sinc menghasilkan rekonstruksi gelombang kontinu asli secara sempurna tanpa distorsi undakan tangga.",
+    "notes": "Tunjukkan bahwa DAC modern menggunakan filter rekonstruksi analog pasca-konversi."
+  },
+  {
+    "id": 9,
+    "title": "Simulasi Komputasi Python & NumPy",
+    "lead": "Verifikasi numerik teorema sampling dan kuantisasi",
+    "body": "### Implementasi Kode Ringkas\n```python\n# 1. Kuantisasi seragam b-bit\nlevels = 2 ** bit_depth\ndelta = (v_max - v_min) / levels\nindices = np.round((signal - v_min) / delta)\nquantized = v_min + indices * delta\n\n# 2. Perhitungan empiris SQNR\np_signal = np.mean(signal ** 2)\np_noise = np.mean((quantized - signal) ** 2)\nsqnr_db = 10 * np.log10(p_signal / p_noise)\n```",
+    "notes": "Tekankan bahwa hasil empiris Python sesuai dengan teori 6.02b + 1.76 dB."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Kuliah & Referensi",
+    "lead": "Multimedia & Computer Vision Learning Hub · Institut Teknologi Sumatera (ITERA)",
+    "body": "### Poin Inti Pembahasan\n- Sinyal analog kontinu diubah menjadi diskrit melalui **Sampling** (waktu/ruang) dan **Kuantisasi** (amplitudo).\n- Patuhi selalu Teorema Nyquist $f_s \\ge 2 f_{\\max}$ untuk mencegah distorsi **Aliasing**.\n- Derau kuantisasi berdaya $\\sigma_e^2 = \\Delta^2/12$ dan mematuhi **Aturan 6 dB per Bit**.\n\n### Referensi Utama\n1. Oppenheim & Schafer (2010). *Discrete-Time Signal Processing*, 3rd Ed. Prentice Hall.\n2. Gonzalez & Woods (2018). *Digital Image Processing*, 4th Ed. Pearson.\n3. Haykin & Moher (2009). *Communication Systems*, 5th Ed. Wiley.",
+    "notes": "Arahkan mahasiswa untuk mencoba simulator interaktif Sampling & Quantization di tab lab."
+  }
+]

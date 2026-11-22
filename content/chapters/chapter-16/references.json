@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-16-01",
+    "title": "Digital Audio Signal Processing (2nd Edition)",
+    "authors": "Udo Zölzer",
+    "year": 2008,
+    "publisher": "John Wiley & Sons",
+    "url": "https://www.wiley.com/en-us/Digital+Audio+Signal+Processing%2C+2nd+Edition-p-9780470997857",
+    "type": "book",
+    "annotation": "Referensi standar komprehensif untuk pengolahan sinyal audio digital, representasi PCM, kuantisasi, dan psikoakustik."
+  },
+  {
+    "id": "ref-16-02",
+    "title": "The Art of Sound Reproduction",
+    "authors": "John Watkinson",
+    "year": 2002,
+    "publisher": "Focal Press",
+    "url": "https://www.taylorfrancis.com/books/mono/10.4324/9780080518718/art-sound-reproduction-john-watkinson",
+    "type": "book",
+    "annotation": "Uraian mendalam mengenai fisika gelombang suara, propagasi akustik, transduser, dan konversi analog-ke-digital."
+  },
+  {
+    "id": "ref-16-03",
+    "title": "Principles of Digital Audio (6th Edition)",
+    "authors": "Ken C. Pohlmann",
+    "year": 2011,
+    "publisher": "McGraw-Hill",
+    "url": "https://www.accessengineeringlibrary.com/content/book/9780071663465",
+    "type": "book",
+    "annotation": "Buku teks fundamental audio digital yang membedah arsitektur format audio, transmisi biner, dan standar sampling studio."
+  }
+]

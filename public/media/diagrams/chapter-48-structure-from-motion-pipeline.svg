@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Alur Rekonstruksi 3D: Structure from Motion (SfM)</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Ekstraksi Fitur, Estimasi Pose Multi-Kamera, Triangulasi, dan Bundle Adjustment</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <g transform="translate(50, 110)">
+        <rect width="700" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <!-- Step 1 -->
+        <rect x="25" y="60" width="120" height="130" rx="6" fill="#0f172a" stroke="#38bdf8"/>
+        <text x="35" y="85" fill="#38bdf8" font-size="12" font-weight="bold">1. Citra Input</text>
+        <text x="35" y="115" fill="#94a3b8" font-size="10">Foto multi-sudut</text>
+        <text x="35" y="135" fill="#94a3b8" font-size="10">Ekstraksi SIFT</text>
+        <text x="35" y="155" fill="#94a3b8" font-size="10">Matching Kp</text>
+        <line x1="150" y1="125" x2="180" y2="125" stroke="#64748b" stroke-width="2"/>
+        <!-- Step 2 -->
+        <rect x="185" y="60" width="140" height="130" rx="6" fill="#0f172a" stroke="#818cf8"/>
+        <text x="195" y="85" fill="#818cf8" font-size="12" font-weight="bold">2. Pose Estimasi</text>
+        <text x="195" y="115" fill="#94a3b8" font-size="10">Matriks Esensial E</text>
+        <text x="195" y="135" fill="#94a3b8" font-size="10">Dekomposisi SVD</text>
+        <text x="195" y="155" fill="#94a3b8" font-size="10">Rotasi R &amp; Translasi t</text>
+        <line x1="330" y1="125" x2="360" y2="125" stroke="#64748b" stroke-width="2"/>
+        <!-- Step 3 -->
+        <rect x="365" y="60" width="140" height="130" rx="6" fill="#0f172a" stroke="#34d399"/>
+        <text x="375" y="85" fill="#34d399" font-size="12" font-weight="bold">3. Triangulasi</text>
+        <text x="375" y="115" fill="#94a3b8" font-size="10">Perpotongan sinar</text>
+        <text x="375" y="135" fill="#94a3b8" font-size="10">Titik 3D (X, Y, Z)</text>
+        <text x="375" y="155" fill="#94a3b8" font-size="10">Sparse Point Cloud</text>
+        <line x1="510" y1="125" x2="540" y2="125" stroke="#64748b" stroke-width="2"/>
+        <!-- Step 4 -->
+        <rect x="545" y="60" width="130" height="130" rx="6" fill="#0f172a" stroke="#f43f5e"/>
+        <text x="555" y="85" fill="#f43f5e" font-size="12" font-weight="bold">4. Bundle Adjust</text>
+        <text x="555" y="115" fill="#94a3b8" font-size="10">Optimasi Gauss-</text>
+        <text x="555" y="135" fill="#94a3b8" font-size="10">Newton / LM</text>
+        <text x="555" y="155" fill="#94a3b8" font-size="10">Min Reprojection Err</text>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

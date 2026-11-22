@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ref-56-1",
+    "title": "Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications",
+    "authors": "Giorgio C. Buttazzo",
+    "year": 2011,
+    "publisher": "Springer Science & Business Media (3rd Edition)",
+    "url": "https://doi.org/10.1007/978-1-4614-0676-1",
+    "annotation": "Buku teks otoritatif mengenai teori sistem waktu-nyata, penjadwalan periodik dan aperiodik, analisis waktu eksekusi terburuk (WCET), dan penanganan jitter."
+  },
+  {
+    "id": "ref-56-2",
+    "title": "A Survey on Real-Time Video Streaming over Wireless Networks",
+    "authors": "Enrico Baccaglini, Tammam Tillo, Gabriella Olmo",
+    "year": 2010,
+    "publisher": "Signal Processing: Image Communication",
+    "url": "https://doi.org/10.1016/j.image.2010.05.006",
+    "annotation": "Kajian komprehensif mengenai tantangan streaming video waktu-nyata, fluktuasi bandwidth, manajemen buffer penerima, dan adaptasi laju frame."
+  },
+  {
+    "id": "ref-56-3",
+    "title": "Human Perception of Jitter and Skew in Multimedia Applications",
+    "authors": "Ralf Steinmetz",
+    "year": 1996,
+    "publisher": "IEEE Journal on Selected Areas in Communications",
+    "url": "https://doi.org/10.1109/49.481694",
+    "annotation": "Studi eksperimental klasik yang menetapkan batas toleransi persepsi manusia terhadap desinkronisasi audio-visual (lip-sync skew) dan variansi delay (jitter)."
+  }
+]
+

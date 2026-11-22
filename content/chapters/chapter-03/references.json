@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-03-01",
+    "title": "The Data Compression Book (2nd Edition)",
+    "authors": "Mark Nelson, Jean-loup Gailly",
+    "year": 1996,
+    "publisher": "M&T Books",
+    "url": "https://marknelson.us/pages/books/",
+    "type": "book",
+    "annotation": "Rujukan klasik komprehensif algoritma kompresi data meliputi Huffman coding, LZW, run-length encoding (RLE), arithmetic coding, dan kompresi fraktal."
+  },
+  {
+    "id": "ref-03-02",
+    "title": "Video Codec Design: Developing Image and Video Compression Systems",
+    "authors": "Iain E. Richardson",
+    "year": 2002,
+    "publisher": "John Wiley & Sons",
+    "url": "https://www.wiley.com",
+    "type": "book",
+    "annotation": "Buku panduan desain codec video yang mengupas secara teknis estimasi gerak antar-frame (motion compensation), transformasi DCT, kuantisasi, dan struktur stream H.264/MPEG-4."
+  },
+  {
+    "id": "ref-03-03",
+    "title": "Fundamentals of Multimedia (3rd Edition)",
+    "authors": "Ze-Nian Li, Mark S. Drew, Jiangchuan Liu",
+    "year": 2021,
+    "publisher": "Springer",
+    "url": "https://link.springer.com/book/10.1007/978-3-030-62124-7",
+    "type": "book",
+    "annotation": "Bab 7 sampai 12 menguraikan standar format citra (JPEG, JPEG 2000), audio (MPEG Audio, MP3, AAC), dan video (MPEG-1/2/4, H.264, H.265, AV1)."
+  }
+]

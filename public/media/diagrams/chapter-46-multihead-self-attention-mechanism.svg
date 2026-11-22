@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Mekanisme Scaled Dot-Product Multi-Head Attention</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Matriks Query (Q), Key (K), Value (V), dan Atensi Antar-Token Visual</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <g transform="translate(60, 110)">
+        <rect width="320" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <text x="20" y="30" fill="#38bdf8" font-size="14" font-weight="bold">Formulasi Self-Attention</text>
+        <text x="20" y="70" fill="#e2e8f0" font-family="monospace" font-size="12">
+          Attention(Q,K,V) = softmax(Q·K^T / √d_k) · V
+        </text>
+        <rect x="20" y="100" width="280" height="130" rx="6" fill="#0f172a" stroke="#334155"/>
+        <text x="30" y="130" fill="#94a3b8" font-size="11">• Q (Query): Apa yang dicari oleh token</text>
+        <text x="30" y="160" fill="#94a3b8" font-size="11">• K (Key): Indeks identitas token lain</text>
+        <text x="30" y="190" fill="#94a3b8" font-size="11">• V (Value): Muatan informasi aktual</text>
+        <text x="30" y="215" fill="#34d399" font-size="11">• √d_k: Penyekala penstabil gradien softmax</text>
+      </g>
+      <g transform="translate(420, 110)">
+        <rect width="320" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <text x="20" y="30" fill="#a855f7" font-size="14" font-weight="bold">Matriks Bobot Atensi (N x N)</text>
+        <rect x="40" y="60" width="160" height="160" fill="#0f172a" stroke="#818cf8"/>
+        <!-- Matrix cells with heatmap -->
+        <rect x="40" y="60" width="40" height="40" fill="#a855f7" fill-opacity="0.8"/>
+        <rect x="80" y="60" width="40" height="40" fill="#3b82f6" fill-opacity="0.3"/>
+        <rect x="120" y="100" width="40" height="40" fill="#10b981" fill-opacity="0.7"/>
+        <rect x="160" y="140" width="40" height="40" fill="#f43f5e" fill-opacity="0.8"/>
+        <text x="210" y="140" fill="#94a3b8" font-size="11">Korelasi Spasial Global Tanpa Batasan Lokalitas Kernel Conv</text>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

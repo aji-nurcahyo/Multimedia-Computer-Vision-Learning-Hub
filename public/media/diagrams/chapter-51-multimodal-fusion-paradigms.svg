@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Paradigma Fusi Multimodal: Early, Intermediate & Late Fusion</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Tingkat Integrasi Informasi: Penggabungan Fitur Awal, Cross-Attention, vs Keputusan Akhir</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <g transform="translate(40, 105)">
+        <!-- Early Fusion -->
+        <g transform="translate(0, 0)">
+          <rect width="210" height="270" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+          <text x="20" y="30" fill="#38bdf8" font-size="14" font-weight="bold">1. Early Fusion</text>
+          <text x="20" y="50" fill="#94a3b8" font-size="10">(Feature-Level Concat)</text>
+          <rect x="25" y="70" width="70" height="30" rx="4" fill="#0f172a" stroke="#38bdf8"/>
+          <text x="40" y="90" fill="#38bdf8" font-size="10">Visual</text>
+          <rect x="115" y="70" width="70" height="30" rx="4" fill="#0f172a" stroke="#a855f7"/>
+          <text x="135" y="90" fill="#a855f7" font-size="10">Audio</text>
+          <!-- Concat Box -->
+          <rect x="25" y="125" width="160" height="35" rx="4" fill="#0284c7" fill-opacity="0.3" stroke="#38bdf8"/>
+          <text x="45" y="147" fill="#f8fafc" font-size="11" font-weight="bold">Concat [x_v || x_a]</text>
+          <!-- Model -->
+          <rect x="35" y="185" width="140" height="40" rx="4" fill="#0f172a" stroke="#34d399"/>
+          <text x="50" y="210" fill="#34d399" font-size="11">Model Multimodal</text>
+          <text x="20" y="250" fill="#94a3b8" font-size="9">• Korelasi fitur interaktif awal</text>
+        </g>
+
+        <!-- Intermediate Fusion -->
+        <g transform="translate(250, 0)">
+          <rect width="220" height="270" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+          <text x="20" y="30" fill="#fbbf24" font-size="14" font-weight="bold">2. Intermediate Fusion</text>
+          <text x="20" y="50" fill="#94a3b8" font-size="10">(Cross-Attention Layer)</text>
+          <rect x="25" y="70" width="75" height="30" rx="4" fill="#0f172a" stroke="#38bdf8"/>
+          <text x="35" y="90" fill="#38bdf8" font-size="10">Query (V)</text>
+          <rect x="120" y="70" width="75" height="30" rx="4" fill="#0f172a" stroke="#a855f7"/>
+          <text x="130" y="90" fill="#a855f7" font-size="10">Key/Val (A)</text>
+          <!-- Cross Attention Box -->
+          <rect x="25" y="120" width="170" height="45" rx="4" fill="#d97706" fill-opacity="0.25" stroke="#fbbf24"/>
+          <text x="35" y="140" fill="#fbbf24" font-size="11" font-weight="bold">Cross-Modal Attn</text>
+          <text x="35" y="155" fill="#e2e8f0" font-size="9">Softmax(Q_v·K_a^T / √d)·V_a</text>
+          <!-- Joint Representation -->
+          <rect x="35" y="185" width="150" height="40" rx="4" fill="#0f172a" stroke="#34d399"/>
+          <text x="45" y="210" fill="#34d399" font-size="11">Joint Representation</text>
+          <text x="20" y="250" fill="#94a3b8" font-size="9">• Perhatian selektif dinamis</text>
+        </g>
+
+        <!-- Late Fusion -->
+        <g transform="translate(510, 0)">
+          <rect width="210" height="270" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+          <text x="20" y="30" fill="#34d399" font-size="14" font-weight="bold">3. Late Fusion</text>
+          <text x="20" y="50" fill="#94a3b8" font-size="10">(Decision-Level Fusion)</text>
+          <rect x="20" y="70" width="75" height="40" rx="4" fill="#0f172a" stroke="#38bdf8"/>
+          <text x="28" y="90" fill="#38bdf8" font-size="9">Model Visual</text>
+          <text x="35" y="103" fill="#e2e8f0" font-size="8">P_v(C)</text>
+          <rect x="115" y="70" width="75" height="40" rx="4" fill="#0f172a" stroke="#a855f7"/>
+          <text x="125" y="90" fill="#a855f7" font-size="9">Model Audio</text>
+          <text x="135" y="103" fill="#e2e8f0" font-size="8">P_a(C)</text>
+          <!-- Weighted Combination -->
+          <rect x="20" y="135" width="170" height="40" rx="4" fill="#047857" fill-opacity="0.3" stroke="#10b981"/>
+          <text x="30" y="155" fill="#34d399" font-size="11" font-weight="bold">Weighted Averaging</text>
+          <text x="35" y="168" fill="#e2e8f0" font-size="8">P_fused = w1·P_v + w2·P_a</text>
+          <!-- Final Class -->
+          <rect x="35" y="195" width="140" height="35" rx="4" fill="#0f172a" stroke="#f43f5e"/>
+          <text x="50" y="217" fill="#f43f5e" font-size="11">Keputusan Akhir</text>
+          <text x="20" y="250" fill="#94a3b8" font-size="9">• Tangguh missing modalities</text>
+        </g>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

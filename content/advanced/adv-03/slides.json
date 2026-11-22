@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Sistem Pelacakan Objek Jamak (MOT) Kokoh",
+    "lead": "Modul ADV-03 · L3 Advanced Depth",
+    "body": "Pemodelan kinematika ruang keadaan, asosiasi data bipartit Hungarian, penanganan oklusi, dan evaluasi terstandarisasi **HOTA** (Higher Order Tracking Accuracy).",
+    "notes": "Tekankan bahwa pelacakan modern bukan sekadar deteksi berulang, melainkan inferensi temporal terhadap identitas dan dinamika objek bergerak."
+  },
+  {
+    "id": 2,
+    "title": "Model Ruang Keadaan & Filter Kalman 2D",
+    "lead": "Inferensi Bayes Optimal Linier",
+    "body": "Prediksi:\n$$\\hat{\\mathbf{x}}_{t|t-1} = F \\hat{\\mathbf{x}}_{t-1|t-1}, \\quad P_{t|t-1} = F P_{t-1|t-1} F^T + Q$$\nKoreksi Inovasi:\n$$K_t = P_{t|t-1} H^T (H P_{t|t-1} H^T + R)^{-1}$$\n$$\\hat{\\mathbf{x}}_{t|t} = \\hat{\\mathbf{x}}_{t|t-1} + K_t (\\mathbf{z}_t - H \\hat{\\mathbf{x}}_{t|t-1})$$",
+    "notes": "Jelaskan peran penguatan Kalman K: saat derau pengukuran R besar, K mendekati 0 dan filter mempercayai model kinematika."
+  },
+  {
+    "id": 3,
+    "title": "Asosiasi Data Bipartit & Jarak Mahalanobis",
+    "lead": "Pencocokan Track Terhadap Deteksi Sensor",
+    "body": "Jarak Mahalanobis memperhitungkan ketidakpastian elipsoidal kovarians inovasi $S$:\n$$d_M^2(\\mathbf{z}, \\hat{\\mathbf{x}}) = (\\mathbf{z} - H \\hat{\\mathbf{x}})^T S^{-1} (\\mathbf{z} - H \\hat{\\mathbf{x}})$$\n- Gating threshold membuang kandidat yang berada di luar elips kepercayaan $\\chi^2_d$.\n- Algoritma Hungarian meminimalkan total biaya kecocokan secara global.",
+    "notes": "Tunjukkan mengapa jarak Euclidean gagal saat objek bergerak cepat atau kovarians arah kecepatan sangat asimetris."
+  },
+  {
+    "id": 4,
+    "title": "Arsitektur Pelacakan Modern: Dari SORT ke ByteTrack",
+    "lead": "Pemanfaatan Deteksi Berkeyakinan Rendah",
+    "body": "Paradigma **ByteTrack** (Zhang et al., ECCV 2022):\n1. Asosiasikan deteksi berkeyakinan tinggi ($s > 0.6$) terlebih dahulu.\n2. Alih-alih membuang deteksi berkeyakinan rendah ($0.1 < s < 0.6$), asosiasikan dengan track yang belum cocok untuk mengatasi oklusi parsial atau motion blur.\n3. Mengurangi pergantian ID (IDSW) secara drastis.",
+    "notes": "Jelaskan bahwa deteksi dengan confidence rendah sering kali bukan background/clutter, melainkan objek nyata yang sedang terhalang (occluded)."
+  },
+  {
+    "id": 5,
+    "title": "Metrik HOTA: Keseimbangan Deteksi & Asosiasi",
+    "lead": "Higher Order Tracking Accuracy (IJCV 2021)",
+    "body": "$$\\text{HOTA} = \\sqrt{\\text{DetA} \\cdot \\text{AssA}}$$\n- **DetA:** Akurasi deteksi spasial tanpa memperhatikan konsistensi ID.\n- **AssA:** Konsistensi identitas temporal sepanjang riwayat lintasan.\n- Menghindari kelemahan MOTA yang terlalu didominasi oleh jumlah deteksi per frame.",
+    "notes": "Jelaskan mengapa MOTA dapat memberikan skor tinggi pada pelacak yang sering berganti ID asalkan bounding box akurat."
+  }
+]
+

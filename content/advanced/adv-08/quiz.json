@@ -1,0 +1,38 @@
+[
+  {
+    "id": "quiz-adv08-01",
+    "question": "Mengapa Quantization-Aware Training (QAT) membutuhkan Straight-Through Estimator (STE) pada fase propagasi balik (backward pass)?",
+    "options": [
+      "Karena fungsi kuantisasi berbasis pembulatan bulat (round) memiliki turunan nol hampir di semua titik riil, sehingga tanpa STE gradien bobot akan lenyap (vanishing gradients)",
+      "Karena STE mempercepat transfer data pada bus PCIe",
+      "Karena STE mengubah bobot float menjadi bilangan kompleks",
+      "Untuk menghindari pengalihan memori DRAM ke cache L1"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fungsi kuantisasi adalah fungsi tangga (step function) piecewise constant yang memiliki gradien nol di mana-mana dan tak hingga di titik diskontinuitas. Straight-Through Estimator (STE) mengasumsikan turunan parsial d(q)/d(w) ≈ 1 di dalam rentang clipping [r_min, r_max], memungkinkan gradien mengalir dan memperbarui bobot floating-point laten selama pelatihan."
+  },
+  {
+    "id": "quiz-adv08-02",
+    "question": "Pada Model Kinerja Roofline, kondisi apa yang menyebabkan suatu workload inferensi visi komputer diklasifikasikan sebagai 'memory-bandwidth bound'?",
+    "options": [
+      "Ketika kapasitas cache L2 prosesor melebihi ukuran model",
+      "Ketika intensitas aritmatika model I (FLOPs/Byte) lebih rendah daripada rasio knee point I* = Peak Compute / Peak Bandwidth",
+      "Ketika model dijalankan pada prosesor kuantum",
+      "Ketika akurasi model lebih tinggi dari 99%"
+    ],
+    "correctIndex": 1,
+    "explanation": "Titik lutut (knee point) I* membagi kurva Roofline menjadi dua domain. Jika intensitas aritmatika I < I*, batas performa yang dapat dicapai ditentukan secara linier oleh kapasitas bandwidth memori (Attainable = I * Bandwidth), bukan oleh kapasitas komputasi puncak perangkat."
+  },
+  {
+    "id": "quiz-adv08-03",
+    "question": "Mengapa pemangkasan kanal terstruktur (structured channel pruning) lebih disukai untuk deployment pada hardware akselerator tepi standar dibandingkan pemangkasan tak terstruktur (unstructured element-wise pruning)?",
+    "options": [
+      "Karena pemangkasan tak terstruktur menghasilkan matriks jarang acak (sparse) yang tidak dapat dieksekusi secara efisien tanpa akselerator perangkat keras sparse khusus",
+      "Karena pemangkasan terstruktur menghasilkan bobot bernilai negatif",
+      "Karena pemangkasan tak terstruktur selalu menurunkan akurasi menjadi nol",
+      "Karena GPU tidak mendukung tipe data INT8"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pemangkasan terstruktur menghapus seluruh filter/kanal konvolusi secara utuh, menghasilkan matriks berdimensi lebih kecil yang padat (dense) dan dapat langsung dieksekusi oleh pustaka BLAS/TensorRT standar tanpa overhead decoding indeks sparse atau mesin sparse khusus."
+  }
+]

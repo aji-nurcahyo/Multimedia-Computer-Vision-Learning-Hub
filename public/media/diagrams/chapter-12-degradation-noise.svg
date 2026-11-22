@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="350" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 12 · IMAGE DEGRADATION &amp; RESTORATION</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Model Degradasi Citra: g(x, y) = h(x, y) * f(x, y) + η(x, y)</text>
+
+  <g transform="translate(55, 130)">
+    <rect width="150" height="90" rx="8" fill="#1e293b" stroke="#38bdf8" />
+    <text x="75" y="42" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="700" text-anchor="middle">f(x, y)</text>
+    <text x="75" y="65" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Citra Ideal Asli</text>
+  </g>
+  <text x="225" y="182" fill="#cbd5e1" font-family="monospace" font-size="18" text-anchor="middle">→</text>
+
+  <g transform="translate(245, 130)">
+    <rect width="170" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" />
+    <text x="85" y="40" fill="#f59e0b" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">Fungsi Degradasi H</text>
+    <text x="85" y="65" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Motion / Defocus Blur</text>
+  </g>
+  <text x="435" y="182" fill="#cbd5e1" font-family="monospace" font-size="18" text-anchor="middle">+</text>
+
+  <g transform="translate(455, 130)">
+    <rect width="180" height="90" rx="8" fill="#1e293b" stroke="#ef4444" />
+    <text x="90" y="38" fill="#fca5a5" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">Derau η(x, y)</text>
+    <text x="90" y="62" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Gaussian · S&amp;P · Speckle</text>
+  </g>
+  <text x="655" y="182" fill="#cbd5e1" font-family="monospace" font-size="18" text-anchor="middle">→</text>
+
+  <g transform="translate(675, 130)">
+    <rect width="230" height="90" rx="8" fill="#1e293b" stroke="#34d399" />
+    <text x="115" y="38" fill="#34d399" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">f̂(x, y) = Restore(g)</text>
+    <text x="115" y="64" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Evaluasi: PSNR (dB) &amp; SSIM</text>
+  </g>
+
+  <rect x="55" y="255" width="850" height="55" rx="8" fill="#090d16" stroke="#334155" />
+  <text x="480" y="287" fill="#cbd5e1" font-family="monospace" font-size="12" text-anchor="middle">PSNR = 10·log10(255² / MSE)   |   SSIM = (2μ_xμ_y + C1)(2σ_xy + C2) / ((μ_x² + μ_y² + C1)(σ_x² + σ_y² + C2))</text>
+  <text x="924" y="342" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

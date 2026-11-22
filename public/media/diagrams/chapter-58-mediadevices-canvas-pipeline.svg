@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Pipeline Piksel HTML5 Canvas &amp; Transfer Data Bebas Salin</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Alur Akuisisi Frame, Ekstraksi Uint8ClampedArray, dan Komputasi Vektor pada Memori Terstruktur</text>
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <g transform="translate(45, 105)">
+    <!-- Node 1: Video Element -->
+    <rect x="0" y="30" width="160" height="180" rx="8" fill="#1e293b" stroke="#38bdf8" />
+    <rect x="10" y="40" width="140" height="26" rx="4" fill="#0284c7" />
+    <text x="80" y="58" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">&lt;video&gt; Stream Element</text>
+    <text x="15" y="85" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Resolusi: W × H</text>
+    <text x="15" y="105" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Format: YUV420 Hardware</text>
+    <text x="15" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Native GPU Surface</text>
+    <rect x="10" y="145" width="140" height="50" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="80" y="165" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8" text-anchor="middle">Live MediaStream</text>
+    <text x="80" y="182" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">30–60 FPS Asinkron</text>
+
+    <!-- Arrow 1 -->
+    <line x1="160" y1="120" x2="210" y2="120" stroke="#38bdf8" stroke-width="2" />
+    <polygon points="210,120 202,115 202,125" fill="#38bdf8" />
+    <text x="185" y="112" font-family="system-ui, sans-serif" font-size="8" fill="#38bdf8" text-anchor="middle">drawImage</text>
+
+    <!-- Node 2: 2D Canvas Context -->
+    <rect x="215" y="30" width="160" height="180" rx="8" fill="#1e293b" stroke="#f59e0b" />
+    <rect x="225" y="40" width="140" height="26" rx="4" fill="#d97706" />
+    <text x="295" y="58" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">&lt;canvas&gt; Context 2D</text>
+    <text x="230" y="85" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• ctx.getImageData()</text>
+    <text x="230" y="105" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Buffer: RGBA Interleaved</text>
+    <text x="230" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Ukuran: W × H × 4 Byte</text>
+    <rect x="225" y="145" width="140" height="50" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="295" y="165" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b" text-anchor="middle">1080p: ~8.29 MB/frame</text>
+    <text x="295" y="182" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Bandwidth: 498 MB/s</text>
+
+    <!-- Arrow 2 -->
+    <line x1="375" y1="120" x2="425" y2="120" stroke="#f59e0b" stroke-width="2" />
+    <polygon points="425,120 417,115 417,125" fill="#f59e0b" />
+    <text x="400" y="112" font-family="system-ui, sans-serif" font-size="8" fill="#f59e0b" text-anchor="middle">Transfer</text>
+
+    <!-- Node 3: TypedArray Processing -->
+    <rect x="430" y="30" width="160" height="180" rx="8" fill="#1e293b" stroke="#818cf8" />
+    <rect x="440" y="40" width="140" height="26" rx="4" fill="#6366f1" />
+    <text x="510" y="58" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Uint8ClampedArray</text>
+    <text x="445" y="85" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Akses Piksel [i, i+1..]</text>
+    <text x="445" y="105" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Filter Spasial / Sobel</text>
+    <text x="445" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Color Segmentation</text>
+    <rect x="440" y="145" width="140" height="50" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="510" y="165" font-family="system-ui, sans-serif" font-size="10" fill="#818cf8" text-anchor="middle">In-Place Manipulation</text>
+    <text x="510" y="182" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Tanpa Overhead GC</text>
+
+    <!-- Arrow 3 -->
+    <line x1="590" y1="120" x2="640" y2="120" stroke="#818cf8" stroke-width="2" />
+    <polygon points="640,120 632,115 632,125" fill="#818cf8" />
+    <text x="615" y="112" font-family="system-ui, sans-serif" font-size="8" fill="#818cf8" text-anchor="middle">putImageData</text>
+
+    <!-- Node 4: Render Overlay -->
+    <rect x="645" y="30" width="105" height="180" rx="8" fill="#1e293b" stroke="#34d399" />
+    <rect x="652" y="40" width="91" height="26" rx="4" fill="#059669" />
+    <text x="697" y="58" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">Output UI</text>
+    <text x="655" y="90" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">• Overlay Box</text>
+    <text x="655" y="115" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">• FPS Gauge</text>
+    <text x="655" y="140" font-family="system-ui, sans-serif" font-size="9" fill="#34d399">• 60 FPS Sync</text>
+    <rect x="652" y="165" width="91" height="30" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="697" y="184" font-family="system-ui, sans-serif" font-size="9" fill="#34d399" text-anchor="middle">Display</text>
+  </g>
+
+  <!-- Bottom Spec Panel -->
+  <g transform="translate(45, 360)">
+    <rect width="710" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Optimasi Bandwidth Memori Piksel:</text>
+    <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Gunakan resolusi proporsional (misal: 640×480 = 1.23 MB/frame) untuk inferensi computer vision, dan render overlay di atas kanvas terpisah.</text>
+  </g>
+
+  <text x="400" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Multimedia &amp; Computer Vision Learning Hub • Institut Teknologi Sumatera (ITERA)</text>
+</svg>
+

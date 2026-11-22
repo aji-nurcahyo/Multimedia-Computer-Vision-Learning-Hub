@@ -1,0 +1,73 @@
+[
+  {
+   "id": "slide-1",
+   "title": "Bab 58: Multimedia Web Applications & APIs",
+   "content": "Arsitektur Multimedia Browser: MediaDevices API, Manipulasi Canvas & Web Workers\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+   "diagram": null,
+   "notes": "Slide pembuka Bab 58. Jelaskan pergeseran paradigma dari aplikasi desktop native ke komputasi multimedia in-browser modern."
+  },
+  {
+   "id": "slide-2",
+   "title": "Evolusi Peramban Web sebagai Platform Komputasi Cerdas",
+   "content": "Standar Web Multimedia Modern Tanpa Plugin:\\n1. MediaDevices API: Akses langsung kamera dan mikrofon lokal\\n2. Canvas 2D & WebGL: Rendering grafis dan pemrosesan piksel hardware-accelerated\\n3. Web Workers & OffscreenCanvas: Pemisahan thread komputasi dari thread tampilan UI\\n4. WebGPU & WebAssembly: Komputasi numerik berkecepatan setara kode native C++/Rust",
+   "diagram": null,
+   "notes": "Tekankan filosofi 'zero-install' di mana pengguna cukup membuka tautan browser untuk menjalankan sistem computer vision canggih."
+  },
+  {
+   "id": "slide-3",
+   "title": "Arsitektur Pemrosesan Multimedia In-Browser",
+   "content": "Alur Kerja Akuisisi hingga Akselerasi Hardware:\\n• navigator.mediaDevices.getUserMedia: Menangkap aliran video/audio dengan izin eksplisit\\n• Elemen <video> & <canvas>: Sinkronisasi frame video ke buffer grafis 2D\\n• Dedicated Web Worker: Memproses piksel di latar belakang tanpa membekukan tombol UI\\n• WebGL/WebGPU/WASM: Menjalankan filter matematika dan inferensi deep learning lokal",
+   "diagram": "/media/diagrams/chapter-58-browser-multimedia-architecture.svg",
+   "notes": "Gunakan diagram arsitektur multimedia browser untuk menjelaskan relasi antar komponen W3C Web APIs."
+  },
+  {
+   "id": "slide-4",
+   "title": "Pipeline Piksel Canvas 2D & Transfer Bebas-Salin",
+   "content": "Struktur Data Piksel RGBA Terstruktur:\\n1. Frame Video Kamera -> ctx.drawImage(video, 0, 0)\\n2. Ekstraksi Buffer: ctx.getImageData(0, 0, W, H)\\n3. Format Memori: Uint8ClampedArray (Array byte sekuensial Red, Green, Blue, Alpha)\\n4. Zero-Copy Transfer: postMessage({data}, [data.data.buffer]) mengalihkan kepemilikan pointer",
+   "diagram": "/media/diagrams/chapter-58-mediadevices-canvas-pipeline.svg",
+   "notes": "Gunakan diagram manipulasi canvas untuk menjelaskan struktur interleaved Uint8ClampedArray dan keunggulan transfer bebas-salin."
+  },
+  {
+   "id": "slide-5",
+   "title": "Analisis Jejak Memori & Bandwidth Bus Peramban",
+   "content": "Formulasi Beban Memori Piksel:\\n• Ukuran per Frame: Bytes = W × H × 4  |  MB = Bytes / 1,048,576\\n• Throughput Piksel: (W × H × FPS) / 10^6 (Megapiksel/detik)\\n• Kebutuhan Bandwidth: Bandwidth (MB/s) = MB_per_frame × FPS\\n\\n1080p pada 60 FPS: 8.29 MB per frame -> 474.61 MB/detik bandwidth!",
+   "diagram": null,
+   "notes": "Jelaskan mengapa pemrosesan 1080p mentah di browser sangat membebani memori dan dapat memicu jeda garbage collector."
+  },
+  {
+   "id": "slide-6",
+   "title": "Contoh Numerik: 1080p vs VGA Teroptimasi",
+   "content": "Perbandingan Skenario A vs B:\\n• Skenario A (1080p 60 FPS):\\n  Ukuran = 7.91 MB/frame | Bandwidth = 474.61 MB/s\\n• Skenario B (VGA 640x480 30 FPS):\\n  Ukuran = 1.17 MB/frame | Bandwidth = 35.16 MB/s\\n\\nHasil: Pengurangan bandwidth sebesar 92.59% dengan akurasi deteksi objek yang tetap prima!",
+   "diagram": null,
+   "notes": "Tunjukkan strategi arsitektur cerdas: render tampilan HD untuk mata pengguna, tetapi proses model pada resolusi VGA."
+  },
+  {
+   "id": "slide-7",
+   "title": "Mencegah Pembekuan Antarmuka dengan Web Workers",
+   "content": "Dinamika Main Thread vs Worker Thread:\\n• Batas Waktu 60 FPS: 16.67 milidetik per frame\\n• Jika Komputasi Visi di Main Thread: Membutuhkan 25 ms -> UI membeku, tombol lag, frame dropped\\n• Jika Dikeluarkan ke Web Worker: Main Thread hanya terbebani 1.5 ms transfer pointer\\nReduksi waktu pemblokiran UI mencapai 94.0%, menjaga animasi 60 FPS tetap mulus!",
+   "diagram": null,
+   "notes": "Bahas hasil simulasi thread offloading. Tunjukkan bahwa Web Worker mutlak diperlukan untuk aplikasi interaktif profesional."
+  },
+  {
+   "id": "slide-8",
+   "title": "Privasi Klien & Keamanan Data Visual",
+   "content": "Prinsip Privasi Berpusat Pengguna (Privacy-by-Design):\\n• Zero-Upload Architecture: Piksel wajah dan ruangan tidak pernah dikirim ke server eksternal\\n• Kepatuhan Regulasi: Memenuhi standar perlindungan data pribadi (GDPR / UU PDP)\\n• Manajemen Izin: Akses kamera dikendalikan pengguna dengan indikator visual aktif",
+   "diagram": null,
+   "notes": "Garis bawahi aspek etika rekayasa perangkat lunak: memproses data visual di browser melindungi pengguna dari kebocoran privasi."
+  },
+  {
+   "id": "slide-9",
+   "title": "Mesin Inferensi AI Web: WebAssembly & WebGPU",
+   "content": "Masa Depan Deep Learning di Peramban:\\n• ONNX Runtime Web: Backend WASM SIMD dan WebGPU untuk inferensi model YOLO dan transformer\\n• WebGPU Compute Shaders: Akses komputasi paralel GPU modern langsung dari peramban\\n• Model Caching: Menyimpan bobot terkuantisasi di IndexedDB atau Cache Storage browser",
+   "diagram": null,
+   "notes": "Jelaskan bagaimana WebGPU dan ONNX Runtime Web menjadi standar industri baru untuk AI berbasis browser."
+  },
+  {
+   "id": "slide-10",
+   "title": "Relevansi dengan Visi Platform Pembelajaran ITERA",
+   "content": "Implementasi Nyata pada Hub Ini:\\n• Seluruh laboratorium interaktif Bab 01–60 berjalan 100% di browser pengguna\\n• Menggunakan React 19, TypeScript, dan kanvas HTML5 tanpa ketergantungan server backend berbayar\\n• Memungkinkan mahasiswa ITERA bereksperimen di mana saja dengan latensi nol",
+   "diagram": null,
+   "notes": "Tutup kuliah dengan mengingatkan bahwa website Multimedia & Computer Vision Learning Hub ini adalah perwujudan nyata dari materi Bab 58."
+  }
+]
+

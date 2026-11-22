@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-19-01",
+    "title": "Empat Topologi Dasar Filter Audio Digital",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-19-digital-audio-filters.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-19-02",
+    "title": "Perbandingan Arsitektur: FIR vs IIR Digital Filter",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-19-fir-vs-iir.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

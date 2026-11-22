@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Time-Frequency Analysis & Spectrograms",
+    "lead": "Section 04 — Digital Audio & Speech Processing · Chapter 20",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Short-Time Fourier Transform (STFT), Heisenberg-Gabor Uncertainty Principle, Resolusi Waktu vs Frekuensi, dan Mel Spectrogram",
+    "notes": "Selamat datang di perkuliahan Time-Frequency Analysis & Spectrograms. Bab ini membahas landasan ilmiah dan penerapan komputasi audio digital modern."
+  },
+  {
+    "id": 2,
+    "title": "Tujuan Pembelajaran Kuliah",
+    "lead": "Kompetensi utama yang dicapai setelah menyelesaikan modul ini",
+    "body": "### Capaian Pembelajaran\n- Memahami prinsip fisika akustik dan formulasi matematis Time-Frequency Analysis & Spectrograms.\n- Menganalisis representasi sinyal audio domain waktu dan frekuensi secara analitis.\n- Mampu mengimplementasikan algoritma pengolahan audio menggunakan Python & NumPy.\n- Mengeksplorasi eksperimen laboratorium audio interaktif berbasis Web Audio DSP.",
+    "notes": "Tekankan pentingnya pemahaman representasi sinyal sebelum melangkah ke implementasi kode."
+  },
+  {
+    "id": 3,
+    "title": "Prinsip Dasar & Konsep Teoretis",
+    "lead": "Pondasi matematis representasi audio digital",
+    "body": "### Konsep Kunci\n- Karakteristik sinyal audio kontinu terhadap representasi diskrit biner.\n- Batasan fisika akustik dan dinamika persepsi sistem pendengaran manusia.\n- Formulasi matematis operasi transformasi dan manipulasi sinyal akustik.\n- Konservasi energi sinyal dan integritas fasa dalam domain digital.",
+    "notes": "Jelaskan hubungan antara sinyal fisik tekanan akustik dan nilai numerik di dalam memori komputer."
+  },
+  {
+    "id": 4,
+    "title": "Model Matematika & Formulasi Algoritma",
+    "lead": "Persamaan analitis pemrosesan sinyal audio",
+    "body": "### Landasan Matematis\n- Hubungan frekuensi, waktu sampling, dan resolusi kuantisasi numerik.\n- Analisis respon impuls dan respon frekuensi pada sistem linear time-invariant (LTI).\n- Persamaan transformasi Fourier diskrit dan pemetaan ke skala perseptual.\n- Pemodelan probabilistik dan metrik evaluasi kuantitatif.",
+    "notes": "Uraikan persamaan utama langkah demi langkah dengan jelas di papan tulis atau layar presentasi."
+  },
+  {
+    "id": 5,
+    "title": "Diagram Alur & Arsitektur Pemrosesan",
+    "lead": "Pipeline komputasi sinyal audio terstruktur",
+    "body": "### Struktur Pipeline\n1. **Input Signal**: Akuisisi gelombang audio mentah dari mikrofon atau file WAV.\n2. **Pre-Processing**: Normalisasi amplitudo, DC-offset removal, dan segmentasi frame.\n3. **Transformasi & Analisis**: Komputasi domain waktu, frekuensi, atau spektrogram.\n4. **Keputusan / Output**: Filter audio terkonstruksi, transkripsi, atau klasifikasi kelas.",
+    "notes": "Gambarkan alur dari data mentah menuju keputusan cerdas pada sistem modern."
+  },
+  {
+    "id": 6,
+    "title": "Studi Komparasi & Karakteristik Kinerja",
+    "lead": "Perbandingan trade-off akurasi vs kompleksitas komputasi",
+    "body": "### Analisis Trade-Off\n- **Kompleksitas Waktu**: Efisiensi operasi matematika (O(N) vs O(N log N)).\n- **Resolusi**: Kompromi resolusi waktu dan frekuensi pada sistem real-time.\n- **Kebutuhan Memori**: Penggunaan buffer audio dan latency pemrosesan pipeline.\n- **Robustness**: Ketahanan algoritma terhadap gangguan derau akustik lingkungan.",
+    "notes": "Ingatkan bahwa dalam aplikasi audio real-time, latensi rendah seringkali menjadi prioritas utama."
+  },
+  {
+    "id": 7,
+    "title": "Implementasi Algoritma & Praktik Python",
+    "lead": "Penerapan kode komputasi numerik menggunakan NumPy",
+    "body": "### Strategi Implementasi\n- Penggunaan representasi larik NumPy `float32` atau `float64` ternormalisasi [-1.0, 1.0].\n- Vektorisasi operasi matematika untuk menghindari perulangan Python lambat.\n- Penyimpanan hasil sintesis atau filter ke format file audio RIFF WAV standar.\n- Verifikasi deterministik hasil komputasi menggunakan assert numerik.",
+    "notes": "Jelaskan pentingnya vektorisasi NumPy untuk mempertahankan performa komputasi real-time."
+  },
+  {
+    "id": 8,
+    "title": "Eksperimen Interaktif di Laboratorium Web",
+    "lead": "Eksplorasi visual dan audio interaktif langsung di browser",
+    "body": "### Fitur Laboratorium Audio\n- Eksplorasi waveform domain waktu interaktif dengan pemutaran audio real-time.\n- Penyetelan parameter dinamis (frekuensi, cutoff, threshold, jendela FFT).\n- Visualisasi spektrum magnitudo dan spektrogram visual penuh warna.\n- Dukungan pengunggahan file WAV kustom dan perekaman suara mikrofon mandiri.",
+    "notes": "Ajak mahasiswa untuk langsung membuka tab playground laboratorium pada topik terkait."
+  },
+  {
+    "id": 9,
+    "title": "Aplikasi Terapan & Relevansi Industri",
+    "lead": "Implementasi nyata pada industri multimedia dan kecerdasan buatan",
+    "body": "### Domain Penerapan\n- **Telekomunikasi**: Kompresi wicara, echo cancellation, dan noise suppression.\n- **Smart Assistant**: Keyword spotting, voice command recognition, dan sintesis suara alami.\n- **Sistem Keamanan**: Pemantauan akustik lingkungan dan deteksi kaca pecah atau alarm.\n- **Industri Manufaktur**: Pemantauan anomali mesin berbasis getaran dan suara motor.",
+    "notes": "Hubungkan teori dasar kuliah dengan solusi industri yang sedang berkembang pesat saat ini."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman & Referensi Akademik",
+    "lead": "Poin-poin intisari materi dan sumber rujukan ilmiah",
+    "body": "### Intisari Pembelajaran\n- Pemrosesan sinyal audio digital membutuhkan ketelitian matematis dan pemahaman psikoakustik.\n- Integrasi domain waktu, frekuensi, dan spektrogram memberikan representasi informasi yang utuh.\n- Pemilihan parameter komputasi harus menyeimbangkan antara fidelitas dan efisiensi latensi.\n\n### Referensi Utama\n- Zölzer, U. *Digital Audio Signal Processing*, John Wiley & Sons.\n- Oppenheim, A. V., & Schafer, R. W. *Discrete-Time Signal Processing*, Pearson.\n- Rabiner, L. R., & Schafer, R. W. *Digital Processing of Speech Signals*, Prentice Hall.",
+    "notes": "Tutup sesi kuliah dengan merangkum poin esensial dan memberikan pengantar untuk bab berikutnya."
+  }
+]

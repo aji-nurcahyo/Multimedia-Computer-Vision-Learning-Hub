@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-11-01",
+    "title": "Latihan 1: Visualisasi Log Magnitude Spectrum 2D dengan NumPy",
+    "difficulty": "intermediate",
+    "instruction": "Lengkapi fungsi berikut untuk menghitung 2D FFT terpusat, menghitung spektrum logaritmik S = log(1 + |F|), menormalkannya ke [0..255] uint8, dan memverifikasi bahwa nilai terbesar berada tepat di titik tengah (H//2, W//2).",
+    "starterCode": "import numpy as np\n\ndef compute_log_spectrum(gray: np.ndarray) -> np.ndarray:\n    # TODO: fft2 -> fftshift -> log(1 + abs) -> normalize 0..255\n    pass\n",
+    "solution": "import numpy as np\n\ndef compute_log_spectrum(gray: np.ndarray) -> np.ndarray:\n    f_shift = np.fft.fftshift(np.fft.fft2(gray.astype(np.float64)))\n    mag = np.log1p(np.abs(f_shift))\n    mag_norm = (mag / max(1e-8, np.max(mag))) * 255.0\n    return np.clip(np.round(mag_norm), 0, 255).astype(np.uint8)\n"
+  },
+  {
+    "id": "ex-11-02",
+    "title": "Latihan 2: Butterworth High-Pass Filter",
+    "difficulty": "advanced",
+    "instruction": "Susun masker transfer Butterworth High-Pass H(u,v) = 1 / (1 + (D0 / D)^(2n)) dengan menjaga pembagian dengan nol di pusat (D=0 -> H=0), lalu terapkan melalui perkalian spektrum dan IFFT.",
+    "starterCode": "import numpy as np\n\ndef butterworth_hpf(gray: np.ndarray, d0: float = 15.0, n: int = 2) -> np.ndarray:\n    # TODO: Bangun jarak radial D, hitung masker BHPF, filter, IFFT\n    pass\n",
+    "solution": "import numpy as np\n\ndef butterworth_hpf(gray: np.ndarray, d0: float = 15.0, n: int = 2) -> np.ndarray:\n    rows, cols = gray.shape\n    cy, cx = rows // 2, cols // 2\n    y, x = np.ogrid[:rows, :cols]\n    dist = np.sqrt((x - cx)**2 + (y - cy)**2)\n    mask = np.where(dist == 0, 0.0, 1.0 / (1.0 + (d0 / np.maximum(dist, 1e-8))**(2 * n)))\n    f_shift = np.fft.fftshift(np.fft.fft2(gray.astype(np.float64)))\n    back = np.real(np.fft.ifft2(np.fft.ifftshift(f_shift * mask)))\n    return np.clip(np.abs(back), 0, 255).astype(np.uint8)\n"
+  }
+]
+

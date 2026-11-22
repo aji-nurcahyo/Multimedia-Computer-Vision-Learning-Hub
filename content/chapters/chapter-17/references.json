@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-17-01",
+    "title": "Discrete-Time Signal Processing (3rd Edition)",
+    "authors": "Alan V. Oppenheim, Ronald W. Schafer",
+    "year": 2009,
+    "publisher": "Pearson",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/discrete-time-signal-processing/P200000003303",
+    "type": "book",
+    "annotation": "Rujukan kanonik dunia untuk teori sampling diskrit, aliasing, interpolasi sinc, dan transformasi Z."
+  },
+  {
+    "id": "ref-17-02",
+    "title": "Introduction to Signal Processing",
+    "authors": "Sophocles J. Orfanidis",
+    "year": 2010,
+    "publisher": "Prentice Hall",
+    "url": "https://eceweb1.rutgers.edu/~orfanidi/intro2sp/",
+    "type": "book",
+    "annotation": "Materi terapan mengenai kuantisasi seragam, analisis derau kuantisasi (SQNR), dan implementasi filter rekonstruksi D/A."
+  },
+  {
+    "id": "ref-17-03",
+    "title": "WAV & RIFF Audio File Format Specifications",
+    "authors": "Microsoft & IBM Engineering Group",
+    "year": 1991,
+    "publisher": "Multimedia Programming Interface and Data Specifications",
+    "url": "http://soundfile.sapp.org/doc/WaveFormat/",
+    "type": "documentation",
+    "annotation": "Spesifikasi resmi struktur chunk RIFF/WAV untuk audio PCM mono dan multichannel interleaving."
+  }
+]

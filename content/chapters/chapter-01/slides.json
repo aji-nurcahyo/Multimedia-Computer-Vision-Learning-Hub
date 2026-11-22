@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Multimedia & Computer Vision",
+    "lead": "Section 01 — Multimedia & Signal Foundations · Chapter 01",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Kuliah**: Definisi Multimedia, Pipeline Pemrosesan, Taksonomi Image Processing vs Computer Vision, dan 6 Learning Tracks",
+    "notes": "Selamat datang di kuliah pengantar Multimedia & Computer Vision. Modul ini adalah fondasi konseptual utama yang menghubungkan representasi sinyal fisik dengan pemahaman cerdas oleh komputer."
+  },
+  {
+    "id": 2,
+    "title": "Capaian Pembelajaran Perkuliahan",
+    "lead": "Kompetensi kunci yang dicapai pada modul pengantar",
+    "body": "### Target Pembelajaran\n- Memahami ruang lingkup multimedia digital (teks, citra, audio, video, dan data 3D).\n- Menguraikan tahapan dalam *end-to-end multimedia processing pipeline*.\n- Membedakan secara sistematis antara *Image Processing* vs *Computer Vision*.\n- Membandingkan pendekatan komputasi klasik (hand-crafted) vs kecerdasan artifisial (Deep Learning).\n- Memahami arsitektur 6 learning tracks pada platform pembelajaran.",
+    "notes": "Tekankan pentingnya memahami sifat data multimedia secara matematis sebelum mempelajari model AI di bab-bab lanjut."
+  },
+  {
+    "id": 3,
+    "title": "Modalitas & Dimensi Data Multimedia",
+    "lead": "Karakteristik fisik dari sinyal ke bentuk array diskrit",
+    "body": "### Lima Modalitas Kunci\n- **Teks**: Data karakter simbolik diskrit (UTF-8, ASCII).\n- **Citra Digital (Image)**: Kisi 2D intensitas spasial $f(x,y)$, berdimensi $(H, W)$ atau $(H, W, 3)$ untuk warna.\n- **Audio Digital**: Gelombang akustik 1D kontinu yang disampling terhadap waktu $(N,)$ pada laju $f_s$.\n- **Video Digital**: Rangkaian temporal 4D frame $(T, H, W, C)$ yang diputar pada laju frame tertentu (FPS).\n- **Grafika 3D / Point Cloud**: Vektor koordinat $(X, Y, Z)$ dan mesh poligon.",
+    "notes": "Jelaskan bagaimana masing-masing modalitas dipetakan ke dalam array memori di komputer."
+  },
+  {
+    "id": 4,
+    "title": "End-to-End Processing Pipeline",
+    "lead": "Dari sinyal fisik dunia nyata hingga tindakan dan inferensi",
+    "body": "### Enam Rantai Komputasi\n1. **Acquisition**: Sensor fisik (CMOS/CCD kamera, mikrofon akustik) menangkap foton/tekanan suara.\n2. **Digitization**: Sampling temporal/spasial dan kuantisasi amplitudo menjadi bitstream.\n3. **Pre-processing**: Filtering spasial, reduksi derau, dan perataan histogram.\n4. **Feature Extraction**: Mengekstraksi tepi, sudut, spektrum Fourier, atau deskriptor MFCC.\n5. **Inference**: Pengenalan pola, klasifikasi CNN, deteksi objek, dan translasi semantik.\n6. **Action / Delivery**: Presentasi antarmuka, transmisi streaming, atau kendali aktuator robotik.",
+    "notes": "Gunakan Gambar 1.1 untuk menjelaskan aliran data dari kiri ke kanan secara kronologis."
+  },
+  {
+    "id": 5,
+    "title": "Taksonomi: Image Processing vs Computer Vision",
+    "lead": "Batas tegas antara tingkat abstraksi komputasi",
+    "body": "### Digital Image Processing (Pengolahan Citra)\n- **Paradigma**: Pixel-in $\\rightarrow$ Pixel-out / Low-level feature.\n- **Tujuan**: Memperbaiki kualitas visual untuk persepsi manusia atau pembersihan data.\n- **Contoh**: Denoising, blur filtering, sharpening, peningkatan kontras.\n\n### Computer Vision (Visi Komputer)\n- **Paradigma**: Pixel-in $\\rightarrow$ Semantic Understanding (Keputusan Semantik).\n- **Tujuan**: Meniru fungsi kognisi visual manusia (mengidentifikasi objek dan relasinya).\n- **Contoh**: Deteksi pejalan kaki, estimasi kedalaman 3D, pengenalan plat nomor.",
+    "notes": "Tunjukkan bahwa Image Processing sering menjadi modul pra-pemrosesan di dalam pipeline Computer Vision."
+  },
+  {
+    "id": 6,
+    "title": "Klasik vs Deep Learning: Komparasi Paradigma",
+    "lead": "Memilih pendekatan komputasi yang tepat untuk permasalahan rekayasa",
+    "body": "### Rekayasa Fitur Klasik (Classical Methods)\n- Menggunakan formulasi matematika analitis (SIFT, HOG, Canny, Sobel).\n- **Kelebihan**: Ringan, ramah-CPU, tidak membutuhkan data latih masif, dapat dijelaskan analitisnya.\n- **Batasan**: Rentan terhadap variasi iluminasi dan distorsi ekstrem.\n\n### Deep Learning Modern\n- Mempelajari representasi fitur hierarkis secara otomatis dari data mentah (*end-to-end*).\n- **Kelebihan**: Akurasi dan ketahanan persepsi sangat tinggi pada skenario kompleks.\n- **Batasan**: Membutuhkan dataset besar dan daya komputasi GPU/NPU intensif.",
+    "notes": "Tekankan filosofi kurikulum: kuasai metode klasik sebelum mempelajari deep learning agar memiliki fondasi yang kuat."
+  },
+  {
+    "id": 7,
+    "title": "Batasan Sistem: Real-Time vs Offline Batch",
+    "lead": "Trade-off antara latensi komputasi dan resolusi data",
+    "body": "### Karakteristik Pemrosesan\n- **Real-Time Processing**:\n  - Memiliki batas latensi waktu kaku (*deadline*).\n  - Contoh: Video 30 FPS memiliki batas waktu maksimal $\\mathbf{33.3\\text{ ms}}$ per frame!\n  - Memerlukan vektorisasi kode, optimasi SIMD, dan model inferensi ringan (YOLO-nano, MobileNet).\n\n- **Offline / Batch Processing**:\n  - Memprioritaskan fidelity maksimal tanpa batasan waktu per frame.\n  - Contoh: Rendering film animasi studio, rekonstruksi tomografi medis 3D resolusi tinggi.",
+    "notes": "Berikan analogi mengemudi mobil otonom yang membutuhkan keputusan instan vs pemrosesan arsip video museum."
+  },
+  {
+    "id": 8,
+    "title": "Inspeksi Sinyal dengan Python & NumPy",
+    "lead": "Representasi praktis dimensi data multimedia",
+    "body": "### Pemetaan Struktur Data Python\n```python\n# Citra RGB 2D: (Height, Width, Channels)\nimg = np.zeros((1080, 1920, 3), dtype=np.uint8)\n\n# Sinyal Audio 1D: (Total Samples,)\naudio = np.sin(2 * np.pi * 440.0 * t).astype(np.float32)\n\n# Sekuens Video 4D: (Time, Height, Width, Channels)\nvideo = np.zeros((300, 720, 1280, 3), dtype=np.uint8)\n```",
+    "notes": "Tunjukkan bahwa semua media digital berakhir sebagai array numerik NumPy di dalam kode program."
+  },
+  {
+    "id": 9,
+    "title": "Struktur 6 Jalur Belajar (Learning Tracks)",
+    "lead": "Peta navigasi kurikulum 60 bab terakreditasi",
+    "body": "### Jalur Spesialisasi Platform\n1. **Digital Image Processing**: Bab 01–15 (Representasi, Spasial, Frekuensi, Segmentasi)\n2. **Audio & Speech Processing**: Bab 16–25 (Sampling, FFT, MFCC, Speech AI)\n3. **Video Processing & Tracking**: Bab 26–35 (Temporal, Optical Flow, Tracking)\n4. **Computer Vision**: Bab 36–50 (Geometri Kamera, Kalibrasi, CNN, YOLO, ViT)\n5. **Multimodal AI**: Bab 51–55 (Vision-Language, Cross-modal Embeddings)\n6. **Real-Time & Edge Vision**: Bab 56–60 (Optimasi ONNX, Web APIs, Capstone)",
+    "notes": "Ajak mahasiswa untuk menentukan fokus minat mereka dalam 6 learning tracks yang tersedia."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Kuliah & Referensi",
+    "lead": "Multimedia & Computer Vision Learning Hub · Institut Teknologi Sumatera (ITERA)",
+    "body": "### Poin Inti Pembahasan\n- Data multimedia tersusun atas kombinasi sinyal spasial 2D, temporal 1D, dan sekuens video 4D.\n- Pemrosesan sinyal bergerak secara modular dari akuisisi fisik hingga aksi inferensi cerdas.\n- Pengolahan citra menitikberatkan restorasi visual, sedangkan visi komputer mengejar pemahaman semantik.\n\n### Referensi Utama\n1. Li, Drew, & Liu (2021). *Fundamentals of Multimedia*, 3rd Ed. Springer.\n2. Szeliski (2022). *Computer Vision: Algorithms and Applications*, 2nd Ed. Springer.\n3. Gonzalez & Woods (2018). *Digital Image Processing*, 4th Ed. Pearson.",
+    "notes": "Tutup sesi pengantar dan arahkan mahasiswa untuk mencoba kuis evaluasi serta latihan Python di platform."
+  }
+]

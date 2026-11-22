@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ref-36-1",
+    "title": "Computer Vision: Algorithms and Applications (2nd Edition)",
+    "authors": "Richard Szeliski",
+    "year": 2022,
+    "publisher": "Springer",
+    "url": "https://szeliski.org/Book/",
+    "annotation": "Buku rujukan kanonikal internasional. Bab 2 dan 3 menyajikan pemodelan sistem koordinat, matriks transformasi 2D/3D, dan teknik warping citra."
+  },
+  {
+    "id": "ref-36-2",
+    "title": "Multiple View Geometry in Computer Vision (2nd Edition)",
+    "authors": "Richard Hartley, Andrew Zisserman",
+    "year": 2004,
+    "publisher": "Cambridge University Press",
+    "url": "https://www.cambridge.org/core/books/multiple-view-geometry-in-computer-vision/4582AA4E1199F9F8813B038B315DE219",
+    "annotation": "Karya ilmiah rujukan utama dunia mengenai geometri proyektif, ruang koordinat homogen P^2/P^3, dan estimasi matriks homografi."
+  },
+  {
+    "id": "ref-36-3",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson",
+    "url": "https://www.imageprocessingplace.com/",
+    "annotation": "Bab 2 menyajikan penjelasan mendalam mengenai interpolasi nearest-neighbor, bilinear, dan bicubic pada transformasi spasial citra."
+  }
+]

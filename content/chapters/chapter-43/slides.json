@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Transfer Learning & Fine-Tuning",
+    "subtitle": "Chapter 43 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Mengapa melatih dari nol (from scratch) sering kali tidak realistis",
+      "Hierarki representasi visual: General Features vs Task-Specific Features",
+      "Taksonomi adaptasi: Fixed Feature Extractor vs Discriminative Fine-Tuning",
+      "Strategi pencegahan catastrophic forgetting dan gradient shock"
+    ],
+    "notes": "Selamat datang di materi Transfer Learning. Modul ini merupakan inti praktis aplikasi computer vision di dunia industri dan riset terapan."
+  },
+  {
+    "id": 2,
+    "title": "Dilema Pelatihan pada Small-Sample Regime",
+    "subtitle": "Tantangan Ketersediaan Data Teranotasi di Dunia Nyata",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "ImageNet membutuhkan 1.28 juta citra anotasi manual yang memakan biaya besar",
+      "Dataset target (medis, pertanian, drone) sering kali hanya memiliki <1000 citra",
+      "Model dengan 25 juta parameter akan mengalami memorization noise (overfitting parah)",
+      "Transfer learning menjembatani kesenjangan domain data secara efisien"
+    ],
+    "notes": "Jelaskan bahwa transfer learning memungkinkan kita memanfaatkan komputasi jutaan dolar yang telah dikeluarkan lab riset global."
+  },
+  {
+    "id": 3,
+    "title": "Hierarki Fitur Visual (Yosinski et al., 2014)",
+    "subtitle": "Fitur Mana yang Layak Ditransfer?",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Lapisan 1-2: Detektor tepi Gabor, orientasi garis, frekuensi spasial, dan warna universal",
+      "Lapisan 3-4: Motif tekstur, sudut kurva, pola berulang, dan bentuk geometri dasar",
+      "Lapisan akhir: Semantik spesifik objek (mata, roda, wajah, daun)",
+      "Aturan praktis: Semakin awal layer, semakin universal kemampuannya ditransfer"
+    ],
+    "notes": "Tunjukkan visualisasi filter lapisan awal yang identik dengan reseptor visual biologis mamalia."
+  },
+  {
+    "id": 4,
+    "title": "Metode 1: Fixed Feature Extractor (Linear Probing)",
+    "subtitle": "Adaptasi Cepat Tanpa Menyentuh Bobot Pretrained",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Seluruh parameter backbone dibekukan (gradien disetel ke nol: requires_grad = False)",
+      "Hanya melatih classification head linier baru pada vektor representasi laten",
+      "Keuntungan: Komputasi sangat ringan, tidak membutuhkan GPU monster, bebas overfitting backbone",
+      "Sangat efektif jika dataset target sangat kecil (< 500 sampel)"
+    ],
+    "notes": "Tunjukkan alur pembekuan bobot backbone pada slide ini."
+  },
+  {
+    "id": 5,
+    "title": "Metode 2: Discriminative Fine-Tuning",
+    "subtitle": "Pembaruan Terkendali Berdasarkan Kedalaman Layer",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Memperbarui seluruh parameter jaringan dengan learning rate bertingkat",
+      "Formula laju peluruhan: eta_l = eta_base * gamma^(L - l), dengan gamma in (0.7, 0.9)",
+      "Layer awal dipertahankan dengan learning rate sangat lambat (1e-6)",
+      "Layer akhir beradaptasi secara fleksibel terhadap variasi domain target (1e-3)"
+    ],
+    "notes": "Konsep ini terbukti secara konsisten mengungguli fine-tuning dengan uniform learning rate tunggal."
+  },
+  {
+    "id": 6,
+    "title": "Penjadwalan Laju Pembelajaran: Cosine Annealing",
+    "subtitle": "Linear Warmup Menghindari Gradient Shock",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Fase Warmup: Menaikkan learning rate dari 1e-6 ke 1e-3 secara linier di awal epoch",
+      "Menghindari inisialisasi bobot head acak yang merusak fitur representasional pretrained",
+      "Fase Cosine Decay: Menurunkan learning rate secara mulus mengikuti fungsi kosinus",
+      "Membantu model mendarat pada flat minima yang memiliki kemampuan generalisasi optimal"
+    ],
+    "notes": "Bahas mengapa flat minima lebih disukai daripada sharp minima dalam konteks generalisasi."
+  },
+  {
+    "id": 7,
+    "title": "Batch Normalization saat Fine-Tuning",
+    "subtitle": "Kunci Rahasia Stabilitas Pelatihan dengan Mini-Batch Kecil",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Layer Batch Normalization menyimpan running mean dan running variance",
+      "Jika mini-batch target kecil (B=8), estimasi statistik mean/var menjadi sangat noisey",
+      "Solusi: Kunci lapisan BN ke mode evaluasi (freeze running stats)",
+      "Tetap gunakan mean dan varians ImageNet populasi asli yang stabil"
+    ],
+    "notes": "Ini adalah jebakan umum (*common pitfall*) yang sering ditemui mahasiswa saat fine-tuning."
+  },
+  {
+    "id": 8,
+    "title": "Negative Transfer & Cara Mendeteksinya",
+    "subtitle": "Kapan Pretrained Model Justru Memperburuk Akurasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Terjadi bila distribusi domain sumber dan target sangat ortogonal (misal RGB vs Sonar/Medis)",
+      "Deteksi: Model transfer menghasilkan performa lebih buruk daripada model acak (random init)",
+      "Solusi: Gunakan domain-specific foundation models (seperti BioMedCLIP atau SatMAE)",
+      "Lakukan representational similarity analysis (CKA - Centered Kernel Alignment)"
+    ],
+    "notes": "Penting bagi mahasiswa telekomunikasi yang sering berurusan dengan citra radar atau sensor optik."
+  },
+  {
+    "id": 9,
+    "title": "Protokol Pelatihan Dua Tahap (Two-Stage Pipeline)",
+    "subtitle": "Best Practice Industri untuk Performa Maksimal",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Tahap 1 (Warmup Head): Bekukan backbone, latih head saja selama 5 epoch hingga stabil",
+      "Tahap 2 (Unfreeze & Fine-Tune): Buka blok konvolusi atas backbone dengan learning rate rendah",
+      "Gunakan data augmentasi proporsional (hindari augmentasi berlebihan pada domain terdistorsi)",
+      "Pantau validation loss secara ketat dengan Early Stopping (patience = 5)"
+    ],
+    "notes": "Protokol dua tahap ini menjamin hasil training stabil tanpa resiko kegagalan konvergensi."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Laboratorium Interaktif",
+    "subtitle": "Rangkuman Materi & Eksperimen Mandiri",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Transfer learning adalah akselerator utama transformasi AI di berbagai sektor industri",
+      "Skrip mandiri penjadwalan & drift bobot tersedia di example-01.py",
+      "Eksperimen komparatif terpadu tersedia di chapter-43-lab.ipynb",
+      "Bab berikutnya (Chapter 44): Object Detection dengan YOLO Architecture"
+    ],
+    "notes": "Dorong mahasiswa untuk mencoba playground TransferLearningExplorer pada portal web."
+  }
+]

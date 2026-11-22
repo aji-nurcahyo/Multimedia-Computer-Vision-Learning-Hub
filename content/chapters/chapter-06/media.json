@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-06-01",
+    "title": "Sistem Koordinat Citra Digital & Indeks Memori NumPy",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-06-image-coordinates.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-06-02",
+    "title": "Dampak Kuantisasi Kedalaman Bit (Bit Depth) vs Resolusi Spasial",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-06-bit-depth-sampling.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

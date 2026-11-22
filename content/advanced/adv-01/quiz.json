@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv01-01",
+    "question": "Berdasarkan Teorema Eckart-Young-Mirsky, berapakah galat aproksimasi Frobenius kuadrat ||A - A_k||_F^2 jika matriks A berukuran 10x10 dipotong menjadi matriks rank-k?",
+    "options": [
+      "Jumlah kuadrat seluruh nilai singular dari indeks 1 hingga k",
+      "Jumlah kuadrat nilai singular yang dipotong dari indeks k+1 hingga r",
+      "Nilai singular terbesar sigma_1 dikurangi nilai singular terkecil sigma_r",
+      "Perkalian determinan dari matriks U dan matriks V"
+    ],
+    "correctIndex": 1,
+    "explanation": "Teorema Eckart-Young-Mirsky membuktikan bahwa galat aproksimasi rank-k dalam norma Frobenius kuadrat persis sama dengan jumlah kuadrat nilai singular yang diabaikan: sum_{i=k+1}^r sigma_i^2."
+  },
+  {
+    "id": "quiz-adv01-02",
+    "question": "Mengapa optimasi orientasi kamera 3D pada visual SLAM dilakukan pada aljabar Lie so(3) dan bukan langsung pada matriks rotasi SO(3)?",
+    "options": [
+      "Karena matriks rotasi tidak dapat dikalikan secara komputasi",
+      "Karena SO(3) adalah manifold tak-linear dengan kendala R^T R = I dan det(R)=1, sedangkan aljabar Lie so(3) membentuk ruang tangen vektor linier tanpa kendala",
+      "Karena aljabar Lie so(3) menghasilkan estimasi sudut Euler dalam derajat",
+      "Karena rumus inversi matriks ortogonal membutuhkan komputasi O(N^3)"
+    ],
+    "correctIndex": 1,
+    "explanation": "Grup SO(3) adalah manifold lengkung berkendala. Menjumlahkan dua matriks rotasi melanggar sifat ortogonalitas. Sebaliknya, perturbasi pada aljabar Lie ruang tangen so(3) berupa vektor linear 3D bebas kendala yang dapat dipetakan kembali ke SO(3) melalui formula Rodrigues."
+  },
+  {
+    "id": "quiz-adv01-03",
+    "question": "Jika matriks Jacobian J memiliki angka kondisi kappa(J) = 10^5, fenomena numerik apa yang akan terjadi saat menyelesaikan persamaan normal Gauss-Newton (J^T J) delta_x = -J^T r?",
+    "options": [
+      "Konvergensi langsung tercapai dalam 1 iterasi deterministik",
+      "Angka kondisi kuadrat kappa(J^T J) = 10^10 menyebabkan amplifikasi derau ekstrem dan instabilitas numerik",
+      "Residual selalu konvergen ke nol secara mutlak",
+      "Matriks Jacobian otomatis tereduksi menjadi matriks identitas"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pembentukan normal equations menguadratkan angka kondisi: kappa(J^T J) = kappa(J)^2 = 10^10. Hal ini menyebabkan galat pembulatan numerik teramplifikasi parah, menuntut penggunaan dekomposisi QR atau regularisasi Levenberg-Marquardt."
+  }
+]
+

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "redmon-2016-yolo",
+    "title": "You Only Look Once: Unified, Real-Time Object Detection",
+    "authors": "Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi",
+    "year": 2016,
+    "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR 2016)",
+    "doi": "10.1109/CVPR.2016.91",
+    "url": "https://arxiv.org/abs/1506.02640",
+    "citationKey": "redmon2016you"
+  },
+  {
+    "id": "redmon-2018-yolov3",
+    "title": "YOLOv3: An Incremental Improvement",
+    "authors": "Joseph Redmon, Ali Farhadi",
+    "year": 2018,
+    "venue": "arXiv preprint arXiv:1804.02767",
+    "url": "https://arxiv.org/abs/1804.02767",
+    "citationKey": "redmon2018yolov3"
+  },
+  {
+    "id": "zheng-2020-ciou",
+    "title": "Distance-IoU Loss: Faster and Better Learning for Bounding Box Regression",
+    "authors": "Zhaohui Zheng, Ping Wang, Wei Liu, Jinze Li, Rongguang Ye, Dongwei Ren",
+    "year": 2020,
+    "venue": "AAAI Conference on Human Computation and Crowdsourcing (AAAI 2020)",
+    "doi": "10.1609/aaai.v34i07.7001",
+    "url": "https://arxiv.org/abs/1911.08287",
+    "citationKey": "zheng2020distance"
+  },
+  {
+    "id": "lin-2017-retinanet",
+    "title": "Focal Loss for Dense Object Detection",
+    "authors": "Tsung-Yi Lin, Priya Goyal, Ross Girshick, Kaiming He, Piotr Dollár",
+    "year": 2017,
+    "venue": "IEEE International Conference on Computer Vision (ICCV 2017)",
+    "doi": "10.1109/ICCV.2017.324",
+    "url": "https://arxiv.org/abs/1708.02002",
+    "citationKey": "lin2017focal"
+  }
+]

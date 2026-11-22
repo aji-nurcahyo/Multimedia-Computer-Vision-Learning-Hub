@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-07-01",
+    "title": "Model Warna RGB (Hardware) vs Ruang Silinder HSV (Perseptual)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-07-color-spaces.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-07-02",
+    "title": "Dekomposisi Ruang Warna Video (YCbCr) & Perseptual (CIELAB)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-07-hsv-ycbcr-lab.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

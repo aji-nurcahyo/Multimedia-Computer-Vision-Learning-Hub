@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-35-01",
+    "title": "Embedded Computer Vision",
+    "authors": "Branislav Kisacanin, Shuvra S. Bhattacharyya, Shang-Hung Lin",
+    "year": 2009,
+    "publisher": "Springer London",
+    "url": "https://doi.org/10.1007/978-1-84882-359-4",
+    "type": "book",
+    "annotation": "Prinsip implementasi algoritma pemrosesan citra dan video pada perangkat tersemat (embedded hardware) dengan kendala daya dan memori."
+  },
+  {
+    "id": "ref-35-02",
+    "title": "Smart Video Surveillance System: An End-to-End Edge Architecture",
+    "authors": "Pradeep K. Atrey, M. Anwar Hossain, Abdulmotaleb El Saddik",
+    "year": 2011,
+    "publisher": "ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM)",
+    "url": "https://doi.org/10.1145/1877953.1877960",
+    "type": "paper",
+    "annotation": "Perancangan arsitektur analitik video cerdas terdistribusi yang membagi beban komputasi antara kamera tepi (edge) dan konsol pusat."
+  },
+  {
+    "id": "ref-35-03",
+    "title": "Deep Learning for Vision Systems",
+    "authors": "Mohamed Elgendy",
+    "year": 2020,
+    "publisher": "Manning Publications",
+    "url": "https://www.manning.com/books/deep-learning-for-vision-systems",
+    "type": "book",
+    "annotation": "Panduan rekayasa perangkat lunak visi komputer terapan, teknik validasi sistem, dan deployment pipeline analitik video mandiri."
+  }
+]

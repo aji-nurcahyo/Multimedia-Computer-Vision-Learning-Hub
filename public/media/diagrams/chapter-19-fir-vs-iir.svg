@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+
+  <!-- Header Banner -->
+  <rect x="30" y="25" width="740" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="52" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold">Perbandingan Arsitektur: FIR vs IIR Digital Filter</text>
+  <text x="50" y="72" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">Chapter 19: Linear Phase vs Computational Efficiency pada Pemrosesan Audio Digital | Multimedia &amp; Computer Vision Hub - ITERA</text>
+
+  <!-- Main Graphical Content -->
+  
+      <g transform="translate(60, 110)">
+        <rect width="320" height="280" rx="8" fill="#090d16" stroke="#0284c7" stroke-width="1.5" />
+        <text x="160" y="35" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="13" font-weight="bold">FIR (Finite Impulse Response)</text>
+        <text x="20" y="80" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Respon impuls terbatas ke N-sampel</text>
+        <text x="20" y="110" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Selalu Stabil (Semua pole di titik origin)</text>
+        <text x="20" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Linear Phase murni (Zero phase distortion)</text>
+        <text x="20" y="170" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Membutuhkan komputasi tinggi (Taps > 64)</text>
+        <rect x="20" y="210" width="280" height="40" rx="4" fill="#0369a1" />
+        <text x="160" y="235" text-anchor="middle" fill="#fff" font-family="monospace" font-size="11">y[n] = sum(b_k * x[n-k])</text>
+      </g>
+      <g transform="translate(420, 110)">
+        <rect width="320" height="280" rx="8" fill="#090d16" stroke="#10b981" stroke-width="1.5" />
+        <text x="160" y="35" text-anchor="middle" fill="#34d399" font-family="sans-serif" font-size="13" font-weight="bold">IIR (Infinite Impulse Response)</text>
+        <text x="20" y="80" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Memiliki umpan balik (Feedback recursion)</text>
+        <text x="20" y="110" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Risiko instabilitas jika pole di luar unit circle</text>
+        <text x="20" y="140" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Non-linear phase (Terjadi pergeseran grup)</text>
+        <text x="20" y="170" fill="#cbd5e1" font-family="sans-serif" font-size="11">• Sangat efisien (Cukup Biquad Order-2)</text>
+        <rect x="20" y="210" width="280" height="40" rx="4" fill="#047857" />
+        <text x="160" y="235" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">y[n] = sum(b_k*x[n-k]) - sum(a_k*y[n-k])</text>
+      </g>
+    
+
+  <!-- Footer Watermark -->
+  <text x="400" y="432" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Institut Teknologi Sumatera (ITERA) • Created by Aji Pamungkas Tri Nurcahyo • CC-BY-4.0</text>
+</svg>

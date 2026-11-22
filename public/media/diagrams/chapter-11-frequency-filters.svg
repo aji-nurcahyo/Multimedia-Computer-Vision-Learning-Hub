@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="350" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 11 · IDEAL vs BUTTERWORTH vs GAUSSIAN</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Profil Penapis Frekuensi Low-Pass &amp; Fenomena Artifak Ringing</text>
+
+  <!-- Ideal Step -->
+  <g transform="translate(55, 125)">
+    <rect width="260" height="165" rx="8" fill="#090d16" stroke="#ef4444" />
+    <path d="M 30 125 L 95 125 L 95 45 L 165 45 L 165 125 L 230 125" fill="none" stroke="#ef4444" stroke-width="3" />
+    <text x="130" y="148" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Ideal LPF (Diskontinuitas Tajam)</text>
+    <text x="130" y="185" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Menghasilkan efek riak (Gibbs ringing)</text>
+  </g>
+
+  <!-- Butterworth -->
+  <g transform="translate(350, 125)">
+    <rect width="260" height="165" rx="8" fill="#090d16" stroke="#f59e0b" />
+    <path d="M 30 125 C 75 125, 80 45, 130 45 C 180 45, 185 125, 230 125" fill="none" stroke="#f59e0b" stroke-width="3" />
+    <text x="130" y="148" fill="#fde68a" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Butterworth LPF (Orde n)</text>
+    <text x="130" y="185" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Transisi terkendali H = 1/(1+(D/D₀)^2n)</text>
+  </g>
+
+  <!-- Gaussian -->
+  <g transform="translate(645, 125)">
+    <rect width="260" height="165" rx="8" fill="#090d16" stroke="#34d399" />
+    <path d="M 30 125 Q 85 125 130 45 Q 175 125 230 125" fill="none" stroke="#34d399" stroke-width="3" />
+    <text x="130" y="148" fill="#86efac" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Gaussian LPF (Mulus Tak Terbatas)</text>
+    <text x="130" y="185" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Bebas ringing (Gaussian → Gaussian)</text>
+  </g>
+
+  <text x="924" y="344" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

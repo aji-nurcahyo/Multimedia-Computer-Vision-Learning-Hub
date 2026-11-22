@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-adv01-01",
+    "title": "Pembuktian Turunan Trace Terbobot",
+    "difficulty": "advanced",
+    "instruction": "Tunjukkan penurunan analitis dari turunan matriks: d/dW Tr(A W B W^T) terhadap matriks W, di mana A dan B adalah matriks simetris berukuran cocok.",
+    "starterCode": "# Buktikan dengan kalkulus diferensial:\n# d(Tr(A W B W^T)) = Tr(A dW B W^T) + Tr(A W B dW^T)\n# Gunakan sifat siklik trace: Tr(X Y) = Tr(Y X) dan Tr(X^T) = Tr(X)\n# Tuliskan turunan akhirnya grad_W.",
+    "solution": "# Melalui diferensial jejak:\n# d f = Tr(A dW B W^T) + Tr(A W B dW^T)\n# Sifat siklik dan transpose: Tr(A dW B W^T) = Tr(B W^T A dW)\n# Tr(A W B dW^T) = Tr(dW B^T W^T A^T) = Tr(B^T W^T A^T dW)\n# Maka df = Tr( (B W^T A + B^T W^T A^T) dW ) = Tr( (A^T W B^T + A W B)^T dW )\n# Karena A = A^T dan B = B^T (simetris):\n# grad_W = 2 * A * W * B"
+  },
+  {
+    "id": "ex-adv01-02",
+    "title": "Implementasi Pemetaan Logaritmik so(3)",
+    "difficulty": "advanced",
+    "instruction": "Tuliskan fungsi Python log_so3(R) yang memetakan matriks rotasi R in SO(3) kembali ke aljabar Lie omega in so(3) (kebalikan dari formula Rodrigues).",
+    "starterCode": "import numpy as np\n\ndef log_so3(R: np.ndarray) -> np.ndarray:\n    \"\"\"\n    Memetakan R in SO(3) ke aljabar Lie omega in R^3.\n    \"\"\"\n    # 1. Hitung sudut rotasi theta dari Tr(R) = 1 + 2 cos(theta)\n    # 2. Tangani kasus theta ~ 0\n    # 3. Hitung sumbu rotasi dari komponen simetri-miring (R - R^T) / (2 sin theta)\n    pass",
+    "solution": "import numpy as np\n\ndef log_so3(R: np.ndarray) -> np.ndarray:\n    tr = np.trace(R)\n    cos_theta = np.clip((tr - 1.0) / 2.0, -1.0, 1.0)\n    theta = np.arccos(cos_theta)\n    \n    if np.abs(theta) < 1e-10:\n        return np.zeros(3)\n    \n    # Skew-symmetric part: (R - R^T) / (2 * sin(theta))\n    factor = theta / (2.0 * np.sin(theta))\n    omega_x = factor * (R[2, 1] - R[1, 2])\n    omega_y = factor * (R[0, 2] - R[2, 0])\n    omega_z = factor * (R[1, 0] - R[0, 1])\n    return np.array([omega_x, omega_y, omega_z])"
+  }
+]
+

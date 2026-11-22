@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-16-01",
+    "title": "Karakteristik Fisik Gelombang Suara (Acoustic Wave)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-16-sound-wave-properties.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-16-02",
+    "title": "Representasi Audio Digital: Pulse Code Modulation (PCM)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-16-pcm-representation.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-adv05-01",
+    "title": "Multiple View Geometry in Computer Vision (2nd Edition)",
+    "authors": "Richard Hartley, Andrew Zisserman",
+    "year": 2004,
+    "publisher": "Cambridge University Press",
+    "url": "https://www.cambridge.org/core/books/multiple-view-geometry-in-computer-vision/5C9CB2F47D1460F0C05CE4BE5193C2C7",
+    "type": "Book",
+    "annotation": "The canonical 'bible' of geometric computer vision: covering projective transformations, the normalized 8-point algorithm, Sampson error, DLT triangulation, and bundle adjustment."
+  },
+  {
+    "id": "ref-adv05-02",
+    "title": "An Invitation to 3-D Vision: From Images to Geometric Models",
+    "authors": "Yi Ma, Stefano Soatto, Jana Kosecka, S. Shankar Sastry",
+    "year": 2004,
+    "publisher": "Springer-Verlag New York",
+    "url": "https://link.springer.com/book/10.1007/978-0-387-21779-6",
+    "type": "Book",
+    "annotation": "Rigorous treatment of multi-view geometry through Lie group perspectives, continuous epipolar kinematics, and rank constraints on multiple images."
+  },
+  {
+    "id": "ref-adv05-03",
+    "title": "Bundle Adjustment — A Modern Synthesis",
+    "authors": "Bill Triggs, Philip F. McLauchlan, Richard I. Hartley, Andrew W. Fitzgibbon",
+    "year": 2000,
+    "publisher": "Vision Algorithms: Theory and Practice (Springer LNCS)",
+    "url": "https://doi.org/10.1007/3-540-44480-7_21",
+    "type": "Conference / Workshop Paper",
+    "annotation": "Foundational survey establishing sparse Schur complement trick, gauge freedom, Levenberg-Marquardt damping, and photogrammetric network optimization."
+  },
+  {
+    "id": "ref-adv05-04",
+    "title": "COLMAP: Structure-from-Motion Revisited",
+    "authors": "Johannes L. Schonberger, Jan-Michael Frahm",
+    "year": 2016,
+    "publisher": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2016.445",
+    "type": "Conference Paper",
+    "annotation": "Pioneering modern open-source Structure-from-Motion pipeline, demonstrating robust geometric correspondence verification, view selection, and scalable BA."
+  }
+]
+

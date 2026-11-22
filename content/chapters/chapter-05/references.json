@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-05-01",
+    "title": "Guide to NumPy (2nd Edition)",
+    "authors": "Travis E. Oliphant",
+    "year": 2015,
+    "publisher": "CreateSpace",
+    "url": "https://numpy.org",
+    "type": "book",
+    "annotation": "Rujukan otoritatif arsitektur internal NumPy ndarray, struktur data C-contiguous vs Fortran-order, teknik slicing memori (views vs copies), dan modul ufuncs."
+  },
+  {
+    "id": "ref-05-02",
+    "title": "Scipy and Numpy: An Overview for Developers",
+    "authors": "Eli Bressert",
+    "year": 2012,
+    "publisher": "O'Reilly Media",
+    "url": "https://www.oreilly.com",
+    "type": "book",
+    "annotation": "Pembahasan praktis manipulasi array berdimensi tinggi, operasi aljabar linier tervektorisasi, dan integrasi dengan Matplotlib untuk visualisasi ilmiah."
+  },
+  {
+    "id": "ref-05-03",
+    "title": "Learning OpenCV 4 Computer Vision with Python 3 (3rd Edition)",
+    "authors": "Joseph Howse, Joe Minichino",
+    "year": 2020,
+    "publisher": "Packt Publishing",
+    "url": "https://www.packtpub.com",
+    "type": "book",
+    "annotation": "Bab 2 membahas secara mendalam penanganan citra sebagai matriks NumPy, perbedaan urutan warna BGR vs RGB, ekstraksi Region of Interest (ROI), dan video I/O."
+  }
+]

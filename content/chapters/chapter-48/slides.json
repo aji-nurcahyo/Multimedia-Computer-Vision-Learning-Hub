@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 48: 3D Vision & Scene Reconstruction",
+    "content": "Rekonstruksi Geometri Spasial Tiga Dimensi dari Pengamatan Citra Multi-Pandang\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 48. Tekankan bahwa 3D vision adalah transisi dari representasi bidang piksel 2D ke pemulihan struktur metrik dunia fisik 3D dan pose kamera."
+  },
+  {
+    "id": "slide-2",
+    "title": "Pipeline Structure from Motion (SfM)",
+    "content": "Tahapan SfM Inkremental:\\n1. Feature Extraction & Robust Matching (SIFT/ORB)\\n2. Epipolar Geometry & Essential Matrix E Estimation\\n3. Two-View Initialization & Triangulation\\n4. Resectioning: PnP Pose Estimation pandang baru\\n5. Global Bundle Adjustment: Minimasi Eror Reproyeksi",
+    "diagram": "/media/diagrams/chapter-48-structure-from-motion-pipeline.svg",
+    "notes": "Jelaskan diagram alur SfM dari ekstraksi titik fitur hingga point cloud 3D renggang. Sorot peran penting RANSAC dalam menolak pasangan korespondensi outlier."
+  },
+  {
+    "id": "slide-3",
+    "title": "Model Kamera Pinhole & Proyeksi Proyektif",
+    "content": "Matriks Proyeksi Kamera P = K [R | t]:\\n- K: Matriks kalibrasi intrinsik (focal length fx, fy, principal point cx, cy)\\n- [R | t]: Matriks ekstrinsik rotasi SO(3) dan translasi R^3\\n\\nPersamaan Proyeksi Homogen:\\nlambda * x = P * X\\nMemetakan titik 3D X = [X, Y, Z, 1]^T menjadi koordinat piksel x = [u, v, 1]^T.",
+    "diagram": null,
+    "notes": "Jelaskan pemisahan antara sifat optik internal kamera (intrinsik K) dan posisi relatif kamera terhadap sistem koordinat dunia (ekstrinsik R, t)."
+  },
+  {
+    "id": "slide-4",
+    "title": "Geometri Epipolar & Matriks Fundamental",
+    "content": "Relasi Geometri Dua Pandang:\\n- Epipole e1, e2: Proyeksi pusat kamera satu sama lain\\n- Garis Epipolar l2 = F * x1: Jalur pencarian titik korespondensi\\n- Kondisi Epipolar: x2^T * F * x1 = 0\\n\\nMatriks Esensial E = [t]x * R = K^T * F * K\\nMemiliki dua nilai singular sama dan satu bernilai nol (diag(sigma, sigma, 0)).",
+    "diagram": null,
+    "notes": "Tekankan bagaimana geometri epipolar mereduksi ruang pencarian korespondensi dari 2D (seluruh citra) menjadi 1D (sepanjang garis epipolar)."
+  },
+  {
+    "id": "slide-5",
+    "title": "Triangulasi Geometri: Direct Linear Transformation",
+    "content": "Rekonstruksi Koordinat Titik 3D X dari x1 dan x2:\\n- Hubungan Cross-Product: x x (P * X) = 0\\n- Sistem Persamaan Linier A * X = 0 (A berukuran 4x4)\\n- Solusi SVD: A = U * Sigma * V^T\\nX diekstrak dari kolom terakhir V yang berkorespondensi dengan singular value terkecil.",
+    "diagram": "/media/diagrams/chapter-48-multiview-triangulation-geometry.svg",
+    "notes": "Gunakan diagram triangulasi untuk mengilustrasikan perpotongan dua sinar proyeksi di ruang 3D. Karena adanya noise diskritisasi sensor, kedua sinar tidak pernah berpotongan persis, sehingga pendekatan DLT kuadrat terkecil menjadi solusi optimal."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Triangulasi Analitik",
+    "content": "Konfigurasi Dua Kamera Stereo (f = 1000 px, b = 2.0 m):\\n- Kamera 1 (origin): x1 = (200.0, 100.0)\\n- Kamera 2 (shifted): x2 = (-200.0, 100.0)\\n\\nPerhitungan Analitik Kedalaman:\\nZ = f * b / disparity = 1000 * 2.0 / (200 - (-200)) = 2000 / 400 = 5.0 meter\\nX = (u1 * Z) / f = (200 * 5.0) / 1000 = 1.0 meter\\nY = (v1 * Z) / f = (100 * 5.0) / 1000 = 0.5 meter\\nKoordinat 3D Terpulihkan: X = [1.0, 0.5, 5.0]^T meter.",
+    "diagram": null,
+    "notes": "Jelaskan kalkulasi langkah demi langkah di papan tulis. Tunjukkan kesesuaian formula disparitas analitik dengan hasil dekomposisi DLT numerik."
+  },
+  {
+    "id": "slide-7",
+    "title": "Bundle Adjustment Non-Linier",
+    "content": "Optimasi Simultan Pose Kamera dan Titik 3D:\\nmin_{C_i, X_j} sum_{i} sum_{j} || x_{ij} - pi(C_i, X_j) ||^2\\n\\nKarakteristik Komputasi:\\n- Menggunakan algoritma Levenberg-Marquardt\\n- Struktur Matriks Hessian sangat renggang (Schur complement speedup)\\n- Menghilangkan akumulasi galat (drift) dari triangulasi berantai",
+    "diagram": null,
+    "notes": "Jelaskan mengapa bundle adjustment adalah standar emas dalam fotogrametri dan visi komputer: BA memurnikan estimasi awal DLT menggunakan optimasi non-linier terpadu."
+  },
+  {
+    "id": "slide-8",
+    "title": "Mode Kegagalan & Tantangan Rekonstruksi",
+    "content": "Tantangan Utama & Mitigasi:\\n1. Ambiguitas Skala Monokular (Scale Ambiguity):\\n   Solusi: Sensor IMU/VIO, penanda fiducial AprilTag, atau LiDAR\\n2. Baseline Degeneracy (b ~ 0 atau pure rotation):\\n   Solusi: Verifikasi sudut paraksis mencukupi (> 5 derajat) atau homografi planar\\n3. Area Tekstur Polos & Reflektif (kaca, cermin, dinding polos):\\n   Solusi: Structured light atau representasi NeRF / 3D Gaussian Splatting",
+    "diagram": null,
+    "notes": "Tekankan implikasi praktis: kamera ponsel monokular tidak tahu apakah objeknya mobil mainan 20 cm atau mobil nyata 4 meter tanpa referensi skala fisik."
+  },
+  {
+    "id": "slide-9",
+    "title": "Evolusi Paradigma: NeRF & 3D Gaussian Splatting",
+    "content": "Transisi dari Titik Renggang ke Radiance Fields Kontinu:\\n- Neural Radiance Fields (NeRF):\\n  MLP f(x, y, z, theta, phi) -> (RGB, sigma), volume rendering terintegrasi\\n- 3D Gaussian Splatting (3DGS):\\n  Representasi eksplisit jutaan ellipsoid gaussian dengan diferensiasi rasterisasi\\n- Sintesis sudut pandang baru (novel view synthesis) berkecepatan real-time (> 100 FPS)",
+    "diagram": null,
+    "notes": "Beri wawasan ke riset modern: bagaimana visi 3D berkembang pesat dari triangulasi titik diskrit klasik menuju representasi visual kontinu real-time."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Agenda Riset Masa Depan",
+    "content": "Fondasi Kurikulum & Arah ISVWS 2026-2040:\\n- Geometri multi-pandang memberikan fondasi spasial spatial AI\\n- Verifikasi skrip: examples/example-01.py (triangulasi analitis & SVD)\\n- Praktikum interaktif: ThreeDReconstructionExplorer.tsx\\n- Integrasi masa depan: Visual SLAM, NeRF kedokteran, dan rekonstruksi 3D robotik otonom.",
+    "diagram": null,
+    "notes": "Slide penutup: arahkan mahasiswa untuk menjalankan skrip verifikasi lokal dan mengeksplorasi simulator interaktif 3D di platform web."
+  }
+]

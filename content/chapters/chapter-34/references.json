@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-34-01",
+    "title": "Intelligent Video Surveillance: Systems and Technology",
+    "authors": "Yunqian Ma, Gang Qian",
+    "year": 2009,
+    "publisher": "CRC Press",
+    "url": "https://www.routledge.com/Intelligent-Video-Surveillance-Systems-and-Technology/Ma-Qian/p/book/9781439800089",
+    "type": "book",
+    "annotation": "Panduan teknis perancangan analitik video pengawasan cerdas, virtual perimeter tripwire, dan pencegahan alarm palsu."
+  },
+  {
+    "id": "ref-34-02",
+    "title": "Video Analytics for Business Intelligence",
+    "authors": "Caifeng Shan, Fatih Porikli, Tao Xiang, Shaogang Gong",
+    "year": 2012,
+    "publisher": "Springer Berlin Heidelberg",
+    "url": "https://doi.org/10.1007/978-3-642-28598-1",
+    "type": "book",
+    "annotation": "Penerapan sistem penghitungan orang, analisis arus lalu lintas perkotaan, dan estimasi waktu singgah (dwell time)."
+  },
+  {
+    "id": "ref-34-03",
+    "title": "A Survey on Video-Based Human Action Recognition: Recent Advances and Future Trends",
+    "authors": "Zehua Sun, Qiuhong Ke, Hossein Rahmani, et al.",
+    "year": 2022,
+    "publisher": "ACM Computing Surveys (CSUR)",
+    "url": "https://doi.org/10.1145/3539604",
+    "type": "paper",
+    "annotation": "Survei komprehensif mengenai transisi dari pemodelan peristiwa berbasis aturan geometris hingga pengenalan aksi manusia berbasis spatio-temporal deep networks."
+  }
+]

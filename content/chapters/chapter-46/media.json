@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-46-1",
+    "title": "Arsitektur Vision Transformer (ViT) & Patch Embedding",
+    "path": "/media/diagrams/chapter-46-vit-patch-embedding-architecture.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-46-2",
+    "title": "Mekanisme Scaled Dot-Product Multi-Head Attention",
+    "path": "/media/diagrams/chapter-46-multihead-self-attention-mechanism.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

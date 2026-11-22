@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgTens" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="400" rx="14" fill="url(#bgTens)"/>
+
+  <text x="40" y="45" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="800">NumPy N-Dimensional Tensors in Multimedia</text>
+  <text x="40" y="72" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Struktur bentuk array (ndarray.shape) untuk representasi Audio 1D, Citra Grayscale 2D, Citra RGB 3D, dan Video 4D</text>
+
+  <!-- 1D Audio Tensor -->
+  <g transform="translate(45, 105)">
+    <rect width="195" height="235" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="0" y="0" width="195" height="32" rx="8" fill="#059669" fill-opacity="0.25"/>
+    <text x="97" y="21" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">1D AUDIO ARRAY</text>
+
+    <!-- Visual Strip -->
+    <g transform="translate(15, 55)">
+      <rect width="165" height="36" rx="4" fill="#0f172a" stroke="#34d399" stroke-width="1"/>
+      <line x1="33" y1="0" x2="33" y2="36" stroke="#334155"/>
+      <line x1="66" y1="0" x2="66" y2="36" stroke="#334155"/>
+      <line x1="99" y1="0" x2="99" y2="36" stroke="#334155"/>
+      <line x1="132" y1="0" x2="132" y2="36" stroke="#334155"/>
+      <text x="16" y="22" fill="#a7f3d0" font-family="monospace" font-size="9" text-anchor="middle">-0.2</text>
+      <text x="50" y="22" fill="#a7f3d0" font-family="monospace" font-size="9" text-anchor="middle">0.6</text>
+      <text x="82" y="22" fill="#a7f3d0" font-family="monospace" font-size="9" text-anchor="middle">0.9</text>
+      <text x="115" y="22" fill="#a7f3d0" font-family="monospace" font-size="9" text-anchor="middle">0.1</text>
+      <text x="148" y="22" fill="#a7f3d0" font-family="monospace" font-size="9" text-anchor="middle">-0.8</text>
+    </g>
+
+    <text x="97" y="125" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Shape: (N,)</text>
+    <text x="97" y="145" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">N = Jumlah sampel audio</text>
+    <text x="97" y="165" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Contoh: 44.100 sampel/detik</text>
+    <rect x="15" y="185" width="165" height="24" rx="4" fill="#064e3b" fill-opacity="0.4"/>
+    <text x="97" y="201" fill="#6ee7b7" font-family="monospace" font-size="10" text-anchor="middle">dtype: float32 [-1.0, 1.0]</text>
+  </g>
+
+  <!-- 2D Grayscale Tensor -->
+  <g transform="translate(265, 105)">
+    <rect width="195" height="235" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="195" height="32" rx="8" fill="#0284c7" fill-opacity="0.25"/>
+    <text x="97" y="21" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">2D GRAYSCALE IMAGE</text>
+
+    <!-- Visual 2D Grid -->
+    <g transform="translate(35, 45)">
+      <rect width="125" height="65" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1"/>
+      <line x1="0" y1="22" x2="125" y2="22" stroke="#334155"/>
+      <line x1="0" y1="44" x2="125" y2="44" stroke="#334155"/>
+      <line x1="42" y1="0" x2="42" y2="65" stroke="#334155"/>
+      <line x1="84" y1="0" x2="84" y2="65" stroke="#334155"/>
+      <text x="62" y="37" fill="#7dd3fc" font-family="monospace" font-size="10" text-anchor="middle">f(y, x)</text>
+    </g>
+
+    <text x="97" y="135" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Shape: (H, W)</text>
+    <text x="97" y="155" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">H = Height (Tinggi Baris)</text>
+    <text x="97" y="170" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">W = Width (Lebar Kolom)</text>
+    <rect x="15" y="185" width="165" height="24" rx="4" fill="#0c4a6e" fill-opacity="0.4"/>
+    <text x="97" y="201" fill="#7dd3fc" font-family="monospace" font-size="10" text-anchor="middle">dtype: uint8 [0, 255]</text>
+  </g>
+
+  <!-- 3D Color RGB Tensor -->
+  <g transform="translate(485, 105)">
+    <rect width="210" height="235" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="210" height="32" rx="8" fill="#d97706" fill-opacity="0.25"/>
+    <text x="105" y="21" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">3D COLOR IMAGE (RGB)</text>
+
+    <!-- Visual 3D Stack -->
+    <g transform="translate(35, 45)">
+      <!-- Blue plane -->
+      <rect x="16" y="0" width="110" height="50" rx="3" fill="#1e3a8a" fill-opacity="0.7" stroke="#3b82f6"/>
+      <!-- Green plane -->
+      <rect x="8" y="10" width="110" height="50" rx="3" fill="#064e3b" fill-opacity="0.7" stroke="#10b981"/>
+      <!-- Red plane -->
+      <rect x="0" y="20" width="110" height="50" rx="3" fill="#7f1d1d" fill-opacity="0.8" stroke="#ef4444"/>
+    </g>
+
+    <text x="105" y="135" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Shape: (H, W, 3)</text>
+    <text x="105" y="155" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">3 Saluran: [R, G, B]</text>
+    <text x="105" y="170" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Perhatian: OpenCV &#8594; BGR</text>
+    <rect x="15" y="185" width="180" height="24" rx="4" fill="#78350f" fill-opacity="0.4"/>
+    <text x="105" y="201" fill="#fde68a" font-family="monospace" font-size="10" text-anchor="middle">img[y, x, c] &#8594; uint8</text>
+  </g>
+
+  <!-- 4D Video Sequence Tensor -->
+  <g transform="translate(720, 105)">
+    <rect width="195" height="235" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="195" height="32" rx="8" fill="#7c3aed" fill-opacity="0.25"/>
+    <text x="97" y="21" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">4D VIDEO STREAM</text>
+
+    <!-- Visual 4D Sequence -->
+    <g transform="translate(25, 45)">
+      <rect x="30" y="0" width="90" height="50" rx="3" fill="#1e1b4b" stroke="#8b5cf6"/>
+      <rect x="15" y="10" width="90" height="50" rx="3" fill="#2e1065" stroke="#a78bfa"/>
+      <rect x="0" y="20" width="90" height="50" rx="3" fill="#3b0764" stroke="#c084fc"/>
+      <text x="135" y="45" fill="#c084fc" font-family="system-ui, sans-serif" font-size="11">&#8594; Time (t)</text>
+    </g>
+
+    <text x="97" y="135" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Shape: (T, H, W, C)</text>
+    <text x="97" y="155" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">T = Jumlah Frame Waktu</text>
+    <text x="97" y="170" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Spatiotemporal Data</text>
+    <rect x="15" y="185" width="165" height="24" rx="4" fill="#4c1d95" fill-opacity="0.4"/>
+    <text x="97" y="201" fill="#ddd6fe" font-family="monospace" font-size="10" text-anchor="middle">Batch / Temporal Slice</text>
+  </g>
+
+  <!-- Attribution footer -->
+  <text x="40" y="375" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Multimedia &amp; Computer Vision Learning Hub &#183; Institut Teknologi Sumatera (ITERA) &#183; Aji Pamungkas Tri Nurcahyo</text>
+</svg>
+

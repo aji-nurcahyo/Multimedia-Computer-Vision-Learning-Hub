@@ -1,0 +1,39 @@
+[
+  {
+    "id": "he-2016-resnet",
+    "title": "Deep Residual Learning for Image Recognition",
+    "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun",
+    "year": 2016,
+    "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR 2016)",
+    "doi": "10.1109/CVPR.2016.90",
+    "url": "https://arxiv.org/abs/1512.03385",
+    "citationKey": "he2016deep"
+  },
+  {
+    "id": "simonyan-2014-vgg",
+    "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+    "authors": "Karen Simonyan, Andrew Zisserman",
+    "year": 2014,
+    "venue": "International Conference on Learning Representations (ICLR 2015)",
+    "url": "https://arxiv.org/abs/1409.1556",
+    "citationKey": "simonyan2014very"
+  },
+  {
+    "id": "tan-2019-efficientnet",
+    "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
+    "authors": "Mingxing Tan, Quoc V. Le",
+    "year": 2019,
+    "venue": "International Conference on Machine Learning (ICML 2019)",
+    "url": "https://arxiv.org/abs/1905.11946",
+    "citationKey": "tan2019efficientnet"
+  },
+  {
+    "id": "zhang-2017-mixup",
+    "title": "mixup: Beyond Empirical Risk Minimization",
+    "authors": "Hongyi Zhang, Moustapha Cisse, Yann N. Dauphin, David Lopez-Paz",
+    "year": 2017,
+    "venue": "International Conference on Learning Representations (ICLR 2018)",
+    "url": "https://arxiv.org/abs/1710.09412",
+    "citationKey": "zhang2017mixup"
+  }
+]

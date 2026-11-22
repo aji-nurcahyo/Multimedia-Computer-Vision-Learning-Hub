@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+
+  <!-- Header Banner -->
+  <rect x="30" y="25" width="740" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="52" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold">Pipeline Klasifikasi Audio & Deteksi Peristiwa Suara (SED)</text>
+  <text x="50" y="72" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">Chapter 24: Dari Raw Audio Waveform -> Log-Mel Spectrogram -> CNN/Transformer Backbone | Multimedia &amp; Computer Vision Hub - ITERA</text>
+
+  <!-- Main Graphical Content -->
+  
+      <rect x="60" y="110" width="680" height="280" rx="8" fill="#090d16" stroke="#334155" stroke-width="1" />
+      <g transform="translate(80, 140)">
+        <rect width="120" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" />
+        <text x="60" y="35" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="11" font-weight="bold">Raw Audio</text>
+        <text x="60" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">44.1 kHz / 16-bit</text>
+      </g>
+      <line x1="200" y1="180" x2="230" y2="180" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(230, 140)">
+        <rect width="130" height="80" rx="6" fill="#1e293b" stroke="#10b981" />
+        <text x="65" y="35" text-anchor="middle" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="bold">Log-Mel Spec</text>
+        <text x="65" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">128 Mel Bins</text>
+      </g>
+      <line x1="360" y1="180" x2="390" y2="180" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(390, 140)">
+        <rect width="150" height="80" rx="6" fill="#1e293b" stroke="#f59e0b" />
+        <text x="75" y="35" text-anchor="middle" fill="#fbbf24" font-family="sans-serif" font-size="11" font-weight="bold">2D CNN / PANNs</text>
+        <text x="75" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Deep Feature Map</text>
+      </g>
+      <line x1="540" y1="180" x2="570" y2="180" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(570, 140)">
+        <rect width="140" height="80" rx="6" fill="#1e293b" stroke="#ef4444" />
+        <text x="70" y="35" text-anchor="middle" fill="#f87171" font-family="sans-serif" font-size="11" font-weight="bold">Softmax Prob</text>
+        <text x="70" y="55" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Kategori Suara</text>
+      </g>
+      <text x="400" y="290" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="11">Multi-class / Multi-label Acoustic Event Detection Architecture</text>
+    
+
+  <!-- Footer Watermark -->
+  <text x="400" y="432" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Institut Teknologi Sumatera (ITERA) • Created by Aji Pamungkas Tri Nurcahyo • CC-BY-4.0</text>
+</svg>

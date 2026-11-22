@@ -1,0 +1,40 @@
+[
+  {
+    "id": "yosinski-2014-transferable",
+    "title": "How transferable are features in deep neural networks?",
+    "authors": "Jason Yosinski, Jeff Clune, Yoshua Bengio, Hod Lipson",
+    "year": 2014,
+    "venue": "Advances in Neural Information Processing Systems (NeurIPS 2014)",
+    "url": "https://arxiv.org/abs/1411.1792",
+    "citationKey": "yosinski2014transferable"
+  },
+  {
+    "id": "kornblith-2019-better-imagenet",
+    "title": "Do Better ImageNet Models Transfer Better?",
+    "authors": "Simon Kornblith, Jonathon Shlens, Quoc V. Le",
+    "year": 2019,
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2019)",
+    "doi": "10.1109/CVPR.2019.00277",
+    "url": "https://arxiv.org/abs/1805.08974",
+    "citationKey": "kornblith2019better"
+  },
+  {
+    "id": "loshchilov-2016-sgdr",
+    "title": "SGDR: Stochastic Gradient Descent with Warm Restarts",
+    "authors": "Ilya Loshchilov, Frank Hutter",
+    "year": 2016,
+    "venue": "International Conference on Learning Representations (ICLR 2017)",
+    "url": "https://arxiv.org/abs/1608.03983",
+    "citationKey": "loshchilov2016sgdr"
+  },
+  {
+    "id": "he-2019-rethinking-pretraining",
+    "title": "Rethinking ImageNet Pre-training",
+    "authors": "Kaiming He, Ross Girshick, Piotr Dollár",
+    "year": 2019,
+    "venue": "IEEE/CVF International Conference on Computer Vision (ICCV 2019)",
+    "doi": "10.1109/ICCV.2019.00501",
+    "url": "https://arxiv.org/abs/1811.08883",
+    "citationKey": "he2019rethinking"
+  }
+]

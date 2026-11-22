@@ -1,0 +1,73 @@
+[
+  {
+   "id": "slide-1",
+   "title": "Bab 57: Edge AI & Embedded Computer Vision",
+   "content": "Kompresi Model Vision, Kuantisasi INT8 & Akselerasi Perangkat Keras Tepi\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+   "diagram": null,
+   "notes": "Slide pembuka Bab 57. Jelaskan transformasi dari model deep learning besar di datacenter menuju inferensi efisien pada perangkat embedded tepi."
+  },
+  {
+   "id": "slide-2",
+   "title": "Mengapa Edge AI? Tiga Tantangan Cloud Computer Vision",
+   "content": "1. Latensi Tak Menentu: Koneksi seluler 4G/5G menambah delay 50–300 ms (fatal untuk kendali robotik)\\n2. Privasi Data Pengguna: Aliran video mentah rentan disadap saat dikirim ke server pihak ketiga\\n3. Biaya Bandwidth & Energi: Mengunggah video HD secara kontinu menguras daya baterai dan kuota data",
+   "diagram": null,
+   "notes": "Tekankan bahwa Edge AI bukan sekadar alternatif hemat biaya, melainkan keharusan untuk sistem cerdas berpusat privasi dan deterministik."
+  },
+  {
+   "id": "slide-3",
+   "title": "Spektrum Perangkat Keras Edge vs Cloud",
+   "content": "Perbandingan Platform Komputasi:\\n• TinyML / MCU (ESP32-S3): Daya <1W, memori <8MB, 1–5 FPS (Deteksi sederhana)\\n• Edge NPU (Google Coral / Hailo): Daya ~2W, 4 TOPS INT8, 30–60 FPS (Efisiensi maksimal)\\n• Edge GPU (NVIDIA Jetson Orin): Daya 5–25W, memori 4–16GB, 40–120 FPS (Multitask CV)\\n• Cloud Server (A100/H100): Daya 400W+, kapasitas raksasa namun terbebani latensi jaringan",
+   "diagram": "/media/diagrams/chapter-57-embedded-vision-hardware-tradeoffs.svg",
+   "notes": "Gunakan diagram perbandingan perangkat keras untuk menjelaskan rentang daya, biaya, dan performa komputasi."
+  },
+  {
+   "id": "slide-4",
+   "title": "Pipeline Kuantisasi Pasca-Pelatihan (Post-Training Quantization)",
+   "content": "Tahapan Konversi Model FP32 ke INT8:\\n1. Model FP32 Baseline (4 Byte per parameter, ~100 MB)\\n2. Forward Pass Kalibrasi: Mengukur rentang dinamis [r_min, r_max] dari 100–500 gambar\\n3. Penentuan Parameter Affine: Menghitung skala S dan titik nol Z\\n4. Model INT8 Terkuantisasi: Kompresi 4x (~25 MB) dengan akselerasi instruksi SIMD/NPU",
+   "diagram": "/media/diagrams/chapter-57-edge-ai-quantization-pipeline.svg",
+   "notes": "Jelaskan alur kuantisasi dari model FP32 hingga INT8 menggunakan diagram pipeline."
+  },
+  {
+   "id": "slide-5",
+   "title": "Matematika Kuantisasi Affine Seragam",
+   "content": "Pemetaan Nilai Riil ke Bilangan Bulat 8-Bit:\\nr ≈ S × (q - Z)\\n\\n1. Skala Kuantisasi S:\\n   S = (r_max - r_min) / (q_max - q_min) = (r_max - r_min) / 255\\n2. Titik Nol (Zero-Point) Z:\\n   Z = round(-r_min / S)  |  Dibatasi ke rentang [0, 255]\\n\\nOperasi Kuantisasi: q = clamp(round(r / S + Z), 0, 255)",
+   "diagram": null,
+   "notes": "Turunkan persamaan S dan Z di papan tulis. Tunjukkan fungsi penting Z dalam merepresentasikan nilai 0.0 secara eksak."
+  },
+  {
+   "id": "slide-6",
+   "title": "Contoh Perhitungan Numerik Kuantisasi 8-Bit",
+   "content": "Parameter Kalibrasi: r_min = -2.0, r_max = 6.0\\n• S = (6.0 - (-2.0)) / 255 = 8.0 / 255 ≈ 0.03137255\\n• Z = round(2.0 / (8.0/255)) = round(63.75) = 64\\n\\nPemetaan Sampel [r -> q]:\\n- -2.0 -> q = 0 (Batas minimum q_min)\\n- 0.0  -> q = 64 (Terpetakan eksak ke Z)\\n- 2.0  -> q = 128\\n- 6.0  -> q = 255 (Batas maksimum q_max)",
+   "diagram": null,
+   "notes": "Bahas hasil numerik langkah demi langkah. Sorot bahwa nilai 0.0 dipetakan secara eksak ke Z=64."
+  },
+  {
+   "id": "slide-7",
+   "title": "Rekonstruksi & Analisis Galat (SQNR)",
+   "content": "Evaluasi Fidelitas Dekuantisasi r_hat = S × (q - Z):\\n• Nilai Rekonstruksi: [-2.0078, 0.0, 2.0078, 5.9922]\\n• Galat Maksimum: 0.007843 <= S/2 (0.015686)\\n• Mean Squared Error (MSE): 0.00004614\\n• Signal-to-Quantization-Noise Ratio: SQNR = 53.77 dB\\nFidelitas sangat tinggi dengan distorsi persepsi di bawah 1%.",
+   "diagram": null,
+   "notes": "Jelaskan mengapa batas galat kuantisasi selalu berada di bawah setengah LSB (S/2)."
+  },
+  {
+   "id": "slide-8",
+   "title": "Teknik Optimasi Model Lainnya: Pruning & Distilasi",
+   "content": "Strategi Kompresi Komplementer:\\n1. Weight Pruning: Menghapus koneksi bobot yang mendekati nol untuk menciptakan matriks jarang (sparse)\\n2. Knowledge Distillation: Melatih model 'student' kecil untuk meniru distribusi probabilitas model 'teacher' besar\\n3. Depthwise Separable Convolutions: Mengganti konvolusi standar (arsitektur MobileNet)",
+   "diagram": null,
+   "notes": "Sebutkan bahwa kuantisasi dapat dikombinasikan dengan pruning dan distilasi untuk kompresi lebih drastis."
+  },
+  {
+   "id": "slide-9",
+   "title": "Format Model Standar & Runtime Edge AI",
+   "content": "Ekosistem Perangkat Lunak Deployment:\\n• ONNX (Open Neural Network Exchange): Format graf komputasi terbuka antar-framework\\n• TensorFlow Lite (TFLite): Format ringan untuk Android, iOS, dan mikrokontroler (Micro)\\n• TensorRT: Mesin optimasi graf dan kernel GPU NVIDIA dengan fusi lapisan konvolusi\\n• EdgeTPU Compiler: Kompiler khusus untuk mengonversi model INT8 ke instruksi Google Coral",
+   "diagram": null,
+   "notes": "Bahas format file yang umum ditemui mahasiswa saat mengerjakan tugas akhir atau proyek industri."
+  },
+  {
+   "id": "slide-10",
+   "title": "Kaitan Riset Edge AI dengan Roadmap ISVWS 2026–2040",
+   "content": "Mewujudkan Penglihatan Mesin Mandiri Energi:\\n• Node sensor nirkabel cerdas bertenaga panel surya di kawasan hutan lindung Sumatera\\n• Pemantauan lalu lintas pelabuhan cerdas tanpa ketergantungan koneksi kabel\\n• Integrasi visi komputer dan sensing nirkabel terdistribusi pada standar 6G masa depan",
+   "diagram": null,
+   "notes": "Tutup bab dengan menggarisbawahi peran strategis Edge AI dalam mewujudkan smart campus ITERA dan kemandirian teknologi nasional."
+  }
+]
+

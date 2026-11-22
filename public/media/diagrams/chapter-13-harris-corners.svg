@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="350" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 13 · HARRIS CORNER RESPONSE EIGENVALUES</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Klasifikasi Region Fitur Harris: Flat vs Edge vs Corner (λ₁, λ₂)</text>
+
+  <g transform="translate(55, 125)">
+    <rect width="265" height="165" rx="10" fill="#1e293b" stroke="#475569" />
+    <text x="132" y="36" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle">1. Region Datar (Flat)</text>
+    <text x="132" y="72" fill="#cbd5e1" font-family="monospace" font-size="13" text-anchor="middle">λ₁ ≈ 0  dan  λ₂ ≈ 0</text>
+    <text x="132" y="102" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">|R| kecil</text>
+    <text x="132" y="138" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Tidak ada perubahan intensitas</text>
+  </g>
+
+  <g transform="translate(348, 125)">
+    <rect width="265" height="165" rx="10" fill="#1e293b" stroke="#f59e0b" />
+    <text x="132" y="36" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle">2. Tepi (Edge)</text>
+    <text x="132" y="72" fill="#fde68a" font-family="monospace" font-size="13" text-anchor="middle">λ₁ ≫ λ₂  atau  λ₂ ≫ λ₁</text>
+    <text x="132" y="102" fill="#fca5a5" font-family="monospace" font-size="12" text-anchor="middle">R &lt; 0 (Negatif besar)</text>
+    <text x="132" y="138" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Gradien kuat di 1 arah saja</text>
+  </g>
+
+  <g transform="translate(640, 125)">
+    <rect width="265" height="165" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="2" />
+    <text x="132" y="36" fill="#34d399" font-family="system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle">3. Sudut (Corner)</text>
+    <text x="132" y="72" fill="#86efac" font-family="monospace" font-size="13" text-anchor="middle">λ₁ besar  dan  λ₂ besar</text>
+    <text x="132" y="102" fill="#34d399" font-family="monospace" font-size="12" text-anchor="middle">R = det(M) - k·tr(M)² ≫ 0</text>
+    <text x="132" y="138" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Perubahan besar di semua arah!</text>
+  </g>
+
+  <text x="924" y="342" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

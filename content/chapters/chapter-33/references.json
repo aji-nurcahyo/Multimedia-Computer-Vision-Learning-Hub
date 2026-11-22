@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-33-01",
+    "title": "Simple Online and Realtime Tracking (SORT)",
+    "authors": "Alex Bewley, Zongyuan Ge, Lionel Ott, Fabio Ramos, Ben Upcroft",
+    "year": 2016,
+    "publisher": "IEEE International Conference on Image Processing (ICIP)",
+    "url": "https://arxiv.org/abs/1602.00763",
+    "type": "paper",
+    "annotation": "Algoritma acuan industri pelacakan multi-target berbasis integrasi minimalis Filter Kalman dan algoritma Hungarian berkecepatan 60+ FPS."
+  },
+  {
+    "id": "ref-33-02",
+    "title": "Simple Online and Realtime Tracking with a Deep Association Metric (DeepSORT)",
+    "authors": "Nicolai Wojke, Alex Bewley, Dietrich Paulus",
+    "year": 2017,
+    "publisher": "IEEE International Conference on Image Processing (ICIP)",
+    "url": "https://arxiv.org/abs/1703.07402",
+    "type": "paper",
+    "annotation": "Pengembangan SORT dengan penambahan metrik kemiripan fitur visual CNN (Re-ID embedding) untuk mengatasi oklusi jangka panjang."
+  },
+  {
+    "id": "ref-33-03",
+    "title": "Evaluating Multiple Object Tracking Performance: The CLEAR MOT Metrics",
+    "authors": "Keni Bernardin, Rainer Stiefelhagen",
+    "year": 2008,
+    "publisher": "EURASIP Journal on Image and Video Processing",
+    "url": "https://doi.org/10.1155/2008/246309",
+    "type": "paper",
+    "annotation": "Perumusan metrik evaluasi standar internasional Multiple Object Tracking Accuracy (MOTA) dan Multiple Object Tracking Precision (MOTP)."
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-adv07-01",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "authors": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever",
+    "year": 2021,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v139/radford21a.html",
+    "type": "Conference Paper",
+    "annotation": "The seminal paper introducing CLIP, establishing contrastive pretraining on 400 million image-text pairs for zero-shot visual transfer and open-vocabulary recognition."
+  },
+  {
+    "id": "ref-adv07-02",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "authors": "Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen",
+    "year": 2022,
+    "publisher": "International Conference on Learning Representations (ICLR)",
+    "url": "https://arxiv.org/abs/2106.09685",
+    "type": "Conference Paper",
+    "annotation": "Proposes Low-Rank Adaptation (LoRA), freezing pretrained weights and injecting trainable rank decomposition matrices, reducing trainable parameters by over 98% with zero inference latency overhead."
+  },
+  {
+    "id": "ref-adv07-03",
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "authors": "Maxime Oquab, Timothee Darcet, Theo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Russell Howes, Po-Yao Huang, Hu Xu, Vasu Sharma, Shang-Wen Li, Jaemin Cho, Mido Assran, Nicolas Ballas, Gabriel Synnaeve, Mark Tygert, Saurabh Goyal, Hazem Vadera, Jiabo Hu, Patrick Labatut, Armand Joulin, Piotr Dollar",
+    "year": 2023,
+    "publisher": "Transactions on Machine Learning Research (TMLR)",
+    "url": "https://arxiv.org/abs/2304.07193",
+    "type": "Journal Article",
+    "annotation": "Demonstrates that discriminative self-supervised pretraining at scale produces universal visual features exhibiting emergent segmentation and powerful zero-shot linear probe properties."
+  },
+  {
+    "id": "ref-adv07-04",
+    "title": "Masked Autoencoders Are Scalable Vision Learners",
+    "authors": "Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick",
+    "year": 2022,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2022.01553",
+    "type": "Conference Paper",
+    "annotation": "Introduces Masked Autoencoders (MAE), demonstrating that reconstructing high-ratio (75%) masked image patches enables highly scalable self-supervised representation learning for vision transformers."
+  }
+]
+

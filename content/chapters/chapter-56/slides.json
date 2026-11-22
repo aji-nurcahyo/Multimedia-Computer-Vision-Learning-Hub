@@ -1,0 +1,73 @@
+[
+  {
+   "id": "slide-1",
+   "title": "Bab 56: Real-Time Multimedia Processing",
+   "content": "Arsitektur Pipeline Multimedia Waktu-Nyata: Dekomposisi Latensi, Buffer Asinkron & Kontrol Jitter\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+   "diagram": null,
+   "notes": "Slide pengantar Bab 56. Jelaskan posisi bab ini sebagai pembuka Seksi 12 (Multimedia Systems & Capstone) yang menghubungkan algoritma visi dengan performa waktu-nyata."
+  },
+  {
+   "id": "slide-2",
+   "title": "Tantangan Komputasi Waktu-Nyata pada Computer Vision",
+   "content": "Hard vs Soft Real-Time dalam Sistem Multimedia:\\n1. Frame Budget: 60 FPS = 16.67 ms per frame | 30 FPS = 33.33 ms per frame\\n2. Konsekuensi Keterlambatan: Penumpukan antrean (buffer bloat), peningkatan latensi end-to-end, dan lag interaktif\\n3. Dilema Akurasi vs Latensi: Menyeimbangkan kedalaman model deep learning dengan batasan deadline komputasi",
+   "diagram": null,
+   "notes": "Tekankan perbedaan antara sistem batch (akurasi murni) dengan sistem waktu-nyata (akurasi di bawah batasan waktu ketat)."
+  },
+  {
+   "id": "slide-3",
+   "title": "Arsitektur Pipeline Asinkron Multi-Thread",
+   "content": "Pemisahan Tanggung Jawab Thread:\\n• Capture Thread: Mengakuisisi frame dari sensor/kamera dengan laju kedatangan lambda\\n• Bounded Ring Buffer: Menampung frame sementara dan menyerap fluktuasi waktu (jitter)\\n• Worker Thread: Menjalankan prapemrosesan, inferensi CNN, dan tracking pada laju layanan mu\\n• Render / Stream Thread: Menampilkan hasil pada layar yang disinkronkan dengan VSync",
+   "diagram": "/media/diagrams/chapter-56-realtime-pipeline-buffering.svg",
+   "notes": "Gunakan diagram pipeline buffering untuk menunjukkan pemisahan thread akuisisi dan pemrosesan melalui ring buffer."
+  },
+  {
+   "id": "slide-4",
+   "title": "Dekomposisi Latensi End-to-End",
+   "content": "Formulasi Total Latensi Pemrosesan:\\nT_total = T_capture + T_queue + T_proc + T_render\\n\\nKomponen Waktu:\\n- T_capture: Eksposur sensor dan transfer DMA (2–5 ms)\\n- T_queue: Waktu tunggu antrean T_queue = Q / mu\\n- T_proc: Komputasi visi komputer per frame\\n- T_render: Buffer display dan sinkronisasi layar (1–3 ms)",
+   "diagram": null,
+   "notes": "Uraikan setiap komponen latensi di papan tulis. Tunjukkan bagaimana buffer bloat dapat melipatgandakan latensi total."
+  },
+  {
+   "id": "slide-5",
+   "title": "Frame Timing, Jitter, dan Batas Deadline",
+   "content": "Analisis Dinamika Waktu Antar-Frame:\\n- Interval Ideal pada 30 FPS: Delta_t = 33.33 ms\\n- Jitter Waktu Kedatangan: Standar deviasi fluktuasi interval kedatangan\\n- Dampak Jitter: Terjadinya frame stuttering dan potensi deadline missed jika T_proc mendekati batas budget",
+   "diagram": "/media/diagrams/chapter-56-frame-timing-jitter-latency.svg",
+   "notes": "Gunakan diagram timing jitter untuk mengilustrasikan bagaimana fluktuasi interval kedatangan menyebabkan penumpukan frame."
+  },
+  {
+   "id": "slide-6",
+   "title": "Kebijakan Manajemen Antrean: Drop-Oldest vs Drop-Newest",
+   "content": "Penanganan Beban Berlebih (lambda > mu):\\n1. Antrean Tak Terbatas: Menyebabkan kehabisan memori (OOM) dan latensi terus bertambah!\\n2. Drop-Newest: Menolak frame baru; frame lama yang usang tetap diproses (buruk untuk navigasi)\\n3. Drop-Oldest (Rekomendasi CV): Buang frame lama saat buffer penuh; sistem selalu memproses pandangan visual paling mutakhir!",
+   "diagram": null,
+   "notes": "Jelaskan mengapa drop-oldest adalah kebijakan standar industri dalam computer vision otonom dan robotik."
+  },
+  {
+   "id": "slide-7",
+   "title": "Contoh Numerik: Sistem Seimbang vs Overload",
+   "content": "Skenario A (Seimbang, lambda = 30 FPS, mu = 55.56 FPS):\\n- T_proc = 18.0 ms, Q = 0.5 frame -> T_queue = 9.0 ms\\n- T_total = 3.5 + 9.0 + 18.0 + 2.0 = 32.5 ms < 33.33 ms (Drop Rate = 0%)\\n\\nSkenario B (Overload, lambda = 30 FPS, mu = 20.0 FPS, N_max = 2):\\n- T_proc = 50.0 ms -> T_queue = 100.0 ms\\n- T_total = 155.5 ms | Drop Rate = (30 - 20) / 30 = 33.33%",
+   "diagram": null,
+   "notes": "Bahas hasil numerik dari contoh di buku. Tunjukkan bahaya latensi 155.5 ms pada skenario overload."
+  },
+  {
+   "id": "slide-8",
+   "title": "Sinkronisasi Audio-Visual (A/V Synchronization)",
+   "content": "Menjaga Keterkaitan Waktu Multi-Modalitas:\\n- Presentation Timestamp (PTS): Setiap paket video dan audio memiliki stempel waktu seragam\\n- Lip-Sync Skew Toleransi ITU: Suara mendahului gambar max +45 ms, suara terlambat max -125 ms\\n- Clock Master: Audio clock umumnya dijadikan master karena pendengaran manusia lebih peka terhadap jitter",
+   "diagram": null,
+   "notes": "Hubungkan materi ini dengan Bab 53 dan 54 mengenai representasi audio-visual."
+  },
+  {
+   "id": "slide-9",
+   "title": "Optimasi I/O & Memori Zero-Copy",
+   "content": "Teknik Reduksi Beban CPU-Memory Bus:\\n1. Direct Memory Access (DMA): Kamera menulis langsung ke buffer memori host tanpa instruksi CPU\\n2. Shared Memory / Pointer Swap: Pertukaran pointer buffer antarthread alih-alih menyalin byte gambar\\n3. V4L2 Memory Mapping (mmap): Driver Linux memetakan buffer perangkat keras langsung ke ruang memori pengguna",
+   "diagram": null,
+   "notes": "Jelaskan konsep zero-copy dan mengapa penyalinan memori berkali-kali adalah musuh utama performa 60 FPS."
+  },
+  {
+   "id": "slide-10",
+   "title": "Relevansi dengan Roadmap Riset ISVWS 2026–2040",
+   "content": "Pilar Fundamental Visi Cerdas Terhubung:\\n• Kendali tele-operasi robotik jarak jauh dengan latensi ultra-rendah (<20 ms)\\n• Transmisi video nirkabel terkompresi secara semantik pada jaringan seluler 5G/6G\\n• Keandalan deterministik untuk keselamatan kendaraan otonom dan monitoring industri kritis",
+   "diagram": null,
+   "notes": "Tutup kuliah dengan menghubungkan topik real-time multimedia ke visi penelitian jangka panjang ITERA dan ISVWS 2026-2040."
+  }
+]
+

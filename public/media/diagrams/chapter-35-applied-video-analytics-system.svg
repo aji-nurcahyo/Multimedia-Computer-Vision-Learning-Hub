@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="30" y="25" width="740" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="52" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold">Arsitektur Sistem Analitik Video Cerdas Terpadu (End-to-End)</text>
+  <text x="50" y="72" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">Chapter 35: Pipeline Lengkap dari Video Input hingga Dashboard Analitik & CSV Export | Multimedia &amp; Computer Vision Hub - ITERA</text>
+
+  
+      <rect x="50" y="110" width="700" height="280" rx="8" fill="#090d16" stroke="#334155" stroke-width="1" />
+      <g transform="translate(70, 150)">
+        <rect width="110" height="85" rx="6" fill="#1e293b" stroke="#38bdf8" />
+        <text x="55" y="38" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="bold">1. Akuisisi</text>
+        <text x="55" y="60" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">CCTV / File</text>
+      </g>
+      <line x1="180" y1="192" x2="205" y2="192" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(205, 150)">
+        <rect width="115" height="85" rx="6" fill="#1e293b" stroke="#10b981" />
+        <text x="57" y="38" text-anchor="middle" fill="#34d399" font-family="sans-serif" font-size="10" font-weight="bold">2. Deteksi</text>
+        <text x="57" y="60" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Diff &amp; Mask</text>
+      </g>
+      <line x1="320" y1="192" x2="345" y2="192" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(345, 150)">
+        <rect width="115" height="85" rx="6" fill="#1e293b" stroke="#f59e0b" />
+        <text x="57" y="38" text-anchor="middle" fill="#fbbf24" font-family="sans-serif" font-size="10" font-weight="bold">3. Tracking</text>
+        <text x="57" y="60" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Kalman + MOT</text>
+      </g>
+      <line x1="460" y1="192" x2="485" y2="192" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(485, 150)">
+        <rect width="115" height="85" rx="6" fill="#1e293b" stroke="#a855f7" />
+        <text x="57" y="38" text-anchor="middle" fill="#c084fc" font-family="sans-serif" font-size="10" font-weight="bold">4. Event ROI</text>
+        <text x="57" y="60" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">Tripwire Count</text>
+      </g>
+      <line x1="600" y1="192" x2="625" y2="192" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(625, 150)">
+        <rect width="105" height="85" rx="6" fill="#1e293b" stroke="#f43f5e" />
+        <text x="52" y="38" text-anchor="middle" fill="#f43f5e" font-family="sans-serif" font-size="10" font-weight="bold">5. Ekspor</text>
+        <text x="52" y="60" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9">CSV &amp; Metrik</text>
+      </g>
+      <text x="400" y="300" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="11">Sistem Komputasi Cerdas Berorientasi Industri dan Smart City</text>
+    
+
+  <text x="400" y="432" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Institut Teknologi Sumatera (ITERA) • Created by Aji Pamungkas Tri Nurcahyo • CC-BY-4.0</text>
+</svg>

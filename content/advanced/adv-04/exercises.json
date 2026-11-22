@@ -1,0 +1,19 @@
+[
+  {
+   "id": "ex-adv04-01",
+   "title": "Penurunan Analitis Gradien Generalized IoU (GIoU)",
+   "difficulty": "advanced",
+   "instruction": "Tunjukkan secara analitis mengapa metrik IoU standar memiliki gradien nol d(IoU)/db = 0 ketika dua bounding box tidak beririsan (disjoint), sedangkan GIoU = IoU - (Area(C) - Area(Union)) / Area(C) menghasilkan gradien non-nol yang memandu kotak prediksi mendekati ground truth.",
+   "starterCode": "# Tinjau dua kotak pembatas A dan B dengan jarak pemisah d > 0.\n# 1. Hitung IoU(A, B) ketika Area(A inter B) = 0.\n# 2. Tentukan Area(C) dari kotak melingkupi terkecil C sebagai fungsi dari jarak d.\n# 3. Turunkan d(GIoU)/dd dan buktikan gradien bernilai negatif (memperkecil d meningkatkan GIoU).",
+   "solution": "# 1. Jika A dan B disjoint, Area(A inter B) = 0 sehingga IoU = 0. Untuk semua variasi koordinat kecil db yang tidak menciptakan irisan, d(IoU)/db = 0 (gradien lenyap).\n# 2. Kotak melingkupi C memiliki dimensi yang membesar secara monoton terhadap jarak d: Area(C) = (w_A + d + w_B) * max(h_A, h_B).\n# 3. GIoU = 0 - (Area(C) - Area(Union)) / Area(C) = Area(Union) / Area(C) - 1.\n#    d(GIoU)/dd = - (Area(Union) / Area(C)^2) * (d Area(C) / dd) < 0.\n#    Karena turunan terhadap d bernilai negatif, algoritma gradient descent akan memperkecil jarak d, menarik kotak prediksi menuju ground truth."
+  },
+  {
+   "id": "ex-adv04-02",
+   "title": "Implementasi Deformable Attention Sampling 2D",
+   "difficulty": "advanced",
+   "instruction": "Tuliskan fungsi Python murni untuk menghitung agregasi nilai Deformable Attention dari K titik sampel dengan koordinat pergeseran kontinu dan bobot ternormalisasi menggunakan interpolasi bilinear.",
+   "starterCode": "import numpy as np\n\ndef deformable_attention_sample(feature_map: np.ndarray, ref_point: tuple, offsets: list, weights: list) -> float:\n    \"\"\"\n    feature_map: 2D array [H, W]\n    ref_point: (rx, ry) koordinat kontinu\n    offsets: list of (dx, dy)\n    weights: list of float weights\n    \"\"\"\n    pass",
+   "solution": "import numpy as np\n\ndef deformable_attention_sample(feature_map: np.ndarray, ref_point: tuple, offsets: list, weights: list) -> float:\n    H, W = feature_map.shape\n    rx, ry = ref_point\n    w_norm = np.array(weights) / np.sum(weights)\n    \n    aggregated = 0.0\n    for (dx, dy), w in zip(offsets, w_norm):\n        x = np.clip(rx + dx, 0.0, W - 1.0)\n        y = np.clip(ry + dy, 0.0, H - 1.0)\n        x0, y0 = int(np.floor(x)), int(np.floor(y))\n        x1, y1 = min(W - 1, x0 + 1), min(H - 1, y0 + 1)\n        wx, wy = x - x0, y - y0\n        top = (1.0 - wx) * feature_map[y0, x0] + wx * feature_map[y0, x1]\n        bottom = (1.0 - wx) * feature_map[y1, x0] + wx * feature_map[y1, x1]\n        val = (1.0 - wy) * top + wy * bottom\n        aggregated += w * val\n    return float(aggregated)"
+  }
+]
+

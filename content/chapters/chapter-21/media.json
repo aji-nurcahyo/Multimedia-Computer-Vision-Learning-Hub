@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-21-01",
+    "title": "Taksonomi Fitur Audio: Domain Waktu & Domain Spektral",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-21-audio-features-overview.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-21-02",
+    "title": "Arsitektur Komputasi MFCC (Mel-Frequency Cepstral Coefficients)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-21-mfcc-pipeline.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

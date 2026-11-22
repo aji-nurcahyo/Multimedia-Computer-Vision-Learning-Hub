@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgIPCV" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="400" rx="14" fill="url(#bgIPCV)"/>
+
+  <text x="40" y="45" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="800">Taxonomy: Image Processing vs Computer Vision</text>
+  <text x="40" y="72" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Perbedaan mendasar antara paradigma masukan (input), proses komputasi, dan keluaran (output) semantik</text>
+
+  <!-- Left: Image Processing (Low & Mid Level) -->
+  <g transform="translate(50, 105)">
+    <rect width="410" height="235" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect x="0" y="0" width="410" height="38" rx="10" fill="#0284c7" fill-opacity="0.2"/>
+    <text x="205" y="24" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">DIGITAL IMAGE PROCESSING (Pengolahan Citra)</text>
+
+    <text x="25" y="65" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Karakteristik Utama: Pixel-in &#8594; Pixel/Feature-out</text>
+    
+    <g transform="translate(25, 80)">
+      <text x="0" y="15" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Tujuan:</strong> Meningkatkan kualitas visual untuk persepsi manusia atau reduksi derau.</text>
+      <text x="0" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Masukan:</strong> Citra Digital 2D $f(x,y)$ (RGB / Grayscale).</text>
+      <text x="0" y="61" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Keluaran:</strong> Citra hasil olahan $g(x,y)$, peta tepi, atau histogram.</text>
+      <text x="0" y="84" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Tingkat Abstraksi:</strong> Tingkat rendah (*Low-Level*) hingga menengah (*Mid-Level*).</text>
+      <text x="0" y="107" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Contoh Operasi:</strong> Konvolusi, Gaussian blur, histogram equalization, binarisasi.</text>
+    </g>
+
+    <rect x="25" y="200" width="360" height="24" rx="4" fill="#0c4a6e" fill-opacity="0.4"/>
+    <text x="205" y="216" fill="#7dd3fc" font-family="monospace" font-size="11" text-anchor="middle">g(x,y) = Transform[ f(x,y) ]</text>
+  </g>
+
+  <!-- Right: Computer Vision (High Level) -->
+  <g transform="translate(500, 105)">
+    <rect width="410" height="235" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+    <rect x="0" y="0" width="410" height="38" rx="10" fill="#059669" fill-opacity="0.2"/>
+    <text x="205" y="24" fill="#34d399" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">COMPUTER VISION (Visi Komputer)</text>
+
+    <text x="25" y="65" fill="#f1f5f9" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Karakteristik Utama: Pixel-in &#8594; Semantic Understanding</text>
+    
+    <g transform="translate(25, 80)">
+      <text x="0" y="15" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Tujuan:</strong> Meniru kapabilitas persepsi dan kognisi visual manusia oleh mesin.</text>
+      <text x="0" y="38" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Masukan:</strong> Citra atau sekuens video temporal $F(x,y,t)$.</text>
+      <text x="0" y="61" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Keluaran:</strong> Keputusan, label kelas, koordinat bounding box, estimasi pose 3D.</text>
+      <text x="0" y="84" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Tingkat Abstraksi:</strong> Tingkat tinggi (*High-Level Semantic Understanding*).</text>
+      <text x="0" y="107" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">&#8226; <strong fill="#cbd5e1">Contoh Operasi:</strong> Deteksi objek YOLO, rekognisi wajah, rekonstruksi 3D, SLAM.</text>
+    </g>
+
+    <rect x="25" y="200" width="360" height="24" rx="4" fill="#064e3b" fill-opacity="0.4"/>
+    <text x="205" y="216" fill="#a7f3d0" font-family="monospace" font-size="11" text-anchor="middle">Semantics = Model( f(x,y) ) &#8594; {Class, Box, Depth}</text>
+  </g>
+
+  <!-- Attribution footer -->
+  <text x="40" y="375" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Multimedia &amp; Computer Vision Learning Hub &#183; Institut Teknologi Sumatera (ITERA) &#183; Aji Pamungkas Tri Nurcahyo</text>
+</svg>
+

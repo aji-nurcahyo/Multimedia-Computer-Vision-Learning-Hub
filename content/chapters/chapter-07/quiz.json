@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-07-01",
+    "question": "Dalam implementasi OpenCV `cv2.cvtColor(img, cv2.COLOR_BGR2HSV)` pada citra 8-bit (`uint8`), berapakah rentang nilai saluran Hue (H)?",
+    "options": [
+      "0 hingga 179",
+      "0 hingga 360",
+      "0 hingga 255",
+      "-128 hingga 127"
+    ],
+    "correctIndex": 0,
+    "explanation": "Karena nilai derajat penuh 0..360 melebihi kapasitas maksimum tipe uint8 (255), OpenCV membagi dua nilai derajat Hue sehingga nilainya muat dalam 1 Byte pada rentang [0, 179]."
+  },
+  {
+    "id": "q-07-02",
+    "question": "Mengapa ruang warna HSV lebih tangguh digunakan untuk deteksi objek berwarna di luar ruangan dibandingkan RGB murni?",
+    "options": [
+      "Karena informasi rona warna (Hue) terpisah dari komponen kecerahan pencahayaan (Value)",
+      "Karena HSV menghapus seluruh piksel berwarna hijau",
+      "Karena HSV selalu memiliki ukuran memori lebih kecil daripada Grayscale",
+      "Karena ruang warna RGB tidak dapat merepresentasikan warna kuning"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ketika bayangan jatuh pada objek berwarna, nilai Value (V) menurun sementara sudut Hue (H) relatif konstan, memungkinkan ambang batas Hue tetap mengenali objek secara stabil."
+  },
+  {
+    "id": "q-07-03",
+    "question": "Dalam ruang warna CIELAB (L*a*b*), koordinat piksel dengan nilai a* negatif besar dan b* positif besar merepresentasikan kecenderungan warna...",
+    "options": [
+      "Hijau kekuningan",
+      "Merah kebiruan (magenta)",
+      "Biru keunguan",
+      "Abu-abu netral"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada CIELAB, sumbu a* membentang dari Hijau (-) ke Merah (+), sedangkan sumbu b* membentang dari Biru (-) ke Kuning (+)."
+  },
+  {
+    "id": "q-07-04",
+    "question": "Fungsi utama pemisahan saluran Y (Luma) dari Cb dan Cr (Chroma) pada ruang warna YCbCr dalam standar JPEG dan video MPEG adalah...",
+    "options": [
+      "Memungkinkan kompresi lebih agresif (chroma subsampling) pada saluran warna tanpa menurunkan persepsi ketajaman mata secara signifikan",
+      "Menghilangkan kebutuhan kalibrasi kamera perspektif",
+      "Mengonversi citra berwarna menjadi biner secara otomatis",
+      "Meningkatkan ukuran resolusi spasial gambar dua kali lipat"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sistem penglihatan manusia jauh lebih peka terhadap detail intensitas terang-gelap (Y) dibanding detail krominansi warna (Cb, Cr), sehingga saluran Cb dan Cr dapat disubsampel (mis. 4:2:0) untuk menghemat data."
+  },
+  {
+    "id": "q-07-05",
+    "question": "Diberikan piksel RGB (255, 255, 255) (putih murni). Berapakah nilai Saturation (S) dalam model HSV dan nilai (Cb, Cr) pada model YCbCr?",
+    "options": [
+      "S = 0, Cb = 128, Cr = 128",
+      "S = 1, Cb = 255, Cr = 255",
+      "S = 0.5, Cb = 0, Cr = 0",
+      "S = 1, Cb = 128, Cr = 0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Untuk warna akromatik putih (R=G=B=255), selisih Cmax - Cmin = 0 sehingga Saturation = 0, dan pada YCbCr nilai krominansi netral berpusat pada Cb = 128 dan Cr = 128."
+  }
+]
+

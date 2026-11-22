@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-25-01",
+    "title": "Arsitektur Sistem Pemrosesan Audio Cerdas Menyeluruh (End-to-End)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-25-intelligent-audio-system.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-25-02",
+    "title": "Pipeline Komputasi Audio Cerdas pada Perangkat Tepi (Edge AI)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-25-edge-audio-pipeline.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

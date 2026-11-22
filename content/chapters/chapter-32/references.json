@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-32-01",
+    "title": "A New Approach to Linear Filtering and Prediction Problems",
+    "authors": "Rudolf E. Kalman",
+    "year": 1960,
+    "publisher": "Journal of Basic Engineering",
+    "url": "https://doi.org/10.1115/1.3662552",
+    "type": "paper",
+    "annotation": "Makalah seminal penemuan Filter Kalman rekursif yang merevolusi estimasi status navigasi, robotika, dan pelacakan lintasan objek digital."
+  },
+  {
+    "id": "ref-32-02",
+    "title": "Design and Analysis of Modern Tracking Systems",
+    "authors": "Samuel Blackman, Robert Popoli",
+    "year": 1999,
+    "publisher": "Artech House Radar Library",
+    "url": "https://www.artechhouse.com/",
+    "type": "book",
+    "annotation": "Karya komprehensif mengenai perancangan model gerak kinematika, matriks kovariansi derau, dan strategi asosiasi data pelacak tunggal dan jamak."
+  },
+  {
+    "id": "ref-32-03",
+    "title": "Object Tracking: A Survey",
+    "authors": "Alper Yilmaz, Omar Javed, Mubarak Shah",
+    "year": 2006,
+    "publisher": "ACM Computing Surveys (CSUR)",
+    "url": "https://doi.org/10.1145/1177352.1177355",
+    "type": "paper",
+    "annotation": "Tinjauan komprehensif taksonomi metode pelacakan visual: point tracking, kernel tracking, dan silhouette tracking."
+  }
+]

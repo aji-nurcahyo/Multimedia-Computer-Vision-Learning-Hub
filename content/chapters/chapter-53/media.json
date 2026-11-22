@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-53-1",
+    "title": "Pipeline Deteksi Sinkronisasi Temporal Audio-Visual (Lip-Sync)",
+    "path": "/media/diagrams/chapter-53-audiovisual-synchronization-pipeline.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-53-2",
+    "title": "Arsitektur Fusi Audio-Visual untuk Speech Recognition & Event Detection",
+    "path": "/media/diagrams/chapter-53-audiovisual-fusion-architectures.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ex-57-1",
+    "title": "Verifikasi Skrip Python Kuantisasi Affine & Kompresi Model",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip `examples/example-01.py` dan verifikasi bahwa parameter skala S, zero-point Z, pemetaan [0, 64, 128, 255], serta penghematan memori 75% tervalidasi 100%.",
+    "solution": "# Jalankan verifikasi mandiri:\npython content/chapters/chapter-57/examples/example-01.py"
+  },
+  {
+    "id": "ex-57-2",
+    "title": "Eksperimen Kuantisasi Simetris vs Asimetris",
+    "difficulty": "advanced",
+    "instruction": "Modifikasi fungsi kuantisasi untuk mengimplementasikan kuantisasi simetris berpusat pada nol (di mana r_max = max(|r_min|, |r_max|), Z = 128 untuk unsigned atau Z = 0 untuk signed int8). Bandingkan galat MSE terhadap kuantisasi asimetris.",
+    "solution": "# Pada kuantisasi simetris, zero-point dipatok pada nilai tengah eksak. Jika distribusi bobot tidak seimbang, rentang kuantisasi menjadi lebih lebar sehingga resolusi skala S sedikit berkurang, namun komputasi GEMM menjadi lebih efisien."
+  }
+]
+

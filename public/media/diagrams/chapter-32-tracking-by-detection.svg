@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="30" y="25" width="740" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+  <text x="50" y="52" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold">Paradigma Pelacakan Tracking-by-Detection</text>
+  <text x="50" y="72" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="12">Chapter 32: Integrasi Pendeteksi Objek Diskrit dan Estimasi Lintasan Kontinu | Multimedia &amp; Computer Vision Hub - ITERA</text>
+
+  
+      <rect x="60" y="110" width="680" height="280" rx="8" fill="#090d16" stroke="#334155" stroke-width="1" />
+      <g transform="translate(90, 150)">
+        <rect width="160" height="90" rx="6" fill="#1e293b" stroke="#38bdf8" />
+        <text x="80" y="40" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="12" font-weight="bold">Frame Detector</text>
+        <text x="80" y="65" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Bounding Boxes</text>
+      </g>
+      <line x1="250" y1="195" x2="310" y2="195" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(310, 150)">
+        <rect width="180" height="90" rx="6" fill="#1e293b" stroke="#10b981" />
+        <text x="90" y="40" text-anchor="middle" fill="#34d399" font-family="sans-serif" font-size="12" font-weight="bold">Data Association</text>
+        <text x="90" y="65" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">IoU / Centroid Cost</text>
+      </g>
+      <line x1="490" y1="195" x2="550" y2="195" stroke="#64748b" stroke-width="2" />
+      <g transform="translate(550, 150)">
+        <rect width="160" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" />
+        <text x="80" y="40" text-anchor="middle" fill="#fbbf24" font-family="sans-serif" font-size="12" font-weight="bold">Track Manager</text>
+        <text x="80" y="65" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="10">Lifespan &amp; ID Tag</text>
+      </g>
+      <text x="400" y="300" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="11">Pemisahan Masalah Deteksi (Spasial) dan Masalah Pelacakan (Temporal)</text>
+    
+
+  <text x="400" y="432" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">Institut Teknologi Sumatera (ITERA) • Created by Aji Pamungkas Tri Nurcahyo • CC-BY-4.0</text>
+</svg>

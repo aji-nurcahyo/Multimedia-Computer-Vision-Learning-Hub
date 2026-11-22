@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-20-01",
+    "title": "Time-Frequency Analysis: Concepts and Methods",
+    "authors": "Franz Hlawatsch, François Boudreaux-Bartels",
+    "year": 1992,
+    "publisher": "IEEE Signal Processing Magazine",
+    "url": "https://doi.org/10.1109/79.127284",
+    "type": "paper",
+    "annotation": "Survei mendalam representasi waktu-frekuensi kuadratik, STFT spektrogram, dan keterbatasan Heisenberg-Gabor."
+  },
+  {
+    "id": "ref-20-02",
+    "title": "Fundamentals of Music Processing",
+    "authors": "Meinard Müller",
+    "year": 2015,
+    "publisher": "Springer International Publishing",
+    "url": "https://www.audiolabs-erlangen.de/fmp",
+    "type": "book",
+    "annotation": "Panduan definitif transformasi Fourier jendela waktu, representasi spektrogram, skala Mel, dan analisis sinyal audio non-stasioner."
+  },
+  {
+    "id": "ref-20-03",
+    "title": "librosa: Audio and Music Signal Analysis in Python",
+    "authors": "Brian McFee, Colin Raffel, Dawen Liang, et al.",
+    "year": 2015,
+    "publisher": "Proceedings of the 14th Python in Science Conference (SciPy)",
+    "url": "https://doi.org/10.25080/Majora-7b98e3ed-003",
+    "type": "paper",
+    "annotation": "Arsitektur pustaka Python standar industri untuk komputasi spektrogram STFT, filterbank Mel, dan konversi magnitudo ke desibel."
+  }
+]

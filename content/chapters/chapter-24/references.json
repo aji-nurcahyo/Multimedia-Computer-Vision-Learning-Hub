@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-24-01",
+    "title": "PANNs: Large-Scale Pretrained Audio Neural Networks for Audio Pattern Recognition",
+    "authors": "Qiuqiang Kong, Yin Cao, Haohe Liu, et al.",
+    "year": 2020,
+    "publisher": "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    "url": "https://doi.org/10.1109/TASLP.2020.3030497",
+    "type": "paper",
+    "annotation": "Arsitektur jaringan saraf konvolusi pretrained terkemuka untuk klasifikasi peristiwa audio berskala besar (AudioSet)."
+  },
+  {
+    "id": "ref-24-02",
+    "title": "A Dataset and Benchmark for Urban Sound Classification (UrbanSound8K)",
+    "authors": "Justin Salamon, Christopher Jacoby, Juan Pablo Bello",
+    "year": 2014,
+    "publisher": "ACM International Conference on Multimedia (ACM MM)",
+    "url": "https://doi.org/10.1145/2647868.2655045",
+    "type": "paper",
+    "annotation": "Dataset acuan standar akademik dan metodologi evaluasi untuk klasifikasi suara lingkungan perkotaan."
+  },
+  {
+    "id": "ref-24-03",
+    "title": "Sound Event Detection: A Tutorial",
+    "authors": "Tuomas Virtanen, Mark D. Plumbley, Dan Ellis",
+    "year": 2018,
+    "publisher": "Computational Analysis of Sound Scenes and Events, Springer",
+    "url": "https://doi.org/10.1007/978-3-319-63155-4",
+    "type": "book",
+    "annotation": "Panduan komprehensif mengenai deteksi kejadian suara polifonik, anotasi temporal, dan metrik evaluasi event-based F1-score."
+  }
+]

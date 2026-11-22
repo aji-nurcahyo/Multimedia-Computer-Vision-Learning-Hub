@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Deep Learning Foundations for Vision",
+    "subtitle": "Chapter 41 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Pergeseran paradigma: Handcrafted Features vs Learned Representations",
+      "Korteks visual mamalia dan inspirasi biologis arsitektur konvolusi",
+      "Struktur tensor 4D NCHW dalam pemrosesan citra digital",
+      "Efisiensi komputasi melalui weight sharing dan local connectivity"
+    ],
+    "notes": "Selamat datang di modul Deep Learning untuk Computer Vision. Bab ini meletakkan fondasi matematis konvolusi diskrit dan propagasi gradien."
+  },
+  {
+    "id": 2,
+    "title": "Keterbatasan Multi-Layer Perceptron (MLP)",
+    "subtitle": "Mengapa Jaringan Padat Gagal Memproses Citra Resolusi Tinggi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Vektorisasi citra 1D merusak korelasi spasial piksel tetangga",
+      "Ledakan parameter: Citra 224x224x3 menuju 1024 neuron butuh 154 juta bobot!",
+      "Sensitivitas ekstrem terhadap pergeseran spasial objek (tidak ekuivarian translasi)",
+      "Kebutuhan mutlak akan representasi matriks 2D lokal"
+    ],
+    "notes": "Tunjukkan kepada mahasiswa betapa borosnya fully connected layer untuk citra resolusi tinggi."
+  },
+  {
+    "id": 3,
+    "title": "Matematika Konvolusi 2D (Cross-Correlation)",
+    "subtitle": "Operasi Spasial Fundamental pada Grid Piksel",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Formulasi diskrit: S(i, j) = sum_{m, n} I(i+m, j+n) K(m, n)",
+      "Penerapan multichannel: Penjumlahan produk titik di seluruh kanal warna C_in",
+      "Parameter sharing: Filter yang sama digeser ke seluruh koordinat citra",
+      "Translation equivariance: Pergeseran input menghasilkan pergeseran peta fitur yang setara"
+    ],
+    "notes": "Jelaskan bahwa dalam deep learning praktis, operasi konvolusi sesungguhnya adalah cross-correlation."
+  },
+  {
+    "id": 4,
+    "title": "Aritmatika Dimensi & Parameter Counting",
+    "subtitle": "Menentukan Ukuran Output dan Alokasi Memori",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Rumus dimensi spasial: O = floor((W - K + 2P)/S) + 1",
+      "Peran zero-padding (P) dalam menjaga resolusi spasial dan batas citra",
+      "Peran stride (S) untuk downsampling spasial komputasional",
+      "Formula total parameter: P = (K_h * K_w * C_in + 1) * C_out"
+    ],
+    "notes": "Tekankan bahwa jumlah parameter Conv2D independen terhadap ukuran tinggi dan lebar citra input."
+  },
+  {
+    "id": 5,
+    "title": "Effective Receptive Field (ERF)",
+    "subtitle": "Bagaimana Jaringan Mengamati Konteks Global",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Definisi: Area spasial input yang berkontribusi pada satu aktivasi fitur",
+      "Akumulasi rekursif: RF_l = RF_{l-1} + (k_l - 1) * prod_{i=1}^{l-1} s_i",
+      "Dua filter 3x3 bertingkat menghasilkan receptive field setara satu filter 5x5",
+      "Keuntungan: Parameter 2*(3x3)=18 jauh lebih hemat daripada 1*(5x5)=25!"
+    ],
+    "notes": "Ini adalah filosofi fundamental di balik desain arsitektur VGG dan ResNet modern."
+  },
+  {
+    "id": 6,
+    "title": "Fungsi Aktivasi Non-Linier",
+    "subtitle": "Memberikan Kapasitas Representasi Non-Linier",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Tanpa non-linearitas, deep CNN runtuh menjadi regresi linier tunggal",
+      "ReLU (Rectified Linear Unit): f(x) = max(0, x), gradien konstan 1.0 (anti-vanishing gradient)",
+      "Leaky ReLU: Mengatasi 'Dying ReLU' dengan kemiringan bocor alpha",
+      "GELU: Aktivasi probabilistik standar pada arsitektur Vision Transformer"
+    ],
+    "notes": "Diskusikan fenomena dying ReLU dan kapan mahasiswa sebaiknya menggunakan LeakyReLU atau GELU."
+  },
+  {
+    "id": 7,
+    "title": "Pooling & Invarian Spasial",
+    "subtitle": "Reduksi Dimensi dan Agregasi Informasi Visual",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Max Pooling 2x2: Memilih respons aktivasi dominan, toleran terhadap distorsi lokal",
+      "Average Pooling: Menghitung rata-rata aktivasi spasial",
+      "Global Average Pooling (GAP): Mengubah feature map HxWxC menjadi vektor 1xC",
+      "GAP mengeliminasi fully connected layer raksasa di akhir jaringan (mengurangi overfitting)"
+    ],
+    "notes": "Tunjukkan diagram arsitektur konvolusi dan pooling pada slide ini."
+  },
+  {
+    "id": 8,
+    "title": "Backpropagation & Optimasi Gradien",
+    "subtitle": "Algoritma Pembaruan Bobot End-to-End",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Softmax normalizer: Mengubah logit kelas menjadi distribusi probabilitas",
+      "Categorical Cross-Entropy Loss: L = -sum y_k ln(p_k)",
+      "Chain rule pada tensor 4D konvolusi",
+      "Stochastic Gradient Descent dengan Momentum dan AdamW optimizer"
+    ],
+    "notes": "Jelaskan perbedaan mendasar antara SGD momentum dan adaptif optimizer seperti AdamW."
+  },
+  {
+    "id": 9,
+    "title": "Analisis Mode Kegagalan & Mitigasi",
+    "subtitle": "Diagnostik Praktis Pelatihan Jaringan",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Vanishing / Exploding Gradient: Solusi dengan He/Kaiming initialization dan BatchNorm",
+      "Overfitting pada dataset kecil: Solusi dengan Data Augmentation dan Weight Decay",
+      "Dying ReLU: Deteksi aktivasi nol seragam dan mitigasi dengan learning rate warmup",
+      "Bottleneck informasi spasial: Hindari downsampling agresif pada layer-layer awal"
+    ],
+    "notes": "Poin ini sangat penting saat mahasiswa melakukan debugging model di laboratorium."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Tahapan Berikutnya",
+    "subtitle": "Menuju Klasifikasi Gambar Tingkat Lanjut",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Konvolusi 2D menyatukan efisiensi komputasi dan invarian visual",
+      "Kode mandiri NumPy telah diverifikasi pada example-01.py",
+      "Eksperimen interaktif tersedia di chapter-41-lab.ipynb",
+      "Bab berikutnya (Chapter 42): Arsitektur Klasifikasi CNN Modern (ResNet, EfficientNet)"
+    ],
+    "notes": "Ajak mahasiswa menjalankan Jupyter Notebook dan mengeksplorasi Convolution Explorer Lab di platform."
+  }
+]

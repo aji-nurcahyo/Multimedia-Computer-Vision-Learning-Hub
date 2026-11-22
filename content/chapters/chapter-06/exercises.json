@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-06-01",
+    "title": "Latihan 1: Kalkulator Memori Citra & Konversi Luminansi BT.601",
+    "difficulty": "beginner",
+    "instruction": "Lengkapi fungsi Python di bawah ini untuk menghitung ukuran memori mentah (dalam Bytes dan KB) dari citra RGB, mengonversinya ke grayscale menggunakan koefisien BT.601 secara manual, serta memvalidasi selisih maksimalnya terhadap cv2.cvtColor.",
+    "starterCode": "import numpy as np\nimport cv2\n\ndef inspect_and_convert(rgb: np.ndarray):\n    # TODO: Hitung dimensi, total byte, dan grayscale BT.601 manual\n    pass\n",
+    "solution": "import numpy as np\nimport cv2\n\ndef inspect_and_convert(rgb: np.ndarray):\n    h, w, c = rgb.shape\n    total_bytes = rgb.nbytes\n    gray_manual = np.round(\n        0.299 * rgb[:, :, 0] + 0.587 * rgb[:, :, 1] + 0.114 * rgb[:, :, 2]\n    ).astype(np.uint8)\n    gray_cv = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY)\n    max_diff = np.max(np.abs(gray_manual.astype(int) - gray_cv.astype(int)))\n    print(f'Shape: ({h}, {w}, {c}), Bytes: {total_bytes}, Max Diff: {max_diff}')\n    return gray_manual\n"
+  },
+  {
+    "id": "ex-06-02",
+    "title": "Latihan 2: Simulasi False Contouring Kuantisasi b-Bit",
+    "difficulty": "beginner",
+    "instruction": "Buat gradien halus 256 kolom bernilai 0..255, lalu tulis fungsi untuk mengkuantisasinya ke 2-bit (4 level) dan verifikasi bahwa jumlah nilai unik hasil kuantisasi tepat berjumlah 4.",
+    "starterCode": "import numpy as np\n\ndef test_false_contouring(bits: int = 2):\n    ramp = np.tile(np.arange(256, dtype=np.uint8), (64, 1))\n    # TODO: Kuantisasi ke target bits dan periksa np.unique()\n    pass\n",
+    "solution": "import numpy as np\n\ndef test_false_contouring(bits: int = 2):\n    ramp = np.tile(np.arange(256, dtype=np.uint8), (64, 1))\n    levels = (1 << bits) - 1\n    quantized = np.round(np.round((ramp / 255.0) * levels) / levels * 255.0).astype(np.uint8)\n    unique_vals = np.unique(quantized)\n    assert len(unique_vals) == (1 << bits), f'Harus ada {1 << bits} level unik!'\n    return quantized, unique_vals\n"
+  }
+]
+

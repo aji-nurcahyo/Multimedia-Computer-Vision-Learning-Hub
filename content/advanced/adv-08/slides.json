@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Arsitektur Edge AI & Efisiensi Visi Komputer",
+    "lead": "Modul ADV-08 · L3 Advanced Depth",
+    "body": "Tantangan komputasi visi modern pada perangkat tepi (*edge*):\n- Keterbatasan anggaran daya ($<15\\text{ W}$), kapasitas memori DRAM, dan lebar pita (*bandwidth*).\n- Solusi komprehensif: **Kuantisasi Integer (INT8/INT4)**, **Pemangkasan Terstruktur**, dan pemodelan kinerja dengan **Roofline Model**.",
+    "notes": "Tekankan bahwa optimasi edge vision bukan sekadar memperkecil ukuran file, melainkan memaksimalkan throughput nyata (FPS) pada latensi tail P95/P99 yang ketat."
+  },
+  {
+    "id": 2,
+    "title": "Kuantisasi Afin Seragam (Uniform Affine)",
+    "lead": "Pemetaan Nilai Riil ke Integer Terkuantisasi",
+    "body": "Persamaan Skala dan Zero-Point:\n$$S = \\frac{r_{\\max} - r_{\\min}}{q_{\\max} - q_{\\min}}, \\quad Z = \\text{clamp}\\left(\\left\\lfloor -\\frac{r_{\\min}}{S} \\right\\rceil, q_{\\min}, q_{\\max}\\right)$$\n\nFungsi Kuantisasi & Rekonstruksi:\n$$q = \\text{clamp}\\left(\\left\\lfloor \\frac{r}{S} \\right\\rceil + Z, q_{\\min}, q_{\\max}\\right), \\quad \\hat{r} = S(q - Z)$$\nMenjamin representasi eksak $r = 0.0$ untuk operasi padding pada konvolusi.",
+    "notes": "Jelaskan bahwa zero-point integer Z sangat penting untuk asimetri aktivasi seperti fungsi ReLU di mana nilai minimum adalah 0.0."
+  },
+  {
+    "id": 3,
+    "title": "Quantization-Aware Training (QAT) & STE",
+    "lead": "Mengatasi Diskontinuitas Gradien",
+    "body": "Tantangan: $\\frac{\\partial \\lfloor u \\rceil}{\\partial u} = 0$ hampir di semua tempat.\n\n**Straight-Through Estimator (STE):**\n$$\\frac{\\partial \\hat{r}}{\\partial r} \\approx \\begin{cases} 1 & \\text{jika } r_{\\min} \\le r \\le r_{\\max} \\\\ 0 & \\text{lainnya} \\end{cases}$$\nMemungkinkan propagasi balik melintasi operasi kuantisasi tanpa kehilangan sinyal gradien.",
+    "notes": "Sebutkan bahwa QAT biasanya menghasilkan akurasi yang jauh lebih tinggi daripada Post-Training Quantization (PTQ), terutama untuk model 4-bit dan model deteksi sensitif."
+  },
+  {
+    "id": 4,
+    "title": "Pemangkasan Kanal Terstruktur",
+    "lead": "Structured Filter Pruning",
+    "body": "Pemberian skor kepentingan filter berbasis norma $L_1$:\n$$s_i = \\sum_{c=1}^{C_{\\text{in}}} \\sum_{u=1}^K \\sum_{v=1}^K |W_{i, c, u, v}|$$\n- Eliminasi $\\kappa$ persentase filter dengan norma terendah.\n- Menghasilkan tensor padat berdimensi lebih kecil $(C_{\\text{out}} - k) \\times C_{\\text{in}} \\times K \\times K$.\n- Percepatan komputasi langsung tanpa akselerator perangkat keras *sparse* khusus.",
+    "notes": "Bandingkan keunggulan pemangkasan terstruktur (dense sub-tensor) dengan pemangkasan tak terstruktur (yang membutuhkan compiler/hardware sparse khusus)."
+  },
+  {
+    "id": 5,
+    "title": "Model Kinerja Roofline & Profil Latensi",
+    "lead": "Batas Bandwidth vs Batas Komputasi",
+    "body": "Batas Performa Teoretis:\n$$\\text{Attainable GFLOPs} = \\min\\left(P_{\\text{peak}}, I \\times B_{\\text{peak}}\\right)$$\n- $I < I^*$: *Memory-bandwidth bound* (fusi layer diperlukan).\n- $I \\ge I^*$: *Compute-bound* (optimasi paralel Tensor Core/SIMD).\n\n**Metrik Layanan:** Pantau P95 dan P99 latency untuk mendeteksi lonjakan tail pada eksekusi waktu-nyata.",
+    "notes": "Diskusikan bagaimana depthwise convolution sering jatuh pada daerah memory-bound karena intensitas aritmatika yang rendah."
+  }
+]

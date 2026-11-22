@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-38-1",
+    "title": "Model Kamera Pinhole & Matriks Intrinsik K",
+    "path": "/media/diagrams/chapter-38-pinhole-camera-model.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-38-2",
+    "title": "Distorsi Lensa Kamera: Radial & Tangensial",
+    "path": "/media/diagrams/chapter-38-radial-tangential-distortion.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

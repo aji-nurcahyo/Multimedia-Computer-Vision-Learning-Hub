@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-14-01",
+    "title": "Operasi Dasar Morfologi Biner: Erosion, Dilation, Opening & Closing",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-14-morphological-ops.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-14-02",
+    "title": "Geometri Elemen Penstruktur (Structuring Elements) & Turunan Morfologi",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-14-structuring-elements.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

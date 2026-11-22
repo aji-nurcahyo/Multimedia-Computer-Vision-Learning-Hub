@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-08-01",
+    "question": "Dalam transformasi Power-Law (Gamma Correction) s = 255 * (r/255)^gamma, nilai gamma manakah yang paling tepat digunakan untuk mencerahkan detail objek yang tersembunyi dalam bayangan gelap?",
+    "options": [
+      "gamma = 0.4 (< 1)",
+      "gamma = 1.0 (= 1)",
+      "gamma = 2.5 (> 1)",
+      "gamma = 4.0 (> 1)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nilai gamma < 1 memetakan interval nilai masukan gelap yang sempit menjadi interval keluaran yang lebih lebar dan terang tanpa memotong batas atas 255."
+  },
+  {
+    "id": "q-08-02",
+    "question": "Mengapa Log Transformation s = c * log(1 + r) menggunakan penambahan konstanta +1 pada argumen logaritma?",
+    "options": [
+      "Agar ketika intensitas piksel r = 0, nilai log(1) = 0 tetap terdefinisi dan bukan negatif tak hingga",
+      "Untuk memperbesar ukuran dimensi gambar sebesar 1 piksel",
+      "Untuk mengonversi citra RGB menjadi citra biner",
+      "Agar nilai maksimum logaritma selalu tepat 100"
+    ],
+    "correctIndex": 0,
+    "explanation": "Secara matematis, log(0) adalah tak terdefinisi (menuju minus tak hingga). Penambahan +1 memastikan nilai terendah r=0 selalu terpetakan mulus ke log(1)=0."
+  },
+  {
+    "id": "q-08-03",
+    "question": "Apa keunggulan utama penggunaan Look-Up Table (cv2.LUT) untuk menerapkan fungsi transformasi non-linier seperti koreksi gamma pada citra uint8 beresolusi 4K?",
+    "options": [
+      "Fungsi pangkat cukup dihitung 256 kali saja untuk menyusun tabel, lalu sisanya hanyalah akses memori O(1) per piksel",
+      "LUT secara otomatis menghapus semua derau Gaussian",
+      "LUT mengubah kompresi JPEG menjadi lossless PNG",
+      "LUT memperbesar kedalaman bit dari 8-bit menjadi 32-bit"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada citra 8-bit hanya ada 256 kemungkinan nilai masukan unik (0..255). Menghitung T(r) sekali dalam array 256 elemen menghindari komputasi eksponensial jutaan kali pada piksel 4K."
+  },
+  {
+    "id": "q-08-04",
+    "question": "Jika citra berintensitas sempit memiliki nilai minimum r_min = 50 dan maksimum r_max = 150, berapakah nilai keluaran piksel r = 100 setelah dilakukan Min-Max Contrast Stretching ke rentang [0, 255]?",
+    "options": [
+      "128 (atau 127.5 sebelum pembulatan)",
+      "100",
+      "255",
+      "50"
+    ],
+    "correctIndex": 0,
+    "explanation": "s = ((100 - 50) / (150 - 50)) * 255 = (50 / 100) * 255 = 0.5 * 255 = 127.5 ≈ 128."
+  },
+  {
+    "id": "q-08-05",
+    "question": "Apa risiko utama jika parameter Brightness (beta) dinaikkan sangat tinggi (+120) secara linier pada citra foto siang hari?",
+    "options": [
+      "Saturasi/clipping pada piksel terang yang membentur nilai batas 255 sehingga detail awan/highlight hilang permanen",
+      "Citra akan berubah warna menjadi terbalik seperti film negatif",
+      "Ukuran file gambar di memori RAM membengkak 10 kali lipat",
+      "Koordinat X dan Y citra akan tertukar"
+    ],
+    "correctIndex": 0,
+    "explanation": "Penjumlahan aditif linier memotong semua piksel dengan nilai (r + 120 >= 255) menjadi nilai datar 255 (white clipping), menghancurkan tekstur di daerah highlight."
+  }
+]
+

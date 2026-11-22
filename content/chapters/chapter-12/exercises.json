@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-12-01",
+    "title": "Latihan 1: Implementasi Fungsi MSE, PSNR & Evaluasi Denoising Bilateral vs Mean",
+    "difficulty": "intermediate",
+    "instruction": "Buat citra uji bersih dengan kotak kontras tajam, tambahkan Gaussian noise sigma=25 dengan seed tetap, lalu hitung PSNR untuk citra berderau, hasil cv2.blur (5x5), dan cv2.bilateralFilter.",
+    "starterCode": "import numpy as np, cv2\n\ndef eval_denoising():\n    np.random.seed(42)\n    # TODO: Bangkitkan citra bersih, tambah noise, bandingkan blur vs bilateral PSNR\n    pass\n",
+    "solution": "import numpy as np, cv2\n\ndef compute_psnr(ref, test):\n    mse = np.mean((ref.astype(np.float64) - test.astype(np.float64)) ** 2)\n    return 100.0 if mse == 0 else float(10.0 * np.log10((255.0 ** 2) / mse))\n\ndef eval_denoising():\n    np.random.seed(42)\n    clean = np.full((128, 128), 50, dtype=np.uint8)\n    clean[32:96, 32:96] = 210\n    noisy = np.clip(clean + np.random.normal(0, 25, clean.shape), 0, 255).astype(np.uint8)\n    res_mean = cv2.blur(noisy, (5, 5))\n    res_bilat = cv2.bilateralFilter(noisy, 7, 50, 50)\n    return compute_psnr(clean, noisy), compute_psnr(clean, res_mean), compute_psnr(clean, res_bilat)\n"
+  },
+  {
+    "id": "ex-12-02",
+    "title": "Latihan 2: Simulasi Salt-and-Pepper Noise & Restorasi Median Blur",
+    "difficulty": "beginner",
+    "instruction": "Tambahkan Salt-and-Pepper noise (probabilitas 10%) ke citra uji dan buktikan bahwa cv2.medianBlur(img, 3) menaikkan PSNR secara drastis dibanding cv2.GaussianBlur.",
+    "starterCode": "import numpy as np, cv2\n\ndef add_sp_and_restore(clean: np.ndarray, prob=0.1):\n    # TODO: Simulasikan S&P noise dan pulihkan dengan medianBlur\n    pass\n",
+    "solution": "import numpy as np, cv2\n\ndef add_sp_and_restore(clean: np.ndarray, prob=0.1):\n    np.random.seed(7)\n    noisy = clean.copy()\n    rnd = np.random.rand(*clean.shape)\n    noisy[rnd < prob / 2] = 0\n    noisy[(rnd >= prob / 2) & (rnd < prob)] = 255\n    return noisy, cv2.medianBlur(noisy, 3)\n"
+  }
+]
+

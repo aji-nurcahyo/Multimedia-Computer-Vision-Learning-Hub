@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Human Pose Estimation & Landmark Detection",
+    "subtitle": "Chapter 47 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Pelokalisasian sendi anatomi tubuh manusia dan landmark wajah/tangan",
+      "Perbandingan paradigma: Top-Down vs Bottom-Up multi-person pose",
+      "Representasi target pelatihan: Regresi Heatmap Gaussian 2D vs Regresi Titik",
+      "Metrik evaluasi standar industri: Object Keypoint Similarity (OKS) & PCK"
+    ],
+    "notes": "Selamat datang di modul Estimasi Pose Manusia. Kita akan mempelajari bagaimana mendeteksi dan menginterpretasikan pose anatomi tubuh secara akurat."
+  },
+  {
+    "id": 2,
+    "title": "Top-Down vs Bottom-Up Approaches",
+    "subtitle": "Trade-off Antara Akurasi dan Kompleksitas Komputasi Kerumunan",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Top-Down (HRNet, SimpleBaseline): Deteksi bounding box orang -> crop -> deteksi pose",
+      "Kompleksitas komputasi Top-Down: O(M) sebanding dengan jumlah orang M",
+      "Bottom-Up (OpenPose, HigherHRNet): Deteksi seluruh keypoint sekaligus -> parsing kerangka",
+      "Kompleksitas Bottom-Up: O(1) konstan, sangat ideal untuk streaming video ramai"
+    ],
+    "notes": "Jelaskan bahwa pada pemantauan kerumunan di stasiun atau stadion, pendekatan bottom-up jauh lebih efisien."
+  },
+  {
+    "id": 3,
+    "title": "Representasi Target: Heatmap Gaussian 2D",
+    "subtitle": "Mengapa Regresi Titik Langsung (x, y) Ditinggalkan",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Regresi koordinat langsung sangat tidak stabil dan rentan terhadap divergensi gradien",
+      "Heatmap Gaussian menyebarkan probabilitas keberadaan sendi dengan radius toleransi sigma",
+      "Formula: H_k(i, j) = exp(-((i - x_k)^2 + (j - y_k)^2) / (2 * sigma^2))",
+      "Pelatihan dioptimalkan dengan fungsi rugi Mean Squared Error (MSE) spasial"
+    ],
+    "notes": "Tunjukkan diagram perbandingan antara regresi koordinat langsung dan heatmap Gaussian."
+  },
+  {
+    "id": 4,
+    "title": "Dekode Koordinat & Sub-Pixel Refinement",
+    "subtitle": "Mengekstrak Posisi Sendi Presisi dari Peta Aktivasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Puncak intensitas diskrit diperoleh melalui operator argmax spasial pada heatmap",
+      "Reduksi resolusi (downsampling stride 4) menyebabkan eror kuantisasi hingga 2-4 piksel",
+      "Sub-pixel refinement: Pergeseran koordinat memanfaatkan kemiringan gradien tetangga",
+      "Menghasilkan estimasi posisi sendi dengan tingkat kehalusan sub-piksel kontinu"
+    ],
+    "notes": "Sub-pixel refinement sangat penting untuk aplikasi animasi grafis dan analisis biomekanika presisi."
+  },
+  {
+    "id": 5,
+    "title": "Topologi 17 Keypoint COCO",
+    "subtitle": "Standar Representasi Kerangka Tubuh Manusia",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Kepala & Wajah: Hidung (0), Mata Kiri/Kanan (1, 2), Telinga Kiri/Kanan (3, 4)",
+      "Ekstremitas Atas: Bahu (5, 6), Siku (7, 8), Pergelangan Tangan (9, 10)",
+      "Torso & Ekstremitas Bawah: Pinggul (11, 12), Lutut (13, 14), Pergelangan Kaki (15, 16)",
+      "Skeletal Limbs: Garis graf koneksi anatomis yang menghubungkan pasangan sendi terdekat"
+    ],
+    "notes": "Tunjukkan visualisasi kerangka 17 titik COCO yang ada pada slide materi."
+  },
+  {
+    "id": 6,
+    "title": "Metrik Object Keypoint Similarity (OKS)",
+    "subtitle": "Standar Evaluasi Resmi Benchmark MS COCO",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "OKS mengukur kemiripan spasial antara ground truth dan prediksi, dinormalisasi skala objek",
+      "Formula: OKS = sum exp(-d_k^2 / (2 * s^2 * kappa_k^2)) * delta(v_k > 0) / sum delta(v_k > 0)",
+      "d_k: Jarak Euclidean antara titik prediksi dan ground truth",
+      "s: Skala tubuh (akar luas bounding box), kappa_k: Toleransi variabilitas anatomis per sendi"
+    ],
+    "notes": "Bedah contoh numerik dari kuliah ini di mana OKS menghasilkan nilai 0.9253."
+  },
+  {
+    "id": 7,
+    "title": "Variabilitas Anatomis Sendi (Nilai Kappa)",
+    "subtitle": "Mengapa Sendi yang Berbeda Memiliki Toleransi Berlainan",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Titik kaku wajah (Mata kappa = 0.025, Hidung kappa = 0.026): Menuntut presisi sangat ketat",
+      "Titik perantara (Bahu kappa = 0.079, Siku kappa = 0.072): Toleransi sedang",
+      "Titik fleksibel (Pinggul kappa = 0.107, Lutut kappa = 0.087): Toleransi paling longgar",
+      "OKS mencerminkan variabilitas anotasi manusia alami pada dataset berskala besar"
+    ],
+    "notes": "Jelaskan bahwa letak hidung jauh lebih mudah disepakati daripada letak persis pusat sendi pinggul."
+  },
+  {
+    "id": 8,
+    "title": "Tantangan Oklusi & Ambiguitas Kinematika",
+    "subtitle": "Masalah Nyata dalam Estimasi Pose",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Self-Occlusion: Anggota tubuh tertutup tubuh sendiri (misal lengan terlipat di belakang)",
+      "Kebingungan Kiri-Kanan: Simetri tubuh manusia dapat membingungkan jaringan saat orientasi miring",
+      "Interaksi Objek: Manusia membawa barang besar atau berinteraksi dekat dengan orang lain",
+      "Solusi: Model Spatio-Temporal Graph CNN atau Kinematic Pose Prior"
+    ],
+    "notes": "Diskusikan bagaimana rekaman multi-kamera dapat membantu menyelesaikan oklusi sudut pandang tunggal."
+  },
+  {
+    "id": 9,
+    "title": "Stabilisasi Temporal pada Video",
+    "subtitle": "Menghilangkan Jittering Gerakan untuk Aplikasi Halus",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Deteksi per frame murni rentan terhadap getaran (jitter) akibat noise sensor sub-piksel",
+      "Filter One-Euro: Filter lolos rendah adaptif yang memotong noise saat diam namun responsif saat cepat",
+      "Kalman Filter 2D: Mengestimasi kecepatan sendi untuk memprediksi posisi frame berikutnya",
+      "Penting untuk animasi penangkapan gerak (motion capture) dan antarmuka interaktif"
+    ],
+    "notes": "Aplikasi telekomunikasi video conference (seperti virtual avatar) sangat bergantung pada filter temporal ini."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Laboratorium Interaktif",
+    "subtitle": "Rangkuman Materi & Eksperimen Praktikum",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Estimasi pose mengekstrak representasi struktural geometris manusia yang kompak",
+      "Skrip mandiri pembuatan heatmap & OKS tersedia di example-01.py",
+      "Notebook laboratorium interaktif tersedia di chapter-47-lab.ipynb",
+      "Bab berikutnya (Chapter 48): 3D Vision & Scene Reconstruction (SfM, Multi-View Stereo)"
+    ],
+    "notes": "Ajak mahasiswa menjalankan HumanPoseExplorer di web platform untuk mengeksplorasi kerangka sendi."
+  }
+]

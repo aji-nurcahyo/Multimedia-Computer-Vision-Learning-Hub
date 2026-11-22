@@ -1,0 +1,40 @@
+[
+  {
+    "id": "lecun-1998",
+    "title": "Gradient-Based Learning Applied to Document Recognition",
+    "authors": "Yann LeCun, Léon Bottou, Yoshua Bengio, Patrick Haffner",
+    "year": 1998,
+    "venue": "Proceedings of the IEEE, 86(11):2278-2324",
+    "doi": "10.1109/5.726791",
+    "url": "https://ieeexplore.ieee.org/document/726791",
+    "citationKey": "lecun1998gradient"
+  },
+  {
+    "id": "krizhevsky-2012",
+    "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+    "authors": "Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton",
+    "year": 2012,
+    "venue": "Advances in Neural Information Processing Systems (NeurIPS 2012)",
+    "doi": "10.1145/3065386",
+    "url": "https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+    "citationKey": "krizhevsky2012imagenet"
+  },
+  {
+    "id": "goodfellow-2016",
+    "title": "Deep Learning",
+    "authors": "Ian Goodfellow, Yoshua Bengio, Aaron Courville",
+    "year": 2016,
+    "venue": "MIT Press",
+    "url": "https://www.deeplearningbook.org/",
+    "citationKey": "goodfellow2016deep"
+  },
+  {
+    "id": "kingma-2014",
+    "title": "Adam: A Method for Stochastic Optimization",
+    "authors": "Diederik P. Kingma, Jimmy Ba",
+    "year": 2014,
+    "venue": "International Conference on Learning Representations (ICLR 2015)",
+    "url": "https://arxiv.org/abs/1412.6980",
+    "citationKey": "kingma2014adam"
+  }
+]

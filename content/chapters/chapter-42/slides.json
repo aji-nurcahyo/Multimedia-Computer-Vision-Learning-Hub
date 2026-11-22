@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Image Classification with CNN",
+    "subtitle": "Chapter 42 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Perumusan tugas klasifikasi citra multi-kelas",
+      "Evolusi arsitektur benchmark: VGG, ResNet, hingga EfficientNet",
+      "Pencegahan degradation problem dengan residual learning",
+      "Evaluasi metrik komprehensif: Top-1, Precision, Recall, Macro F1"
+    ],
+    "notes": "Selamat datang di perkuliahan Klasifikasi Citra CNN. Kita akan membedah arsitektur modern dan evaluasi performa kuantitatif."
+  },
+  {
+    "id": 2,
+    "title": "Tantangan Variabilitas Visual",
+    "subtitle": "Mengapa Klasifikasi Citra Dunia Nyata Begitu Kompleks",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Viewpoint variation: Sudut pandang kamera mengubah konfigurasi piksel secara radikal",
+      "Scale variation: Ukuran objek dapat bervariasi dari 10 piksel hingga seluruh layar",
+      "Deformasi & oklusi: Objek non-rigid terhalang oleh benda lain",
+      "Intra-class variation: Variasi wujud anggota dalam satu kategori (misal ratusan jenis anjing)"
+    ],
+    "notes": "Tunjukkan contoh bagaimana dua gambar kucing dari ras dan pose berbeda memiliki matriks piksel yang sangat berlainan."
+  },
+  {
+    "id": 3,
+    "title": "Arsitektur Klasik: VGGNet (2014)",
+    "subtitle": "Kekuatan Kedalaman Melalui Filter Seragam 3x3",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Filosofi desain: Menumpuk convolutional layer 3x3 dengan stride 1 dan padding 1",
+      "Dua lapis 3x3 memiliki medan reseptif efektif setara filter 5x5",
+      "Tiga lapis 3x3 memiliki medan reseptif setara filter 7x7",
+      "Kelemahan: Parameter 138 juta pada fully connected head membebani memori GPU"
+    ],
+    "notes": "VGG membuktikan secara empiris bahwa jaringan yang lebih dalam dengan filter kecil mengungguli filter besar."
+  },
+  {
+    "id": 4,
+    "title": "Revolusi Residual Learning: ResNet (2015)",
+    "subtitle": "Memecahkan Masalah Degradasi Jaringan Dalam",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Degradation problem: Menambah kedalaman jaringan konvensional menaikkan training error",
+      "Formulasi residual: H(x) = F(x) + x, memetakan selisih residual bukan fungsi utuh",
+      "Shortcut identity mapping: Memberikan jalur bebas hambatan bagi aliran gradien",
+      "Memungkinkan pelatihan ResNet-50, ResNet-101, hingga ResNet-152 tanpa vanishing gradient"
+    ],
+    "notes": "Tekankan pentingnya rumus turunan dE/dx = dE/dH * (dF/dx + I) di mana matriks identitas I menjaga gradien tetap hidup."
+  },
+  {
+    "id": 5,
+    "title": "EfficientNet & Compound Scaling",
+    "subtitle": "Optimalisasi Seimbang Kedalaman, Lebar, dan Resolusi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Penskalaan konvensional hanya memperdalam jaringan (depth) atau memperbanyak kanal (width)",
+      "Compound Scaling: depth = alpha^phi, width = beta^phi, resolution = gamma^phi",
+      "Optimalisasi berbasis FLOPs menghasilkan akurasi State-of-the-Art dengan parameter 8.4x lebih kecil",
+      "Penggunaan inverted residual blocks (MBConv) dengan squeeze-and-excitation"
+    ],
+    "notes": "EfficientNet menjadi tolok ukur utama efisiensi komputasi pada perangkat edge dan mobile."
+  },
+  {
+    "id": 6,
+    "title": "Softmax & Kalibrasi Probabilitas",
+    "subtitle": "Mengubah Logit Menjadi Distribusi Peluang Tepercaya",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "P(y=k|x) = exp(z_k / T) / sum_j exp(z_j / T)",
+      "Suhu T=1.0: Softmax standar",
+      "Suhu T>1.0 (Temperature Scaling): Melembutkan distribusi logit, penting untuk kalibrasi",
+      "Overconfident prediction: Model modern sering memprediksi probabilitas 99% pada sampel ambigu"
+    ],
+    "notes": "Jelaskan bahwa akurasi tinggi tidak selalu berarti kalibrasi kepercayaan model sudah optimal."
+  },
+  {
+    "id": 7,
+    "title": "Teknik Regularisasi Modern",
+    "subtitle": "Mencegah Overfitting dan Menghindari Shortcut Learning",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Label Smoothing: y_k = (1 - eps) * one_hot + eps / K, melatih model untuk tidak terlalu percaya diri",
+      "Mixup (Zhang et al., 2017): Interpolasi cembung linier antara pasangan citra dan label",
+      "CutMix: Menempelkan potongan acak citra donor ke citra target",
+      "RandAugment: Pilihan otomatis augmentasi affine, kontras, dan distorsi warna"
+    ],
+    "notes": "Regularisasi data ini telah menjadi standar baku pada seluruh pipeline computer vision kompetitif."
+  },
+  {
+    "id": 8,
+    "title": "Matriks Kontingensi & Metrik Evaluasi",
+    "subtitle": "Analisis Performa di Luar Akurasi Sederhana",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Akurasi agregat dapat menyesatkan pada dataset dengan ketimpangan kelas (class imbalance)",
+      "Precision: Kemampuan model menghindari false positive (kemurnian prediksi)",
+      "Recall: Kemampuan model menjaring seluruh ground truth (kelengkapan deteksi)",
+      "Macro F1-Score: Rata-rata F1 unweighted yang memberi bobot setara pada kelas minoritas"
+    ],
+    "notes": "Tunjukkan matriks 3x3 dari contoh bab ini dan bedah cara menghitung Precision dan Recall secara langsung."
+  },
+  {
+    "id": 9,
+    "title": "Mitigasi Mode Kegagalan",
+    "subtitle": "Strategi Penanganan Masalah Nyata",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Class Imbalance: Gunakan Focal Loss atau Class-Weighted Cross-Entropy",
+      "Overfitting latar belakang: Terapkan augmentasi CutMix dan Dropout",
+      "Misalignment dimensi shortcut: Gunakan konvolusi 1x1 dengan stride pada jalur identitas",
+      "Latensi inferensi lambat: Terapkan kuantisasi INT8 atau pruning bobot"
+    ],
+    "notes": "Soroti bahwa dalam domain telekomunikasi dan IoT, efisiensi inferensi sama pentingnya dengan akurasi."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Eksperimen Praktis",
+    "subtitle": "Rangkuman Materi & Laboratorium Interaktif",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "ResNet adalah arsitektur tulang punggung (backbone) standar industri visi komputer",
+      "Verifikasi numerik residual & metrik tersedia di example-01.py",
+      "Notebook laboratorium lengkap tersedia di chapter-42-lab.ipynb",
+      "Bab berikutnya (Chapter 43): Transfer Learning & Fine-Tuning pada Dataset Kustom"
+    ],
+    "notes": "Ajak mahasiswa menjalankan ImageClassificationLab di web platform untuk bereksperimen langsung."
+  }
+]

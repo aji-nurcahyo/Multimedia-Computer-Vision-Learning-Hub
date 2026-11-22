@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-04-01",
+    "title": "Python for Data Analysis (3rd Edition)",
+    "authors": "Wes McKinney",
+    "year": 2022,
+    "publisher": "O'Reilly Media",
+    "url": "https://wesmckinney.com/book/",
+    "type": "book",
+    "annotation": "Panduan resmi ekosistem Python ilmiah dan manipulasi array NumPy, manajemen lingkungan virtual venv/conda, dan analisis data berkinerja tinggi."
+  },
+  {
+    "id": "ref-04-02",
+    "title": "Learning OpenCV 4 Computer Vision with Python 3 (3rd Edition)",
+    "authors": "Joseph Howse, Joe Minichino",
+    "year": 2020,
+    "publisher": "Packt Publishing",
+    "url": "https://www.packtpub.com",
+    "type": "book",
+    "annotation": "Bab 1 mengulas secara mendalam instalasi OpenCV, konfigurasi lingkungan virtual, integrasi dengan NumPy, dan penanganan I/O grafis pada berbagai sistem operasi."
+  },
+  {
+    "id": "ref-04-03",
+    "title": "Python Packaging User Guide",
+    "authors": "Python Packaging Authority (PyPA)",
+    "year": 2024,
+    "publisher": "PyPA Official Documentation",
+    "url": "https://packaging.python.org",
+    "type": "documentation",
+    "annotation": "Dokumentasi standar internasional mengenai pengelolaan paket pip, isolasi virtual environment venv, struktur direktori proyek, dan file requirements.txt."
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-03-01",
+    "title": "Latihan 1: Kalkulator Estimasi Ukuran Video Streaming Uncompressed vs Compressed",
+    "difficulty": "beginner",
+    "instruction": "Tuliskan fungsi Python `estimate_video_streaming(width, height, fps, duration_sec, target_bitrate_kbps)` yang mengembalikan dictionary berisi ukuran mentah RGB tak terkompresi (GB), ukuran terkompresi pada bitrate target (MB), dan rasio kompresi data.",
+    "starterCode": "def estimate_video_streaming(width: int, height: int, fps: int, duration_sec: float, target_bitrate_kbps: float) -> dict:\n    # TODO: Hitung ukuran mentah (GB) dan terkompresi (MB)\n    pass\n",
+    "solution": "def estimate_video_streaming(width: int, height: int, fps: int, duration_sec: float, target_bitrate_kbps: float) -> dict:\n    raw_bytes = width * height * 3 * fps * duration_sec\n    raw_gb = round(raw_bytes / (1024 ** 3), 3)\n    \n    compressed_bytes = (target_bitrate_kbps * 1000 / 8.0) * duration_sec\n    compressed_mb = round(compressed_bytes / (1024 ** 2), 2)\n    \n    cr = round(raw_bytes / compressed_bytes, 1) if compressed_bytes > 0 else 0.0\n    return {\n        'raw_size_gb': raw_gb,\n        'compressed_size_mb': compressed_mb,\n        'compression_ratio': cr\n    }\n"
+  },
+  {
+    "id": "ex-03-02",
+    "title": "Latihan 2: Evaluasi Kualitas Kompresi (PSNR - Peak Signal-to-Noise Ratio)",
+    "difficulty": "intermediate",
+    "instruction": "Tuliskan fungsi Python `compute_psnr(original_img, compressed_img)` yang menghitung metrik PSNR (dB) antara citra asli dan citra terkompresi dengan rumus PSNR = 10 * log10(MAX_I^2 / MSE). Jika MSE bernilai 0, kembalikan nilai 100.0 dB.",
+    "starterCode": "import numpy as np\n\ndef compute_psnr(original_img: np.ndarray, compressed_img: np.ndarray) -> float:\n    # TODO: Hitung MSE dan PSNR\n    pass\n",
+    "solution": "import numpy as np\n\ndef compute_psnr(original_img: np.ndarray, compressed_img: np.ndarray) -> float:\n    mse = np.mean((original_img.astype(float) - compressed_img.astype(float)) ** 2)\n    if mse == 0:\n        return 100.0\n    max_i = 255.0\n    psnr = 10.0 * np.log10((max_i ** 2) / mse)\n    return round(float(psnr), 2)\n"
+  }
+]

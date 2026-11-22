@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 55: Multimodal Application Development",
+    "content": "Rekayasa Sistem Pemantauan Cerdas Berpusat Visi: Arsitektur Pipeline, Optimasi Edge & Fail-Safe\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 55 dan penutup Seksi 11. Jelaskan bagaimana seluruh teori Bab 51-54 disintesis menjadi produk perangkat lunak pemantauan industri yang tangguh."
+  },
+  {
+    "id": "slide-2",
+    "title": "Arsitektur Sistem Multimodal Terintegrasi",
+    "content": "Aliran Data End-to-End Real-Time:\\n1. Input Streaming: Video (RTSP/V4L2) + Audio (Microphone) + Telemetri\\n2. Ekstraksi Fitur Paralel: Backbone Visual + Audio + Sensorik\\n3. Antrean Sinkronisasi Waktu: Buffer melingkar (Circular Ring Buffer)\\n4. Engine Fusi Adaptif: Pembobotan keandalan sensorik dinamis\\n5. Engine Keputusan & Logika Pemicu Notifikasi Alarm",
+    "diagram": "/media/diagrams/chapter-55-integrated-multimodal-system-architecture.svg",
+    "notes": "Jelaskan diagram sistem terintegrasi. Sorot bagaimana modul-modul terhubung dalam arsitektur microservices atau thread non-blocking."
+  },
+  {
+    "id": "slide-3",
+    "title": "Formula Fusi Keputusan Sadar-Keandalan",
+    "content": "Prediksi Kelas Peristiwa hat{c}:\\nhat{c} = argmax_c [ alpha_v P_v(c) + alpha_a P_a(c) + alpha_t P_t(c) ]\\n\\nBobot Dinamis Terkalibrasi:\\nalpha_m = gamma_m / sum_{k} gamma_k\\n- Kamera optik memimpin saat kondisi pencahayaan prima\\n- Sensor akustik dan termal mengambil alih saat kabut atau oklusi",
+    "diagram": null,
+    "notes": "Turunkan persamaan keputusan fusi di papan tulis. Tekankan bahwa arsitektur ini mencegah ketergantungan rapuh pada sensor tunggal."
+  },
+  {
+    "id": "slide-4",
+    "title": "Profiling Latensi End-to-End & Analisis Throughput",
+    "content": "Pengukuran Waktu Siklus Komputasi Frame:\\nT_total = T_capture + max(T_enc,v, T_enc,a, T_enc,t) + T_sync + T_fuse + T_post\\n\\nContoh Profiling Industri:\\n- T_capture = 2.5 ms, T_enc = 14.0 ms, T_sync = 0.5 ms, T_fuse = 0.8 ms, T_post = 1.2 ms\\n- T_total = 19.0 ms -> Throughput = 1000 / 19.0 = 52.6 FPS\\nMemenuhi standar real-time (> 30 FPS).",
+    "diagram": null,
+    "notes": "Bahas aspek latensi per-frame: mengapa encoder paralel dievaluasi berdasarkan komponen terlama (max), dan bagaimana throughput 52.6 FPS dicapai."
+  },
+  {
+    "id": "slide-5",
+    "title": "Optimasi Edge AI, Kuantisasi & Penanganan Dropout",
+    "content": "Strategi Efisiensi Perangkat Keras Tepi:\\n- Kuantisasi Model: FP32 -> INT8 (Kompresi memori 4x, akselerasi TensorRT 3x)\\n- Penanganan Thermal Throttling: Manajemen frekuensi daya dinamis\\n- Fail-Safe Sensor Dropout: Transisi mulus saat kamera buta (gamma_v = 0)",
+    "diagram": "/media/diagrams/chapter-55-multimodal-deployment-optimization.svg",
+    "notes": "Gunakan diagram optimasi deployment. Jelaskan pentingnya kuantisasi INT8 agar model dapat berjalan pada perangkat mini seperti NVIDIA Jetson atau Raspberry Pi."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Deteksi Penyusupan & Fail-Safe",
+    "content": "Skenario Deteksi Penyusupan (Kelas 1):\\n1. Kondisi Normal (3 Sensor):\\n   P_v = 0.75 (gamma=0.85), P_a = 0.70 (gamma=0.60), P_t = 0.80 (gamma=0.75)\\n   P_fused(1) = 0.3864(0.75) + 0.2727(0.70) + 0.3409(0.80) = 0.7534 (75.34%)\\n2. Skenario Dropout Kamera Tertutup Asap (gamma_v = 0.0):\\n   P_fallback(1) = 0.4444(0.70) + 0.5556(0.80) = 0.7556 (75.56%)\\nSistem tetap beroperasi stabil 100% tanpa false alarm.",
+    "diagram": null,
+    "notes": "Tunjukkan kepada mahasiswa bagaimana sistem mempertahankan kepastian deteksi penyusupan 75.56% meskipun kamera visual dibutakan oleh asap."
+  },
+  {
+    "id": "slide-7",
+    "title": "Arsitektur Deployment: Edge vs Cloud vs Hybrid",
+    "content": "Pola Distribusi Komputasi Sistem:\\n1. On-Device Edge Processing:\\n   Privasi tinggi, zero-cloud bandwidth, latensi < 20 ms\\n2. Cloud Centralized Processing:\\n   Kapasitas model tak terbatas, namun rentan latensi transmisi jaringan\\n3. Hybrid Edge-Cloud Architecture:\\n   Edge mengeksekusi deteksi filter awal, Cloud memproses analisis mendalam",
+    "diagram": null,
+    "notes": "Bahas kelebihan dan kekurangan arsitektur hybrid yang umum digunakan pada smart city dan pemantauan infrastruktur nasional."
+  },
+  {
+    "id": "slide-8",
+    "title": "Wawasan Riset Lanjutan: Embodied AI & Robotics",
+    "content": "Evolusi Menuju Agen Otonom Fisik:\\n- Dari Sistem Pasif (Melihat & Mendengar) ke Agen Aktif (Bertindak)\\n- Model Vision-Language-Action (VLA) seperti RT-2 dan DeepMind Gato\\n- Integrasi telemetri motorik, persepsi kedalaman LiDAR, dan navigasi SLAM\\n- Peluang riset sarjana dan persiapan pascasarjana (ISVWS 2026-2040)",
+    "diagram": null,
+    "notes": "Beri pandangan ke depan mengenai Embodied AI sebagai frontier berikutnya dalam riset Intelligent Computer Vision."
+  },
+  {
+    "id": "slide-9",
+    "title": "Implementasi & Integrasi Laboratorium Web",
+    "content": "Pembelajaran Tiga Moda Bab 55:\\n- Tier A: Lab interaktif MultimodalApplicationStudio.tsx di browser\\n- Tier B: Skrip verifikasi mandiri examples/example-01.py\\n- Tier C: Jupyter notebook praktikum chapter-55-lab.ipynb\\n- Menguji simulasi alur data streaming dan metrik FPS real-time.",
+    "diagram": null,
+    "notes": "Arahkan mahasiswa untuk membuka MultimodalApplicationStudio.tsx dan mencoba menonaktifkan kamera untuk melihat respon adaptif sistem secara langsung."
+  },
+  {
+    "id": "slide-10",
+    "title": "Penutupan Seksi 11 & Kesiapan Seksi Terakhir",
+    "content": "Pencapaian Seksi 11 (Multimodal AI Bab 51-55):\\n- Menyatukan visi, bahasa, audio, dan sensor dalam fondasi matematis kokoh\\n- Skrip verifikasi: examples/example-01.py (lulus exit 0 deterministik)\\n- Kesiapan Kurikulum: Menuju Seksi 12 (Capstone & Emerging Frontiers Bab 56-60)\\n- Mahasiswa memiliki bekal riset dan kompetensi rekayasa AI multimodal terpadu.",
+    "diagram": null,
+    "notes": "Slide penutup: apresiasi pemahaman komprehensif mahasiswa sepanjang Seksi 11 dan siapkan mereka untuk proyek capstone akhir."
+  }
+]

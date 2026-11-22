@@ -1,0 +1,89 @@
+{
+  "experimentId": "EXP-R03-001",
+  "trackId": "r03",
+  "trackCode": "R03",
+  "title": "Atmospheric Scattering Priors and Uncertainty Calibration in Adverse Weather",
+  "objective": "Standardized baseline evaluation on RESIDE SOTS and Dark Zurich for optical restoration and ECE",
+  "hypothesis": "Physics-guided zero-reference enhancement improves PSNR by >= 2.5 dB and reduces ECE below 0.06",
+  "evidenceCategory": "educational_simulation",
+  "executionStatus": "reproduced",
+  "randomSeeds": [42, 1337, 2026],
+  "isDeterministic": true,
+  "dataset": {
+    "name": "RESIDE SOTS Outdoor & Dark Zurich",
+    "version": "v1.0",
+    "license": "Academic Research Use",
+    "split": "val",
+    "sampleCount": 651,
+    "annotationType": "bounding_box",
+    "sensorProvenance": "Outdoor surveillance and driving cameras under severe haze and night",
+    "provenanceAuditPassed": true,
+    "citation": "Li et al., Benchmarking Single-Image Dehazing and Beyond, IEEE TIP 2018"
+  },
+  "model": {
+    "name": "Physics-Guided Zero-DCE",
+    "architecture": "ZeroReferenceCurveEstimator",
+    "version": "v1.0",
+    "backbone": "DCE-Net",
+    "parameterCountM": 0.079,
+    "flopsG": 5.2,
+    "framework": "PyTorch 2.4.0"
+  },
+  "hyperparameters": {
+    "optimizer": "Adam",
+    "learningRate": 0.0001,
+    "batchSize": 8,
+    "epochs": 100,
+    "inputResolution": [512, 512]
+  },
+  "hardware": {
+    "target": "gpu",
+    "gpuModel": "NVIDIA RTX 3090 / A100",
+    "vramCapacityGB": 24.0,
+    "cudaVersion": "12.1"
+  },
+  "metrics": [
+    {
+      "metricName": "PSNR",
+      "unit": "dB",
+      "singleRunValue": 25.85,
+      "multiSeedValues": [25.72, 25.95, 25.88],
+      "mean": 25.85,
+      "std": 0.12,
+      "ci95": [25.72, 25.96],
+      "higherIsBetter": true
+    },
+    {
+      "metricName": "SSIM",
+      "unit": "index",
+      "singleRunValue": 0.934,
+      "multiSeedValues": [0.931, 0.936, 0.935],
+      "mean": 0.934,
+      "std": 0.003,
+      "ci95": [0.931, 0.937],
+      "higherIsBetter": true
+    },
+    {
+      "metricName": "ECE",
+      "unit": "percentage",
+      "singleRunValue": 5.4,
+      "multiSeedValues": [5.6, 5.3, 5.3],
+      "mean": 5.4,
+      "std": 0.17,
+      "ci95": [5.2, 5.6],
+      "higherIsBetter": false
+    }
+  ],
+  "knownLimitations": [
+    "Severe point-source glare at nighttime causes local saturation artifacts"
+  ],
+  "reproducibilityChecklistPassed": true,
+  "artifactPaths": {
+    "notebookPath": "content/research/r03/notebooks/r03-research-baseline.ipynb"
+  },
+  "author": "Tim Riset Visi Komputer ITERA",
+  "institution": "Institut Teknologi Sumatera (ITERA)",
+  "createdAt": "2026-11-20T00:00:00Z",
+  "updatedAt": "2026-11-22T00:00:00Z"
+}
+

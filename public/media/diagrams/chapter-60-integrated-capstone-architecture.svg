@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Arsitektur Capstone: Sistem Monitoring Visual Cerdas</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Proyek Akhir Terintegrasi: Deteksi Visual Real-Time, Fusi Audio-Sensor Opsional, Profiling, dan Dashboard</text>
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <g transform="translate(45, 105)">
+    <!-- Stage 1: Multi-Sensor Ingestion -->
+    <rect x="0" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#38bdf8" />
+    <rect x="10" y="30" width="130" height="28" rx="4" fill="#0284c7" />
+    <text x="75" y="49" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">1. Akuisisi Sensor</text>
+    <text x="15" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8" font-weight="bold">• Visual (Kamera)</text>
+    <text x="20" y="94" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Video HD 30 FPS</text>
+    <text x="15" y="116" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b" font-weight="bold">• Audio (Mikrofon)</text>
+    <text x="20" y="132" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Audio PCM 16 kHz</text>
+    <text x="15" y="154" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" font-weight="bold">• Konteks Lingkungan</text>
+    <text x="20" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Waktu &amp; Status Zona</text>
+    <rect x="15" y="182" width="120" height="35" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="75" y="204" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">Sinkronisasi Timestamp Δt</text>
+
+    <!-- Arrow 1 -->
+    <line x1="150" y1="125" x2="195" y2="125" stroke="#38bdf8" stroke-width="2" />
+    <polygon points="195,125 187,120 187,130" fill="#38bdf8" />
+
+    <!-- Stage 2: Processing & Inference -->
+    <rect x="200" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#818cf8" />
+    <rect x="210" y="30" width="130" height="28" rx="4" fill="#6366f1" />
+    <text x="275" y="49" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2. Inferensi Model</text>
+    <text x="215" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#38bdf8" font-weight="bold">• Deteksi Visual</text>
+    <text x="220" y="94" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">YOLO / MobileNet INT8</text>
+    <text x="215" y="116" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b" font-weight="bold">• Klasifikasi Audio</text>
+    <text x="220" y="132" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Mel-Spectrogram CNN</text>
+    <text x="215" y="154" font-family="system-ui, sans-serif" font-size="10" fill="#818cf8" font-weight="bold">• Ekstraksi Fitur</text>
+    <text x="220" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Skor Kepercayaan [0, 1]</text>
+    <rect x="215" y="182" width="120" height="35" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="275" y="204" font-family="system-ui, sans-serif" font-size="9" fill="#818cf8" text-anchor="middle">Latency &lt; 20 ms / frame</text>
+
+    <!-- Arrow 2 -->
+    <line x1="350" y1="125" x2="395" y2="125" stroke="#818cf8" stroke-width="2" />
+    <polygon points="395,125 387,120 387,130" fill="#818cf8" />
+
+    <!-- Stage 3: Fusion & Incident Logic -->
+    <rect x="400" y="20" width="150" height="210" rx="8" fill="#1e293b" stroke="#f59e0b" />
+    <rect x="410" y="30" width="130" height="28" rx="4" fill="#d97706" />
+    <text x="475" y="49" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">3. Logika Fusi &amp; Event</text>
+    <text x="415" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#f59e0b" font-weight="bold">• Konsensus Sensor</text>
+    <text x="420" y="94" font-family="monospace" font-size="9" fill="#f59e0b">F = 0.6·V + 0.25·A + 0.15·C</text>
+    <text x="415" y="116" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Histeresis Ambang</text>
+    <text x="420" y="132" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Minimalkan False Alarm</text>
+    <text x="415" y="154" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">• Pelacakan Spasial</text>
+    <text x="420" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Bounding Box &amp; ID Objek</text>
+    <rect x="415" y="182" width="120" height="35" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="475" y="204" font-family="system-ui, sans-serif" font-size="9" fill="#f59e0b" text-anchor="middle">Reliabilitas Deteksi &gt; 92%</text>
+
+    <!-- Arrow 3 -->
+    <line x1="550" y1="125" x2="595" y2="125" stroke="#f59e0b" stroke-width="2" />
+    <polygon points="595,125 587,120 587,130" fill="#f59e0b" />
+
+    <!-- Stage 4: Interactive Dashboard -->
+    <rect x="600" y="20" width="140" height="210" rx="8" fill="#1e293b" stroke="#34d399" />
+    <rect x="610" y="30" width="120" height="28" rx="4" fill="#059669" />
+    <text x="670" y="49" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">4. Dashboard Web</text>
+    <text x="615" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" font-weight="bold">• Live Video Feed</text>
+    <text x="620" y="94" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Bbox Overlays &amp; FPS</text>
+    <text x="615" y="116" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" font-weight="bold">• Panel Insiden / Alert</text>
+    <text x="620" y="132" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Histori Kejadian Visual</text>
+    <text x="615" y="154" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" font-weight="bold">• Telemetri Sistem</text>
+    <text x="620" y="170" font-family="system-ui, sans-serif" font-size="9" fill="#94a3b8">Latensi, Memori, Drop %</text>
+    <rect x="610" y="182" width="120" height="35" rx="4" fill="#0f172a" stroke="#334155" />
+    <text x="670" y="204" font-family="system-ui, sans-serif" font-size="9" fill="#34d399" text-anchor="middle">Evaluasi Akademik Lengkap</text>
+  </g>
+
+  <!-- Bottom Panel -->
+  <g transform="translate(45, 360)">
+    <rect width="710" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Cakupan Tingkat Capstone (Level A / B / C):</text>
+    <text x="20" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8"><tspan fill="#38bdf8">Level A (Dasar):</tspan> Pipeline Visual Standalone • <tspan fill="#f59e0b">Level B (Lengkap):</tspan> Fusi Multimodal &amp; Optimasi Edge • <tspan fill="#34d399">Level C (Riset):</tspan> Evaluasi Kuantitatif &amp; Kesiapan ISVWS.</text>
+  </g>
+
+  <text x="400" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Multimedia &amp; Computer Vision Learning Hub • Institut Teknologi Sumatera (ITERA)</text>
+</svg>
+

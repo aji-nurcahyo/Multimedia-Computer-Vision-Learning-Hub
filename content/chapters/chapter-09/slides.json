@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Histogram Processing & Contrast Enhancement",
+    "lead": "Section 02 — Digital Image Processing Fundamentals · Chapter 09",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Interpretasi Histogram, Global Histogram Equalization (CDF), Histogram Matching, dan CLAHE",
+    "notes": "Perkenalkan histogram sebagai alat diagnostik statistik paling penting untuk kualitas pencahayaan citra."
+  },
+  {
+    "id": 2,
+    "title": "Anatomi & Interpretasi Histogram Citra",
+    "lead": "Membaca karakteristik eksposur tanpa melihat gambar sekalipun",
+    "body": "### Profil Histogram 8-bit [0..255]\n- **Under-exposed (Gelap)**: Puncak histogram menumpuk di sisi kiri (0–70).\n- **Over-exposed (Silau)**: Puncak menumpuk di sisi kanan (185–255).\n- **Low Contrast (Berkabut)**: Histogram sempit terpusat di area tengah.\n- **Balanced High Contrast**: Terdistribusi merata sepanjang rentang penuh $0\\text{–}255$.",
+    "notes": "Ingatkan bahwa histogram tidak menyimpan informasi lokasi spasial piksel—dua gambar yang berbeda bisa memiliki histogram identik!"
+  },
+  {
+    "id": 3,
+    "title": "Formulasi Global Histogram Equalization",
+    "lead": "Meratakan distribusi probabilitas intensitas menggunakan CDF",
+    "body": "### Persamaan Transformasi Diskrit\n$$p(r_k) = \\frac{n_k}{M \\cdot N}, \\qquad s_k = T(r_k) = (L-1) \\sum_{j=0}^{k} p(r_j)$$\n- Transformasi ini bersifat **otomatis penuh** (tanpa parameter manual).\n- Kurva CDF ideal hasil ekualisasi membentuk garis lurus $45^\\circ$ yang menandakan kepadatan probabilitas seragam.",
+    "notes": "Turunkan bahwa transformasi CDF pada distribusi kontinu menghasilkan distribusi probabilitas uniform."
+  },
+  {
+    "id": 4,
+    "title": "Histogram Specification (Matching)",
+    "lead": "Menyamakan nada kecerahan citra terhadap distribusi target spesifik",
+    "body": "### Langkah Matematis 2-Tahap\n- Terkadang histogram datar tidak diinginkan (misal foto malam hari seharusnya tetap gelap).\n- **Langkah 1**: Hitung pemetaan $s = T(r)$ dari histogram input.\n- **Langkah 2**: Hitung pemetaan target $v = G(z)$ dari histogram acuan.\n- **Langkah 3**: Gunakan invers $z = G^{-1}(T(r))$ untuk memetakan input ke distribusi target.",
+    "notes": "Berikan contoh aplikasi menyamakan pencahayaan citra satelit dari hari yang berbeda."
+  },
+  {
+    "id": 5,
+    "title": "Kelemahan Global HE pada Pencahayaan Tidak Merata",
+    "lead": "Mengapa satu kurva pemetaan global bisa merusak detail lokal",
+    "body": "### Keterbatasan Metode Global\n- Pada citra dengan area sangat terang dan bayangan sangat gelap sekaligus, Global HE terlalu banyak menaikkan area terang atau mengorbankan kontras lokal.\n- Noise di latar belakang seragam yang dominan ikut diperkuat secara berlebihan (*over-amplification*).",
+    "notes": "Siapkan jembatan konseptual menuju CLAHE."
+  },
+  {
+    "id": 6,
+    "title": "CLAHE: Contrast Limited Adaptive Histogram Equalization",
+    "lead": "Solusi lokal berbasis ubin (tile) dengan pengendalian noise",
+    "body": "### Tiga Pilar CLAHE (Zuiderveld, 1994)\n1. **Contextual Tile Division**: Memecah citra menjadi ubin $8 \\times 8$ untuk ekualisasi lokal.\n2. **Histogram Clipping**: Memotong bin yang melampaui *Clip Limit* dan meredistribusikan kelebihannya ke semua bin.\n3. **Bilinear Interpolation**: Menghaluskan batas antartile agar bebas garis kotak (*blocking artifact*).",
+    "notes": "Jelaskan mengapa redistribusi kelebihan klip membatasi turunan (slope) CDF lokal, sehingga menahan amplifikasi noise."
+  },
+  {
+    "id": 7,
+    "title": "Menangani Citra Berwarna dengan Benar",
+    "lead": "Mencegah pergeseran rona warna (hue shift) akibat ekualisasi RGB terpisah",
+    "body": "### Aturan Emas Citra Berwarna\n- **SALAH**: Menjalankan `equalizeHist` pada R, G, B terpisah → rasio RGB rusak, warna berubah aneh!\n- **BENAR**: Konversi ke **YCrCb** atau **CIELAB**, jalankan HE/CLAHE **hanya pada kanal Luminansi ($Y$ atau $L^*$)**, lalu kembalikan ke RGB.",
+    "notes": "Ini pertanyaan wajib praktikum: selalu proses luminansi saja saat meningkatkan kontras foto berwarna."
+  },
+  {
+    "id": 8,
+    "title": "Implementasi Python & OpenCV",
+    "lead": "Menggunakan cv2.equalizeHist dan cv2.createCLAHE",
+    "body": "### Kode Referensi\n```python\nlab = cv2.cvtColor(bgr, cv2.COLOR_BGR2LAB)\nl, a, b = cv2.split(lab)\nclahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))\nl_enhanced = clahe.apply(l)\nout = cv2.cvtColor(cv2.merge((l_enhanced, a, b)), cv2.COLOR_LAB2BGR)\n```",
+    "notes": "Soroti efisiensi memori cv2.split dan cv2.merge pada kanal CIELAB."
+  },
+  {
+    "id": 9,
+    "title": "Aplikasi Kritis di Lapangan",
+    "lead": "Dari medis hingga visi bawah air dan pengemudian otonom",
+    "body": "### Kasus Penggunaan Nyata\n- **Pencitraan Medis**: CLAHE adalah standar emas untuk menonjolkan pembuluh darah retina & foto toraks X-Ray.\n- **Underwater & Dehazing**: Memulihkan kontras citra bawah laut atau jalan berkabut.\n- **Face Recognition Pra-Pemrosesan**: Mengurangi variasi bayangan wajah sebelum ekstraksi fitur.",
+    "notes": "Diskusikan bagaimana CLAHE meningkatkan akurasi detektor tepi maupun detektor objek YOLO pada malam hari."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 09",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- Histogram merekam distribusi statistik intensitas piksel.\n- **Global HE** memetakan lewat CDF keseluruhan gambar; **CLAHE** mengoptimalkan kontras lokal dengan batas *Clip Limit*.\n- Proses kanal Luminansi ($Y/L^*$) saja untuk citra berwarna.\n\n### Rujukan\n- Zuiderveld (1994), *Graphics Gems IV*; Gonzalez & Woods (2018), Bab 3.",
+    "notes": "Arahkan mahasiswa membandingkan kurva CDF pada Histogram Explorer di tab Laboratorium."
+  }
+]
+

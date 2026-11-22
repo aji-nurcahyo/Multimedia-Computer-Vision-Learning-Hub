@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-adv02-01",
+    "title": "Nonlinear total variation based noise removal algorithms",
+    "authors": "Leonid I. Rudin, Stanley Osher, Emad Fatemi",
+    "year": 1992,
+    "publisher": "Physica D: Nonlinear Phenomena",
+    "url": "https://doi.org/10.1016/0167-2789(92)90242-F",
+    "type": "Journal Article",
+    "annotation": "The seminal paper proposing the Rudin-Osher-Fatemi (ROF) variational model for edge-preserving image denoising using Total Variation regularizers."
+  },
+  {
+    "id": "ref-adv02-02",
+    "title": "Distributed Optimization and Statistical Learning via the Alternating Direction Method of Multipliers",
+    "authors": "Stephen Boyd, Neal Parikh, Eric Chu, Borja Peleato, Jonathan Eckstein",
+    "year": 2011,
+    "publisher": "Foundations and Trends in Machine Learning",
+    "url": "https://web.stanford.edu/~boyd/papers/admm/admm_distr_stats.pdf",
+    "type": "Review Article",
+    "annotation": "Comprehensive treatise on the Alternating Direction Method of Multipliers (ADMM), variable splitting, proximal operators, and primal/dual convergence rates."
+  },
+  {
+    "id": "ref-adv02-03",
+    "title": "Rank-Deficient and Discrete Ill-Posed Problems: Numerical Aspects of Linear Inversion",
+    "authors": "Per Christian Hansen",
+    "year": 1998,
+    "publisher": "SIAM (Society for Industrial and Applied Mathematics)",
+    "url": "https://doi.org/10.1137/1.9780898719697",
+    "type": "Book",
+    "annotation": "Authoritative textbook on the discrete Picard condition, truncated SVD, L-curve regularization parameter choice, and Tikhonov regularized least squares."
+  },
+  {
+    "id": "ref-adv02-04",
+    "title": "An introduction to continuous optimization for imaging",
+    "authors": "Antonin Chambolle, Thomas Pock",
+    "year": 2016,
+    "publisher": "Acta Numerica",
+    "url": "https://doi.org/10.1017/S096249291600009X",
+    "type": "Journal Article",
+    "annotation": "Rigorous mathematical survey on convex optimization algorithms in modern image science, primal-dual hybrid gradient (PDHG) methods, and non-smooth variational problems."
+  }
+]
+

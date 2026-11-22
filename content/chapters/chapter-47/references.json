@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cao-2019-openpose",
+    "title": "OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields",
+    "authors": "Zhe Cao, Gines Hidalgo, Tomas Simon, Shih-En Wei, Yaser Sheikh",
+    "year": 2019,
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+    "doi": "10.1109/TPAMI.2019.2929257",
+    "url": "https://arxiv.org/abs/1812.08008",
+    "citationKey": "cao2019openpose"
+  },
+  {
+    "id": "sun-2019-hrnet",
+    "title": "Deep High-Resolution Representation Learning for Human Pose Estimation",
+    "authors": "Ke Sun, Bin Xiao, Dong Liu, Jingdong Wang",
+    "year": 2019,
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2019)",
+    "doi": "10.1109/CVPR.2019.00584",
+    "url": "https://arxiv.org/abs/1902.09212",
+    "citationKey": "sun2019deep"
+  },
+  {
+    "id": "xiao-2018-simplebaseline",
+    "title": "Simple Baselines for Human Pose Estimation and Tracking",
+    "authors": "Bin Xiao, Haiping Wu, Yichen Wei",
+    "year": 2018,
+    "venue": "European Conference on Computer Vision (ECCV 2018)",
+    "url": "https://arxiv.org/abs/1804.06208",
+    "citationKey": "xiao2018simple"
+  },
+  {
+    "id": "lin-2014-coco",
+    "title": "Microsoft COCO: Common Objects in Context",
+    "authors": "Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, C. Lawrence Zitnick",
+    "year": 2014,
+    "venue": "European Conference on Computer Vision (ECCV 2014)",
+    "doi": "10.1007/978-3-319-10602-1_48",
+    "url": "https://arxiv.org/abs/1405.0312",
+    "citationKey": "lin2014microsoft"
+  }
+]

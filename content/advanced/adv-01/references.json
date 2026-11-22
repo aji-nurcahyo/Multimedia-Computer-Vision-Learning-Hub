@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-adv01-01",
+    "title": "Matrix Computations (4th Edition)",
+    "authors": "Gene H. Golub, Charles F. Van Loan",
+    "year": 2013,
+    "publisher": "Johns Hopkins University Press",
+    "url": "https://jhupbooks.press.jhu.edu/title/matrix-computations",
+    "type": "Book",
+    "annotation": "The authoritative reference on numerical linear algebra, Singular Value Decomposition algorithms, condition numbers, and least-squares perturbation bounds."
+  },
+  {
+    "id": "ref-adv01-02",
+    "title": "Convex Optimization",
+    "authors": "Stephen Boyd, Lieven Vandenberghe",
+    "year": 2004,
+    "publisher": "Cambridge University Press",
+    "url": "https://web.stanford.edu/~boyd/cvxbook/",
+    "type": "Book",
+    "annotation": "Foundational text covering Lagrange duality, Karush-Kuhn-Tucker (KKT) optimality conditions, and second-order interior-point algorithms."
+  },
+  {
+    "id": "ref-adv01-03",
+    "title": "Multiple View Geometry in Computer Vision (2nd Edition)",
+    "authors": "Richard Hartley, Andrew Zisserman",
+    "year": 2004,
+    "publisher": "Cambridge University Press",
+    "url": "https://www.cambridge.org/core/books/multiple-view-geometry-in-computer-vision/5C9CB2F47D1460F0C05CE4BE5193C2C7",
+    "type": "Book",
+    "annotation": "Essential reference on projective geometry, SVD algebraic solvers for the 8-point algorithm, Sampson error, and Bundle Adjustment optimization."
+  },
+  {
+    "id": "ref-adv01-04",
+    "title": "State Estimation for Robotics",
+    "authors": "Timothy D. Barfoot",
+    "year": 2017,
+    "publisher": "Cambridge University Press",
+    "url": "https://asrl.utias.utoronto.ca/~tdb/bib/barfoot_ser17.pdf",
+    "type": "Book",
+    "annotation": "Rigorous treatment of Lie groups SO(3) and SE(3), matrix exponentials, and continuous-discrete Gaussian filtering for spatial estimation."
+  }
+]
+

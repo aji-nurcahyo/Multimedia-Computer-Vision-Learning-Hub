@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-48-1",
+    "title": "Multiple View Geometry in Computer Vision (2nd Edition)",
+    "authors": "Richard Hartley, Andrew Zisserman",
+    "year": 2004,
+    "publisher": "Cambridge University Press",
+    "url": "https://doi.org/10.1017/CBO9780511811685",
+    "annotation": "Karya kanonikal mendasar mengenai geometri proyektif, matriks kamera, geometri epipolar, triangulasi DLT, dan bundle adjustment."
+  },
+  {
+    "id": "ref-48-2",
+    "title": "Computer Vision: Algorithms and Applications (2nd Edition)",
+    "authors": "Richard Szeliski",
+    "year": 2022,
+    "publisher": "Springer",
+    "url": "https://szeliski.org/Book/",
+    "annotation": "Buku rujukan komprehensif modern mencakup rekonstruksi multi-pandang, stereo matching, dan estimasi kedalaman visual."
+  },
+  {
+    "id": "ref-48-3",
+    "title": "Structure-from-Motion Revisited",
+    "authors": "Johannes L. Schönberger, Jan-Michael Frahm",
+    "year": 2016,
+    "publisher": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2016.445",
+    "annotation": "Paper arsitektur COLMAP yang memperkenalkan perbaikan esensial pada estimasi pose, penentuan geometri korespondensi, dan triangulasi skala besar."
+  },
+  {
+    "id": "ref-48-4",
+    "title": "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis",
+    "authors": "Ben Mildenhall, Pratul P. Srinivasan, Matthew Tancik, Jonathan T. Barron, Ravi Ramamoorthi, Ren Ng",
+    "year": 2020,
+    "publisher": "European Conference on Computer Vision (ECCV)",
+    "url": "https://doi.org/10.1007/978-3-030-58452-8_24",
+    "annotation": "Pondasi representasi pemandangan syaraf kontinu 3D berbasis koordinat dan differentiable volume rendering tanpa mesh diskrit."
+  }
+]

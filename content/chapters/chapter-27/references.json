@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-27-01",
+    "title": "Learning OpenCV 4: Computer Vision with Python",
+    "authors": "Joseph Howse, Joe Minichino",
+    "year": 2020,
+    "publisher": "Packt Publishing",
+    "url": "https://www.packtpub.com/product/learning-opencv-4-computer-vision-with-python-third-edition/9781789531619",
+    "type": "book",
+    "annotation": "Panduan praktis pengoperasian modul VideoCapture, manajemen buffer frame OpenCV, dan integrasi kamera USB/CCTV."
+  },
+  {
+    "id": "ref-27-02",
+    "title": "Media Capture and Streams (W3C Candidate Recommendation)",
+    "authors": "W3C Audio & WebRTC Working Groups",
+    "year": 2023,
+    "publisher": "World Wide Web Consortium (W3C)",
+    "url": "https://www.w3.org/TR/mediacapture-streams/",
+    "type": "documentation",
+    "annotation": "Spesifikasi resmi standar Web API untuk akses perangkat keras mikrofon dan kamera (getUserMedia) pada peramban web modern."
+  },
+  {
+    "id": "ref-27-03",
+    "title": "Real-Time Vision Systems: Architecture and Design Considerations",
+    "authors": "Reinhard Klette, Karsten Schlüns, Andreas Koschan",
+    "year": 2001,
+    "publisher": "Springer",
+    "url": "https://link.springer.com/book/10.1007/978-1-4471-0737-8",
+    "type": "book",
+    "annotation": "Kajian arsitektur antrean ring buffer, sinkronisasi frame clock, dan strategi eliminasi frame-lag pada sistem visi waktu nyata."
+  }
+]

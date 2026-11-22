@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Pengenalan Visual Dalam & Mekanisme Atensi Lanjut",
+    "lead": "Modul ADV-04 · L3 Advanced Depth",
+    "body": "Evolusi arsitektur deteksi objek: Dari paradigma anchor box manual dan NMS heuristik menuju **Direct Set Prediction** berbasis Transformer, Deformable Attention multi-skala, dan Hungarian Matching Loss.",
+    "notes": "Tekankan bahwa DETR merumuskan deteksi objek sebagai masalah estimasi himpunan global tanpa bergantung pada prior bentuk kotak buatan manusia."
+  },
+  {
+    "id": 2,
+    "title": "Kelemahan Atensi Padat & Solusi Deformable Attention",
+    "lead": "Kompleksitas Kuadratik vs Linier",
+    "body": "Self-attention standar:\n$$\\mathcal{O}((H \\cdot W)^2 \\cdot C)$$\nMembuat resolusi tinggi tidak praktis.\n\n**Deformable Attention (Zhu et al. 2021):**\n$$\\text{DeformAttn}(z_q, p_q, x) = \\sum_{m=1}^M W_m \\left[ \\sum_{k=1}^K A_{mqk} W'_m x(p_q + \\Delta p_{mqk}) \\right]$$\n- Hanya mengambil sampel $K \\ll H \\cdot W$ titik (misal $K = 4$).\n- Kompleksitas tereduksi drastis menjadi $\\mathcal{O}(N_q \\cdot K \\cdot C)$.",
+    "notes": "Jelaskan bahwa titik sampel dievaluasi pada koordinat kontinu menggunakan interpolasi bilinear sub-piksel 2D."
+  },
+  {
+    "id": 3,
+    "title": "Prediksi Himpunan Langsung & Bipartite Matching Loss",
+    "lead": "Optimasi Penugasan Bipartit DETR",
+    "body": "DETR menghasilkan $N$ kotak prediksi untuk dicocokkan ke ground truth melalui permutasi optimal $\\hat{\\sigma} \\in \\mathfrak{S}_N$:\n$$\\hat{\\sigma} = \\arg\\min_{\\sigma \\in \\mathfrak{S}_N} \\sum_{i=1}^N \\mathcal{L}_{\\text{match}}(y_i, \\hat{y}_{\\sigma(i)})$$\n\nKomponen Biaya Kecocokan:\n$$\\mathcal{L}_{\\text{match}} = -\\lambda_{\\text{class}} \\hat{p}(c_i) + \\lambda_{L1} \\|b_i - \\hat{b}\\|_1 + \\lambda_{\\text{giou}} (1 - \\text{GIoU})$$",
+    "notes": "Bandingkan penugasan DETR dengan MOT: DETR mencocokkan query bebas urutan ke target objek untuk menghitung loss pelatihan secara end-to-end."
+  },
+  {
+    "id": 4,
+    "title": "Regresi Kotak Pembatas: Mengapa IoU Membutuhkan GIoU?",
+    "lead": "Mengatasi Masalah Gradien Lenyap (Vanishing Gradients)",
+    "body": "- **Standard IoU:** Jika prediksi dan ground truth tidak beririsan ($A \\cap B = \\emptyset$), maka $\\text{IoU} = 0$ dan $\\nabla \\text{IoU} = 0$.\n- **Generalized IoU (GIoU):**\n  $$\\text{GIoU} = \\text{IoU} - \\frac{|C \\setminus (A \\cup B)|}{|C|}$$\n  $C$: Kotak konveks terkecil yang melingkupi $A$ dan $B$.\n  Rentang: $[-1, 1]$. Ketika terpisah jauh, $\\text{GIoU} < 0$ dan tetap menyediakan gradien kontinu untuk mendekatkan kedua kotak.",
+    "notes": "Tunjukkan bahwa GIoU sangat penting saat awal pelatihan ketika query masih acak dan belum menutupi objek."
+  },
+  {
+    "id": 5,
+    "title": "Focal Loss untuk Ketidakseimbangan Ekstrem",
+    "lead": "Modulasi Penalti Gradien Sampel Mudah",
+    "body": "Fungsi Loss:\n$$\\text{FL}(p_t) = -\\alpha_t (1 - p_t)^\\gamma \\log(p_t)$$\n- Ketika sampel mudah ($p_t \\to 1$), faktor modulasi $(1 - p_t)^\\gamma \\to 0$.\n- Mencegah jutaan latar belakang negatif mudah mendominasi gradien akumulatif jaringan satu-tahap (one-stage detectors).",
+    "notes": "Tekankan nilai tipikal gamma = 2.0 dan alpha = 0.25 pada RetinaNet dan detektor modern."
+  }
+]
+

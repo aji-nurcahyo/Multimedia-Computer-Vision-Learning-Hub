@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="400" rx="16" fill="url(#bgGrad)" />
+  
+  <!-- Title Badge -->
+  <rect x="40" y="30" width="320" height="32" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="50" y="51" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="1">MULTIMEDIA &amp; COMPUTER VISION HUB</text>
+  
+  <text x="40" y="95" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="24" font-weight="700">Spatial Filtering &amp; 2D Discrete Convolution</text>
+  <text x="40" y="122" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Mekanisme komputasi perkalian bobot kernel spasial terhadap tetangga piksel citra masukan</text>
+
+  <!-- Input Image Matrix f(x,y) -->
+  <g transform="translate(60, 160)" filter="url(#shadow)">
+    <rect width="180" height="180" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+    <text x="90" y="-12" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Input Image f(x,y)</text>
+    
+    <!-- Grid -->
+    <g stroke="#334155" stroke-width="1">
+      <line x1="60" y1="0" x2="60" y2="180"/>
+      <line x1="120" y1="0" x2="120" y2="180"/>
+      <line x1="0" y1="60" x2="180" y2="60"/>
+      <line x1="0" y1="120" x2="180" y2="120"/>
+    </g>
+
+    <!-- Neighborhood highlight -->
+    <rect x="60" y="60" width="60" height="60" fill="#3b82f6" fill-opacity="0.3" stroke="#38bdf8" stroke-width="2"/>
+    <text x="90" y="95" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">P(x,y)</text>
+    <text x="30" y="35" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x-1,y-1)</text>
+    <text x="90" y="35" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x,y-1)</text>
+    <text x="150" y="35" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x+1,y-1)</text>
+    <text x="30" y="95" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x-1,y)</text>
+    <text x="150" y="95" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x+1,y)</text>
+    <text x="30" y="155" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x-1,y+1)</text>
+    <text x="90" y="155" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x,y+1)</text>
+    <text x="150" y="155" fill="#64748b" font-family="monospace" font-size="11" text-anchor="middle">f(x+1,y+1)</text>
+  </g>
+
+  <!-- Operator symbol * / * -->
+  <text x="285" y="260" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="36" font-weight="bold" text-anchor="middle">&#8727;</text>
+
+  <!-- Filter Kernel w(s,t) -->
+  <g transform="translate(340, 160)" filter="url(#shadow)">
+    <rect width="180" height="180" rx="10" fill="#1e293b" stroke="#0ea5e9" stroke-width="2"/>
+    <text x="90" y="-12" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Kernel Matrix w(s,t)</text>
+    
+    <g stroke="#0284c7" stroke-width="1">
+      <line x1="60" y1="0" x2="60" y2="180"/>
+      <line x1="120" y1="0" x2="120" y2="180"/>
+      <line x1="0" y1="60" x2="180" y2="60"/>
+      <line x1="0" y1="120" x2="180" y2="120"/>
+    </g>
+
+    <!-- Gaussian-like 3x3 weights -->
+    <rect x="0" y="0" width="180" height="180" fill="#0369a1" fill-opacity="0.1"/>
+    <text x="30" y="37" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">1/16</text>
+    <text x="90" y="37" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">2/16</text>
+    <text x="150" y="37" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">1/16</text>
+    
+    <text x="30" y="97" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">2/16</text>
+    <rect x="62" y="62" width="56" height="56" rx="4" fill="#0284c7" fill-opacity="0.3"/>
+    <text x="90" y="97" fill="#38bdf8" font-family="monospace" font-size="15" font-weight="bold" text-anchor="middle">4/16</text>
+    <text x="150" y="97" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">2/16</text>
+
+    <text x="30" y="157" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">1/16</text>
+    <text x="90" y="157" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">2/16</text>
+    <text x="150" y="157" fill="#bae6fd" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">1/16</text>
+  </g>
+
+  <!-- Arrow -->
+  <g transform="translate(560, 250)">
+    <path d="M 0 0 L 70 0 M 55 -10 L 70 0 L 55 10" stroke="#38bdf8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="35" y="-14" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">&#8721; w&#183;f</text>
+  </g>
+
+  <!-- Output Image g(x,y) -->
+  <g transform="translate(680, 160)" filter="url(#shadow)">
+    <rect width="180" height="180" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="90" y="-12" fill="#34d399" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Output Filtered g(x,y)</text>
+    
+    <g stroke="#334155" stroke-width="1">
+      <line x1="60" y1="0" x2="60" y2="180"/>
+      <line x1="120" y1="0" x2="120" y2="180"/>
+      <line x1="0" y1="60" x2="180" y2="60"/>
+      <line x1="0" y1="120" x2="180" y2="120"/>
+    </g>
+
+    <!-- Center processed pixel -->
+    <rect x="60" y="60" width="60" height="60" fill="#10b981" fill-opacity="0.3" stroke="#34d399" stroke-width="2"/>
+    <text x="90" y="95" fill="#34d399" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">g(x,y)</text>
+    <text x="90" y="160" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Smooth / Denoised</text>
+  </g>
+
+  <!-- Footer attribution -->
+  <text x="40" y="380" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">Multimedia &amp; Computer Vision Learning Hub &#183; Institut Teknologi Sumatera (ITERA) &#183; Aji Pamungkas Tri Nurcahyo</text>
+</svg>
+

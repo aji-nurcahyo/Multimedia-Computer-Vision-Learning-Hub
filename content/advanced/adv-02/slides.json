@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Pengolahan Citra Digital Lanjut & Masalah Inversi Matematis",
+    "lead": "Modul ADV-02 · L3 Advanced Depth",
+    "body": "Transisi dari operasi pemfilteran spasial intuitif menuju **model inversi matematis teratur**: formulasi forward $y = Ax + n$, kestabilan Hadamard, dan metode variasi pelestarian tepi (edge-preserving).",
+    "notes": "Jelaskan bahwa dalam sistem penginderaan nyata (mikroskopi, astronomi, tomografi, restorasi cuaca buruk), citra terdegradasi harus dipulihkan melalui komputasi inversi teratur."
+  },
+  {
+    "id": 2,
+    "title": "Model Forward & Masalah Buruk (Ill-Posed Problems)",
+    "lead": "Kriteria Hadamard & Kelemahan Dekonvolusi Naive",
+    "body": "Model fisik degradasi citra diskret:\n$$y = A x + n$$\n- $A$: Matriks Toeplitz blok sirkulan (operator PSF / blur)\n- $n$: Derau pengukuran aditif $\\mathcal{N}(0, \\sigma^2 I)$\n\nKriteria Kestabilan Hadamard dilanggar karena spektrum nilai singular $\\sigma_i(A) \\to 0$. Inversi langsung mengekspansi derau frekuensi tinggi secara katastropik.",
+    "notes": "Tunjukkan mengapa inversi kuadrat terkecil murni A^-1 * y menghasilkan derau liar yang mendominasi seluruh bidang citra."
+  },
+  {
+    "id": 3,
+    "title": "Regularisasi Tikhonov vs Total Variation (ROF)",
+    "lead": "Dilema Kehalusan Kuadratik vs Ketajaman Tepi",
+    "body": "Perbandingan perlakuan terhadap diskontinuitas tepi:\n- **Tikhonov ($L_2$ Sobolev):**\n  $$\\min_x \\|Ax - y\\|_2^2 + \\lambda \\|\\nabla x\\|_2^2$$\n  Menghukum gradien curam secara kuadratik $\\to$ Tepi menjadi buram/kabur (over-smoothed).\n- **Total Variation ($L_1$ ROF):**\n  $$\\min_x \\frac{1}{2} \\|Ax - y\\|_2^2 + \\lambda \\|\\nabla x\\|_1$$\n  Menghukum gradien secara linear $\\to$ Menjaga lonjakan tepi tegas sembari menyaring derau (piecewise constant).",
+    "notes": "Tekankan perbedaan matematis fundamental antara penalti L2 yang menyebarkan energi gradien dan penalti L1 yang memicu kerapatan jarang (gradient sparsity)."
+  },
+  {
+    "id": 4,
+    "title": "Optimasi ADMM & Pemisahan Variabel",
+    "lead": "Alternating Direction Method of Multipliers",
+    "body": "Pemisahan variabel konveks non-smooth $z = \\nabla x$:\n$$\\mathcal{L}_\\rho(x, z, u) = \\frac{1}{2}\\|Ax - y\\|_2^2 + \\lambda \\|z\\|_1 + \\frac{\\rho}{2} \\|\\nabla x - z + u\\|_2^2$$\nLangkah pembaruan iteratif:\n1. **$x$-update:** Pemecahan sistem linier kuadratik via 2D FFT.\n2. **$z$-update:** Operator proksimal penyusutan (soft-thresholding):\n   $$z^{k+1} = \\mathcal{S}_{\\lambda/\\rho}(\\nabla x^{k+1} + u^k)$$\n3. **$u$-update:** Pembaruan pengali Lagrange ganda:\n   $$u^{k+1} = u^k + \\nabla x^{k+1} - z^{k+1}$$",
+    "notes": "Uraikan bagaimana ADMM memecah masalah minimisasi yang sulit menjadi dua subproblem sederhana yang memiliki solusi bentuk tertutup."
+  },
+  {
+    "id": 5,
+    "title": "Konvergensi Residu & Kriteria Penghentian",
+    "lead": "Pemantauan Residu Primer & Residu Ganda",
+    "body": "Konvergensi diverifikasi secara ketat melalui:\n- **Residu Primer (Kelayakan Kendala):**\n  $$r^{k+1} = \\nabla x^{k+1} - z^{k+1} \\to 0$$\n- **Residu Ganda (Kondisi Stasioneritas):**\n  $$s^{k+1} = -\\rho (z^{k+1} - z^k) \\to 0$$\n\nIterasi dihentikan ketika $\\|r^k\\|_F \\le \\epsilon_{\\text{pri}}$ dan $\\|s^k\\|_F \\le \\epsilon_{\\text{dual}}$.",
+    "notes": "Tunjukkan bahwa pemantauan residu ganda mencegah penghentian dini sebelum solusi benar-benar stabil secara numerik."
+  }
+]
+

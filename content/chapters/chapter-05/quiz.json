@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q05-01",
+    "question": "Sebuah piksel citra digital bertipe uint8 memiliki nilai intensitas 240. Jika piksel tersebut ditambahkan dengan nilai 30 secara langsung tanpa konversi tipe data, berapakah nilai piksel yang dihasilkan akibat fenomena overflow?",
+    "options": [
+      "14",
+      "270",
+      "255",
+      "0"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada tipe data uint8 dengan rentang nilai [0 - 255], operasi aritmatika yang melampaui 255 akan mengalami modulo wrap-around: (240 + 30) = 270. Nilai dalam biner adalah 270 % 256 = 14."
+  },
+  {
+    "id": "q05-02",
+    "question": "Mengapa citra wajah manusia yang dimuat menggunakan cv2.imread() tampak berwarna kebiru-biruan aneh saat langsung ditampilkan menggunakan plt.imshow() dari Matplotlib?",
+    "options": [
+      "Karena OpenCV secara default memuat urutan saluran warna dalam format BGR (Blue-Green-Red), sedangkan Matplotlib mengharapkan format RGB (Red-Green-Blue)",
+      "Karena format JPEG pada citra tersebut telah rusak",
+      "Karena monitor komputer tidak mendukung kedalaman warna 24-bit",
+      "Karena fungsi cv2.imread() otomatis mengonversi citra menjadi biner"
+    ],
+    "correctIndex": 0,
+    "explanation": "OpenCV menggunakan urutan saluran BGR sebagai warisan masa lalu. Untuk menampilkannya dengan warna alami di Matplotlib, citra harus dikonversi terlebih dahulu menggunakan cv2.cvtColor(img, cv2.COLOR_BGR2RGB)."
+  },
+  {
+    "id": "q05-03",
+    "question": "Jika Anda melakukan pengirisan sub-matriks Region of Interest (ROI) dengan sintaks `roi = img[50:150, 50:150]`, lalu mengubah nilai `roi[:, :] = 0`, apakah yang terjadi pada matriks citra asli `img`?",
+    "options": [
+      "Area koordinat [50:150, 50:150] pada citra asli 'img' ikut berubah menjadi 0 (hitam) karena slicing menghasilkan View di memori yang sama",
+      "Citra asli 'img' tidak mengalami perubahan sama sekali karena NumPy otomatis menduplikasi array",
+      "Program akan mengalami error memory protection fault",
+      "Citra asli 'img' akan terhapus seluruhnya dari RAM"
+    ],
+    "correctIndex": 0,
+    "explanation": "Operasi slicing pada NumPy menghasilkan View (jendela referensi ke buffer memori yang sama), bukan Copy. Modifikasi pada view akan berdampak langsung pada array sumber aslinya kecuali jika dibuat salinan eksplisit menggunakan .copy()."
+  },
+  {
+    "id": "q05-04",
+    "question": "Pada matriks citra NumPy 2 dimensi grayscale `img`, bagaimana sintaks pengindeksan yang benar untuk mengakses nilai intensitas piksel pada koordinat X = 120 (kolom) dan Y = 80 (baris)?",
+    "options": [
+      "img[80, 120]",
+      "img[120, 80]",
+      "img[120][80][0]",
+      "img.pixel(120, 80)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dalam konvensi array matriks NumPy, dimensi pertama adalah Baris (sumbu vertikal / Y) dan dimensi kedua adalah Kolom (sumbu horizontal / X). Oleh karena itu, koordinat (X=120, Y=80) diakses dengan sintaks img[Y, X] = img[80, 120]."
+  },
+  {
+    "id": "q05-05",
+    "question": "Mengapa operasi tervektorisasi (vectorized operations) pada NumPy berjalan jauh lebih cepat dibanding perulangan bersarang 'for' di Python murni?",
+    "options": [
+      "Karena vektorisasi NumPy dieksekusi di tingkat kode C terkompilasi yang memanfaatkan instruksi perangkat keras SIMD (Single Instruction Multiple Data)",
+      "Karena vektorisasi otomatis mengompresi ukuran citra menjadi setengahnya",
+      "Karena perulangan for di Python otomatis menggunakan memori internet",
+      "Karena NumPy hanya menghitung 10% dari total piksel"
+    ],
+    "correctIndex": 0,
+    "explanation": "Vektorisasi menghindari overhead dinamis penafsiran bytecode Python dan mendelegasikan loop komputasi langsung ke pustaka C dengan instruksi vektor prosesor SIMD paralel berkinerja tinggi."
+  }
+]

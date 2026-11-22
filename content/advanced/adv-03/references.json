@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ref-adv03-01",
+    "title": "A New Approach to Linear Filtering and Prediction Problems",
+    "authors": "Rudolph E. Kalman",
+    "year": 1960,
+    "publisher": "ASME Journal of Basic Engineering",
+    "url": "https://doi.org/10.1115/1.3662552",
+    "type": "Journal Article",
+    "annotation": "The seminal paper establishing the discrete-time recursive state-space Kalman filter under minimum mean-square error criteria."
+  },
+  {
+    "id": "ref-adv03-02",
+    "title": "Simple Online and Realtime Tracking",
+    "authors": "Alex Bewley, Zongyuan Ge, Lionel Ott, Fabio Ramos, Ben Upcroft",
+    "year": 2016,
+    "publisher": "IEEE International Conference on Image Processing (ICIP)",
+    "url": "https://arxiv.org/abs/1602.00763",
+    "type": "Conference Paper",
+    "annotation": "Foundational tracking-by-detection paper establishing SORT with Kalman kinematics and Hungarian bipartite matching."
+  },
+  {
+    "id": "ref-adv03-03",
+    "title": "Simple Online and Realtime Tracking with a Deep Association Metric",
+    "authors": "Nicolai Wojke, Alex Bewley, Dietrich Paulus",
+    "year": 2017,
+    "publisher": "IEEE International Conference on Image Processing (ICIP)",
+    "url": "https://arxiv.org/abs/1703.07402",
+    "type": "Conference Paper",
+    "annotation": "Introduces deep visual appearance embeddings (ReID) and cascading association to reduce ID switches under occlusion."
+  },
+  {
+    "id": "ref-adv03-04",
+    "title": "ByteTrack: Multi-Object Tracking by Associating Every Detection Box",
+    "authors": "Yifu Zhang, Peize Sun, Yi Jiang, Dongdong Yu, Fucheng Weng, Zehuan Yuan, Ping Luo, Wenyu Liu, Xinggang Wang",
+    "year": 2022,
+    "publisher": "European Conference on Computer Vision (ECCV)",
+    "url": "https://arxiv.org/abs/2110.06864",
+    "type": "Conference Paper",
+    "annotation": "State-of-the-art MOT paradigm associating both high-confidence and low-confidence detection boxes to recover occluded targets."
+  },
+  {
+    "id": "ref-adv03-05",
+    "title": "HOTA: A Higher Order Metric for Evaluating Multi-Object Tracking",
+    "authors": "Jonathon Luiten, Aljosa Osep, Patrick Dendorfer, Philip Torr, Andreas Geiger, Laura Leal-Taixe, Bastian Leibe",
+    "year": 2021,
+    "publisher": "International Journal of Computer Vision (IJCV)",
+    "url": "https://link.springer.com/article/10.1007/s11263-020-01375-2",
+    "type": "Journal Article",
+    "annotation": "Establishes the unified HOTA evaluation metric, formally decoupling detection accuracy from temporal association accuracy."
+  }
+]
+

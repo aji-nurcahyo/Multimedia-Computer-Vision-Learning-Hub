@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-33-01",
+    "title": "Asosiasi Data Dua-Arah & Algoritma Hungarian",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-33-hungarian-bipartite-matching.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-33-02",
+    "title": "Arsitektur Pelacakan Cepat SORT (Simple Online and Realtime Tracking)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-33-sort-pipeline-architecture.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

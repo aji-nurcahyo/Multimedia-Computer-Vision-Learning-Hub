@@ -1,0 +1,425 @@
+[
+  {
+    "id": "r01",
+    "code": "R01",
+    "title": "Intelligent Visual Detection & Recognition",
+    "subtitle": "Multi-Scale Feature Aggregation, Deformable Attention, and Continuous Uncertainty",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "category": "Primary Academic Anchor",
+    "status": "published",
+    "description": "Scientific investigation of advanced neural visual detection architectures. Focuses on deformable multi-scale feature pyramids, continuous bounding box distribution modeling, small-object detection in crowded environments, and set-prediction transformer decoders.",
+    "prerequisites": {
+      "coreChapters": ["41", "42", "44", "46", "48"],
+      "advancedModules": ["adv-01", "adv-04"]
+    },
+    "primaryBenchmark": "MS COCO 2017 Object Detection Split",
+    "candidateDatasets": [
+      "MS COCO 2017 (train2017 / val2017)",
+      "Pascal VOC 2012 Benchmark",
+      "LVIS v1.0 Long-Tail Large Vocabulary Benchmark",
+      "VisDrone-DET Small Aerial Object Benchmark"
+    ],
+    "standardMetrics": [
+      "mAP@[.50:.95] (COCO primary)",
+      "AP50",
+      "AP75",
+      "AP_S (area < 32^2)",
+      "AP_M (32^2 <= area <= 96^2)",
+      "AP_L (area > 96^2)",
+      "AR_100 (Average Recall @ 100 detections)"
+    ],
+    "statisticalProtocol": {
+      "minSeeds": 3,
+      "reporting": "mean ± std across N >= 3 seeds, bootstrap 95% confidence intervals",
+      "significanceMethod": "Paired Student's t-test or Wilcoxon signed-rank test conforming to distribution characteristics; significance evaluated in context of experimental variance rather than mechanical p < 0.05 thresholds"
+    },
+    "milestones": [
+      {
+        "phase": "Phase I (2026–2028)",
+        "title": "SOTA Baseline Reproduction & Pipeline Standardization",
+        "deliverable": "100% reproducible training and evaluation pipeline for Deformable DETR and Modern Anchor-Free Detectors on MS COCO val2017 across 3 random seeds."
+      },
+      {
+        "phase": "Phase II (2029–2032)",
+        "title": "Multi-Scale Feature Aggregation for Small Objects",
+        "deliverable": "Novel architectural module for small-object feature preservation under extreme scale variance; benchmarked on VisDrone and Sumatera aerial surveillance imagery."
+      },
+      {
+        "phase": "Phase III (2033–2040)",
+        "title": "Continuous Spatial Uncertainty & Distributed Detection",
+        "deliverable": "Multi-agent collaborative visual detection with bounded spatial uncertainty for smart infrastructure monitoring; peer-reviewed journal submission."
+      }
+    ],
+    "targetVenues": [
+      "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "European Conference on Computer Vision (ECCV)",
+      "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)"
+    ],
+    "commonMethodologyStages": [
+      "Stage 1: Scientific Problem Formulation & Testable Hypothesis",
+      "Stage 2: Benchmark Dataset Provenance & Annotation Quality Audit",
+      "Stage 3: Deterministic Baseline Reproduction (N >= 3 seeds)",
+      "Stage 4: Factorial Ablation Isolation with Resource Accounting",
+      "Stage 5: Categorized Error Taxonomy & Catastrophic Failure Analysis",
+      "Stage 6: Peer-Reviewed Scientific Reporting & Open Reproducibility Release"
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Object Detection & Instance Recognition",
+      "telemetryPath": "telemetry/r01-experiments.json",
+      "status": "reproduced"
+    }
+  },
+  {
+    "id": "r02",
+    "code": "R02",
+    "title": "Robust Multi-Object Tracking & Motion Perception",
+    "subtitle": "State Association Stability, Camera Motion Compensation, and Occlusion Recovery",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "category": "Primary Academic Anchor",
+    "status": "published",
+    "description": "Research in temporal visual object association and motion dynamics. Solves trajectory fragmentation, severe visual occlusions, camera ego-motion jitter, and identity switching in dense crowds and automated traffic surveillance.",
+    "prerequisites": {
+      "coreChapters": ["36", "37", "40", "46", "50"],
+      "advancedModules": ["adv-01", "adv-03"]
+    },
+    "primaryBenchmark": "MOT17 and MOT20 Benchmark Challenges",
+    "candidateDatasets": [
+      "MOT17 Challenge (Pedestrian Tracking)",
+      "MOT20 Challenge (Extreme Density Crowds)",
+      "DanceTrack (Complex Articulated Motion & Occlusions)",
+      "UA-DETRAC (Vehicle Traffic Surveillance)"
+    ],
+    "standardMetrics": [
+      "HOTA (Higher Order Tracking Accuracy)",
+      "DetA (Detection Accuracy Score)",
+      "AssA (Association Accuracy Score)",
+      "IDF1 (Identification F1 Score)",
+      "MOTA (Multiple Object Tracking Accuracy)",
+      "IDSW (Identity Switch Frequency)"
+    ],
+    "statisticalProtocol": {
+      "minSeeds": 3,
+      "reporting": "mean ± std across N >= 3 seeds, TrackEval official benchmark outputs",
+      "significanceMethod": "Paired Wilcoxon signed-rank test on per-sequence association scores; verified against trajectory length distributions"
+    },
+    "milestones": [
+      {
+        "phase": "Phase I (2026–2028)",
+        "title": "Baseline Benchmark Reproduction: ByteTrack & BoT-SORT",
+        "deliverable": "Reproduced and verified ByteTrack and BoT-SORT pipelines on MOT17 validation split with TrackEval metric conformance."
+      },
+      {
+        "phase": "Phase II (2029–2032)",
+        "title": "Weather-Invariant & Motion-Compensated Association",
+        "deliverable": "Novel association algorithm fusing camera motion estimation with low-confidence detection recovery for adverse traffic monitoring."
+      },
+      {
+        "phase": "Phase III (2033–2040)",
+        "title": "Decentralized Multi-Camera Multi-Target Tracking",
+        "deliverable": "Scalable tracking framework across distributed non-overlapping camera networks for regional logistics and transportation corridors."
+      }
+    ],
+    "targetVenues": [
+      "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "European Conference on Computer Vision (ECCV)",
+      "International Journal of Computer Vision (IJCV)",
+      "IEEE Transactions on Intelligent Transportation Systems (T-ITS)"
+    ],
+    "commonMethodologyStages": [
+      "Stage 1: Scientific Problem Formulation & Testable Hypothesis",
+      "Stage 2: Benchmark Dataset Provenance & Annotation Quality Audit",
+      "Stage 3: Deterministic Baseline Reproduction (N >= 3 seeds)",
+      "Stage 4: Factorial Ablation Isolation with Resource Accounting",
+      "Stage 5: Categorized Error Taxonomy & Catastrophic Failure Analysis",
+      "Stage 6: Peer-Reviewed Scientific Reporting & Open Reproducibility Release"
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Multi-Object Tracking & Motion Systems",
+      "telemetryPath": "telemetry/r02-experiments.json",
+      "status": "reproduced"
+    }
+  },
+  {
+    "id": "r03",
+    "code": "R03",
+    "title": "Robust Visual Perception in Adverse Environments",
+    "subtitle": "Atmospheric Scattering, Monsoon Restoration, and Safety-Critical Calibration",
+    "pillar": 2,
+    "pillarName": "Pillar 2: Intelligent Visual Perception & Sensing",
+    "category": "Primary Academic Anchor",
+    "status": "published",
+    "description": "Primary regional and physical research focus aligned with Sumatera's tropical maritime climate. Investigates physical radiative transfer modeling, heavy monsoon rain-streak removal, dense tropical haze restoration, low-light enhancement, and safety-critical Out-of-Distribution calibration.",
+    "prerequisites": {
+      "coreChapters": ["11", "13", "15", "17", "43", "46"],
+      "advancedModules": ["adv-01", "adv-02", "adv-06"]
+    },
+    "primaryBenchmark": "RESIDE Haze Benchmark & Dark Zurich Nighttime Suite",
+    "candidateDatasets": [
+      "RESIDE Standard (Synthetic & Real Haze)",
+      "Rain100H / RainCityscapes (Heavy Rain Streaks & Droplets)",
+      "Dark Zurich / NightOwls (Extreme Low-Light Urban)",
+      "Sumatera-Perception Pilot (Tropical Monsoon & Agricultural Glare)"
+    ],
+    "standardMetrics": [
+      "mCE (mean Corruption Error relative to Clean)",
+      "ECE (Expected Calibration Error @ 15 bins)",
+      "PSNR (Peak Signal-to-Noise Ratio in dB)",
+      "SSIM (Structural Similarity Index)",
+      "LPIPS (Learned Perceptual Image Patch Similarity)"
+    ],
+    "statisticalProtocol": {
+      "minSeeds": 3,
+      "reporting": "mean ± std across N >= 3 seeds with 95% bootstrap confidence bounds",
+      "significanceMethod": "Permutation testing and paired t-tests evaluating restoration fidelity and downstream task robustness gains"
+    },
+    "milestones": [
+      {
+        "phase": "Phase I (2026–2028)",
+        "title": "Sumatera Tropical Vision Benchmark (STVB) Curation",
+        "deliverable": "Curation and release of the STVB dataset capturing torrential tropical rain, peatland haze, and nighttime plantation lighting."
+      },
+      {
+        "phase": "Phase II (2029–2032)",
+        "title": "Physics-Guided Deep Restoration & Dynamic Range Expansion",
+        "deliverable": "Coupled radiative transfer and deep attention networks that simultaneously restore visibility and output calibrated detection probabilities."
+      },
+      {
+        "phase": "Phase III (2033–2040)",
+        "title": "Autonomous Self-Calibrating Sensors in Harsh Climates",
+        "deliverable": "Self-adapting edge vision nodes capable of operating across decade-long continuous weather cycles without manual recalibration."
+      }
+    ],
+    "targetVenues": [
+      "IEEE Transactions on Image Processing (TIP)",
+      "IEEE Sensors Journal",
+      "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+      "CVPR Workshop on Vision in Adverse Conditions"
+    ],
+    "commonMethodologyStages": [
+      "Stage 1: Scientific Problem Formulation & Testable Hypothesis",
+      "Stage 2: Benchmark Dataset Provenance & Annotation Quality Audit",
+      "Stage 3: Deterministic Baseline Reproduction (N >= 3 seeds)",
+      "Stage 4: Factorial Ablation Isolation with Resource Accounting",
+      "Stage 5: Categorized Error Taxonomy & Catastrophic Failure Analysis",
+      "Stage 6: Peer-Reviewed Scientific Reporting & Open Reproducibility Release"
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Adverse Conditions Visual Perception",
+      "telemetryPath": "telemetry/r03-experiments.json",
+      "status": "reproduced"
+    }
+  },
+  {
+    "id": "r04",
+    "code": "R04",
+    "title": "Vision-Centric Multimodal Perception",
+    "subtitle": "Open-Vocabulary Grounding, Parameter-Efficient Adaptation, and Audio-Visual Fusion",
+    "pillar": 3,
+    "pillarName": "Pillar 3: Vision-Centric Multimodal Perception",
+    "category": "Strategic Extension",
+    "status": "published",
+    "description": "Strategic extension exploring the integration of grounded language and spatial audio with visual perception. Investigates zero-shot open-vocabulary detection, parameter-efficient fine-tuning (LoRA / prefix tuning) of visual foundation backbones, and spatial audio-visual localization.",
+    "prerequisites": {
+      "coreChapters": ["44", "51", "52", "53", "54", "55"],
+      "advancedModules": ["adv-04", "adv-07"]
+    },
+    "primaryBenchmark": "ImageNet-1K Zero-Shot Transfer & RefCOCO Visual Grounding",
+    "candidateDatasets": [
+      "ImageNet-1K (Zero-shot validation split)",
+      "RefCOCO / RefCOCO+ (Referring Expression Grounding)",
+      "Flickr30k Entities (Cross-Modal Retrieval)",
+      "FAIR-Play (Spatial Audio-Visual Localization)"
+    ],
+    "standardMetrics": [
+      "Zero-Shot Top-1 & Top-5 Accuracy (%)",
+      "Text-to-Image & Image-to-Text Recall@K (K=1, 5, 10)",
+      "Grounding Recall@0.5 IoU",
+      "Pointing Game Accuracy (%)"
+    ],
+    "statisticalProtocol": {
+      "minSeeds": 3,
+      "reporting": "mean ± std across N >= 3 fine-tuning seeds for adapter parameterizations",
+      "significanceMethod": "Bootstrap resampling evaluation on zero-shot test prompts and paired significance tests for adapter ablation comparisons"
+    },
+    "milestones": [
+      {
+        "phase": "Phase I (2026–2028)",
+        "title": "CLIP Zero-Shot & LoRA Adaptation Baseline",
+        "deliverable": "Reproduced parameter-efficient fine-tuning pipeline on OpenCLIP backbones with zero-shot transfer verification."
+      },
+      {
+        "phase": "Phase II (2029–2032)",
+        "title": "Open-Vocabulary Grounding for Agricultural Surveillance",
+        "deliverable": "Visual-language grounding models capable of zero-shot novel agricultural pest and crop disease detection from natural language prompts."
+      },
+      {
+        "phase": "Phase III (2033–2040)",
+        "title": "Spatial Audio-Visual Embodied Perception",
+        "deliverable": "Unified multimodal representation learning for spatial drone navigation and environmental anomaly detection."
+      }
+    ],
+    "targetVenues": [
+      "Conference on Neural Information Processing Systems (NeurIPS)",
+      "ACM International Conference on Multimedia (ACM MM)",
+      "Empirical Methods in Natural Language Processing (EMNLP - Multimodal)",
+      "IEEE International Conference on Robotics and Automation (ICRA)"
+    ],
+    "commonMethodologyStages": [
+      "Stage 1: Scientific Problem Formulation & Testable Hypothesis",
+      "Stage 2: Benchmark Dataset Provenance & Annotation Quality Audit",
+      "Stage 3: Deterministic Baseline Reproduction (N >= 3 seeds)",
+      "Stage 4: Factorial Ablation Isolation with Resource Accounting",
+      "Stage 5: Categorized Error Taxonomy & Catastrophic Failure Analysis",
+      "Stage 6: Peer-Reviewed Scientific Reporting & Open Reproducibility Release"
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Vision-Centric Multimodal AI",
+      "telemetryPath": "telemetry/r04-experiments.json",
+      "status": "reproduced"
+    }
+  },
+  {
+    "id": "r05",
+    "code": "R05",
+    "title": "Efficient Computer Vision & Edge AI Systems",
+    "subtitle": "Quantization Arithmetic, Memory Bandwidth Optimization, and Sub-5W Embedded Inference",
+    "pillar": 4,
+    "pillarName": "Pillar 4: Efficient Vision Systems",
+    "category": "Strategic Extension",
+    "status": "published",
+    "description": "Strategic deployment focus targeting real-time embedded execution on resource-constrained hardware. Addresses uniform/non-uniform integer quantization (INT8/INT4), straight-through estimator Quantization-Aware Training, structured channel pruning, and memory bandwidth Roofline optimization.",
+    "prerequisites": {
+      "coreChapters": ["41", "43", "45", "56", "57", "58", "59", "60"],
+      "advancedModules": ["adv-04", "adv-08"]
+    },
+    "primaryBenchmark": "Edge Detection Pareto Suite (mAP vs FPS vs MB)",
+    "candidateDatasets": [
+      "MS COCO 2017 Edge Split (640x640)",
+      "ImageNet MobileNet Evaluation Suite",
+      "MLPerf Tiny Vision (Visual Wake Words)"
+    ],
+    "standardMetrics": [
+      "Pareto Frontier Curve (mAP@[.50:.95] vs FPS)",
+      "Worst-Case Latency P99 (milliseconds)",
+      "Model Disk Footprint (MB) and Parameter Count (M)",
+      "FLOPs / MACs (Giga-operations)",
+      "Energy Consumption per Inference (Joules or mJ/frame)"
+    ],
+    "statisticalProtocol": {
+      "minSeeds": 3,
+      "reporting": "mean ± std across N >= 3 quantization-aware training runs, P50/P90/P99 latency across 1000 warmup/timed inference runs",
+      "significanceMethod": "Empirical Pareto dominance testing and Wilcoxon tests on latency distributions under thermal throttling constraints"
+    },
+    "milestones": [
+      {
+        "phase": "Phase I (2026–2028)",
+        "title": "Post-Training Quantization (INT8) & ONNX Runtime Benchmark",
+        "deliverable": "Validated PTQ and QAT pipelines demonstrating <= 1.0% mAP loss with >= 3x memory footprint reduction on ARM/x86 targets."
+      },
+      {
+        "phase": "Phase II (2029–2032)",
+        "title": "Solar-Powered Sub-5W Edge Vision Nodes",
+        "deliverable": "Autonomous off-grid vision edge nodes running real-time detection for remote coastal and forest perimeter monitoring."
+      },
+      {
+        "phase": "Phase III (2033–2040)",
+        "title": "Neuromorphic & Sub-Milliwatt Continuous Visual Sensing",
+        "deliverable": "Event-driven ultra-low-power vision architectures for continuous decadal agricultural sensing; publication in top hardware/vision venues."
+      }
+    ],
+    "targetVenues": [
+      "IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)",
+      "ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN)",
+      "TinyML Research Symposium",
+      "IEEE Embedded Systems Letters"
+    ],
+    "commonMethodologyStages": [
+      "Stage 1: Scientific Problem Formulation & Testable Hypothesis",
+      "Stage 2: Benchmark Dataset Provenance & Annotation Quality Audit",
+      "Stage 3: Deterministic Baseline Reproduction (N >= 3 seeds)",
+      "Stage 4: Factorial Ablation Isolation with Resource Accounting",
+      "Stage 5: Categorized Error Taxonomy & Catastrophic Failure Analysis",
+      "Stage 6: Peer-Reviewed Scientific Reporting & Open Reproducibility Release"
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Efficient Edge AI & Computer Vision",
+      "telemetryPath": "telemetry/r05-experiments.json",
+      "status": "reproduced"
+    }
+  },
+  {
+    "id": "r06",
+    "code": "R06",
+    "title": "Spatial Intelligence & 3D Vision",
+    "subtitle": "Monocular Depth Estimation, Visual Odometry, and Implicit Neural Radiance",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "category": "Optional Specialization",
+    "status": "published",
+    "description": "Optional specialization in spatial AI, geometric computer vision, and 3D scene representation. Explores self-supervised monocular depth estimation, visual odometry drift correction, bundle adjustment, and neural implicit radiance representations (NeRF/Gaussian Splatting).",
+    "prerequisites": {
+      "coreChapters": ["21", "22", "25", "36", "40", "50"],
+      "advancedModules": ["adv-01", "adv-05"]
+    },
+    "primaryBenchmark": "KITTI Odometry & Depth Benchmark Suite",
+    "candidateDatasets": [
+      "KITTI Odometry & Raw Sequences",
+      "NYU Depth V2 Indoor RGB-D Benchmark",
+      "ScanNet 3D Scene Dataset",
+      "Tanks and Temples Reconstruction Benchmark"
+    ],
+    "standardMetrics": [
+      "AbsRel (Absolute Relative Error in meters)",
+      "SqRel (Squared Relative Error)",
+      "RMSE (Root Mean Squared Error in meters)",
+      "Threshold Accuracy (delta < 1.25, 1.25^2, 1.25^3)",
+      "ATE (Absolute Trajectory Error in meters)",
+      "RPE (Relative Pose Error in meters/second)"
+    ],
+    "statisticalProtocol": {
+      "minSeeds": 3,
+      "reporting": "mean ± std across N >= 3 training seeds, official KITTI benchmark evaluation scripts",
+      "significanceMethod": "Paired hypothesis testing on trajectory error segments and depth distribution error bounds"
+    },
+    "milestones": [
+      {
+        "phase": "Phase I (2026–2028)",
+        "title": "Epipolar & Bundle Adjustment Baseline Verification",
+        "deliverable": "Reproduced and verified 8-point and Levenberg-Marquardt bundle adjustment pipelines on standard multi-view benchmarks."
+      },
+      {
+        "phase": "Phase II (2029–2032)",
+        "title": "Monocular Depth & Drift-Free Visual Odometry",
+        "deliverable": "Self-supervised geometric depth estimation coupled with visual-inertial odometry for drone mapping across Sumatera topography."
+      },
+      {
+        "phase": "Phase III (2033–2040)",
+        "title": "Neural Spatial Digital Twins for Regional Infrastructure",
+        "deliverable": "Large-scale implicit neural rendering and 3D digital twins for structural health monitoring of bridges and highways."
+      }
+    ],
+    "targetVenues": [
+      "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "International Conference on 3D Vision (3DV)",
+      "IEEE Transactions on Robotics (T-RO)",
+      "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
+    ],
+    "commonMethodologyStages": [
+      "Stage 1: Scientific Problem Formulation & Testable Hypothesis",
+      "Stage 2: Benchmark Dataset Provenance & Annotation Quality Audit",
+      "Stage 3: Deterministic Baseline Reproduction (N >= 3 seeds)",
+      "Stage 4: Factorial Ablation Isolation with Resource Accounting",
+      "Stage 5: Categorized Error Taxonomy & Catastrophic Failure Analysis",
+      "Stage 6: Peer-Reviewed Scientific Reporting & Open Reproducibility Release"
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Spatial Intelligence & 3D Computer Vision",
+      "telemetryPath": "telemetry/r06-experiments.json",
+      "status": "reproduced"
+    }
+  }
+]
+

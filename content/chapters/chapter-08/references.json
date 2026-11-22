@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ref-08-01",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson Education",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-image-processing/P200000003306",
+    "type": "book",
+    "annotation": "Bab 3 menguraikan fungsi transformasi intensitas dasar: negatif, logaritmik, power-law (gamma), dan piecewise linear."
+  },
+  {
+    "id": "ref-08-02",
+    "title": "Changing the contrast and brightness of an image — OpenCV Docs",
+    "authors": "OpenCV Developer Team",
+    "year": 2024,
+    "publisher": "OpenCV Foundation",
+    "url": "https://docs.opencv.org/4.x/d3/dc1/tutorial_basic_linear_transform.html",
+    "type": "documentation",
+    "annotation": "Tutorial resmi transformasi linier alpha/beta dan gamma correction berbasis LUT pada OpenCV."
+  },
+  {
+    "id": "ref-08-03",
+    "title": "Computer Vision: Algorithms and Applications (2nd Edition)",
+    "authors": "Richard Szeliski",
+    "year": 2022,
+    "publisher": "Springer",
+    "url": "https://szeliski.org/Book/",
+    "type": "book",
+    "annotation": "Seksi 3.1 membahas operator titik fotometrik dan kalibrasi kurva respons kamera."
+  }
+]
+

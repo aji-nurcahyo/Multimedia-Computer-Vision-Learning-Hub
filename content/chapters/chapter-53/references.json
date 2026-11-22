@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-53-1",
+    "title": "Lip Reading Sentences in the Wild",
+    "authors": "Joon Son Chung, Andrew Senior, Oriol Vinyals, Andrew Zisserman",
+    "year": 2017,
+    "publisher": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR.2017.367",
+    "annotation": "Makalah fundamental pengenalan wicara visual (Watch, Listen, Attend and Spell) yang membuktikan keunggulan arsitektur sinkronisasi audio-visual end-to-end."
+  },
+  {
+    "id": "ref-53-2",
+    "title": "Look, Listen and Learn (L3-Net)",
+    "authors": "Relja Arandjelović, Andrew Zisserman",
+    "year": 2017,
+    "publisher": "IEEE International Conference on Computer Vision (ICCV)",
+    "url": "https://doi.org/10.1109/ICCV.2017.65",
+    "annotation": "Mempelopori tugas dalih (pretext task) korespondensi audio-visual mandiri untuk mempelajari representasi visual dan akustik tanpa label manual."
+  },
+  {
+    "id": "ref-53-3",
+    "title": "Audio-Visual Scene Analysis with Self-Supervised Multisensory Features",
+    "authors": "Andrew Owens, Alexei A. Efros",
+    "year": 2018,
+    "publisher": "European Conference on Computer Vision (ECCV)",
+    "url": "https://doi.org/10.1007/978-3-030-01231-1_39",
+    "annotation": "Memperkenalkan analisis adegan audio-visual terpadu untuk pemisahan sumber suara spasial dan identifikasi komponen visual penghasil bunyi."
+  },
+  {
+    "id": "ref-53-4",
+    "title": "Attention Bottlenecks for Multimodal Fusion",
+    "authors": "Arsha Nagrani, Shan Yang, Anurag Arnab, Aren Jansen, Cordelia Schmid, Chen Sun",
+    "year": 2021,
+    "publisher": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "url": "https://proceedings.neurips.cc/paper/2021/hash/769d67b2d5a3fc5b93175850901e920d-Abstract.html",
+    "annotation": "Arsitektur Multimodal Bottleneck Transformer (MBT) yang mengintegrasikan aliran video dan audio melalui token perantara terkompresi."
+  }
+]

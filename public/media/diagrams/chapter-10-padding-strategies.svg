@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="380" rx="16" fill="url(#bg3)" />
+
+  <text x="40" y="45" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Boundary Handling &amp; Image Padding Strategies</text>
+  <text x="40" y="72" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Metode penanganan tepian citra saat ukuran spasial kernel melebihi koordinat batas (x,y)</text>
+
+  <!-- Card 1: Zero Padding (Constant 0) -->
+  <g transform="translate(40, 100)">
+    <rect width="270" height="230" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="135" y="30" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle">1. Zero Padding (BORDER_CONSTANT)</text>
+    
+    <!-- Outer padded boundary -->
+    <rect x="35" y="55" width="200" height="120" fill="#0f172a" stroke="#475569" stroke-dasharray="4" stroke-width="1.5"/>
+    <!-- Inner original image -->
+    <rect x="65" y="75" width="140" height="80" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+    <text x="135" y="120" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Citra Asli f(x,y)</text>
+    
+    <text x="50" y="68" fill="#ef4444" font-family="monospace" font-size="12" font-weight="bold">0</text>
+    <text x="135" y="68" fill="#ef4444" font-family="monospace" font-size="12" font-weight="bold">0</text>
+    <text x="220" y="68" fill="#ef4444" font-family="monospace" font-size="12" font-weight="bold">0</text>
+    <text x="50" y="168" fill="#ef4444" font-family="monospace" font-size="12" font-weight="bold">0</text>
+    <text x="220" y="168" fill="#ef4444" font-family="monospace" font-size="12" font-weight="bold">0</text>
+
+    <text x="135" y="205" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Menyebabkan efek artifak gelap pada tepi</text>
+  </g>
+
+  <!-- Card 2: Replicate / Clamp -->
+  <g transform="translate(345, 100)">
+    <rect width="270" height="230" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="135" y="30" fill="#34d399" font-family="system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle">2. Replicate (BORDER_REPLICATE)</text>
+    
+    <rect x="35" y="55" width="200" height="120" fill="#0f172a" stroke="#065f46" stroke-dasharray="4" stroke-width="1.5"/>
+    <rect x="65" y="75" width="140" height="80" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <text x="135" y="120" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Citra Asli f(x,y)</text>
+    
+    <text x="50" y="68" fill="#34d399" font-family="monospace" font-size="11">a a</text>
+    <text x="135" y="68" fill="#34d399" font-family="monospace" font-size="11">b b</text>
+    <text x="215" y="68" fill="#34d399" font-family="monospace" font-size="11">c c</text>
+    <text x="50" y="168" fill="#34d399" font-family="monospace" font-size="11">d d</text>
+    <text x="215" y="168" fill="#34d399" font-family="monospace" font-size="11">f f</text>
+
+    <text x="135" y="205" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Duplikasi nilai intensitas piksel tepi terluar</text>
+  </g>
+
+  <!-- Card 3: Reflect / Mirror -->
+  <g transform="translate(650, 100)">
+    <rect width="270" height="230" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="135" y="30" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle">3. Reflect (BORDER_REFLECT)</text>
+    
+    <rect x="35" y="55" width="200" height="120" fill="#0f172a" stroke="#78350f" stroke-dasharray="4" stroke-width="1.5"/>
+    <rect x="65" y="75" width="140" height="80" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+    <text x="135" y="120" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Citra Asli f(x,y)</text>
+    
+    <!-- Mirror arrows -->
+    <path d="M 100 80 Q 80 65 65 65" stroke="#fbbf24" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="50" y="68" fill="#fbbf24" font-family="monospace" font-size="11">c b a</text>
+    <text x="215" y="68" fill="#fbbf24" font-family="monospace" font-size="11">a b c</text>
+    <text x="50" y="168" fill="#fbbf24" font-family="monospace" font-size="11">z y x</text>
+    <text x="215" y="168" fill="#fbbf24" font-family="monospace" font-size="11">x y z</text>
+
+    <text x="135" y="205" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Pencerminan simetris nilai terhadap batas tepi</text>
+  </g>
+
+  <text x="40" y="355" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">Multimedia &amp; Computer Vision Learning Hub &#183; Aji Pamungkas Tri Nurcahyo (ITERA)</text>
+</svg>
+

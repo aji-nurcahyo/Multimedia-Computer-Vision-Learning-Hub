@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Color Models & Color Space Transformation",
+    "lead": "Section 02 — Digital Image Processing Fundamentals · Chapter 07",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: RGB, Grayscale, HSV, HSL, YCbCr, CIELAB, dan Segmentasi Berbasis Warna",
+    "notes": "Jelaskan motivasi mengapa satu ruang warna RGB saja tidak mencukupi dalam visi komputer."
+  },
+  {
+    "id": 2,
+    "title": "Keterbatasan Ruang Warna RGB",
+    "lead": "Korelasi tinggi antara komponen krominansi dan intensitas cahaya",
+    "body": "### Mengapa RGB Kurang Ideal untuk Segmentasi?\n- Perubahan intensitas cahaya (bayangan atau silau) mengubah nilai **R, G, dan B** secara bersamaan.\n- Sulit mendefinisikan rentang ambang geometris dalam kubus RGB untuk mendeteksi warna 'merah' di bawah pencahayaan berubah-ubah.\n- Solusi: Transformasi menuju ruang yang memisahkan komponen warna dari luminansi.",
+    "notes": "Berikan contoh nyata deteksi rambu lalu lintas merah pada siang cerah vs sore mendung."
+  },
+  {
+    "id": 3,
+    "title": "Model Warna HSV dan HSL",
+    "lead": "Representasi silinder intuitif bagi persepsi manusia",
+    "body": "### Dekomposisi HSV\n- **Hue ($H$)**: Sudut rona warna murni ($0^\\circ$ Merah, $120^\\circ$ Hijau, $240^\\circ$ Biru).\n- **Saturation ($S$)**: Kepekatan warna terhadap putih/abu-abu ($0$ s.d. $1$).\n- **Value ($V$) / Lightness ($L$)**: Kecerahan global warna.\n- **Perhatian OpenCV**: Skala 8-bit HSV OpenCV menggunakan **$H \\in [0, 179]$** (dibagi 2)!",
+    "notes": "Soroti jebakan klasik H in [0..179] di OpenCV karena 360 tidak muat dalam 1 byte uint8 (0..255)."
+  },
+  {
+    "id": 4,
+    "title": "Formulasi Konversi RGB ke HSV",
+    "lead": "Menghitung sudut Hue dan kejenuhan dari RGB ternormalisasi",
+    "body": "### Persamaan Transformasi\n$$C_{\\max} = \\max(R', G', B'), \\quad \\Delta = C_{\\max} - C_{\\min}$$\n$$S = \\frac{\\Delta}{C_{\\max}}, \\qquad V = C_{\\max}$$\n- Jika $C_{\\max} = R'$: $H = 60^\\circ \\times ((G'-B')/\\Delta \\bmod 6)$.\n- Jika $\\Delta = 0$: warna bersifat netral (abu-abu) dan $H = 0^\\circ$.",
+    "notes": "Demonstrasikan kasus khusus R=G=B di mana delta=0."
+  },
+  {
+    "id": 5,
+    "title": "Ruang Warna Video: YCbCr",
+    "lead": "Standar penyiaran digital, JPEG, dan codec video modern",
+    "body": "### Pemisahan Luma & Kroma (BT.601)\n$$Y = 0.299 R + 0.587 G + 0.114 B$$\n$$C_b = 128 + 0.5(B - Y) / 0.886, \\quad C_r = 128 + 0.5(R - Y) / 0.701$$\n- Mata manusia sangat sensitif pada **Y** (ketajaman struktur) namun kurang peka pada detail **Cb, Cr**.\n- Memungkinkan *chroma subsampling* 4:2:0 (hemat 50% bandwidth video!).",
+    "notes": "Kaitkan YCbCr dengan materi format dan kompresi video di Chapter 03."
+  },
+  {
+    "id": 6,
+    "title": "Ruang Warna CIELAB (L*a*b*)",
+    "lead": "Keseragaman perseptual independen perangkat",
+    "body": "### Tiga Sumbu Ortogonal CIE 1976\n- **$L^* \\in [0, 100]$**: Tingkat kecerahan dari hitam ke putih.\n- **$a^*$**: Sumbu berlawanan Hijau ($-$) ke Merah ($+$).\n- **$b^*$**: Sumbu berlawanan Biru ($-$) ke Kuning ($+$).\n- Jarak warna **$\\Delta E = \\sqrt{(\\Delta L^*)^2 + (\\Delta a^*)^2 + (\\Delta b^*)^2}$** mendekati perbedaan warna yang dirasakan mata manusia.",
+    "notes": "Jelaskan peran white point D65 dalam kalibrasi warna ilmiah."
+  },
+  {
+    "id": 7,
+    "title": "Segmentasi Warna di Ruang HSV",
+    "lead": "Memisahkan objek berwarna dengan rentang ambang cv2.inRange",
+    "body": "### Langkah Praktis\n- Konversi frame RGB/BGR ke HSV.\n- Tentukan batas bawah `[H_min, S_min, V_min]` dan atas `[H_max, S_max, V_max]`.\n- Gunakan `mask = cv2.inRange(hsv, lower, upper)`.\n- **Kasus Merah**: Karena Hue merah berada di sekitar $0^\\circ$ ($0..10$ dan $170..179$ di OpenCV), gabungkan dua masker dengan operator bitwise OR.",
+    "notes": "Jelaskan fenomena wrap-around warna merah pada lingkaran Hue 0°/360°."
+  },
+  {
+    "id": 8,
+    "title": "Contoh Program Python & OpenCV",
+    "lead": "Konversi dan thresholding multi-ruang warna",
+    "body": "### Kode Referensi\n```python\nhsv = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)\nlab = cv2.cvtColor(rgb, cv2.COLOR_RGB2LAB)\nycrcb = cv2.cvtColor(rgb, cv2.COLOR_RGB2YCrCb)\n\n# Masking biru pada skala HSV OpenCV (H sekitar 100-130)\nmask = cv2.inRange(hsv, (100, 80, 50), (130, 255, 255))\n```",
+    "notes": "Tunjukkan bagaimana masker biner dapat digunakan bersama operasi bitwise_and."
+  },
+  {
+    "id": 9,
+    "title": "Aplikasi Industri & Penelitian",
+    "lead": "Penggunaan strategis ruang warna dalam sistem nyata",
+    "body": "### Studi Kasus\n- **Pertanian Presisi**: Segmentasi tingkat kehijauan daun dan deteksi hama berbasis CIELAB $a^*$ dan HSV.\n- **Deteksi Warna Kulit**: Pemodelan statistik klaster pada bidang kroma $(C_b, C_r)$.\n- **Inspeksi Pencetakan**: Kontrol kualitas selisih warna tekstil menggunakan metrik $\\Delta E$ CIELAB.",
+    "notes": "Tanyakan kepada mahasiswa ruang warna apa yang paling cocok untuk mendeteksi nyala api vs daun."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 07",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- **RGB**: Bagus untuk display, lemah terhadap variasi cahaya.\n- **HSV/HSL**: Ideal untuk thresholding rona warna ($H$).\n- **YCbCr**: Efisien untuk kompresi luma-kroma video.\n- **CIELAB**: Standar pengukuran selisih persepsi warna $\\Delta E$.\n\n### Rujukan\n- Gonzalez & Woods (2018). *Digital Image Processing*, Bab 6.",
+    "notes": "Lanjutkan eksplorasi melalui tab Laboratorium Color Space Converter."
+  }
+]
+

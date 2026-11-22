@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-36-1",
+    "title": "Transformasi Geometri & Koordinat Citra 2D",
+    "path": "/media/diagrams/chapter-36-coordinate-systems-and-geometry.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-36-2",
+    "title": "Transformasi Afinitas vs Perspektif (Homografi)",
+    "path": "/media/diagrams/chapter-36-affine-vs-perspective-warping.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

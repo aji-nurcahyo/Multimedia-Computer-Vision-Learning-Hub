@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ex-42-1",
+    "title": "Eksperimen Mandiri Implementasi Bab 42",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip Python referensi examples/example-01.py dan amati verifikasi nilai numerik keluaran.",
+    "solution": "# Eksekusi verifikasi:\\npython content/chapters/chapter-42/examples/example-01.py"
+  },
+  {
+    "id": "ex-42-2",
+    "title": "Analisis Sensitivitas Parameter Algoritma",
+    "difficulty": "advanced",
+    "instruction": "Modifikasi ambang batas parameter numerik dan catat dampaknya terhadap akurasi serta metrik evaluasi.",
+    "solution": "# Sesuaikan nilai parameter pada fungsi uji dan verifikasi kepatuhan nilai toleransi np.allclose()"
+  }
+]

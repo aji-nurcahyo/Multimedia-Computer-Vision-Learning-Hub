@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ref-40-1",
+    "title": "Histograms of Oriented Gradients for Human Detection",
+    "authors": "Navneet Dalal, Bill Triggs",
+    "year": 2005,
+    "publisher": "IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR), 1, 886-893",
+    "url": "https://doi.org/10.1109/CVPR.2005.177",
+    "annotation": "Makalah dasar penemu deskriptor HOG yang merevolusi deteksi pejalan kaki dan objek kaku sebelum era Deep Learning, membuktikan keunggulan normalisasi blok lokal."
+  },
+  {
+    "id": "ref-40-2",
+    "title": "Support-Vector Networks",
+    "authors": "Corinna Cortes, Vladimir Vapnik",
+    "year": 1995,
+    "publisher": "Machine Learning, 20(3), 273-297",
+    "url": "https://doi.org/10.1007/BF00994018",
+    "annotation": "Makalah rujukan fundamental penemuan Support Vector Machine (SVM) dengan perumusan margin pemisah linear dan non-linear via kernel trick."
+  },
+  {
+    "id": "ref-40-3",
+    "title": "Visual Categorization with Bags of Keypoints",
+    "authors": "Gabriella Csurka, Christopher Dance, Lixin Fan, Jutta Willamowski, Cédric Bray",
+    "year": 2004,
+    "publisher": "ECCV Workshop on Statistical Learning in Computer Vision, 1-22",
+    "url": "https://www.cs.cmu.edu/~efros/courses/LBMV07/Papers/csurka-eccv-04.pdf",
+    "annotation": "Memperkenalkan representasi Bag of Visual Words (BoVW) untuk klasifikasi adegan dan pengenalan kategori objek berskala besar."
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-50-1",
+    "title": "On Calibration of Modern Neural Networks",
+    "authors": "Chuan Guo, Geoff Pleiss, Yu Sun, Kilian Q. Weinberger",
+    "year": 2017,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v70/guo17a.html",
+    "annotation": "Makalah seminal yang membuktikan degradasi kalibrasi pada jaringan syaraf dalam modern dan memperkenalkan temperature scaling sebagai solusi post-processing optimal."
+  },
+  {
+    "id": "ref-50-2",
+    "title": "The Pascal Visual Object Classes (VOC) Challenge",
+    "authors": "Mark Everingham, Luc Van Gool, Christopher K. I. Williams, John Winn, Andrew Zisserman",
+    "year": 2010,
+    "publisher": "International Journal of Computer Vision (IJCV)",
+    "url": "https://doi.org/10.1007/s11263-009-0275-7",
+    "annotation": "Standar kanonikal penetapan kurva Precision-Recall dan metode interpolasi Average Precision (AP) untuk evaluasi deteksi objek."
+  },
+  {
+    "id": "ref-50-3",
+    "title": "Microsoft COCO: Common Objects in Context",
+    "authors": "Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, C. Lawrence Zitnick",
+    "year": 2014,
+    "publisher": "European Conference on Computer Vision (ECCV)",
+    "url": "https://doi.org/10.1007/978-3-319-10602-1_48",
+    "annotation": "Definisi protokol standar industri mAP@[0.50:0.95] dengan 10 ambang batas IoU bertahap untuk deteksi objek multi-skala."
+  },
+  {
+    "id": "ref-50-4",
+    "title": "Benchmarking Neural Network Robustness to Common Corruptions and Perturbations",
+    "authors": "Dan Hendrycks, Thomas Dietterich",
+    "year": 2019,
+    "publisher": "International Conference on Learning Representations (ICLR)",
+    "url": "https://openreview.net/forum?id=HJz6tiCqYm",
+    "annotation": "Karya standar evaluasi ketahanan model penglihatan komputer terhadap 15 jenis korupsi visual fotometrik dan derau sensor (ImageNet-C)."
+  }
+]

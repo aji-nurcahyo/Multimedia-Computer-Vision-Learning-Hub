@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-04-01",
+    "title": "Latihan 1: Skrip Pengecekan Ketersediaan Pustaka Multimedia",
+    "difficulty": "beginner",
+    "instruction": "Tuliskan fungsi Python `check_package_installed(package_name)` yang menggunakan modul `importlib` untuk mengecek apakah sebuah pustaka terpasang pada interpreter Python aktif. Kembalikan versi pustaka jika terpasang, atau kembalikan None jika modul tidak ditemukan.",
+    "starterCode": "import importlib\n\ndef check_package_installed(package_name: str):\n    # TODO: Gunakan importlib.import_module\n    pass\n",
+    "solution": "import importlib\n\ndef check_package_installed(package_name: str):\n    try:\n        mod = importlib.import_module(package_name)\n        return getattr(mod, '__version__', 'Installed (No version attr)')\n    except ImportError:\n        return None\n"
+  },
+  {
+    "id": "ex-04-02",
+    "title": "Latihan 2: Pembuat Otomatis Berkas Konfigurasi Lingkungan (.gitignore & requirements.txt)",
+    "difficulty": "intermediate",
+    "instruction": "Tuliskan fungsi Python `generate_project_scaffold_files(target_dir)` yang membuat berkas `.gitignore` standar Python (mengabaikan `.venv/`, `__pycache__/`, `*.pyc`, dan data video besar `*.mp4`) serta berkas `requirements.txt` dasar multimedia.",
+    "starterCode": "import os\n\ndef generate_project_scaffold_files(target_dir: str) -> bool:\n    # TODO: Buat .gitignore dan requirements.txt\n    pass\n",
+    "solution": "import os\n\ndef generate_project_scaffold_files(target_dir: str) -> bool:\n    os.makedirs(target_dir, exist_ok=True)\n    gitignore_content = \".venv/\\n__pycache__/\\n*.pyc\\n*.mp4\\n*.wav\\ndist/\\n.DS_Store\\n\"\n    req_content = \"numpy>=1.26.0\\nmatplotlib>=3.8.0\\nopencv-python>=4.9.0\\npillow>=10.2.0\\nscipy>=1.12.0\\n\"\n    \n    with open(os.path.join(target_dir, '.gitignore'), 'w') as f:\n        f.write(gitignore_content)\n    with open(os.path.join(target_dir, 'requirements.txt'), 'w') as f:\n        f.write(req_content)\n    return True\n"
+  }
+]

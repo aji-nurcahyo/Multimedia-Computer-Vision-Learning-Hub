@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-adv08-01",
+    "title": "Penurunan Parameter Kuantisasi Afin dan Bukti Batas Galat Maksimum",
+    "difficulty": "advanced",
+    "instruction": "Tunjukkan penurunan analitis bahwa untuk pemetaan nilai riil r dalam rentang [r_min, r_max] ke bilangan bulat q dalam rentang [0, 2^b - 1] dengan faktor skala S = (r_max - r_min) / (2^b - 1), galat kuantisasi dekuantisasi e = |r - dequantize(quantize(r))| dibatasi oleh |e| <= S / 2, dan buktikan kondisi representasi presisi nilai nol (r = 0) pada zero-point Z.",
+    "starterCode": "# 1. Definisikan pemetaan r -> q = round(r / S) + Z.\n# 2. Definisikan rekonstruksi r_hat = S * (q - Z).\n# 3. Analisis batas galat pembulatan |round(u) - u| <= 0.5.\n# 4. Tunjukkan pengaruh pemilihan Z terhadap nilai r = 0.",
+    "solution": "# 1. Substitusi q = round(r / S) + Z ke dalam rumus rekonstruksi:\n#    r_hat = S * ((round(r / S) + Z) - Z) = S * round(r / S).\n# 2. Galat absolut rekonstruksi:\n#    |r - r_hat| = |r - S * round(r / S)| = S * |(r / S) - round(r / S)|.\n# 3. Karena fungsi pembulatan simetris round(x) memenuhi |x - round(x)| <= 1/2 untuk setiap bilangan riil x,\n#    maka |r - r_hat| <= S * (1/2) = S / 2.\n# 4. Untuk nilai riil r = 0:\n#    q(0) = round(0 / S) + Z = Z. Rekonstruksi: r_hat = S * (Z - Z) = 0.0 secara eksak tanpa galat pembulatan.\n#    Ini menjamin bahwa operasi padding nol pada konvolusi tidak terdistorsi oleh kuantisasi."
+  },
+  {
+    "id": "ex-adv08-02",
+    "title": "Analisis Intensitas Aritmatika & Roofline Model Konvolusi Konvensional vs Depthwise",
+    "difficulty": "advanced",
+    "instruction": "Tuliskan fungsi Python murni untuk menghitung intensitas aritmatika (FLOPs/Byte) dari standard 2D convolution dan depthwise separable convolution untuk dimensi (H, W, C_in, C_out, K=3), serta tentukan apakah layer tersebut beroperasi pada rezim memory-bound atau compute-bound pada akselerator dengan peak compute P = 40 GFLOPs dan peak bandwidth B = 25.6 GB/s.",
+    "starterCode": "def analyze_conv_roofline(H: int, W: int, C_in: int, C_out: int, K: int = 3, peak_flops: float = 40e9, peak_bw: float = 25.6e9, bytes_per_elem: int = 2):\n    \"\"\"\n    Menghitung intensitas aritmatika dan rezim kinerja Roofline.\n    \"\"\"\n    pass",
+    "solution": "def analyze_conv_roofline(H: int, W: int, C_in: int, C_out: int, K: int = 3, peak_flops: float = 40e9, peak_bw: float = 25.6e9, bytes_per_elem: int = 2):\n    # 1. Standard Convolution\n    # FLOPs = 2 * H * W * C_out * (C_in * K * K)\n    std_flops = 2 * H * W * C_out * C_in * K * K\n    # Transfer Memori (Input + Weights + Output) dalam bytes\n    std_bytes = ((H * W * C_in) + (C_out * C_in * K * K) + (H * W * C_out)) * bytes_per_elem\n    std_intensity = std_flops / std_bytes\n    \n    # 2. Depthwise Separable Convolution (Depthwise KxK + Pointwise 1x1)\n    dw_flops = 2 * H * W * C_in * K * K\n    pw_flops = 2 * H * W * C_in * C_out\n    sep_flops = dw_flops + pw_flops\n    sep_bytes = ((H * W * C_in) + (C_in * K * K + C_in * C_out) + (H * W * C_out)) * bytes_per_elem\n    sep_intensity = sep_flops / sep_bytes\n    \n    knee_point = peak_flops / peak_bw  # FLOPs/Byte\n    \n    return {\n        'knee_point': knee_point,\n        'std_intensity': std_intensity,\n        'std_regime': 'compute-bound' if std_intensity >= knee_point else 'memory-bound',\n        'sep_intensity': sep_intensity,\n        'sep_regime': 'compute-bound' if sep_intensity >= knee_point else 'memory-bound',\n        'flops_reduction_ratio': std_flops / sep_flops\n    }"
+  }
+]

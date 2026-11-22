@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ref-60-1",
+    "title": "Computer Vision: Algorithms and Applications",
+    "authors": "Richard Szeliski",
+    "year": 2022,
+    "publisher": "Springer Nature (2nd Edition)",
+    "url": "https://szeliski.org/Book/",
+    "annotation": "Buku referensi komprehensif tingkat dunia yang mencakup seluruh spektrum computer vision klasik, rekonstruksi 3D, pengenalan objek deep learning, dan sistem visi komputasional."
+  },
+  {
+    "id": "ref-60-2",
+    "title": "Deep Learning for Vision Systems",
+    "authors": "Mohamed Elgendy",
+    "year": 2020,
+    "publisher": "Manning Publications",
+    "url": "https://www.manning.com/books/deep-learning-for-vision-systems",
+    "annotation": "Panduan rekayasa praktis untuk merancang, melatih, dan menyebarkan sistem visi berbasis deep learning tingkat produksi (YOLO, SSD, Fast R-CNN, transfer learning, dan optimasi edge)."
+  },
+  {
+    "id": "ref-60-3",
+    "title": "Intelligent Sensing & Vision-Centric Wireless Systems (ISVWS 2026–2040 Roadmap)",
+    "authors": "Aji Pamungkas Tri Nurcahyo",
+    "year": 2026,
+    "publisher": "Institut Teknologi Sumatera (ITERA) Academic Monograph",
+    "url": "https://itera.ac.id",
+    "annotation": "Dokumen peta jalan kepakaran akademik dan visi riset jangka panjang ITERA mengenai integrasi visi komputer cerdas, multimodal perception, dan sensing nirkabel terdistribusi."
+  }
+]
+

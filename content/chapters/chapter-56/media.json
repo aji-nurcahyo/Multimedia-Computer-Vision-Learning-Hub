@@ -1,0 +1,23 @@
+[
+  {
+    "id": "diagram-56-1",
+    "title": "Arsitektur Pipeline Multimedia Real-Time & Buffer Queue",
+    "path": "/media/diagrams/chapter-56-realtime-pipeline-buffering.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-56-2",
+    "title": "Frame Timing, Jitter, dan Batas Deadline Pemrosesan",
+    "path": "/media/diagrams/chapter-56-frame-timing-jitter-latency.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]
+

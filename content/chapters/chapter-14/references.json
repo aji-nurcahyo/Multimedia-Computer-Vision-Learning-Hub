@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ref-14-01",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson Education",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-image-processing/P200000003306",
+    "type": "book",
+    "annotation": "Bab 9 merupakan standar referensi akademis untuk teori himpunan morfologi biner, rekonstruksi geodetik, dan ekstensi grayscale."
+  },
+  {
+    "id": "ref-14-02",
+    "title": "Image Analysis and Mathematical Morphology",
+    "authors": "Jean Serra",
+    "year": 1982,
+    "publisher": "Academic Press",
+    "url": "https://www.sciencedirect.com/book/9780126372403/image-analysis-and-mathematical-morphology",
+    "type": "book",
+    "annotation": "Buku pionir teori morfologi matematis yang meletakkan dasar aljabar himpunan dan elemen penstruktur."
+  },
+  {
+    "id": "ref-14-03",
+    "title": "Morphological Transformations — OpenCV Python Tutorials",
+    "authors": "OpenCV Developer Team",
+    "year": 2024,
+    "publisher": "OpenCV Foundation",
+    "url": "https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html",
+    "type": "documentation",
+    "annotation": "Panduan implementasi cv2.erode, cv2.dilate, cv2.morphologyEx, dan cv2.getStructuringElement."
+  }
+]
+

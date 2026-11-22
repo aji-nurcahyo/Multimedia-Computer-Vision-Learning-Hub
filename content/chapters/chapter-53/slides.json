@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 53: Audio-Visual Learning & Fusion",
+    "content": "Integrasi Aliran Video & Sinyal Akustik: Korespondensi, Sinkronisasi Temporal & Verifikasi Peristiwa\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 53. Tekankan sudut pandang vision-centric: visual sebagai lokalisasi spasial utama, didukung bukti akustik untuk verifikasi peristiwa yang kokoh."
+  },
+  {
+    "id": "slide-2",
+    "title": "Pipeline Sinkronisasi Temporal Audio-Visual",
+    "content": "Kompensasi Jeda Waktu Pengambilan Sinyal:\\n- Ekstraksi Energi Gerak Visual E_v(t) dari Optical Flow\\n- Ekstraksi Energi Selubung Audio E_a(t) dari Spektrogram / RMS\\n- Korelasi Silang: R(tau) = sum_t E_v(t) * E_a(t + tau)\\n- Penentuan Lag Optimal: tau* = argmax_tau R(tau)",
+    "diagram": "/media/diagrams/chapter-53-audiovisual-synchronization-pipeline.svg",
+    "notes": "Jelaskan diagram alur sinkronisasi. Tunjukkan bagaimana sinyal audio yang tergeser beberapa puluh milidetik dapat dikoreksi sebelum tahap klasifikasi fusi."
+  },
+  {
+    "id": "slide-3",
+    "title": "Tantangan Diskrepansi Sampling Sensorik",
+    "content": "Asimetri Frekuensi Pengambilan Data:\\n- Video: 30 FPS -> Jendela waktu frame ~33.3 ms\\n- Audio: 16.000 atau 44.100 Hz -> Resolusi temporal ~0.02-0.06 ms\\n\\nTeknik Penyelarasan Jendela Waktu:\\n- Pemotongan paket audio per durasi frame video\\n- Transformasi Short-Time Fourier Transform (STFT) -> Log-Mel Spectrogram",
+    "diagram": null,
+    "notes": "Jelaskan konversi representasi audio 1D menjadi matriks waktu-frekuensi 2D agar arsitektur konvolusi atau Transformer dapat memprosesnya berdampingan dengan video."
+  },
+  {
+    "id": "slide-4",
+    "title": "Arsitektur Cross-Attention Audio-Visual",
+    "content": "Fusi Dua Arah Berbasis Atensi:\\n- Query Visual Q_v, Key Audio K_a, Value Audio V_a\\n- Z_{v <- a} = Softmax( Q_v K_a^T / sqrt(d) ) V_a + X_v\\n\\nKeunggulan Arsitektur:\\n- Memperkaya fitur objek visual dengan konteks frekuensi suara\\n- Mampu membedakan instrumen musik serupa berdasarkan harmonisasi akustik",
+    "diagram": null,
+    "notes": "Jelaskan peran Cross-Attention: bagaimana fitur visual 'menanyakan' komponen audio yang relevan untuk memperkuat representasi spasialnya."
+  },
+  {
+    "id": "slide-5",
+    "title": "Arsitektur Fusi Audio-Visual Berstandar Industri",
+    "content": "Topologi Sistem Pemantauan Cerdas:\\n- Visual Backbone (3D CNN / Video Transformer)\\n- Audio Backbone (AST / 2D CNN pada Log-Mel)\\n- Modul Gated Fusion & Bottleneck Tokens\\n- Lapisan Klasifikasi Peristiwa & Estimasi Koordinat Spasial",
+    "diagram": "/media/diagrams/chapter-53-audiovisual-fusion-architectures.svg",
+    "notes": "Gunakan diagram arsitektur fusi untuk menunjukkan integrasi end-to-end dari input mentah mikrofon dan kamera hingga output alarm keselamatan."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Korelasi Silang & Deteksi Lag",
+    "content": "Data 5 Frame: E_v = [0.1, 0.2, 0.9, 0.3, 0.1], E_a = [0.0, 0.1, 0.2, 0.9, 0.3]\\n\\nPerhitungan Korelasi Silang R(tau):\\n- Lag tau = 0  -> R(0)  = 0.5000\\n- Lag tau = 1  -> R(1)  = 0.9500 (PUNCAK KORELASI)\\n- Lag tau = -1 -> R(-1) = 0.2400\\n\\nKesimpulan Matematis: Sinyal audio tertunda 1 frame (100 ms) terhadap video.",
+    "diagram": null,
+    "notes": "Bimbing mahasiswa melalui kalkulasi angka. Tunjukkan bahwa pada tau = 1, kedua puncak energi (0.9 x 0.9 = 0.81) bertemu sempurna."
+  },
+  {
+    "id": "slide-7",
+    "title": "Verifikasi Peristiwa & Supresi Alarm Palsu",
+    "content": "Skenario Deteksi Tabrakan Kendaraan:\\n1. Peristiwa Nyata (Malam Hari Gelap):\\n   P_v = 0.75 (gamma_v=0.7), P_a = 0.90 (gamma_a=0.85)\\n   P_AV = 0.4516(0.75) + 0.5484(0.90) = 0.8323 (83.23% -> Konfirmasi Valid)\\n2. Alarm Palsu Visual (Bayangan Melintas):\\n   P_v = 0.75, P_a = 0.05 (Hening)\\n   P_AV = 0.4516(0.75) + 0.5484(0.05) = 0.3661 (36.61% -> ALARM DITOLAK)",
+    "diagram": null,
+    "notes": "Tekankan nilai praktis di industri: kamera keamanan sering memicu alarm palsu karena bayangan, namun mikrofon yang hening berhasil mencegah mobil pemadam kebakaran dikirim sia-sia."
+  },
+  {
+    "id": "slide-8",
+    "title": "Mode Kegagalan & Mitigasi Lapangan",
+    "content": "Tantangan Akustik Dunia Nyata:\\n1. Gema & Reverberasi Ruang Tertutup (Terowongan, Lorong):\\n   Solusi: Filter pra-pemrosesan Weighted Prediction Error (WPE)\\n2. Sumber Suara di Luar Kamera (Off-Screen Sounds):\\n   Solusi: Visual-guided sound separation & Microphone Array DOA\\n3. Drop Frame Video (Variable Frame Rate):\\n   Solusi: Timestamp perangkat keras PTP & Dynamic Time Warping (DTW)",
+    "diagram": null,
+    "notes": "Jelaskan fenomena koktail pesta (cocktail party problem) di mana banyak orang berbicara sekaligus di luar frame video."
+  },
+  {
+    "id": "slide-9",
+    "title": "Implementasi & Integrasi Laboratorium Web",
+    "content": "Pembelajaran Tiga Moda Bab 53:\\n- Tier A: Lab interaktif AudioVisualFusionLab.tsx di browser\\n- Tier B: Skrip verifikasi mandiri examples/example-01.py\\n- Tier C: Jupyter notebook praktikum chapter-53-lab.ipynb\\n- Menguji slider lag temporal dan verifikasi penolakan alarm palsu.",
+    "diagram": null,
+    "notes": "Arahkan peserta didik untuk mengeksplorasi AudioVisualFusionLab.tsx dan menggeser slider offset waktu untuk mengamati grafik korelasi silang."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Arah Riset Bab 53",
+    "content": "Pondasi Utama Bab 53 Menuju ISVWS 2026-2040:\\n- Sinergi audio-visual memperkuat ketahanan penglihatan komputer kritis\\n- Skrip verifikasi: examples/example-01.py (lulus exit 0 deterministik)\\n- Kesiapan Kurikulum: Menuju Bab 54 (Multimodal Embeddings & Retrieval)\\n- Masa depan: Audio-Visual Spatial Localization dan Active Acoustic Sensing.",
+    "diagram": null,
+    "notes": "Slide penutup: tekankan bahwa integrasi audio-visual adalah fondasi penting untuk sistem robotika otonom masa depan."
+  }
+]

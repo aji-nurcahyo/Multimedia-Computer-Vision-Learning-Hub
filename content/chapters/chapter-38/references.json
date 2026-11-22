@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ref-38-1",
+    "title": "A Flexible New Technique for Camera Calibration",
+    "authors": "Zhengyou Zhang",
+    "year": 2000,
+    "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 22(11), 1330-1334",
+    "url": "https://doi.org/10.1109/34.888718",
+    "annotation": "Makalah fundamental metode kalibrasi kamera bidang datar fleksibel menggunakan pola papan catur yang kini menjadi standar de-facto pustaka OpenCV dan MATLAB."
+  },
+  {
+    "id": "ref-38-2",
+    "title": "Close-Range Camera Calibration",
+    "authors": "Duane C. Brown",
+    "year": 1971,
+    "publisher": "Photogrammetric Engineering, 37(8), 855-866",
+    "url": "https://www.asprs.org/wp-content/uploads/pers/1971journal/aug/1971_aug_855-866.pdf",
+    "annotation": "Formulasi kanonikal model distorsi lensa Brown-Conrady yang memodelkan distorsi radial simetris (k1, k2, k3) dan distorsi tangensial desentrasi (p1, p2)."
+  },
+  {
+    "id": "ref-38-3",
+    "title": "Multiple View Geometry in Computer Vision (2nd Edition)",
+    "authors": "Richard Hartley, Andrew Zisserman",
+    "year": 2004,
+    "publisher": "Cambridge University Press",
+    "url": "https://www.cambridge.org/core/books/multiple-view-geometry-in-computer-vision/4582AA4E1199F9F8813B038B315DE219",
+    "annotation": "Bab 6 dan Bab 7 mengupas secara mendalam model kamera pinhole, matriks proyeksi P, rekonstruksi kamera berhingga, dan kalkulasi reprojection error."
+  }
+]

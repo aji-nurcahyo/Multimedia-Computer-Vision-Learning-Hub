@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Transformasi Geometri & Koordinat Citra 2D</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Perbedaan Sistem Koordinat Layar vs Kartesian dan Matriks Homogen Transformasi</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <!-- Cartesian vs Screen Coordinates -->
+      <g transform="translate(60, 110)">
+        <rect width="300" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <text x="20" y="30" fill="#38bdf8" font-family="sans-serif" font-size="14" font-weight="bold">Koordinat Citra (Array 2D)</text>
+        <line x1="40" y1="60" x2="260" y2="60" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow)"/>
+        <line x1="40" y1="60" x2="40" y2="220" stroke="#10b981" stroke-width="2"/>
+        <text x="270" y="65" fill="#f43f5e" font-size="12" font-family="monospace">X (Kolom, W)</text>
+        <text x="45" y="235" fill="#10b981" font-size="12" font-family="monospace">Y (Baris, H)</text>
+        <circle cx="40" cy="60" r="4" fill="#fbbf24"/>
+        <text x="50" y="55" fill="#fbbf24" font-size="11" font-family="monospace">(0, 0) Origin</text>
+        <rect x="100" y="110" width="100" height="70" fill="#3b82f6" fill-opacity="0.3" stroke="#60a5fa" stroke-dasharray="4"/>
+        <text x="110" y="150" fill="#e2e8f0" font-size="12">Pixel [y, x]</text>
+      </g>
+      <g transform="translate(420, 110)">
+        <rect width="320" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <text x="20" y="30" fill="#a855f7" font-family="sans-serif" font-size="14" font-weight="bold">Matriks Transformasi Afinitas Homogen</text>
+        <text x="30" y="80" fill="#e2e8f0" font-family="monospace" font-size="14">
+          [x']   [ s_x·cosθ  -sinθ   t_x ] [x]
+        </text>
+        <text x="30" y="110" fill="#e2e8f0" font-family="monospace" font-size="14">
+          [y'] = [  sinθ    s_y·cosθ t_y ] [y]
+        </text>
+        <text x="30" y="140" fill="#e2e8f0" font-family="monospace" font-size="14">
+          [ 1]   [    0        0      1  ] [1]
+        </text>
+        <rect x="25" y="170" width="270" height="60" rx="6" fill="#0f172a" stroke="#334155"/>
+        <text x="35" y="195" fill="#38bdf8" font-size="11">Derajat Kebebasan (DoF) Afinitas = 6</text>
+        <text x="35" y="215" fill="#94a3b8" font-size="11">Mempertahankan paralelisme garis lurus</text>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

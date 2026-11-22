@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-20-01",
+    "title": "Kompromi Resolusi Waktu-Frekuensi Heisenberg-Gabor",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-20-stft-spectrogram-tradeoff.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-20-02",
+    "title": "Transformasi Skala Hertz ke Skala Persepsi Mel",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-20-mel-scale-spectrogram.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

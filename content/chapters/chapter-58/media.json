@@ -1,0 +1,23 @@
+[
+  {
+    "id": "diagram-58-1",
+    "title": "Arsitektur Pemrosesan Multimedia Modern pada Browser",
+    "path": "/media/diagrams/chapter-58-browser-multimedia-architecture.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-58-2",
+    "title": "Pipeline Piksel HTML5 Canvas & Transfer Data Bebas Salin",
+    "path": "/media/diagrams/chapter-58-mediadevices-canvas-pipeline.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]
+

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-adv02-01",
+    "title": "Penurunan Analitis Operator Proksimal L1 (Soft-Thresholding)",
+    "difficulty": "advanced",
+    "instruction": "Tunjukkan penurunan analitis lengkap bahwa penyelesaian masalah minimisasi proksimal: argmin_z { (1/2) * ||z - v||_2^2 + tau * ||z||_1 } diberikan secara eksak oleh operator soft-thresholding S_tau(v) = sign(v) * max(|v| - tau, 0).",
+    "starterCode": "# Selesaikan persamaan subdifferensial secara analitis untuk setiap komponen skalar z_i:\n# 0 in d/dz [ 1/2 (z - v)^2 + tau * |z| ]\n# z - v + tau * subdiff(|z|) = 0\n# Tinjau kasus z > 0, z < 0, dan z = 0.",
+    "solution": "# 1. Subdifferensial fungsi nilai mutlak |z| adalah:\n#    d|z| = {1} jika z > 0, {-1} jika z < 0, dan [-1, 1] jika z = 0.\n# 2. Kasus z > 0: z - v + tau = 0 => z = v - tau. Syarat z > 0 terpenuhi hanya jika v > tau.\n# 3. Kasus z < 0: z - v - tau = 0 => z = v + tau. Syarat z < 0 terpenuhi hanya jika v < -tau.\n# 4. Kasus z = 0: -v + tau * g = 0 dengan g in [-1, 1] => v = tau * g => |v| <= tau.\n# Menggabungkan ketiga kondisi tersebut:\n# z* = sign(v) * max(|v| - tau, 0) == S_tau(v)."
+  },
+  {
+    "id": "ex-adv02-02",
+    "title": "Solusi Domain Frekuensi Subproblem-x ADMM Deconvolution",
+    "difficulty": "advanced",
+    "instruction": "Pada dekonvolusi citra periodik dengan kernel PSF k dan operator beda berhingga D, turunkan solusi bentuk tertutup dari subproblem-x: (A^T A + rho * D^T D) x = A^T y + rho * D^T (z - u) dalam domain Fourier 2D menggunakan sifat sirkulan konvolusi.",
+    "starterCode": "import numpy as np\n\ndef solve_x_subproblem_fourier(y: np.ndarray, psf: np.ndarray, z_minus_u: np.ndarray, rho: float) -> np.ndarray:\n    \"\"\"\n    Menyelesaikan subproblem-x ADMM dalam domain frekuensi via 2D FFT.\n    \"\"\"\n    # 1. Transformasikan PSF dan operator beda ke domain Fourier (DFT 2D)\n    # 2. Hitung pembilang: F(A^T y) + rho * F(D^T (z - u))\n    # 3. Hitung penyebut: |F(A)|^2 + rho * |F(D)|^2\n    # 4. Transformasikan kembali via IFFT 2D dan ambil komponen riil\n    pass",
+    "solution": "import numpy as np\n\ndef solve_x_subproblem_fourier(y: np.ndarray, psf: np.ndarray, z_minus_u: np.ndarray, rho: float) -> np.ndarray:\n    H, W = y.shape\n    # Optical Transfer Function (OTF) dari PSF\n    otf_A = np.fft.fft2(psf, s=(H, W))\n    \n    # Filter turunan horizontal dan vertikal\n    dx_kernel = np.array([[0, 0, 0], [-1, 1, 0], [0, 0, 0]], dtype=float)\n    dy_kernel = np.array([[0, -1, 0], [0, 1, 0], [0, 0, 0]], dtype=float)\n    otf_Dx = np.fft.fft2(dx_kernel, s=(H, W))\n    otf_Dy = np.fft.fft2(dy_kernel, s=(H, W))\n    \n    # Pembilang dalam domain Fourier\n    num = np.conj(otf_A) * np.fft.fft2(y) + rho * (\n        np.conj(otf_Dx) * np.fft.fft2(z_minus_u[0]) + np.conj(otf_Dy) * np.fft.fft2(z_minus_u[1])\n    )\n    # Penyebut: |F(A)|^2 + rho * (|F(Dx)|^2 + |F(Dy)|^2)\n    denom = np.abs(otf_A)**2 + rho * (np.abs(otf_Dx)**2 + np.abs(otf_Dy)**2)\n    \n    x_rec = np.real(np.fft.ifft2(num / (denom + 1e-12)))\n    return x_rec"
+  }
+]
+

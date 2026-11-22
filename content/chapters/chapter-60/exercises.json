@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ex-60-1",
+    "title": "Verifikasi Skrip Referensi Sistem Capstone Multimodal",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip `examples/example-01.py` dan verifikasi bahwa seluruh skenario (insiden malam hari, peredaman kabut, histeresis 3-frame, dan rubrik nilai 94.0 Grade A) tervalidasi 100%.",
+    "solution": "# Eksekusi pengujian mandiri:\npython content/chapters/chapter-60/examples/example-01.py"
+  },
+  {
+    "id": "ex-60-2",
+    "title": "Pengembangan Proyek Akhir Mandiri Tingkat Level B / Level C",
+    "difficulty": "advanced",
+    "instruction": "Pilihlah salah satu topik spesifik pemantauan (misal: Monitoring Keselamatan Helm Pekerja Proyek ITERA atau Pemantauan Satwa Liar di Taman Nasional Way Kambas). Susun dokumen spesifikasi kebutuhan sistem, diagram pipeline data, dan target metrik evaluasi mAP.",
+    "solution": "# Rancang pipeline end-to-end dengan modul input video/audio, model deteksi objek terkuantisasi INT8, dan antarmuka web interaktif yang menyertakan telemetri latensi per frame."
+  }
+]
+

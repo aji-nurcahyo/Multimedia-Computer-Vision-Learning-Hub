@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 54: Multimodal Embeddings & Retrieval",
+    "content": "Pencarian Semantik Lintas-Modal: Ruang Metrik Bersama, Algoritma kNN/ANN & Evaluasi R@K/MRR\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 54. Tekankan peran ruang metrik bersama dalam memungkinkan pencarian citra menggunakan kalimat bahasa alami tanpa anotasi metadata manual."
+  },
+  {
+    "id": "slide-2",
+    "title": "Topologi Ruang Metrik Bersama (Joint Space)",
+    "content": "Prinsip Geometri Unit Hypersphere S^{D-1}:\\n- Citra & Teks diproyeksikan ke ruang laten berdimensi identik D (512 / 768)\\n- Normalisasi L2: ||u||_2 = 1.0, ||v||_2 = 1.0\\n\\nHubungan Analitis Jarak Euclidean & Kesamaan Kosinus:\\nd_E^2 = ||u - v||^2 = 2 * (1 - cos theta)\\nMeminimalkan jarak Euclidean identik dengan memaksimalkan perkalian dot product.",
+    "diagram": "/media/diagrams/chapter-54-crossmodal-embedding-space.svg",
+    "notes": "Jelaskan diagram ruang metrik bersama. Tunjukkan bagaimana vektor citra dan teks dari konsep yang sama berhimpitan di permukaan unit hypersphere."
+  },
+  {
+    "id": "slide-3",
+    "title": "Pencarian Eksak kNN vs Approximate Nearest Neighbors (ANN)",
+    "content": "Skalabilitas Pencarian Vektor Skala Besar:\\n- Exact kNN (Brute-Force):\\n  Kompleksitas O(N * D) - Terlalu lambat untuk miliaran citra visual\\n- Algoritma ANN (HNSW & FAISS):\\n  * HNSW: Graf navigasi bertingkat berkecepatan logaritmik O(log N)\\n  * Product Quantization (PQ): Mengompresi vektor 512-dimensi menjadi byte ringkas\\n  * Menghasilkan throughput > 10.000 QPS pada perangkat edge/server",
+    "diagram": null,
+    "notes": "Jelaskan mengapa industri beralih ke ANN: mengorbankan 1-2% recall demi mendapatkan akselerasi pencarian 1000x lebih cepat."
+  },
+  {
+    "id": "slide-4",
+    "title": "Pencarian Lintas-Modal Dwiarah (Bidirectional Retrieval)",
+    "content": "Dua Alur Pencarian Utama:\\n1. Text-to-Image (T2I) Retrieval:\\n   Kueri teks q_txt -> Ambil K citra teratas dari basis data visual\\n2. Image-to-Text (I2T) Retrieval:\\n   Kueri citra q_img -> Ambil K deskripsi teks paling mendekati\\n\\nMatriks Relevansi S = Q_txt * D_img^T berukuran (N_queries x N_database)",
+    "diagram": null,
+    "notes": "Jelaskan sifat dwiarah: ruang embedding yang terlatih dengan baik mampu melayani kedua arah pencarian secara seimbang."
+  },
+  {
+    "id": "slide-5",
+    "title": "Metrik Evaluasi Sistem Retrieval: Recall@K & MRR",
+    "content": "Standar Evaluasi Kuantitatif Lintas-Modal:\\n- Recall@K: Proporsi kueri dengan item target di peringkat <= K\\n  R@K = (1 / N_q) * sum_i 1(rank_i <= K)\\n- Mean Reciprocal Rank (MRR):\\n  MRR = (1 / N_q) * sum_i (1 / rank_i)\\n- Catatan Penting: Jangan tertukar antara mAP Retrieval (relevansi dokumen) dengan mAP Deteksi Objek (IoU spasial)",
+    "diagram": "/media/diagrams/chapter-54-semantic-retrieval-evaluation-metrics.svg",
+    "notes": "Tunjukkan diagram metrik evaluasi. Tekankan bahwa mAP pada retrieval mengukur presisi dokumen terurut, bukan bounding box IoU."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Perhitungan Metrik Retrieval",
+    "content": "Hasil Pengujian 4 Kueri Lintas-Modal (Peringkat Target):\\n- Q1: Rank 1  |  Q2: Rank 3  |  Q3: Rank 2  |  Q4: Rank 6\\n\\nKalkulasi Analitik:\\n- Recall@1 = 1 / 4 = 0.2500 (25.0%)\\n- Recall@5 = (1 + 1 + 1 + 0) / 4 = 0.7500 (75.0%)\\n- MRR = ( 1/1 + 1/3 + 1/2 + 1/6 ) / 4 = 2.0 / 4 = 0.5000",
+    "diagram": null,
+    "notes": "Bimbing mahasiswa melalui kalkulasi angka. Tunjukkan bagaimana peringkat 6 pada kueri 4 gagal masuk ke dalam R@5 namun tetap berkontribusi 1/6 pada nilai MRR."
+  },
+  {
+    "id": "slide-7",
+    "title": "Pembuktian Numerik Identitas Jarak Geometris",
+    "content": "Vektor Uji: u = [1, 0]^T, v = [0.6, 0.8]^T (||u||=1, ||v||=1):\\n- Kesamaan Kosinus: cos theta = 1.0(0.6) + 0 = 0.6000\\n- Jarak Euclidean Langsung: d_E = sqrt( (0.4)^2 + (-0.8)^2 ) = sqrt(0.80) = 0.8944\\n- Evaluasi Identitas: d_E^2 = 0.8000\\n  2 * (1 - cos theta) = 2 * (1 - 0.60) = 0.8000\\nTerbukti identik eksak secara matematis.",
+    "diagram": null,
+    "notes": "Tunjukkan keselarasan aljabar linier dengan komputasi numerik di papan tulis."
+  },
+  {
+    "id": "slide-8",
+    "title": "Mode Kegagalan: Modality Gap & Hubness Problem",
+    "content": "Anomali Ruang Embedding Berdimensi Tinggi:\\n1. Modality Gap (Liang et al., 2022):\\n   Cluster vektor citra dan teks terpisah secara geometris\\n   Solusi: Decoupled mean-centering pada masing-masing modalitas\\n2. The Hubness Problem:\\n   Vektor tertentu mendominasi tetangga terdekat secara tidak adil\\n   Solusi: Cross-domain Inverted Softmax (CSLS)\\n3. Ambiguitas Kata Polisemi ('apple' buah vs 'apple' laptop)",
+    "diagram": null,
+    "notes": "Jelaskan fenomena Modality Gap yang ditemukan pada NeurIPS 2022: meskipun model CLIP sangat akurat, terdapat gap jarak pemisah konstan antara domain citra dan teks."
+  },
+  {
+    "id": "slide-9",
+    "title": "Implementasi & Integrasi Laboratorium Web",
+    "content": "Pembelajaran Tiga Moda Bab 54:\\n- Tier A: Lab interaktif CrossModalSearchLab.tsx di browser\\n- Tier B: Skrip verifikasi mandiri examples/example-01.py\\n- Tier C: Jupyter notebook praktikum chapter-54-lab.ipynb\\n- Menguji kueri semantik teks dan melihat visualisasi embedding 2D.",
+    "diagram": null,
+    "notes": "Arahkan mahasiswa untuk berinteraksi dengan CrossModalSearchLab.tsx dan mencoba kueri teks yang berbeda-beda untuk mengamati tabel perankingan Top-K."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Arah Riset Bab 54",
+    "content": "Pondasi Utama Bab 54 Menuju ISVWS 2026-2040:\\n- Retrieval lintas-modal menjadi tulang punggung pencarian visual skala global\\n- Skrip verifikasi: examples/example-01.py (lulus deterministik exit 0)\\n- Kesiapan Kurikulum: Menuju Bab 55 (Multimodal Application Development)\\n- Integrasi masa depan: Vector Databases (Pinecone/Milvus) & Retrieval-Augmented Generation (RAG).",
+    "diagram": null,
+    "notes": "Slide penutup: tekankan integrasi pencarian multimodal ke dalam arsitektur aplikasi riil yang akan dipelajari pada bab penutup Seksi 11."
+  }
+]

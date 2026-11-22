@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ronneberger-2015-unet",
+    "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+    "authors": "Olaf Ronneberger, Philipp Fischer, Thomas Brox",
+    "year": 2015,
+    "venue": "Medical Image Computing and Computer-Assisted Intervention (MICCAI 2015)",
+    "doi": "10.1007/978-3-319-24574-4_28",
+    "url": "https://arxiv.org/abs/1505.04597",
+    "citationKey": "ronneberger2015unet"
+  },
+  {
+    "id": "long-2015-fcn",
+    "title": "Fully Convolutional Networks for Semantic Segmentation",
+    "authors": "Jonathan Long, Evan Shelhamer, Trevor Darrell",
+    "year": 2015,
+    "venue": "IEEE Conference on Computer Vision and Pattern Recognition (CVPR 2015)",
+    "doi": "10.1109/CVPR.2015.7298965",
+    "url": "https://arxiv.org/abs/1411.4038",
+    "citationKey": "long2015fully"
+  },
+  {
+    "id": "chen-2017-deeplabv3",
+    "title": "Rethinking Atrous Convolution for Semantic Image Segmentation",
+    "authors": "Liang-Chieh Chen, George Papandreou, Florian Schroff, Hartwig Adam",
+    "year": 2017,
+    "venue": "arXiv preprint arXiv:1706.05587",
+    "url": "https://arxiv.org/abs/1706.05587",
+    "citationKey": "chen2017rethinking"
+  },
+  {
+    "id": "he-2017-maskrcnn",
+    "title": "Mask R-CNN",
+    "authors": "Kaiming He, Georgia Gkioxari, Piotr Dollár, Ross Girshick",
+    "year": 2017,
+    "venue": "IEEE International Conference on Computer Vision (ICCV 2017)",
+    "doi": "10.1109/ICCV.2017.322",
+    "url": "https://arxiv.org/abs/1703.06870",
+    "citationKey": "he2017mask"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-15-01",
+    "title": "Metode Otsu: Maksimasi Variansi Antar-Kelas Histogram Bimodal",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-15-otsu-thresholding.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-15-02",
+    "title": "Pelabelan Komponen Terhubung (CCL), Watershed & Metrik Evaluasi IoU/Dice",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-15-connected-components.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

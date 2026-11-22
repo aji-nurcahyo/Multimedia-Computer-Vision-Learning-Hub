@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "NumPy, Visualization & Multimedia I/O",
+    "lead": "Section 01 — Multimedia & Signal Foundations · Chapter 05",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Kuliah**: Struktur Tensor ndarray, Tipe Data & Overflow, Views vs Copies, BGR vs RGB, dan Vektorisasi SIMD",
+    "notes": "Selamat datang di kuliah Bab 05. Kita akan menguasai cara memanipulasi citra, audio, dan video sebagai matriks berkecepatan tinggi dengan NumPy."
+  },
+  {
+    "id": 2,
+    "title": "Capaian Pembelajaran Perkuliahan",
+    "lead": "Kompetensi utama pemrosesan data array multimedia",
+    "body": "### Target Pembelajaran\n- Memahami struktur dimensi array: Audio (N,), Grayscale (H, W), RGB (H, W, 3), dan Video (T, H, W, 3).\n- Menguasai pengirisan spasial (slicing) dan ekstraksi Region of Interest (ROI).\n- Menghindari perangkap kritis: uint8 integer overflow dan memory view modification.\n- Memahami perbedaan susunan saluran warna BGR (OpenCV) vs RGB (Matplotlib).\n- Memanfaatkan vektorisasi NumPy untuk akselerasi komputasi ratusan kali lipat.",
+    "notes": "Tekankan bahwa pemahaman slicing dan tipe data adalah kunci utama sebelum masuk ke filtering spasial di Section 02."
+  },
+  {
+    "id": 3,
+    "title": "Struktur Dimensi Tensor N-Dimensi",
+    "lead": "Representasi universal data multimedia dalam memori",
+    "body": "### Pemetaan Sumbu (Axes Mapping)\n- **Audio 1D**: `shape = (N,)` $\\rightarrow$ $N$ sampel amplitudo berurutan.\n- **Citra Grayscale 2D**: `shape = (Height, Width)` $\\rightarrow$ Indeks piksel `img[y, x]`.\n- **Citra Berwarna 3D**: `shape = (Height, Width, Channels)` $\\rightarrow$ Saluran RGB / BGR.\n- **Sekuens Video 4D**: `shape = (Time, Height, Width, Channels)` $\\rightarrow$ Frame temporal sekuensial.",
+    "notes": "Ingatkan selalu bahwa dalam pengindeksan matriks citra digital, koordinat Y (baris) ditulis terlebih dahulu sebelum X (kolom)."
+  },
+  {
+    "id": 4,
+    "title": "Tipe Data & Bahaya uint8 Overflow",
+    "lead": "Ketika piksel terang tiba-tiba berubah menjadi hitam gelap",
+    "body": "### Karakteristik Tipe uint8\n- Rentang biner tetap 8-bit: **0 hingga 255**.\n- **Jebakan Overflow**:\n  $$250 + 10 = 260 \\pmod{256} = \\mathbf{4} \\text{ (Bukan 260!)}$$\n- **Jebakan Underflow**:\n  $$5 - 10 = -5 \\pmod{256} = \\mathbf{251} \\text{ (Bukan -5!)}$$\n\n### Aturan Emas Pemrosesan Citra\n- Konversi ke `float32` sebelum kalkulasi matematis.\n- Gunakan `np.clip(result, 0, 255).astype(np.uint8)` sebelum penyimpanan.",
+    "notes": "Tunjukkan bahwa bug overflow adalah penyebab umum timbulnya noise bintik putih atau hitam aneh pada gambar hasil olahan."
+  },
+  {
+    "id": 5,
+    "title": "Pengirisan Spasial: Views vs Copies",
+    "lead": "Efisiensi memori vs risiko modifikasi data asli",
+    "body": "### Mekanisme Memori NumPy\n- Operasi slicing **TIDAK menduplikasi memori**, melainkan hanya membuat **View** (jendela referensi).\n```python\n# Berbahaya: Mengubah roi akan merusak img asli!\nroi = img[50:150, 50:150]\nroi[:, :] = 0  # Kotak pada img ikut menjadi hitam!\n\n# Aman: Menggunakan salinan independen eksplisit\nroi_aman = img[50:150, 50:150].copy()\n```",
+    "notes": "Jelaskan bahwa view sangat hemat memori, namun copy mutlak diperlukan jika kita ingin memodifikasi data secara terisolasi."
+  },
+  {
+    "id": 6,
+    "title": "Perangkap Klasik: OpenCV BGR vs Matplotlib RGB",
+    "lead": "Mengapa gambar wajah manusia tampak biru seperti alien?",
+    "body": "### Perbedaan Konvensi Urutan Saluran\n- **Matplotlib & Pillow**: Format **RGB** (Saluran 0=Merah, 1=Hijau, 2=Biru).\n- **OpenCV (`cv2`)**: Format **BGR** (Saluran 0=Biru, 1=Hijau, 2=Merah).\n\n### Solusi Konversi Wajib\n```python\nimport cv2, matplotlib.pyplot as plt\n\nimg_bgr = cv2.imread('foto.jpg')\n# Konversi BGR ke RGB sebelum plotting:\nimg_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)\nplt.imshow(img_rgb)\n```",
+    "notes": "Sampaikan bahwa kesalahan konversi warna adalah pertanyaan paling sering diajukan oleh pemula di forum stack overflow."
+  },
+  {
+    "id": 7,
+    "title": "Kekuatan Vektorisasi SIMD",
+    "lead": "Akselerasi prosesor tanpa perulangan for lambat",
+    "body": "### Perbandingan Kecepatan Komputasi\n- Citra Full HD memiliki **2.073.600 piksel** per saluran!\n- **For-Loop Bersarang Python**: $\\approx 1.250\\text{ ms}$ per frame (Hanya 0.8 FPS).\n- **Operasi Vektor NumPy (`img + 50`)**: $\\approx 1.8\\text{ ms}$ per frame (Lebih dari 500 FPS!).\n- **Keunggulan**: Vektorisasi mendelegasikan eksekusi langsung ke instruksi Single Instruction Multiple Data (SIMD) prosesor.",
+    "notes": "Jelaskan bahwa sistem visi real-time modern mutlak menuntut kode yang tervektorisasi."
+  },
+  {
+    "id": 8,
+    "title": "Visualisasi Terkalibrasi dengan Matplotlib",
+    "lead": "Menampilkan citra grayscale, RGB, dan histogram",
+    "body": "### Praktik Terbaik Plotting Citra\n```python\nfig, axes = plt.subplots(1, 2, figsize=(10, 4))\n\n# 1. Plot Citra Grayscale (Wajib cmap='gray')\naxes[0].imshow(img_gray, cmap='gray', vmin=0, vmax=255)\naxes[0].set_title('Grayscale Image')\n\n# 2. Plot Histogram Intensitas Piksel\naxes[1].hist(img_gray.ravel(), bins=256, range=[0, 256], color='navy')\naxes[1].set_title('Histogram Distribusi Intensitas')\n```",
+    "notes": "Ingatkan mahasiswa jika tidak menyertakan cmap='gray', Matplotlib akan menampilkan citra monokrom dalam warna default viridis kehijauan."
+  },
+  {
+    "id": 9,
+    "title": "Skrip Uji Komputasi & Benchmarking",
+    "lead": "Memverifikasi integritas manipulasi tensor di terminal",
+    "body": "### Eksekusi Uji Terbimbing\n```python\n# Ekstraksi saluran warna individual:\nr = img[:, :, 0]  # Matriks 2D Merah\ng = img[:, :, 1]  # Matriks 2D Hijau\nb = img[:, :, 2]  # Matriks 2D Biru\n\nprint(f\"Citra Berwarna 3D: {img.shape}\")\nprint(f\"Saluran Monokrom 2D: {r.shape}\")\n```",
+    "notes": "Ajak mahasiswa menjalankan berkas example-01.py di terminal proyek masing-masing."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Kuliah & Referensi",
+    "lead": "Multimedia & Computer Vision Learning Hub · Institut Teknologi Sumatera (ITERA)",
+    "body": "### Poin Inti Pembahasan\n- Objek `ndarray` adalah fondasi universal seluruh media digital di Python.\n- Selalu gunakan `float32` dan `np.clip` untuk menghindari bahaya integer overflow `uint8`.\n- Pahami perbedaan susunan warna BGR OpenCV dan RGB Matplotlib.\n- Manfaatkan vektorisasi NumPy untuk akselerasi pengolahan citra ratusan kali lipat.\n\n### Referensi Utama\n1. Oliphant (2015). *Guide to NumPy*, 2nd Ed.\n2. Howse & Minichino (2020). *Learning OpenCV 4 with Python 3*, 3rd Ed. Packt.\n3. Harris et al. (2020). *Array programming with NumPy*. Nature.",
+    "notes": "Tutup sesi dan arahkan mahasiswa mencoba simulator Multimedia Array Explorer."
+  }
+]

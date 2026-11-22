@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-29-01",
+    "title": "Mekanisme Penapis Temporal Video (Temporal Filtering)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-29-video-temporal-filtering.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-29-02",
+    "title": "Analisis Artifak Bayangan (Ghosting) pada Filtering Temporal",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-29-temporal-ghosting-artifacts.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

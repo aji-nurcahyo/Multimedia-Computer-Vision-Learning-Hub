@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-59-1",
+    "question": "Menurut Hukum Amdahl, jika suatu modul memakan proporsi runtime p = 0.80 (80%) dari total waktu eksekusi sistem, berapakah batas teoretis percepatan maksimum sistem secara keseluruhan jika modul tersebut dipercepat tanpa batas (s -> tak hingga)?",
+    "options": [
+      "5.0x",
+      "4.0x",
+      "8.0x",
+      "Tak Terbatas (Infinity)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Batas asimtotik Hukum Amdahl saat s -> infinity adalah S_max = 1 / (1 - p) = 1 / (1 - 0.80) = 1 / 0.20 = 5.0x. Sisa 20% kode yang tidak dipercepat membatasi percepatan sistem."
+  },
+  {
+    "id": "q-59-2",
+    "question": "Jika durasi tahapan pipeline adalah: Capture 2.5 ms, Preprocess 1.5 ms, Inferensi 8.0 ms, dan Postprocess 1.0 ms (Total = 13.0 ms), berapakah sisa waktu cadangan (headroom) sistem terhadap batas 60 FPS (16.67 ms)?",
+    "options": [
+      "+3.67 milidetik",
+      "-3.67 milidetik",
+      "+8.00 milidetik",
+      "0.00 milidetik"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Headroom = Target Budget (16.67 ms) - Total Latency (13.0 ms) = +3.67 ms. Karena nilainya positif, sistem berjalan lancar pada 60 FPS."
+  },
+  {
+    "id": "q-59-3",
+    "question": "Mengapa optimasi dini (premature optimization) pada tahapan yang hanya memakan waktu 2% dari total eksekusi dianggap sebagai kesalahan rekayasa perangkat lunak?",
+    "options": [
+      "Karena percepatan maksimum yang dapat dihasilkan pada sistem keseluruhan tidak akan melebihi 1.02x, sehingga membuang sumber daya rekayasa",
+      "Karena dapat membakar chip prosesor komputer",
+      "Karena hukum hak cipta melarang pengubahan kode kecil",
+      "Karena format piksel akan berubah menjadi hitam putih"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sesuai Hukum Amdahl, mengoptimasi tahapan dengan fraksi runtime kecil (p = 0.02) hanya memberikan dampak marjinal pada sistem secara keseluruhan."
+  },
+  {
+    "id": "q-59-4",
+    "question": "Metode profiling browser manakah yang paling akurat untuk mengukur durasi eksekusi fungsi JavaScript dalam satuan sub-milidetik?",
+    "options": [
+      "performance.now()",
+      "Date.now()",
+      "console.log()",
+      "Math.random()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "performance.now() menyediakan timer monotonik presisi tinggi dengan akurasi sub-milidetik (mikrodetik), bebas dari penyetelan jam sistem operasi."
+  },
+  {
+    "id": "q-59-5",
+    "question": "Apa manfaat dari pemisahan bundel modul (code splitting / vendor chunking) dalam build aplikasi web produksi?",
+    "options": [
+      "Memungkinkan peramban menyimpan cache pustaka pihak ketiga secara permanen (immutable cache) sehingga pembaruan aplikasi tidak memaksa unduh ulang pustaka besar",
+      "Menggandakan kecepatan internet pengguna secara instan",
+      "Mengubah bahasa JavaScript menjadi bahasa Assembly murni",
+      "Menghapus seluruh pustaka CSS dari situs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pemisahan vendor chunk memastikan dependensi yang jarang berubah tetap tersimpan di cache browser, mempercepat waktu muat kunjungan berulang secara drastis."
+  }
+]
+

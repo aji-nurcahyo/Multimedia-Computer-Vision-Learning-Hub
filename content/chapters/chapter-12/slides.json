@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Image Restoration & Noise Reduction",
+    "lead": "Section 03 — Advanced Digital Image Processing · Chapter 12",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Model Degradasi, Noise (Gaussian, S&P, Speckle), Bilateral, Non-Local Means, Wiener, PSNR & SSIM",
+    "notes": "Bedakan enhancement (subjektif estetis) vs restoration (objektif rekonstruksi matematis citra asli)."
+  },
+  {
+    "id": 2,
+    "title": "Model Matematis Degradasi & Restorasi",
+    "lead": "Pemulihan citra terkorupsi blur optik dan noise sensor",
+    "body": "### Persamaan Degradasi\n$$g(x, y) = (h * f)(x, y) + \\eta(x, y)$$\n- **$f(x, y)$**: Citra ideal bebas gangguan (*ground truth*).\n- **$h(x, y)$**: Kernel degradasi spasial (*defocus blur*, *motion blur*).\n- **$\\eta(x, y)$**: Derau statistik sensor atau transmisi.",
+    "notes": "Tunjukkan bahwa jika h(x,y) adalah fungsi delta (tanpa blur), restorasi berfokus pada masalah denoising."
+  },
+  {
+    "id": 3,
+    "title": "Taksonomi Derau Citra (Image Noise Models)",
+    "lead": "Mengenali musuh berdasarkan pola distribusinya",
+    "body": "### Tiga Model Noise Klasik\n- **Gaussian Noise**: Fluktuasi distribusi normal di setiap piksel (ISO tinggi / sensor panas).\n- **Salt-and-Pepper (Impulse)**: Piksel melonjak ekstrem ke $0$ (hitam) atau $255$ (putih) akibat kerusakan bit.\n- **Speckle Noise**: Derau multiplikatif $g = f(1 + \\eta)$ khas citra Ultrasound & Radar SAR.",
+    "notes": "Ingatkan pentingnya menyesuaikan jenis filter terhadap jenis noise yang menyerang."
+  },
+  {
+    "id": 4,
+    "title": "Mean Filter vs Median Filter",
+    "lead": "Kegagalan penapis linier pada derau impuls",
+    "body": "### Mengapa Mean Filter Gagal pada Salt-and-Pepper?\n- Nilai pencilan ekstrem ($255$ atau $0$) menarik nilai rata-rata lingkungan ke atas/bawah sehingga noda meluber.\n- **Median Filter (Non-Linier)**: Mengurutkan intensitas jendela $3\\times 3$ dan mengambil nilai tengah—pencilan ekstrem selalu berada di ujung urutan sehingga terbuang sempurna!",
+    "notes": "Berikan contoh numerik kecil [50, 52, 255, 51, 49, ...] -> rata-rata terdistorsi vs median = 51."
+  },
+  {
+    "id": 5,
+    "title": "Bilateral Filtering (Edge-Preserving)",
+    "lead": "Memperhalus area seragam tanpa memudarkan tepi objek",
+    "body": "### Dua Kernel Gaussian Sekaligus (Tomasi & Manduchi, 1998)\n$$W(p, q) = \\exp\\left(-\\frac{\\|p - q\\|^2}{2\\sigma_s^2}\\right) \\cdot \\exp\\left(-\\frac{|I(p) - I(q)|^2}{2\\sigma_r^2}\\right)$$\n- Tetangga yang dekat secara ruang **DAN** mirip warnanya mendapat bobot tinggi.\n- Piksel di sisi berlawanan sebuah tepi tajam memiliki selisih intensitas $|I(p)-I(q)|$ besar sehingga bobotnya mendekati nol!",
+    "notes": "Jelaskan alasan Bilateral filter populer untuk filter kamera kecantikan/kulit tanpa menghilangkan garis mata/rambut."
+  },
+  {
+    "id": 6,
+    "title": "Non-Local Means (NLM) Denoising",
+    "lead": "Memanfaatkan kesamaan tekstur berulang di seluruh citra",
+    "body": "### Dari Piksel Tunggal Menuju Patch Similarity (Buades et al., 2005)\n- Daripada hanya melihat satu piksel sekitar, NLM membandingkan jarak Euclidean antar blok persegi (*patch* $7\\times 7$) dalam jendela pencarian $21\\times 21$.\n- Piksel dengan pola lokal mirip berkontribusi kuat merata-ratakan noise tanpa kehilangan detail tekstur halus.",
+    "notes": "Jelaskan trade-off akurasi NLM yang tinggi terhadap beban komputasi CPU dibanding Gaussian blur."
+  },
+  {
+    "id": 7,
+    "title": "Wiener Filter (Restorasi MMSE)",
+    "lead": "Menghindari ledakan noise pada dekonvolusi invers",
+    "body": "### Formulasi Spektral Wiener\n$$W(u, v) = \\frac{H^*(u, v)}{|H(u, v)|^2 + S_{\\eta\\eta}(u,v)/S_{ff}(u,v)}$$\n- Inverse filtering murni ($G/H$) meledakkan noise saat $H(u,v) \\approx 0$.\n- Wiener filter menyeimbangkan pemulihan ketajaman dengan rasio daya noise terhadap sinyal (NSR) agar MSE total minimum.",
+    "notes": "Sebutkan versi adaptif spasial (Lee Wiener filter) yang mengestimasi variansi lokal tanpa butuh H(u,v) eksplisit."
+  },
+  {
+    "id": 8,
+    "title": "Metrik Evaluasi: MSE, PSNR & SSIM",
+    "lead": "Mengukur keberhasilan restorasi secara ilmiah dan objektif",
+    "body": "### Formulasi Metrik Standar\n- **PSNR**: $\\text{PSNR} = 10 \\log_{10}(255^2 / \\text{MSE})$ (satuan dB; $> 30\\text{ dB}$ umumnya berkualitas sangat baik).\n- **SSIM (Wang et al., 2004)**: Mengukur kesamaan struktur, luminansi, dan kontras lokal dalam rentang $[-1, 1]$ ($1.0$ = identik sempurna), jauh lebih selaras dengan mata manusia daripada MSE.",
+    "notes": "Ingatkan bahwa dua citra dengan MSE sama bisa memiliki kualitas visual perseptual yang berbeda drastis (alasan munculnya SSIM)."
+  },
+  {
+    "id": 9,
+    "title": "Implementasi Python & OpenCV",
+    "lead": "Mengaplikasikan penapis restorasi teroptimasi",
+    "body": "### Kode Referensi\n```python\n# 1. Salt & Pepper\nclean_med = cv2.medianBlur(noisy_sp, ksize=3)\n# 2. Gaussian Noise (Edge-preserving)\nclean_bilat = cv2.bilateralFilter(noisy_gauss, d=7, sigmaColor=50, sigmaSpace=50)\nclean_nlm = cv2.fastNlMeansDenoising(noisy_gauss, None, h=18, templateWindowSize=7, searchWindowSize=21)\n```",
+    "notes": "Minta mahasiswa membandingkan waktu eksekusi vs skor PSNR antara ketiga metode."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 12",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- Kenali tipe derau (**Gaussian**, **S&P**, **Speckle**) sebelum memilih penapis.\n- **Median** membasmi impulse noise; **Bilateral/NLM** meredam Gaussian noise sembari menjaga tepi.\n- Evaluasi hasil secara objektif dengan **PSNR** dan **SSIM**.\n\n### Rujukan\n- Gonzalez & Woods (2018), Bab 5; Tomasi & Manduchi (1998); Wang et al. (2004).",
+    "notes": "Lanjutkan ke Image Restoration Lab untuk mengukur PSNR & SSIM secara live."
+  }
+]
+

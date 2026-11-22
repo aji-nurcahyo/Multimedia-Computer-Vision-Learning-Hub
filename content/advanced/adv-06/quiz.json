@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv06-01",
+    "question": "Berdasarkan model transfer radiasi Koschmieder I(x) = J(x) * t(x) + A * (1 - t(x)), apa yang terjadi pada intensitas teramati piksel I(x) ketika jarak kedalaman objek d(x) mendekati tak berhingga?",
+    "options": [
+      "Intensitas I(x) menjadi nol (gelap total)",
+      "Transmisi t(x) mendekati nol, sehingga intensitas teramati I(x) didominasi sepenuhnya oleh cahaya kabut atmosfer global A",
+      "Radiansi asli J(x) teramplifikasi hingga bernilai 255 pada semua kanal",
+      "Transmisi t(x) membesar secara eksponensial tak terbatas"
+    ],
+    "correctIndex": 1,
+    "explanation": "Karena t(x) = exp(-beta * d(x)), saat d(x) -> infty, t(x) -> 0. Persamaan Koschmieder menyisakan I(x) = J(x) * 0 + A * (1 - 0) = A. Inilah sebabnya objek yang sangat jauh tampak sepenuhnya memutih/menyerupai warna kabut di horizon."
+  },
+  {
+    "id": "quiz-adv06-02",
+    "question": "Mengapa peningkatan nilai metrik kualitas citra restorasi (misalnya PSNR naik 4 dB) tidak menjamin peningkatan performa deteksi bounding box pada model detektor neural?",
+    "options": [
+      "Karena detektor neural tidak dapat membaca citra RGB",
+      "Karena algoritma restorasi sering memperkenalkan artefak penghalusan atau distorsi frekuensi tinggi halus yang mengubah fitur representasi pada layer awal CNN",
+      "Karena PSNR hanya mengukur kecepatan komputasi FPS",
+      "Karena bounding box deteksi tidak terpengaruh oleh warna piksel sama sekali"
+    ],
+    "correctIndex": 1,
+    "explanation": "Algoritma restorasi mengoptimalkan kedekatan intensitas piksel per piksel (MSE). Proses ini sering memudarkan tepi mikro atau memunculkan artefak halus yang mengacaukan ekstraksi fitur gradien spasial pada convolutional layers awal detektor objek."
+  },
+  {
+    "id": "quiz-adv06-03",
+    "question": "Bagaimana teknik Temperature Scaling memperbaiki masalah overconfidence pada model klasifikasi neural di bawah kondisi Out-of-Distribution (OOD)?",
+    "options": [
+      "Dengan mendinginkan suhu perangkat keras GPU secara fisik",
+      "Dengan membagi vektor logit z dengan skalar temperatur T > 1 sebelum fungsi softmax, sehingga menghasilkan distribusi probabilitas yang lebih halus (softer probabilities) tanpa mengubah ranking prediksi",
+      "Dengan membuang kelas yang memiliki probabilitas di bawah 50%",
+      "Dengan mengubah bobot konvolusi menjadi bilangan bulat 8-bit"
+    ],
+    "correctIndex": 1,
+    "explanation": "Temperature scaling membagi logit dengan T > 1: p_i = exp(z_i / T) / sum_j exp(z_j / T). Ini meningkatkan entropi distribusi probabilitas dan menurunkan overconfidence ekstrem pada sampel yang tidak pasti tanpa mengubah argmax kelas prediksi."
+  }
+]
+

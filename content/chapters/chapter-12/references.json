@@ -1,0 +1,43 @@
+[
+  {
+    "id": "ref-12-01",
+    "title": "Bilateral Filtering for Gray and Color Images",
+    "authors": "Carlo Tomasi, Roberto Manduchi",
+    "year": 1998,
+    "publisher": "IEEE ICCV",
+    "url": "https://ieeexplore.ieee.org/document/710815",
+    "type": "article",
+    "annotation": "Makalah seminal yang merumuskan filter Bilateral berbasis perkalian domain kernel spasial dan range kernel intensitas."
+  },
+  {
+    "id": "ref-12-02",
+    "title": "A Non-Local Algorithm for Image Denoising",
+    "authors": "Antoni Buades, Bartomeu Coll, Jean-Michel Morel",
+    "year": 2005,
+    "publisher": "IEEE CVPR",
+    "url": "https://ieeexplore.ieee.org/document/1467423",
+    "type": "article",
+    "annotation": "Memperkenalkan algoritma Non-Local Means yang membandingkan kemiripan patch untuk denoising tekstur citra."
+  },
+  {
+    "id": "ref-12-03",
+    "title": "Image Quality Assessment: From Error Visibility to Structural Similarity",
+    "authors": "Zhou Wang, Alan C. Bovik, Hamid R. Sheikh, Eero P. Simoncelli",
+    "year": 2004,
+    "publisher": "IEEE Transactions on Image Processing",
+    "url": "https://ieeexplore.ieee.org/document/1284395",
+    "type": "article",
+    "annotation": "Merumuskan Structural Similarity Index (SSIM) yang menjadi standar global evaluasi restorasi citra."
+  },
+  {
+    "id": "ref-12-04",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson Education",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-image-processing/P200000003306",
+    "type": "book",
+    "annotation": "Bab 5 menguraikan model degradasi, noise statistik, Wiener filtering, dan restorasi adaptif."
+  }
+]
+

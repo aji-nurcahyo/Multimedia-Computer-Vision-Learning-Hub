@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q1",
+    "question": "Apa perbedaan matematis mendasar antara operasi korelasi spasial 2D dan konvolusi spasial 2D?",
+    "options": [
+      "Konvolusi merotasi matriks kernel sebesar 180 derajat sebelum operasi penjumlahan hasil kali, sedangkan korelasi tidak",
+      "Korelasi hanya dapat diterapkan pada citra biner, sedangkan konvolusi pada citra grayscale",
+      "Konvolusi membagi nilai piksel dengan ukuran kernel, sedangkan korelasi mengalikannya",
+      "Korelasi memerlukan ukuran kernel genap, sedangkan konvolusi berukuran ganjil"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dalam konvolusi diskrit 2D f(x-s, y-t), tanda minus merepresentasikan pembalikan koordinat spasial (rotasi 180 derajat) terhadap kernel. Pada korelasi f(x+s, y+t), kernel digeser langsung tanpa rotasi."
+  },
+  {
+    "id": "q2",
+    "question": "Mengapa jumlah seluruh bobot koefisien pada kernel smoothing (seperti Gaussian blur atau Mean filter) harus bernilai 1?",
+    "options": [
+      "Untuk menjaga kestabilan intensitas rata-rata citra asli sehingga tidak menjadi lebih terang atau gelap",
+      "Untuk mempercepat waktu komputasi konvolusi menjadi O(1)",
+      "Agar citra hasil konvolusi secara otomatis terkonversi menjadi format biner",
+      "Untuk menghilangkan warna latar belakang citra secara permanen"
+    ],
+    "correctIndex": 0,
+    "explanation": "Normalisasi jumlah bobot = 1 menjamin konservasi energi/intensitas rata-rata piksel pada region citra yang homogen. Jika jumlahan bobot bernilai 0, filter merespons perubahan gradien dan menghasilkan nilai nol pada area datar."
+  },
+  {
+    "id": "q3",
+    "question": "Sebuah kernel Gaussian 2D berukuran 21x21 diterapkan pada citra 1080p. Berapa rasio percepatan (speedup) yang diperoleh jika filtering memanfaatkan sifat separabilitas (separable filter)?",
+    "options": [
+      "10.5x lebih cepat",
+      "2x lebih cepat",
+      "21x lebih cepat",
+      "441x lebih cepat"
+    ],
+    "correctIndex": 0,
+    "explanation": "Konvolusi 2D langsung membutuhkan K^2 operasi per piksel (21^2 = 441). Konvolusi separabel 1D horizontal dilanjutkan 1D vertikal membutuhkan 2*K operasi per piksel (2*21 = 42). Rasio speedup = K^2 / 2K = K / 2 = 21 / 2 = 10.5x."
+  },
+  {
+    "id": "q4",
+    "question": "Metode penanganan batas citra manakah yang paling direkomendasikan untuk menghindari artifak garis gelap di sekeliling batas tepi citra saat melakukan blurring?",
+    "options": [
+      "Reflect Padding (BORDER_REFLECT / BORDER_REFLECT_101)",
+      "Zero Padding (BORDER_CONSTANT dengan nilai 0)",
+      "Memotong citra dan membiarkan batas bernilai acak",
+      "Menghapus baris dan kolom tepi terluar citra"
+    ],
+    "correctIndex": 0,
+    "explanation": "Zero padding menambahkan nilai 0 (hitam) di luar tepi citra yang ketika dirata-ratakan dengan piksel tepi akan menurunkan nilai intensitas secara drastis (menghasilkan efek bingkai gelap). Reflect padding mencerminkan intensitas piksel tetangga terdekat secara kontinu."
+  },
+  {
+    "id": "q5",
+    "question": "Berdasarkan aturan praktis statistik Gaussian (rule of thumb), jika standar deviasi sigma = 2.0, berapakah ukuran minimum jendela kernel ganjil yang disarankan agar tidak terjadi truncation error?",
+    "options": [
+      "13x13 piksel",
+      "5x5 piksel",
+      "3x3 piksel",
+      "7x7 piksel"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sebanyak 99.7% energi distribusi normal berada dalam interval +/- 3*sigma (total lebar 6*sigma). Untuk sigma = 2.0, rentang adalah 6*2 = 12 piksel. Mengambil ukuran ganjil berikutnya: k = 2 * ceil(3 * sigma) + 1 = 2 * 6 + 1 = 13 piksel."
+  }
+]

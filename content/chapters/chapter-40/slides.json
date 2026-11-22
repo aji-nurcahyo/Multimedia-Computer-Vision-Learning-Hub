@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 40: Classical Object Recognition & Scene Analysis",
+    "content": "Multimedia & Computer Vision Learning Hub\n\nInstitut Teknologi Sumatera (ITERA)\nAuthor: Aji Pamungkas Tri Nurcahyo\nTopik Utama: Template Matching NCC, Deskriptor HOG, Klasifikasi Linear SVM, dan Non-Maximum Suppression (NMS).",
+    "diagram": null,
+    "notes": "Slide pembuka: Tekankan relevansi metode klasik rekayasa fitur manual untuk edge computing bertenaga rendah dan inspeksi industri presisi."
+  },
+  {
+    "id": "slide-2",
+    "title": "Pencocokan Templat Berbasis NCC",
+    "content": "- Normalized Cross-Correlation (NCC):\n  gamma(x, y) = sum([T - T_mean]*[I - I_mean]) / sqrt(sum[T - T_mean]^2 * sum[I - I_mean]^2)\n- Rentang Nilai: [-1.0, +1.0] (1.0 = kecocokan sempurna).\n- Invarian Iluminasi Linier: Tidak terpengaruh perubahan kontras dan kecerahan I' = alpha*I + beta.",
+    "diagram": "/media/diagrams/chapter-40-template-matching-ncc.svg",
+    "notes": "Jelaskan Gambar 40.1 dan tunjukkan bagaimana puncak korelasi gamma = 1.0 mengidentifikasi lokasi templat secara presisi."
+  },
+  {
+    "id": "slide-3",
+    "title": "Keterbatasan Template Matching Konvensional",
+    "content": "- Sangat sensitif terhadap perubahan rotasi (pergeseran sudut > 10 derajat menyebabkan kegagalan deteksi).\n- Rentan terhadap perbedaan skala ukuran objek.\n- Solusi Lanjutan: Piramida citra multi-skala (Image Pyramid) atau beralih ke deskriptor gradien lokal (HOG).",
+    "diagram": null,
+    "notes": "Bahas mengapa template matching murni hanya cocok untuk orientasi tetap dan mengapa HOG diperlukan untuk variasi pose."
+  },
+  {
+    "id": "slide-4",
+    "title": "Histogram of Oriented Gradients (HOG - Dalal & Triggs 2005)",
+    "content": "Ide Kunci: Struktur bentuk visual objek dapat dicirikan secara tangguh oleh distribusi arah gradien intensitas lokal.\n\nTahapan Komputasi:\n1. Hitung gradien 1D: Ix = [-1, 0, 1] dan Iy = [-1, 0, 1]^T.\n2. Hitung magnitudo M = sqrt(Ix^2 + Iy^2) dan sudut orientasi theta in [0, 180 derajat).\n3. Spatial Binning ke sel 8x8 piksel dengan histogram 9-bin.",
+    "diagram": "/media/diagrams/chapter-40-hog-feature-pipeline.svg",
+    "notes": "Jelaskan Gambar 40.2 dan tunjukkan bagaimana tubuh manusia dicirikan oleh orientasi vertikal dan lengkungan kontur."
+  },
+  {
+    "id": "slide-5",
+    "title": "Normalisasi Blok & Dimensi Vektor HOG",
+    "content": "- Normalisasi Blok: 2x2 sel (16x16 piksel) dengan pergeseran tumpang tindih 1 sel (8 piksel).\n- Norma L2-Hys: Memangkas lonjakan magnitudo lokal akibat bayangan ekstrem.\n\nPerhitungan Dimensi (Jendela Deteksi Standar 64x128 px):\n- Jumlah Blok = 7 horizontal x 15 vertikal = 105 blok.\n- Tiap blok = 2 sel x 2 sel x 9 bin = 36 fitur.\n- Total Dimensi Vektor = 105 x 36 = 3.780 dimensi!",
+    "diagram": null,
+    "notes": "Jelaskan secara rinci perhitungan matematika dimensi 3.780 agar mahasiswa memahami asal-usul ukuran vektor fitur."
+  },
+  {
+    "id": "slide-6",
+    "title": "Klasifikasi Support Vector Machine (Linear SVM)",
+    "content": "Optimal Hyperplane Separation:\nmin (1/2)*||w||^2 + C * sum(xi_i)  dengan kendala yi*(w^T*x_i + b) >= 1 - xi_i\n\n- Memaksimalkan margin pemisah geometris (2 / ||w||).\n- Parameter C mengontrol trade-off antara margin lebar versus toleransi kesalahan data latih.\n- Sangat efisien untuk inferensi: f(x) = sign(w^T * x + b).",
+    "diagram": null,
+    "notes": "Tekankan keunggulan Linear SVM dalam menangani ruang fitur berdimensi tinggi (3.780D) dengan kecepatan komputasi instan."
+  },
+  {
+    "id": "slide-7",
+    "title": "Deteksi Jendela Geser & Piramida Skala",
+    "content": "Multi-Scale Sliding Window:\n1. Bangun piramida skala citra (Image Pyramid) dengan faktor reduksi s = 1.05 - 1.2.\n2. Geser jendela deteksi 64x128 px dengan stride 8 px pada setiap tingkat piramida.\n3. Hitung vektor HOG dan evaluasi skor SVM w^T*x + b.\n4. Kumpulkan seluruh bounding box yang memiliki skor di atas ambang batas keputusan.",
+    "diagram": null,
+    "notes": "Diskusikan beban komputasi sliding window dan bagaimana NMS digunakan untuk membersihkan hasil deteksi."
+  },
+  {
+    "id": "slide-8",
+    "title": "Non-Maximum Suppression (NMS) & Evaluasi IoU",
+    "content": "Metrik Intersection over Union (IoU):\nIoU = Area(A n B) / Area(A u B)\n\nAlgoritma NMS:\n1. Urutkan seluruh kotak prediksi berdasarkan keyakinan skor tertinggi.\n2. Simpan kotak terbaik dan hapus seluruh kotak lain yang memiliki IoU > threshold (biasanya 0.5).\n3. Menghilangkan bounding box ganda pada satu objek yang sama.",
+    "diagram": null,
+    "notes": "Bahas contoh numerik: bagaimana dua kotak dengan irisan 11.200 dan gabungan 17.300 menghasilkan IoU 64.7%."
+  },
+  {
+    "id": "slide-9",
+    "title": "Representasi Bag of Visual Words (BoVW)",
+    "content": "Analisis Pemandangan Global (Scene Classification):\n1. Ekstraksi fitur lokal (SIFT/ORB) dari ribuan citra latih.\n2. Clustering K-Means untuk membentuk kamus visual (Visual Vocabulary / Codebook).\n3. Kuantisasi fitur lokal ke visual word terdekat.\n4. Representasikan citra utuh sebagai histogram frekuensi kata visual (TF-IDF).",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana konsep NLP (Bag of Words) diadaptasi secara elegan ke dalam domain visi komputer."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Transisi Menuju Deep Learning",
+    "content": "1. Metode klasik (HOG+SVM, NCC, BoVW) memberikan fondasi matematis yang transparan dan efisien.\n2. Keterbatasan: Handcrafted features sulit digeneralisasi untuk ribuan kategori objek kompleks.\n3. Transisi Fundamental: Bab 41 memulai era Deep Learning di mana fitur dipelajari secara otomatis dari data!",
+    "diagram": null,
+    "notes": "Tutup Seksi 08 dan buat jembatan transisi menuju Seksi 09: Deep Learning for Computer Vision (Bab 41)."
+  }
+]

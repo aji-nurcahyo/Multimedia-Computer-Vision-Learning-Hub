@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Digital Image Fundamentals",
+    "lead": "Section 02 — Digital Image Processing Fundamentals · Chapter 06",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Representasi Matriks Citra, Sistem Koordinat, Resolusi Spasial, Bit Depth, & Struktur Memori",
+    "notes": "Perkenalkan transisi dari sinyal multimedia umum di Seksi 01 menuju pemrosesan citra digital khusus di Seksi 02."
+  },
+  {
+    "id": 2,
+    "title": "Capaian Pembelajaran",
+    "lead": "Kompetensi inti dasar rekayasa citra digital",
+    "body": "### Tujuan Kuliah\n- Memahami pemodelan citra diskrit 2D sebagai matriks f(x, y).\n- Membedakan sistem koordinat geometri (x, y) dan indeks baris-kolom [y, x].\n- Mengevaluasi pengaruh resolusi spasial dan kedalaman bit (bit depth).\n- Menghitung kebutuhan memori RAM mentah untuk format Grayscale, RGB, dan RGBA.",
+    "notes": "Tekankan pentingnya akurasi indeks (y, x) karena merupakan sumber kesalahan paling sering di OpenCV."
+  },
+  {
+    "id": 3,
+    "title": "Citra sebagai Fungsi Matriks Diskrit",
+    "lead": "Dari foton kontinu menuju himpunan bilangan bulat",
+    "body": "### Pemodelan Matematis\n- Sensor kamera menyampel medan cahaya spasial ke dalam grid berdimensi M baris × N kolom.\n- Setiap sel grid adalah **pixel** (*picture element*) dengan nilai diskrit terkuantisasi.\n- Untuk citra 8-bit standar: rentang nilai intensitas $f(x, y) \\in [0, 255]$.",
+    "notes": "Jelaskan peran ADC di sensor CMOS kamera dalam mengonversi tegangan fotodioda menjadi nilai digital."
+  },
+  {
+    "id": 4,
+    "title": "Sistem Koordinat Citra vs Tensor NumPy",
+    "lead": "Konvensi sudut kiri atas sebagai titik asal (0, 0)",
+    "body": "### Aturan Pengindeksan\n- **Origin (0, 0)**: Selalu berada di pojok kiri atas.\n- **OpenCV Drawing `(x, y)`**: Kolom mendahului baris (misalnya `cv2.circle`).\n- **NumPy Indexing `img[y, x]`**: Baris (tinggi $H$) mendahului kolom (lebar $W$).\n- **Tensor RGB**: Dimensi `(Height, Width, 3)` dengan urutan `BGR` pada `cv2.imread()`.",
+    "notes": "Minta mahasiswa membandingkan img.shape vs argumen (width, height) pada cv2.resize."
+  },
+  {
+    "id": 5,
+    "title": "Resolusi Spasial vs Kedalaman Bit",
+    "lead": "Dua sumbu diskritisasi citra digital",
+    "body": "### Pengaruh Degradasi Parameter\n- **Resolusi Spasial ($M \\times N$)**: Menentukan jumlah titik sampel ruang. Penurunan drastis memicu efek kotak-kotak (*pixelation*).\n- **Bit Depth ($b$)**: Jumlah tingkat kecerahan adalah $L = 2^b$. Penurunan drastis di bawah 4-bit memicu pita garis (*false contouring*).\n- **1-bit ($L=2$)** = Biner | **8-bit ($L=256$)** = Standar | **16-bit ($L=65536$)** = Medis/Satelit.",
+    "notes": "Gunakan lab interaktif Chapter 06 untuk menunjukkan transisi false contouring pada bit depth 2-bit dan 3-bit."
+  },
+  {
+    "id": 6,
+    "title": "Saluran Warna & Konversi Grayscale BT.601",
+    "lead": "Sensitivitas fotoreseptor mata manusia",
+    "body": "### Formulasi Luminansi Perseptual\n$$Y = 0.299 R + 0.587 G + 0.114 B$$\n- Mata manusia paling peka terhadap spektrum hijau (bobot $58.7\\%$) dan paling kurang peka terhadap biru ($11.4\\%$).\n- Citra Grayscale memiliki 1 kanal `(H, W)`, sedangkan RGB 3 kanal `(H, W, 3)` dan RGBA 4 kanal `(H, W, 4)`.",
+    "notes": "Diskusikan mengapa rata-rata aritmatika (R+G+B)/3 kurang akurat secara perseptual dibanding BT.601."
+  },
+  {
+    "id": 7,
+    "title": "Perhitungan Memori RAM Mentah",
+    "lead": "Kapasitas tidak terkompresi sebelum encoding PNG/JPEG",
+    "body": "### Persamaan Ukuran Data Mentah\n$$\\text{Bytes} = H \\times W \\times C \\times \\lceil b / 8 \\rceil$$\n- **Contoh 1080p RGB 8-bit**: $1920 \\times 1080 \\times 3 \\times 1 = 6.220.800\\text{ Bytes} \\approx 5.93\\text{ MB}$.\n- **Catatan Penting**: File JPEG berukuran 300 KB di disk tetap memakan **5.93 MB di RAM** saat didekode ke `ndarray`!",
+    "notes": "Tekankan perbedaan ukuran berkas terkompresi di penyimpanan vs ukuran matriks mentah di RAM GPU/CPU."
+  },
+  {
+    "id": 8,
+    "title": "Implementasi Python, NumPy & OpenCV",
+    "lead": "Inspeksi, kuantisasi, dan konversi warna",
+    "body": "### Cuplikan Kode Utama\n```python\nimport cv2, numpy as np\nimg_bgr = cv2.imread('sample.png')\nimg_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)\ngray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)\nprint('Shape:', img_rgb.shape, 'Dtype:', img_rgb.dtype)\n```",
+    "notes": "Pastikan selalu memeriksa img is not None setelah pemanggilan cv2.imread()."
+  },
+  {
+    "id": 9,
+    "title": "Format Berkas & Aplikasi Kualitas Citra",
+    "lead": "Memilih representasi optimal sesuai kebutuhan",
+    "body": "### Panduan Praktis Rekayasa\n- **PNG (Lossless)**: Dataset segmentasi/masker biner, tangkapan layar UI, grafik teks tajam.\n- **JPEG (Lossy)**: Fotografi alami di mana ukuran file kecil menjadi prioritas.\n- **TIFF / DICOM 16-bit**: Pencitraan medis (MRI, CT) dan data penginderaan jauh satelit.",
+    "notes": "Jelaskan mengapa masker segmentasi biner dilarang keras disimpan dalam format JPEG (artifak kompresi merusak label piksel)."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman & Langkah Berikutnya",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Ringkasan Bab 06\n- Citra digital dimodelkan sebagai matriks `img[y, x]` dengan origin di kiri atas.\n- Kualitas bergantung pada resolusi spasial $(W \\times H)$ dan kedalaman bit ($2^b$ level).\n- Lakukan uji mandiri pada **Pixel & Image Explorer** dan kuis evaluasi.\n\n### Rujukan\n- Gonzalez & Woods (2018), *Digital Image Processing*, 4th Ed. Bab 2.\n- Szeliski (2022), *Computer Vision: Algorithms and Applications*, 2nd Ed.",
+    "notes": "Arahkan mahasiswa ke Chapter 07 untuk mempelajari ruang warna lanjutan seperti HSV, YCbCr, dan CIELAB."
+  }
+]
+

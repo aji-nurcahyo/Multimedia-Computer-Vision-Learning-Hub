@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-02-01",
+    "title": "Teorema Sampling Nyquist-Shannon dan Fenomena Aliasing",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-02-sampling-nyquist.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-02-02",
+    "title": "Kuantisasi Seragam dan Resolusi Kedalaman Bit (Bit Depth)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-02-quantization-levels.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ex-52-1",
+    "title": "Eksperimen Mandiri Implementasi Bab 52",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip Python referensi examples/example-01.py dan amati verifikasi nilai numerik keluaran.",
+    "solution": "# Eksekusi verifikasi:\\npython content/chapters/chapter-52/examples/example-01.py"
+  },
+  {
+    "id": "ex-52-2",
+    "title": "Analisis Sensitivitas Parameter Multimodal",
+    "difficulty": "advanced",
+    "instruction": "Modifikasi bobot modalitas atau parameter temperatur numerik dan catat dampaknya terhadap akurasi serta metrik evaluasi.",
+    "solution": "# Sesuaikan nilai parameter pada fungsi uji dan verifikasi kepatuhan nilai toleransi np.allclose() atau assert"
+  }
+]

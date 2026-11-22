@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-08-01",
+    "title": "Latihan 1: Komparasi Kecepatan Vectorized Power vs Look-Up Table",
+    "difficulty": "intermediate",
+    "instruction": "Buat citra uji uint8 berukuran 1000×1000, lalu ukur dan bandingkan waktu eksekusi koreksi gamma (gamma=0.6) antara operasi np.power langsung terhadap penggunaan cv2.LUT.",
+    "starterCode": "import time, numpy as np, cv2\n\ndef benchmark_gamma(size=1000, gamma=0.6):\n    img = np.random.randint(0, 256, (size, size), dtype=np.uint8)\n    # TODO: Bandingkan waktu np.power vs cv2.LUT\n    pass\n",
+    "solution": "import time, numpy as np, cv2\n\ndef benchmark_gamma(size=1000, gamma=0.6):\n    np.random.seed(42)\n    img = np.random.randint(0, 256, (size, size), dtype=np.uint8)\n    t0 = time.perf_counter()\n    res_pow = np.clip(np.round(((img / 255.0) ** gamma) * 255.0), 0, 255).astype(np.uint8)\n    t_pow = time.perf_counter() - t0\n\n    t0 = time.perf_counter()\n    lut = np.clip(np.round(((np.arange(256) / 255.0) ** gamma) * 255.0), 0, 255).astype(np.uint8)\n    res_lut = cv2.LUT(img, lut)\n    t_lut = time.perf_counter() - t0\n    assert np.array_equal(res_pow, res_lut)\n    return t_pow, t_lut\n"
+  },
+  {
+    "id": "ex-08-02",
+    "title": "Latihan 2: Log Transformation untuk Data Rentang Dinamis Tinggi",
+    "difficulty": "beginner",
+    "instruction": "Implementasikan fungsi log_transform(img_float) untuk mengompresi rentang nilai [0..10000] menjadi skala tampak uint8 [0..255].",
+    "starterCode": "import numpy as np\n\ndef log_transform(arr: np.ndarray) -> np.ndarray:\n    # TODO: Hitung s = c * log(1 + arr) dan skala ke [0..255] uint8\n    pass\n",
+    "solution": "import numpy as np\n\ndef log_transform(arr: np.ndarray) -> np.ndarray:\n    arr_f = np.maximum(0.0, arr.astype(np.float64))\n    c = 255.0 / np.log(1.0 + np.max(arr_f))\n    return np.clip(np.round(c * np.log(1.0 + arr_f)), 0, 255).astype(np.uint8)\n"
+  }
+]
+

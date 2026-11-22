@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-27-01",
+    "title": "Arsitektur Pipeline Akuisisi & Buffering Frame Video",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-27-video-capture-pipeline.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-27-02",
+    "title": "Strategi Manajemen Buffer Frame & Pencegahan Latensi",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-27-frame-buffering-strategies.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Semantic & Instance Segmentation",
+    "subtitle": "Chapter 45 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Pemahaman visual tingkat piksel (fine-grained pixel-level understanding)",
+      "Taksonomi: Segmentasi Semantik, Instansi, dan Panoptik",
+      "Arsitektur U-Net dan peran krusial Skip Connections",
+      "Fungsi rugi spasial: Soft Dice Loss dan evaluasi Mean IoU (mIoU)"
+    ],
+    "notes": "Selamat datang di perkuliahan Segmentasi Citra. Bab ini melengkapi pemahaman visi komputer dari deteksi kotak menuju delineasi piksel presisi."
+  },
+  {
+    "id": 2,
+    "title": "Spektrum Segmentasi Citra",
+    "subtitle": "Klasifikasi Piksel, Pemisahan Instansi, dan Fusi Panoptik",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Semantic Segmentation: Seluruh piksel diklasifikasikan ke dalam kategori semantik seragam",
+      "Instance Segmentation: Membedakan objek-objek terhitung (things) dalam kelas yang sama",
+      "Panoptic Segmentation: Menggabungkan kelas semantik latar (stuff) dan objek individual (things)",
+      "Aplikasi vital: Mobil otonom (deteksi marka jalan) dan segmentasi organ/tumor medis"
+    ],
+    "notes": "Tunjukkan diagram perbandingan antara semantic, instance, dan panoptic segmentation."
+  },
+  {
+    "id": 3,
+    "title": "Paradoks Resolusi Spasial & U-Net",
+    "subtitle": "Bagaimana Memadukan Semantik Global dan Detail Spasial Lokal",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Encoder memperbesar medan reseptif melalui downsampling, namun mengorbankan tepi spasial",
+      "Decoder bertugas merekonstruksi resolusi spasial penuh (H x W)",
+      "U-Net (Ronneberger et al., 2015): Mengintegrasikan Skip Connections simetris",
+      "Peta fitur encoder dikonkatenasikan langsung ke decoder pada resolusi yang setara"
+    ],
+    "notes": "Tekankan bahwa skip connection menyalurkan informasi frekuensi spasial tinggi yang hilang di bottleneck."
+  },
+  {
+    "id": 4,
+    "title": "Atrous / Dilated Convolution & DeepLab",
+    "subtitle": "Memperluas Medan Reseptif Tanpa Kehilangan Resolusi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Dilated Convolution: Menyisipkan lubang (zeros) antar elemen kernel dengan laju r",
+      "Formula 1D: y[i] = sum_k x[i + r * k] * w[k]",
+      "Kernel 3x3 dengan r=2 mencakup rentang spasial 5x5 hanya dengan 9 bobot aktif",
+      "Atrous Spatial Pyramid Pooling (ASPP): Menangkap konteks spasial multi-skala secara paralel"
+    ],
+    "notes": "DeepLabv3 menjadi acuan utama segmentasi semantik pada citra luar ruangan resolusi tinggi."
+  },
+  {
+    "id": 5,
+    "title": "Tantangan Ketimpangan Kelas Spasial",
+    "subtitle": "Mengapa Pixel Cross-Entropy Standar Sering Gagal",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Piksel target (misal tumor atau cacat retak jalan) sering kali < 1% dari luas citra",
+      "Model yang memprediksi latar belakang di seluruh piksel masih mendapat akurasi 99%",
+      "Kebutuhan mendesak akan fungsi kerugian yang berbasis luas irisan (overlap-based loss)",
+      "Sørensen-Dice Coefficient dan Jaccard Index sebagai alternatif objektif"
+    ],
+    "notes": "Gambarkan skenario citra medis di mana lesi hanya berupa noktah kecil di tengah organ."
+  },
+  {
+    "id": 6,
+    "title": "Fungsi Kerugian: Soft Dice Loss",
+    "subtitle": "Optimasi Langsung Derajat Tumpang Tindih Masker",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "L_Dice = 1 - (2 * sum(p_i * g_i) + eps) / (sum(p_i^2) + sum(g_i^2) + eps)",
+      "Diferensiabel terhadap probabilitas prediksi kontinu p_i",
+      "Invarian terhadap ukuran absolut area latar belakang",
+      "Kombinasi terbaik: L_total = L_CE + lambda * L_Dice"
+    ],
+    "notes": "Bedah contoh manual dari materi bab ini yang menghasilkan loss 0.0222."
+  },
+  {
+    "id": 7,
+    "title": "Metrik Evaluasi: Mean IoU (mIoU)",
+    "subtitle": "Standar Pengukuran Kualitas Segmentasi Piksel",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "IoU_c = TP_c / (TP_c + FP_c + FN_c)",
+      "mIoU = (1 / C) * sum_c IoU_c",
+      "Penghitungan dilakukan secara agregat di seluruh himpunan citra uji",
+      "Pixel Accuracy vs mIoU: Pixel Accuracy bias terhadap kelas dominan, mIoU adil untuk semua kelas"
+    ],
+    "notes": "Tunjukkan bahwa metrik mIoU menuntut akurasi di kelas minoritas dan mayoritas sekaligus."
+  },
+  {
+    "id": 8,
+    "title": "Instance Segmentation: Mask R-CNN",
+    "subtitle": "Memadukan Deteksi Bounding Box dan Prediksi Masker Biner",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Mengembangkan Faster R-CNN dengan menambahkan branch masker paralel",
+      "RoIAlign: Menghilangkan kuantisasi koordinat kasar pada RoIPool menggunakan bilinear interpolation",
+      "Mask head memprediksi masker biner m x m untuk masing-masing kelas tanpa kompetisi antar kelas",
+      "Menghasilkan segmentasi instansi terpisah untuk setiap objek terdeteksi"
+    ],
+    "notes": "RoIAlign adalah penemuan krusial yang memungkinkan lokalisasi piksel sub-piksel presisi."
+  },
+  {
+    "id": 9,
+    "title": "Analisis Mode Kegagalan & Penanganan",
+    "subtitle": "Mengatasi Artefak Batas Kontur dan Noise Segmentasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Kontur kabur / Fuzzy Boundaries: Terapkan Boundary Loss berbasis jarak Hausdorff",
+      "Pemisahan objek menempel: Gunakan penanda jarak (distance transform) atau perlakuan instance mask",
+      "False Positive pada tekstur acak: Terapkan post-processing morfologi (opening/closing)",
+      "Batas komputasi memori: Gunakan checkpointing gradien dan mixed precision FP16"
+    ],
+    "notes": "Diskusikan bagaimana post-processing morfologi sederhana dapat membersihkan noise masker."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Pencapaian Modul",
+    "subtitle": "Rangkuman Section 09 & Jalur Riset Selanjutnya",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Segmentasi piksel menyelesaikan spektrum pemahaman visual secara utuh",
+      "Skrip mandiri verifikasi skip U-Net, Soft Dice, dan mIoU ada di example-01.py",
+      "Praktikum lengkap masker segmentasi tersedia di chapter-45-lab.ipynb",
+      "Selamat! Seluruh Section 08 & 09 (Chapters 36-45) telah selesai diperdalam secara akademik!"
+    ],
+    "notes": "Berikan apresiasi kepada mahasiswa yang telah menyelesaikan seluruh modul Classical & Deep Learning CV."
+  }
+]

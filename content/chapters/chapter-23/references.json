@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-23-01",
+    "title": "Robust Speech Recognition via Large-Scale Weak Supervision (Whisper)",
+    "authors": "Alec Radford, Jong Wook Kim, Tao Xu, et al.",
+    "year": 2023,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://arxiv.org/abs/2212.04356",
+    "type": "paper",
+    "annotation": "Arsitektur Transformer sequence-to-sequence mutakhir untuk pengenalan wicara otomatis multibahasa dengan ketahanan derau tinggi."
+  },
+  {
+    "id": "ref-23-02",
+    "title": "HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis",
+    "authors": "Jungil Kong, Jaehyeon Kim, Jaekyoung Bae",
+    "year": 2020,
+    "publisher": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "url": "https://arxiv.org/abs/2010.05646",
+    "type": "paper",
+    "annotation": "Arsitektur neural vocoder berbasis GAN berefisiensi tinggi yang mengonversi spektrogram Mel menjadi sinyal audio wicara fotorealistik."
+  },
+  {
+    "id": "ref-23-03",
+    "title": "Automatic Speech Recognition: A Deep Learning Approach",
+    "authors": "Dong Yu, Li Deng",
+    "year": 2016,
+    "publisher": "Springer London",
+    "url": "https://doi.org/10.1007/978-1-4471-5779-3",
+    "type": "book",
+    "annotation": "Buku teks mendalam mengenai evolusi ASR dari Hidden Markov Models (HMM) klasik hingga integrasi Deep Neural Networks."
+  }
+]

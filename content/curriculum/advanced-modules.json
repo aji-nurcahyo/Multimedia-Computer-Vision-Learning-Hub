@@ -1,0 +1,746 @@
+[
+  {
+    "id": "adv-01",
+    "code": "ADV-01",
+    "title": "Mathematical Foundations for Advanced Computer Vision",
+    "subtitle": "Matrix Calculus, Lie Groups, and Optimization Manifolds",
+    "level": "L3 Advanced Depth",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "status": "published",
+    "estimatedHours": 14,
+    "description": "Rigorous mathematical foundation required for modern deep visual perception, projective geometry, and non-convex optimization. Transitions from scalar calculus and basic matrices to tensor calculus, matrix manifolds, and Lie groups.",
+    "prerequisites": {
+      "coreChapters": [
+        "02",
+        "05",
+        "06",
+        "36",
+        "38",
+        "41"
+      ],
+      "advancedModules": [],
+      "mathCompetencies": [
+        "Matrix calculus & trace derivatives (d/dW Tr(A W B))",
+        "Singular Value Decomposition (SVD) and low-rank approximation",
+        "Multivariate Gaussian distributions and Mahalanobis distance",
+        "Constrained convex optimization & Karush-Kuhn-Tucker (KKT) conditions",
+        "Lie groups SO(3), SE(3) and Lie algebra so(3), se(3)"
+      ],
+      "programmingCompetencies": [
+        "NumPy vectorized tensor algebra",
+        "SciPy scientific optimization routines",
+        "PyTorch autograd graph computation internals"
+      ]
+    },
+    "learningObjectives": [
+      "Derive analytical matrix derivatives and tensor Jacobians for deep learning autograd graphs.",
+      "Formulate low-rank matrix factorizations and spectral decomposition for image structure analysis.",
+      "Model spatial transformations using Lie group SO(3) rotations and SE(3) rigid body motions without gimbal lock.",
+      "Solve constrained optimization problems using Lagrange multipliers, KKT conditions, and Gauss-Newton solvers."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Matrix Calculus & Tensor Derivatives in Vision",
+        "mathematicalFocus": "Matrix trace calculus, Jacobians, Hessians, and backpropagation mechanics through arbitrary matrix transformations."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Singular Value Decomposition & Spectral Geometry",
+        "mathematicalFocus": "Thin SVD, Eckart-Young-Mirsky low-rank theorem, Principal Component Analysis, and Covariance ellipsoids."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Probability, Multivariate Gaussians & Information Theory",
+        "mathematicalFocus": "Multivariate normal distributions, Mahalanobis distance, KL divergence, Jensen-Shannon divergence, and InfoNCE mutual information lower bounds."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Non-Convex Optimization & Numerical Solvers",
+        "mathematicalFocus": "Gradient descent variants, Gauss-Newton, Levenberg-Marquardt, saddle-point dynamics, and KKT conditions."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Lie Groups & Lie Algebras for Spatial Vision",
+        "mathematicalFocus": "SO(3) and SE(3) manifolds, exponential and logarithmic maps, Rodrigues formula, and perturbation models for visual odometry."
+      }
+    ],
+    "benchmarks": [
+      "Synthetic quadratic surface optimization benchmarks",
+      "Synthetic 3D rotation perturbation suites",
+      "Eigenface/Covariance spectral reconstruction benchmark"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-01",
+      "title": "Optimization Manifold & SVD Ellipsoid Lab",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "Matrix Calculus & Optimization Benchmarks",
+        "path": "notebooks/adv-01-math-foundations.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Mathematical Foundations & Optimization",
+      "telemetryPath": "telemetry/adv-01-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-02",
+    "code": "ADV-02",
+    "title": "Advanced Digital Image Processing & Mathematical Inverse Problems",
+    "subtitle": "Variational Methods, Total Variation Regularization, and ADMM",
+    "level": "L3 Advanced Depth",
+    "pillar": 2,
+    "pillarName": "Pillar 2: Intelligent Visual Perception & Sensing",
+    "status": "published",
+    "estimatedHours": 16,
+    "description": "Formulation of image restoration, deblurring, super-resolution, and reconstruction as ill-posed mathematical inverse problems. Covers variational regularization, Total Variation, and split optimization algorithms.",
+    "prerequisites": {
+      "coreChapters": [
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "17"
+      ],
+      "advancedModules": [],
+      "mathCompetencies": [
+        "2D Continuous & Discrete Fourier Transform properties",
+        "Variational calculus and Euler-Lagrange equations",
+        "Total Variation (TV) functional minimization",
+        "Tikhonov regularization and ill-posed inverse problems",
+        "Split Bregman and Alternating Direction Method of Multipliers (ADMM)"
+      ],
+      "programmingCompetencies": [
+        "NumPy 2D FFT / IFFT filtering pipelines",
+        "SciPy sparse linear equation solvers",
+        "OpenCV frequency-domain image manipulation"
+      ]
+    },
+    "learningObjectives": [
+      "Formulate image restoration tasks as ill-posed linear inverse problems y = Ax + n.",
+      "Derive the Euler-Lagrange equations for Total Variation (Rudin-Osher-Fatemi) edge-preserving denoising.",
+      "Implement the Alternating Direction Method of Multipliers (ADMM) to decouple non-smooth L1 regularization.",
+      "Analyze frequency-domain point spread functions (PSF) and Wiener/Richardson-Lucy deconvolution."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Ill-Posed Inverse Problems in Visual Sensing",
+        "mathematicalFocus": "Forward modeling (y = Ax + n), condition numbers, Fredholm integral equations, and Hadamard ill-posedness."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Variational Energy Minimization & Total Variation",
+        "mathematicalFocus": "Euler-Lagrange equations, Dirichlet energy vs Total Variation norm, Rudin-Osher-Fatemi (ROF) model."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Split Optimization: ADMM & Split Bregman",
+        "mathematicalFocus": "Augmented Lagrangian methods, dual ascent, variable splitting, and proximal operators (soft thresholding)."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Blind & Non-Blind Motion Deconvolution",
+        "mathematicalFocus": "Point Spread Function (PSF) estimation, Wiener deconvolution, Richardson-Lucy algorithm, and kernel priors."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Modern Learned Image Reconstruction",
+        "mathematicalFocus": "Deep unfolding networks, plug-and-play ADMM priors with neural denoisers, and implicit regularization."
+      }
+    ],
+    "benchmarks": [
+      "Set5 / Set14 Super-Resolution Benchmarks",
+      "BSD100 Image Denoising Suite",
+      "Levin et al. Motion Deblurring Dataset"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-02",
+      "title": "Variational Inverse Problem & Deblurring Lab",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "ADMM Total Variation & Image Inverses",
+        "path": "notebooks/adv-02-inverse-problems.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Mathematical Inverse Problems",
+      "telemetryPath": "telemetry/adv-02-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-03",
+    "code": "ADV-03",
+    "title": "Robust Visual Tracking & Multi-Object Tracking Systems",
+    "subtitle": "State-Space Modeling, Bipartite Association, and Motion Fusion",
+    "level": "L3 Advanced Depth",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "status": "published",
+    "estimatedHours": 16,
+    "description": "Comprehensive theory and algorithmic architecture for visual tracking in dynamic scenes. Covers state estimation with Kalman/EKF/UKF, bipartite data association, metric appearance embeddings, and occlusion recovery.",
+    "prerequisites": {
+      "coreChapters": [
+        "30",
+        "31",
+        "32",
+        "33",
+        "37",
+        "44",
+        "50"
+      ],
+      "advancedModules": [
+        "adv-01"
+      ],
+      "mathCompetencies": [
+        "Linear state-space models and Gaussian process transitions",
+        "Kalman Filter mathematical derivation (predict and update steps)",
+        "Extended Kalman Filter (EKF) and Unscented Kalman Filter (UKF)",
+        "Combinatorial optimization: Hungarian algorithm & Jonker-Volgenant solver",
+        "Deep metric learning losses (Triplet loss, Cosine margin)"
+      ],
+      "programmingCompetencies": [
+        "OpenCV Lucas-Kanade optical flow (`cv2.calcOpticalFlowPyrLK`)",
+        "SciPy linear assignment (`scipy.optimize.linear_sum_assignment`)",
+        "PyTorch feature extraction and cosine distance computation"
+      ]
+    },
+    "learningObjectives": [
+      "Derive the optimal Kalman gain from Bayesian minimum mean square error principles.",
+      "Implement bipartite matching between track state predictions and multi-scale object detections.",
+      "Analyze modern tracking frameworks: SORT, DeepSORT, ByteTrack, and BoT-SORT.",
+      "Evaluate tracking performance using HOTA, MOTA, IDF1, and identity-switch diagnostic metrics."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Bayesian Filtering & State-Space Kinematics",
+        "mathematicalFocus": "Kalman filter Riccati equations, process vs measurement noise covariance (Q, R), and non-linear kinematics (EKF/UKF)."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Bipartite Data Association & Matching Optimization",
+        "mathematicalFocus": "Cost matrices (IoU, Mahalanobis, ReID cosine distance), Hungarian algorithm, and greedy matching heuristics."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Modern MOT Architectures: ByteTrack & BoT-SORT",
+        "mathematicalFocus": "Low-confidence detection association (ByteTrack), camera motion compensation (CMC), and global link graphs."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Transformer-Based Tracking & Track-by-Query",
+        "mathematicalFocus": "TrackFormer and MOTR: spatial-temporal cross-attention, query lifetimes, and end-to-end multi-object tracking."
+      },
+      {
+        "topicNumber": 5,
+        "title": "HOTA & Evaluation Metrics Standardization",
+        "mathematicalFocus": "Higher Order Tracking Accuracy (HOTA) mathematical decomposition into DetA and AssA; IDF1 and MOTA diagnostics."
+      }
+    ],
+    "benchmarks": [
+      "MOT17 Challenge Benchmark",
+      "MOT20 Dense Crowd Benchmark",
+      "DanceTrack Dynamic Occlusion Suite"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-03",
+      "title": "Synthetic MOT Arena & Bipartite Association Lab",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "ByteTrack Reproduction & HOTA Evaluation",
+        "path": "notebooks/adv-03-robust-tracking.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Multi-Object Tracking Systems",
+      "telemetryPath": "telemetry/adv-03-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-04",
+    "code": "ADV-04",
+    "title": "Advanced Deep Visual Recognition & Attention Mechanisms",
+    "subtitle": "Deformable Attention, Bipartite Matching Loss, and Transformer Detectors",
+    "level": "L3 Advanced Depth",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "status": "published",
+    "estimatedHours": 18,
+    "description": "Exploration of modern state-of-the-art visual recognition architectures. Focuses on deformable self-attention, end-to-end transformer detection (DETR), set prediction loss, and multi-scale feature pyramids.",
+    "prerequisites": {
+      "coreChapters": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "48"
+      ],
+      "advancedModules": [
+        "adv-01"
+      ],
+      "mathCompetencies": [
+        "Scaled dot-product attention algebra & Softmax gradient dynamics",
+        "Bipartite matching loss and Hungarian set assignment",
+        "Deformable attention multi-scale sampling formulation",
+        "Focal Loss and Generalized Focal Loss for continuous label distributions",
+        "Bounding box regression metrics: IoU, GIoU, DIoU, CIoU"
+      ],
+      "programmingCompetencies": [
+        "PyTorch custom autograd and custom Module authoring",
+        "Torchvision backbones and feature extraction hooks",
+        "PyTorch Lightning structured training loops"
+      ]
+    },
+    "learningObjectives": [
+      "Formulate end-to-end object detection as direct set prediction without handcrafted anchors or NMS.",
+      "Derive Deformable Attention sampling offsets and bilinear interpolation gradients.",
+      "Analyze the convergence dynamics of Hungarian bipartite matching loss in transformer detectors.",
+      "Evaluate modern multi-scale detectors on MS COCO across AP, AP50, AP75, and scale-specific subsets."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Vision Transformers: Scaled Dot-Product to Deformable Attention",
+        "mathematicalFocus": "Computational complexity O(N^2) vs O(N K), sparse deformable sampling points, and multi-head attention."
+      },
+      {
+        "topicNumber": 2,
+        "title": "End-to-End Object Detection with Transformers (DETR)",
+        "mathematicalFocus": "Hungarian bipartite matching loss, object query embeddings, and permutation-invariant set prediction."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Deformable DETR & Multi-Scale Feature Pyramids",
+        "mathematicalFocus": "Multi-scale deformable attention modules, reference points, and fast-converging cross-attention."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Advanced Classification & Bounding Box Loss Formulations",
+        "mathematicalFocus": "Focal Loss, Generalized Focal Loss, Quality Focal Loss, GIoU, DIoU, and CIoU gradient dynamics."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Modern Single-Stage CNN-Transformer Hybrids",
+        "mathematicalFocus": "YOLOv8/v9/v10 architectural evolutions, Dual-Label Assignment, and anchor-free regression heads."
+      }
+    ],
+    "benchmarks": [
+      "MS COCO 2017 Detection Split",
+      "Pascal VOC 2012 Benchmark",
+      "LVIS v1.0 Long-Tail Detection Suite"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-04",
+      "title": "Deformable Attention & Hungarian Loss Visualizer",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "Deformable DETR Reproduction & COCO Evaluation",
+        "path": "notebooks/adv-04-deep-recognition.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Deep Visual Recognition & Detection",
+      "telemetryPath": "telemetry/adv-04-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-05",
+    "code": "ADV-05",
+    "title": "Multi-View Geometry & 3D Computer Vision",
+    "subtitle": "Epipolar Geometry, Bundle Adjustment, and Spatial Triangulation",
+    "level": "L3 Advanced Depth",
+    "pillar": 1,
+    "pillarName": "Pillar 1: Intelligent Computer Vision",
+    "status": "published",
+    "estimatedHours": 16,
+    "description": "Rigorous treatment of geometric computer vision across multiple views. Derives epipolar geometry, the Fundamental and Essential matrices, 3D triangulation, bundle adjustment, and structure-from-motion (SfM).",
+    "prerequisites": {
+      "coreChapters": [
+        "01",
+        "11",
+        "21",
+        "22",
+        "25",
+        "36"
+      ],
+      "advancedModules": [
+        "adv-01"
+      ],
+      "mathCompetencies": [
+        "Projective space P^2 and P^3 homogeneous coordinate algebra",
+        "Epipolar geometry: Essential matrix (E) and Fundamental matrix (F)",
+        "Normalized 8-point and 7-point algorithms",
+        "Sampson first-order geometric error approximation",
+        "Non-linear least squares bundle adjustment with Levenberg-Marquardt"
+      ],
+      "programmingCompetencies": [
+        "NumPy homogeneous geometric operations",
+        "OpenCV multi-view calibration (`cv2.findFundamentalMat`, `cv2.recoverPose`)",
+        "Open3D / Trimesh point cloud rendering and manipulation"
+      ]
+    },
+    "learningObjectives": [
+      "Derive the epipolar constraint x'^T F x = 0 and camera baseline geometry.",
+      "Implement the Hartley-normalized 8-point algorithm for stable fundamental matrix estimation.",
+      "Formulate bundle adjustment as a sparse non-linear least squares problem minimizing reprojection error.",
+      "Reconstruct sparse 3D point clouds from calibrated multi-view camera sequences."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Projective Geometry & Camera Calibration",
+        "mathematicalFocus": "Pinhole camera matrix P = K [R|t], intrinsic matrix K, radial distortion models, and camera resectioning."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Two-View Epipolar Geometry & Essential Matrix",
+        "mathematicalFocus": "Epipoles, epipolar lines, Essential matrix E = [t]_x R, singular value properties, and pose recovery."
+      },
+      {
+        "topicNumber": 3,
+        "title": "The Fundamental Matrix & Robust Estimation",
+        "mathematicalFocus": "Uncalibrated cameras, normalized 8-point algorithm, algebraic vs Sampson error, and RANSAC epipolar fitting."
+      },
+      {
+        "topicNumber": 4,
+        "title": "3D Triangulation & Structure-from-Motion (SfM)",
+        "mathematicalFocus": "Linear triangulation (DLT), iterative reconstruction pipelines, track building, and incremental SfM."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Bundle Adjustment & Levenberg-Marquardt",
+        "mathematicalFocus": "Reprojection error minimization, sparse Schur complement trick, and camera-point joint optimization."
+      }
+    ],
+    "benchmarks": [
+      "KITTI Odometry Benchmark",
+      "Middlebury Stereo & Multi-View Suite",
+      "Tanks and Temples 3D Reconstruction Benchmark"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-05",
+      "title": "3D Epipolar Geometry & Camera Projection Lab",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "Structure-from-Motion & Bundle Adjustment",
+        "path": "notebooks/adv-05-multiview-geometry.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "3D Vision & Multi-View Geometry",
+      "telemetryPath": "telemetry/adv-05-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-06",
+    "code": "ADV-06",
+    "title": "Robust Visual Perception in Adverse Conditions",
+    "subtitle": "Atmospheric Scattering, Low-Light Enhancement, and Uncertainty Calibration",
+    "level": "L3 Advanced Depth",
+    "pillar": 2,
+    "pillarName": "Pillar 2: Intelligent Visual Perception & Sensing",
+    "status": "published",
+    "estimatedHours": 16,
+    "description": "Physical sensor modeling and neural robustness under environmental degradation. Focuses on tropical rain, heavy fog, solar glare, nighttime imaging, and model uncertainty calibration (ECE/OOD).",
+    "prerequisites": {
+      "coreChapters": [
+        "08",
+        "10",
+        "11",
+        "12",
+        "41",
+        "44",
+        "50"
+      ],
+      "advancedModules": [
+        "adv-02",
+        "adv-04"
+      ],
+      "mathCompetencies": [
+        "Koschmieder atmospheric radiative transfer equation (I = J*t + A*(1-t))",
+        "Dark Channel Prior mathematical formulation and transmission map estimation",
+        "Retinex illumination-reflectance decomposition (S = R * L)",
+        "Expected Calibration Error (ECE) and Platt temperature scaling",
+        "Out-of-Distribution (OOD) detection via Mahalanobis feature distance"
+      ],
+      "programmingCompetencies": [
+        "Albumentations visual corruption pipelines",
+        "PyTorch model calibration & temperature scaling",
+        "OpenCV Dark Channel Prior & Retinex implementations"
+      ]
+    },
+    "learningObjectives": [
+      "Model atmospheric attenuation using Koschmieder's physical radiative transfer law.",
+      "Implement zero-reference curve estimation (Zero-DCE) for dynamic range expansion in extreme low light.",
+      "Measure neural network overconfidence using Expected Calibration Error (ECE) and Brier scores.",
+      "Benchmark model degradation across 15 standard synthetic corruptions using Mean Corruption Error (mCE)."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Physics of Light in Scattering Media",
+        "mathematicalFocus": "Koschmieder law, single scattering albedo, transmission map estimation, and atmospheric light vector determination."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Dark Channel Prior & Variational Dehazing",
+        "mathematicalFocus": "He et al. Dark Channel formulation, soft matting, guided filter transmission refinement, and color fidelity preservation."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Low-Light Enhancement & Retinex Theory",
+        "mathematicalFocus": "Illumination map estimation, Zero-DCE quadratic curve optimization without paired ground truth, and noise amplification control."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Neural Model Calibration & Uncertainty Estimation",
+        "mathematicalFocus": "Overconfidence in deep networks, temperature scaling, Expected Calibration Error (ECE), reliability diagrams, and Brier score."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Out-of-Distribution Detection & Robustness Auditing",
+        "mathematicalFocus": "Mahalanobis distance on penultimate layer activations, energy-based OOD scores, and ImageNet-C/COCO-C benchmark suites."
+      }
+    ],
+    "benchmarks": [
+      "RESIDE Synthetic & Real Haze Benchmark",
+      "Dark Zurich / NightOwls Adverse Nighttime Datasets",
+      "ImageNet-C / COCO-C Common Corruption Suites"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-06",
+      "title": "Atmospheric Haze, Rain & Dynamic Range Lab",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "Dark Channel Prior & Model Calibration Lab",
+        "path": "notebooks/adv-06-adverse-perception.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Robust Visual Perception & Sensing",
+      "telemetryPath": "telemetry/adv-06-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-07",
+    "code": "ADV-07",
+    "title": "Vision Foundation Models & Parameter-Efficient Adaptation",
+    "subtitle": "Contrastive Representation Learning, LoRA, and Open-Vocabulary Grounding",
+    "level": "L3 Advanced Depth",
+    "pillar": 3,
+    "pillarName": "Pillar 3: Vision-Centric Multimodal Perception",
+    "status": "published",
+    "estimatedHours": 18,
+    "description": "Pretrained visual foundation models and their efficient downstream adaptation. Covers self-supervised visual representation learning (MAE, SimCLR, DINO), contrastive vision-language pretraining (CLIP), and parameter-efficient fine-tuning (LoRA, Adapter layers).",
+    "prerequisites": {
+      "coreChapters": [
+        "44",
+        "45",
+        "51",
+        "52",
+        "53",
+        "54"
+      ],
+      "advancedModules": [
+        "adv-04"
+      ],
+      "mathCompetencies": [
+        "Contrastive InfoNCE loss derivation and mutual information bounds",
+        "Low-Rank matrix decomposition (W = W_0 + B A, rank r << d)",
+        "Attention prefix tuning and cross-modal token projection",
+        "High-dimensional cosine metric retrieval spaces"
+      ],
+      "programmingCompetencies": [
+        "HuggingFace Transformers and OpenCLIP pipelines",
+        "PEFT (Parameter-Efficient Fine-Tuning) library",
+        "PyTorch mixed-precision (`torch.amp`) model fine-tuning"
+      ]
+    },
+    "learningObjectives": [
+      "Derive the InfoNCE loss function and explain how contrastive learning aligns visual and textual token spaces.",
+      "Implement Low-Rank Adaptation (LoRA) for vision transformer attention projection layers.",
+      "Evaluate zero-shot transfer capabilities across unseen classes and open-vocabulary detection queries.",
+      "Analyze self-supervised visual features produced by DINOv2 for dense semantic correspondences."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Self-Supervised Visual Pretraining",
+        "mathematicalFocus": "Masked Autoencoders (MAE), DINO self-distillation without labels, patch tokens, and semantic feature clustering."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Contrastive Vision-Language Learning (CLIP)",
+        "mathematicalFocus": "Symmetric cross-entropy loss, dual-encoder architecture, multimodal embedding geometry, and temperature scaling."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Parameter-Efficient Fine-Tuning (PEFT)",
+        "mathematicalFocus": "LoRA rank decomposition, gradient flow through frozen backbones, adapter layers, and prefix token tuning."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Open-Vocabulary Object Detection & Grounding",
+        "mathematicalFocus": "GLIP / Grounding DINO: unifying phrase grounding and bounding box regression via cross-attention."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Prompt Engineering & Visual In-Context Learning",
+        "mathematicalFocus": "Learnable visual prompts (CoOp, CoCoOp), spatial prompt masks, and zero-shot generalization bounds."
+      }
+    ],
+    "benchmarks": [
+      "ImageNet-1K Zero-Shot Transfer Suite",
+      "Flickr30k Cross-Modal Retrieval Benchmark",
+      "RefCOCO Visual Grounding Dataset"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-07",
+      "title": "CLIP Zero-Shot Embedding Space Explorer",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "LoRA Adaptation of Vision Transformers",
+        "path": "notebooks/adv-07-foundation-models.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Vision Foundation Models & Adaptation",
+      "telemetryPath": "telemetry/adv-07-benchmarks.json",
+      "status": "published"
+    }
+  },
+  {
+    "id": "adv-08",
+    "code": "ADV-08",
+    "title": "Efficient Computer Vision & Edge AI Architecture",
+    "subtitle": "Quantization Arithmetic, Neural Pruning, and Latency Optimization",
+    "level": "L3 Advanced Depth",
+    "pillar": 4,
+    "pillarName": "Pillar 4: Efficient Vision Systems",
+    "status": "published",
+    "estimatedHours": 16,
+    "description": "Techniques for deploying high-capacity visual perception models on power-constrained, resource-limited edge hardware. Covers uniform affine quantization (INT8/INT4), Quantization-Aware Training (QAT), structured pruning, and memory bandwidth optimization.",
+    "prerequisites": {
+      "coreChapters": [
+        "41",
+        "43",
+        "45",
+        "56",
+        "57",
+        "58",
+        "59"
+      ],
+      "advancedModules": [
+        "adv-04"
+      ],
+      "mathCompetencies": [
+        "Uniform affine quantization arithmetic (q = round(x/S) + Z)",
+        "Straight-Through Estimator (STE) gradient approximation in QAT",
+        "L0, L1, and structured group Lasso pruning formulations",
+        "Knowledge Distillation Kullback-Leibler divergence matching",
+        "Roofline operational intensity model (FLOPs / Byte memory bandwidth)"
+      ],
+      "programmingCompetencies": [
+        "PyTorch Post-Training Quantization (PTQ) & QAT engines",
+        "ONNX model export, optimization, and ONNX Runtime execution",
+        "TensorRT / OpenVINO / WebGPU execution profiling"
+      ]
+    },
+    "learningObjectives": [
+      "Implement symmetric and asymmetric uniform integer quantization (INT8) for convolutional and linear layers.",
+      "Formulate Quantization-Aware Training with Straight-Through Estimators to preserve accuracy under low bit-width.",
+      "Apply structured channel pruning to eliminate FLOPs while preserving dense memory access patterns.",
+      "Profile latency bottlenecks using the Roofline model to balance compute-bound vs memory-bandwidth-bound operations."
+    ],
+    "topics": [
+      {
+        "topicNumber": 1,
+        "title": "Quantization Theory & Fixed-Point Arithmetic",
+        "mathematicalFocus": "Scale factor S, zero-point Z, clipping thresholds, dynamic vs static range calibration, and integer matrix multiplication."
+      },
+      {
+        "topicNumber": 2,
+        "title": "Quantization-Aware Training (QAT)",
+        "mathematicalFocus": "Straight-Through Estimator (STE), learned step size quantization (LSQ), and mixed-precision bit allocation."
+      },
+      {
+        "topicNumber": 3,
+        "title": "Structured & Unstructured Neural Pruning",
+        "mathematicalFocus": "Magnitude pruning, Taylor-expansion sensitivity criteria, structured channel removal, and fine-tuning recovery."
+      },
+      {
+        "topicNumber": 4,
+        "title": "Knowledge Distillation for Vision Models",
+        "mathematicalFocus": "Dark knowledge transfer, temperature-softened cross-entropy, feature-map hint loss, and attention transfer."
+      },
+      {
+        "topicNumber": 5,
+        "title": "Hardware Acceleration & Roofline Profiling",
+        "mathematicalFocus": "Roofline model analysis, SRAM cache hierarchies, memory bandwidth saturation, and ONNX/WebGPU runtime optimization."
+      }
+    ],
+    "benchmarks": [
+      "ImageNet MobileNet-v2/v3 Efficiency Benchmark",
+      "YOLOv8-Nano / Edge Detection Benchmark",
+      "MLPerf Tiny Inference Vision Benchmarks"
+    ],
+    "interactiveLab": {
+      "id": "lab-adv-08",
+      "title": "Neural Quantization & Roofline Analyzer Lab",
+      "tier": "Tier-A",
+      "status": "published"
+    },
+    "notebooks": [
+      {
+        "title": "INT8 PTQ & QAT Pipeline with ONNX Export",
+        "path": "notebooks/adv-08-efficient-edge.ipynb",
+        "status": "published"
+      }
+    ],
+    "experimentSpecs": {
+      "targetDomain": "Efficient Computer Vision & Edge AI",
+      "telemetryPath": "telemetry/adv-08-benchmarks.json",
+      "status": "published"
+    }
+  }
+]

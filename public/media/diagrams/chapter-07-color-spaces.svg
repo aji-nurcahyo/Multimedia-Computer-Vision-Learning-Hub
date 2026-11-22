@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="100%" height="100%">
+  <rect width="960" height="380" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="330" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 07 · ADDITIVE RGB vs PERCEPTUAL HSV</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Model Warna RGB (Hardware) vs Ruang Silinder HSV (Perseptual)</text>
+
+  <!-- RGB Additive Venn -->
+  <g transform="translate(210, 225)">
+    <circle cx="-42" cy="-30" r="68" fill="#ef4444" fill-opacity="0.45" stroke="#ef4444" stroke-width="2" />
+    <circle cx="42" cy="-30" r="68" fill="#22c55e" fill-opacity="0.45" stroke="#22c55e" stroke-width="2" />
+    <circle cx="0" cy="40" r="68" fill="#3b82f6" fill-opacity="0.45" stroke="#3b82f6" stroke-width="2" />
+    <text x="-75" y="-50" fill="#fecaca" font-family="monospace" font-size="13" font-weight="700">RED</text>
+    <text x="50" y="-50" fill="#bbf7d0" font-family="monospace" font-size="13" font-weight="700">GREEN</text>
+    <text x="-16" y="82" fill="#bfdbfe" font-family="monospace" font-size="13" font-weight="700">BLUE</text>
+    <text x="0" y="0" fill="#ffffff" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">WHITE</text>
+    <text x="0" y="132" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">Sintesis Aditif RGB (Layar/Kamera)</text>
+  </g>
+
+  <!-- Arrow -->
+  <path d="M 380 220 L 470 220" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6,4" />
+  <text x="425" y="206" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">rgb2hsv()</text>
+
+  <!-- HSV Cylinder -->
+  <g transform="translate(650, 215)">
+    <ellipse cx="0" cy="-75" rx="95" ry="30" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <path d="M -95 -75 L -95 75 A 95 30 0 0 0 95 75 L 95 -75" fill="#1e293b" fill-opacity="0.4" stroke="#334155" stroke-width="2" />
+    <ellipse cx="0" cy="75" rx="95" ry="30" fill="#090d16" stroke="#475569" stroke-width="1.5" />
+    <line x1="0" y1="75" x2="0" y2="-75" stroke="#34d399" stroke-width="2" />
+    <line x1="0" y1="-75" x2="88" y2="-75" stroke="#f59e0b" stroke-width="2" />
+    <text x="108" y="-70" fill="#f59e0b" font-family="monospace" font-size="12" font-weight="700">Saturation (S)</text>
+    <text x="12" y="5" fill="#34d399" font-family="monospace" font-size="12" font-weight="700">Value (V)</text>
+    <text x="0" y="-115" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">Sudut Hue H ∈ [0°, 360°)</text>
+    <text x="0" y="140" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">Memisahkan Rona Warna (H) dari Pencahayaan (V)</text>
+  </g>
+  <text x="924" y="364" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

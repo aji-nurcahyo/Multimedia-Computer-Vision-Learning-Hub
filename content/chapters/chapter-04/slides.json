@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Python Multimedia Development Environment",
+    "lead": "Section 01 — Multimedia & Signal Foundations · Chapter 04",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Kuliah**: Instalasi Python 64-bit, Isolasi Virtual Environment, Manajemen Dependensi pip, dan Reproducibility",
+    "notes": "Selamat datang di kuliah Bab 04. Modul ini membimbing penyiapan lingkungan kerja praktikum yang tangguh, terisolasi, dan bebas dari konflik dependensi."
+  },
+  {
+    "id": 2,
+    "title": "Capaian Pembelajaran Perkuliahan",
+    "lead": "Kompetensi penyiapan infrastruktur perangkat lunak",
+    "body": "### Target Pembelajaran\n- Memverifikasi arsitektur interpreter Python 3.10+ (64-bit).\n- Membuat dan mengaktivasi Virtual Environment (.venv/) pada sistem operasi Windows, macOS, dan Linux.\n- Menguasai instalasi paket saintifik: NumPy, OpenCV, Matplotlib, SciPy, dan Pillow.\n- Mengelola struktur berkas proyek multimedia modular dan file requirements.txt.\n- Mampu mendiagnosis dan memecahkan kendala umum sistem (PowerShell policy, DLL error).",
+    "notes": "Tekankan bahwa pengembang profesional tidak pernah menginstal paket proyek secara global di sistem operasi."
+  },
+  {
+    "id": 3,
+    "title": "Mengapa Isolasi Lingkungan Mutlak Diperlukan?",
+    "lead": "Bahaya fatal instalasi paket global (Dependency Hell)",
+    "body": "### Masalah Tanpa Isolasi\n- **Konflik Versi Antar-Proyek**: Proyek lama membutuhkan NumPy 1.24, proyek baru membutuhkan NumPy 2.x.\n- **Kerusakan Sistem Operasi**: Menimpa modul bawaan sistem dengan hak akses administrator.\n- **Ketiadaan Reproducibility**: Kode yang berjalan di laptop Anda tidak dapat dijalankan oleh rekan tim atau server penilaian.\n\n### Solusi: Virtual Environment (venv)\n- Direktori mandiri yang memiliki interpreter Python dan pustaka site-packages terisolasi 100%.",
+    "notes": "Jelaskan analogi kotak pasir (sandbox) di mana eksperimen kita tidak akan mengganggu sistem di luar kotak."
+  },
+  {
+    "id": 4,
+    "title": "Alur Kerja Pembuatan Virtual Environment",
+    "lead": "Perintah terminal baku lintas platform",
+    "body": "### Tiga Langkah Standar\n1. **Membuat Lingkungan**: `python -m venv .venv`\n2. **Mengaktifkan Lingkungan**:\n   - **Windows PowerShell**: `.venv\\Scripts\\Activate.ps1`\n   - **Windows CMD**: `.venv\\Scripts\\activate.bat`\n   - **Linux / macOS**: `source .venv/bin/activate`\n3. **Indikator Sukses**:\n   - Tanda kurung di awal baris terminal: `(.venv) user@host:~$`",
+    "notes": "Tunjukkan solusi jika PowerShell memblokir aktivasi: gunakan Set-ExecutionPolicy -Scope Process RemoteSigned."
+  },
+  {
+    "id": 5,
+    "title": "Pustaka Inti Komputasi Multimedia",
+    "lead": "Stack perangkat lunak standar industri dan riset",
+    "body": "### Paket Kunci yang Wajib Dikuasai\n- **NumPy**: Manipulasi array berdimensi N, aljabar linier, dan vektorisasi super-cepat.\n- **OpenCV (opencv-python)**: Fungsi I/O citra/video, transformasi spasial, filtering, deteksi fitur.\n- **Matplotlib**: Visualisasi grafik, histogram intensitas, dan plotting subplot.\n- **SciPy & SoundFile**: Pemrosesan sinyal lanjutan, filter IIR/FIR, dan audio WAV PCM.\n- **Pillow (PIL)**: Konversi format file gambar dan manipulasi metadata EXIF.",
+    "notes": "Sampaikan bahwa paket-paket ini dibangun di atas bahasa C/C++ teroptimasi sehingga sangat cepat."
+  },
+  {
+    "id": 6,
+    "title": "Struktur Tata Kelola Folder Proyek",
+    "lead": "Memisahkan data mentah, kode modul, dan notebook",
+    "body": "### Praktik Terbaik Struktur Direktori\n```text\nmy-project/\n├── .venv/               # Virtual environment (Abaikan di Git!)\n├── requirements.txt     # Daftar versi paket terkunci\n├── data/\n│   ├── raw/             # Citra mentah & audio asli\n│   └── processed/       # Hasil filtering & deteksi\n├── src/                 # Modul kode Python (.py)\n├── notebooks/           # Eksperimen interaktif (.ipynb)\n└── README.md            # Dokumentasi petunjuk eksekusi\n```",
+    "notes": "Ingatkan mahasiswa untuk selalu menambahkan .venv/ ke dalam berkas .gitignore."
+  },
+  {
+    "id": 7,
+    "title": "Membekukan Dependensi: requirements.txt",
+    "lead": "Menjamin replikasi lingkungan 100% identik di mesin lain",
+    "body": "### Perintah Pengelolaan Dependensi\n- **Membekukan Versi Terpasang**:\n  `pip freeze > requirements.txt`\n\n- **Mereplikasi Lingkungan di Komputer Lain**:\n  `pip install -r requirements.txt`\n\n### Contoh Isi requirements.txt\n```text\nnumpy>=1.26.0\nmatplotlib>=3.8.0\nopencv-python>=4.9.0\npillow>=10.2.0\nscipy>=1.12.0\nsoundfile>=0.12.1\n```",
+    "notes": "Jelaskan bahwa menyertakan requirements.txt adalah syarat mutlak dalam publikasi kode ilmiah."
+  },
+  {
+    "id": 8,
+    "title": "Pemecahan Masalah Khas (Troubleshooting)",
+    "lead": "Menghadapi dan menyelesaikan kendala umum konfigurasi",
+    "body": "### Kendala & Solusi\n1. **PowerShell Script Execution Disabled**:\n   `Set-ExecutionPolicy -Scope Process RemoteSigned`\n2. **ImportError: DLL load failed (cv2 pada Windows)**:\n   Instal Microsoft Visual C++ Redistributable (x64) terbaru.\n3. **OpenCV GUI Crash pada Linux (libGL.so missing)**:\n   Gunakan `pip install opencv-python-headless` untuk server komputasi tanpa monitor.",
+    "notes": "Berikan tips praktis yang sering ditanyakan mahasiswa saat instalasi pertama kali."
+  },
+  {
+    "id": 9,
+    "title": "Skrip Verifikasi Otomatis Lingkungan",
+    "lead": "Memeriksa kesiapan perangkat lunak sebelum memulai bab berikutnya",
+    "body": "### Diagnostik Mandiri Python\n```python\nimport sys, numpy as np, cv2, matplotlib\n\nprint(f\"Python : {sys.version_info.major}.{sys.version_info.minor}\")\nprint(f\"NumPy  : {np.__version__}\")\nprint(f\"OpenCV : {cv2.__version__}\")\nprint(f\"Plot   : {matplotlib.__version__}\")\nprint(\"Lingkungan tervalidasi dan siap digunakan!\")\n```",
+    "notes": "Ajak mahasiswa menjalankan skrip diagnostik ini di terminal masing-masing."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Kuliah & Referensi",
+    "lead": "Multimedia & Computer Vision Learning Hub · Institut Teknologi Sumatera (ITERA)",
+    "body": "### Poin Inti Pembahasan\n- Selalu gunakan Virtual Environment (.venv) untuk setiap proyek independen.\n- Pastikan Python 64-bit versi 3.10–3.12 terpasang dengan benar.\n- Kunci dependensi pustaka melalui requirements.txt agar riset dapat direproduksi.\n\n### Referensi Utama\n1. McKinney (2022). *Python for Data Analysis*, 3rd Ed. O'Reilly.\n2. Howse & Minichino (2020). *Learning OpenCV 4 with Python 3*, 3rd Ed. Packt.\n3. Python Packaging Authority (PyPA) Documentation (2024).",
+    "notes": "Tutup sesi dan ajak mahasiswa memeriksa wizard interaktif Environment Setup Checklist."
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-11-01",
+    "title": "Pipeline Domain Frekuensi 2D: FFT → fftshift → Filtering → IFFT",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-11-2d-fft-spectrum.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-11-02",
+    "title": "Profil Penapis Frekuensi Ideal vs Butterworth vs Gaussian & Gibbs Ringing",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-11-frequency-filters.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

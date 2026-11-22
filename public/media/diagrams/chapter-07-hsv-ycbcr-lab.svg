@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="330" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 07 · YCbCr &amp; CIELAB DECOMPOSITION</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Dekomposisi Ruang Warna Video (YCbCr) &amp; Perseptual (CIELAB)</text>
+
+  <g transform="translate(50, 125)">
+    <rect width="410" height="185" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="20" y="32" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="16" font-weight="700">YCbCr (ITU-R BT.601 / JPEG / MPEG)</text>
+    <text x="20" y="64" fill="#e2e8f0" font-family="monospace" font-size="12">Y  =  0.299R + 0.587G + 0.114B   (Luminance)</text>
+    <text x="20" y="92" fill="#93c5fd" font-family="monospace" font-size="12">Cb = 128 - 0.169R - 0.331G + 0.500B (Blue-Diff)</text>
+    <text x="20" y="120" fill="#fca5a5" font-family="monospace" font-size="12">Cr = 128 + 0.500R - 0.419G - 0.081B (Red-Diff)</text>
+    <text x="20" y="158" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Aplikasi: Chroma subsampling (4:2:0) pada kompresi video.</text>
+  </g>
+
+  <g transform="translate(500, 125)">
+    <rect width="410" height="185" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1.5" />
+    <text x="20" y="32" fill="#34d399" font-family="system-ui, sans-serif" font-size="16" font-weight="700">CIELAB (L* a* b* Uniform Color Space)</text>
+    <text x="20" y="64" fill="#e2e8f0" font-family="monospace" font-size="12">L* ∈ [0, 100]   : Kecerahan (Black → White)</text>
+    <text x="20" y="92" fill="#86efac" font-family="monospace" font-size="12">a* ∈ [-128, 127]: Sumbu Hijau (-) ↔ Merah (+)</text>
+    <text x="20" y="120" fill="#fde047" font-family="monospace" font-size="12">b* ∈ [-128, 127]: Sumbu Biru (-) ↔ Kuning (+)</text>
+    <text x="20" y="158" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Keunggulan: Jarak Euclidean ΔE sebanding persepsi mata.</text>
+  </g>
+
+  <text x="924" y="344" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

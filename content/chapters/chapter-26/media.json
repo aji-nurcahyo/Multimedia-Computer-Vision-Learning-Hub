@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-26-01",
+    "title": "Representasi Sekuens Temporal & Dimensi Spasial-Waktu Video",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-26-video-temporal-sequence.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-26-02",
+    "title": "Skema Subsampling Kroma (Chroma Subsampling)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-26-chroma-subsampling.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

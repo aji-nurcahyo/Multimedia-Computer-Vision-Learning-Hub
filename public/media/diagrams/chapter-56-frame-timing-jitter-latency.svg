@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Frame Timing, Jitter, dan Batas Deadline Pemrosesan</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Dinamika Waktu Antar-Frame (Inter-Frame Arrival), Kompensasi Jitter, dan Degradasi Performa</text>
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <g transform="translate(40, 100)">
+    <!-- Timeline Axis -->
+    <line x1="20" y1="50" x2="700" y2="50" stroke="#475569" stroke-width="2" />
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#38bdf8">Garis Waktu Akuisisi Kamera (Ideal: 33.33 ms interval pada 30 FPS)</text>
+
+    <!-- Frame 1 -->
+    <rect x="40" y="70" width="90" height="40" rx="4" fill="#1e293b" stroke="#38bdf8" />
+    <text x="85" y="94" font-family="system-ui, sans-serif" font-size="11" fill="#38bdf8" font-weight="bold" text-anchor="middle">Frame t_0</text>
+    <line x1="85" y1="50" x2="85" y2="70" stroke="#38bdf8" stroke-dasharray="3 3" />
+
+    <!-- Frame 2 with small jitter -->
+    <rect x="180" y="70" width="90" height="40" rx="4" fill="#1e293b" stroke="#38bdf8" />
+    <text x="225" y="94" font-family="system-ui, sans-serif" font-size="11" fill="#38bdf8" font-weight="bold" text-anchor="middle">Frame t_1</text>
+    <line x1="225" y1="50" x2="225" y2="70" stroke="#38bdf8" stroke-dasharray="3 3" />
+    <text x="155" y="42" font-family="monospace" font-size="10" fill="#94a3b8">Δt₁=33.2ms</text>
+
+    <!-- Frame 3 with late jitter -->
+    <rect x="360" y="70" width="90" height="40" rx="4" fill="#1e293b" stroke="#f59e0b" />
+    <text x="405" y="94" font-family="system-ui, sans-serif" font-size="11" fill="#f59e0b" font-weight="bold" text-anchor="middle">Frame t_2 (Late)</text>
+    <line x1="405" y1="50" x2="405" y2="70" stroke="#f59e0b" stroke-dasharray="3 3" />
+    <text x="290" y="42" font-family="monospace" font-size="10" fill="#f59e0b">Δt₂=45.1ms (Jitter +11.8ms)</text>
+
+    <!-- Frame 4 burst -->
+    <rect x="490" y="70" width="90" height="40" rx="4" fill="#1e293b" stroke="#34d399" />
+    <text x="535" y="94" font-family="system-ui, sans-serif" font-size="11" fill="#34d399" font-weight="bold" text-anchor="middle">Frame t_3</text>
+    <line x1="535" y1="50" x2="535" y2="70" stroke="#34d399" stroke-dasharray="3 3" />
+    <text x="445" y="42" font-family="monospace" font-size="10" fill="#34d399">Δt₃=21.5ms</text>
+
+    <!-- Processing Pipeline Timeline -->
+    <text x="20" y="150" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#818cf8">Waktu Eksekusi Pemrosesan vs Batas Frame Budget (Deadline = 33.3 ms)</text>
+    <line x1="20" y1="170" x2="700" y2="170" stroke="#475569" stroke-width="2" />
+
+    <!-- Success Task 1 -->
+    <rect x="40" y="185" width="70" height="35" rx="4" fill="#065f46" stroke="#34d399" />
+    <text x="75" y="206" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" text-anchor="middle">Proc: 22ms OK</text>
+
+    <!-- Success Task 2 -->
+    <rect x="180" y="185" width="85" height="35" rx="4" fill="#065f46" stroke="#34d399" />
+    <text x="222" y="206" font-family="system-ui, sans-serif" font-size="10" fill="#34d399" text-anchor="middle">Proc: 28ms OK</text>
+
+    <!-- Overflow Task 3: Missed Deadline -->
+    <rect x="360" y="185" width="130" height="35" rx="4" fill="#7f1d1d" stroke="#f87171" />
+    <text x="425" y="206" font-family="system-ui, sans-serif" font-size="10" fill="#f87171" text-anchor="middle">Proc: 41ms &gt; 33.3ms</text>
+    <line x1="465" y1="165" x2="465" y2="230" stroke="#ef4444" stroke-width="2" stroke-dasharray="2 2" />
+    <text x="470" y="240" font-family="system-ui, sans-serif" font-size="9" fill="#ef4444">Deadline Missed!</text>
+
+    <!-- Dropped Frame -->
+    <rect x="520" y="185" width="80" height="35" rx="4" fill="#1e293b" stroke="#64748b" stroke-dasharray="3 3" />
+    <text x="560" y="206" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Frame Dropped</text>
+  </g>
+
+  <!-- Metric Summary Panel -->
+  <g transform="translate(40, 360)">
+    <rect width="720" height="55" rx="6" fill="#0f172a" stroke="#334155" />
+    <text x="20" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f8fafc">Jitter Formulasi Matematika:</text>
+    <text x="20" y="42" font-family="monospace" font-size="11" fill="#38bdf8">Jitter = √( (1 / (N-1)) ∑ (Δt_i - Δt_avg)² )  |  Drop Policy: FIFO Drop-Oldest untuk Minimal Latency</text>
+    <text x="580" y="34" font-family="system-ui, sans-serif" font-size="11" fill="#34d399">Target Stabilitas: Jitter &lt; 2 ms</text>
+  </g>
+
+  <text x="400" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Multimedia &amp; Computer Vision Learning Hub • Institut Teknologi Sumatera (ITERA)</text>
+</svg>
+

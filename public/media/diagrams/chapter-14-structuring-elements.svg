@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 350" width="100%" height="100%">
+  <rect width="960" height="350" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="350" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 14 · STRUCTURING ELEMENTS (SE)</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Geometri Elemen Penstruktur (Structuring Elements) &amp; Turunan Morfologi</text>
+
+  <g transform="translate(60, 125)">
+    <rect width="240" height="160" rx="8" fill="#1e293b" stroke="#38bdf8" />
+    <text x="120" y="30" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">MORPH_RECT (3×3)</text>
+    <text x="120" y="70" fill="#e2e8f0" font-family="monospace" font-size="15" text-anchor="middle">[ 1  1  1 ]</text>
+    <text x="120" y="95" fill="#e2e8f0" font-family="monospace" font-size="15" text-anchor="middle">[ 1 (1) 1 ]</text>
+    <text x="120" y="120" fill="#e2e8f0" font-family="monospace" font-size="15" text-anchor="middle">[ 1  1  1 ]</text>
+  </g>
+
+  <g transform="translate(360, 125)">
+    <rect width="240" height="160" rx="8" fill="#1e293b" stroke="#34d399" />
+    <text x="120" y="30" fill="#34d399" font-family="monospace" font-size="13" font-weight="700" text-anchor="middle">MORPH_CROSS (3×3)</text>
+    <text x="120" y="70" fill="#e2e8f0" font-family="monospace" font-size="15" text-anchor="middle">[ 0  1  0 ]</text>
+    <text x="120" y="95" fill="#e2e8f0" font-family="monospace" font-size="15" text-anchor="middle">[ 1 (1) 1 ]</text>
+    <text x="120" y="120" fill="#e2e8f0" font-family="monospace" font-size="15" text-anchor="middle">[ 0  1  0 ]</text>
+  </g>
+
+  <g transform="translate(660, 125)">
+    <rect width="240" height="160" rx="8" fill="#1e293b" stroke="#f59e0b" />
+    <text x="120" y="30" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Operasi Komposit Lanjutan</text>
+    <text x="20" y="68" fill="#cbd5e1" font-family="monospace" font-size="11">• Gradient : Dilate(A) - Erode(A)</text>
+    <text x="20" y="96" fill="#cbd5e1" font-family="monospace" font-size="11">• Top-Hat  : A - Open(A)</text>
+    <text x="20" y="124" fill="#cbd5e1" font-family="monospace" font-size="11">• Black-Hat: Close(A) - A</text>
+  </g>
+  <text x="924" y="332" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

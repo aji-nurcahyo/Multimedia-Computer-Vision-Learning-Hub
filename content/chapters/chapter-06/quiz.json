@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-06-01",
+    "question": "Dalam representasi tensor citra berwarna menggunakan NumPy (H × W × 3), bagaimana urutan indeks yang tepat untuk mengakses piksel pada kolom ke-120 dan baris ke-45?",
+    "options": [
+      "img[45, 120]",
+      "img[120, 45]",
+      "img[3, 45, 120]",
+      "img[120, 45, 0]"
+    ],
+    "correctIndex": 0,
+    "explanation": "NumPy mengikuti urutan matriks Row-Major (Baris, Kolom, Saluran), di mana baris bersesuaian dengan sumbu vertikal Y (45) dan kolom bersesuaian dengan sumbu horizontal X (120)."
+  },
+  {
+    "id": "q-06-02",
+    "question": "Artifak visual berupa kemunculan batas pita garis patah pada area gradasi langit halus akibat penurunan kedalaman bit dari 8-bit menjadi 2-bit disebut...",
+    "options": [
+      "False contouring",
+      "Chromatic aberration",
+      "Gaussian blurring",
+      "Salt-and-pepper noise"
+    ],
+    "correctIndex": 0,
+    "explanation": "False contouring terjadi ketika jumlah tingkat intensitas L = 2^b terlalu sedikit (misalnya L = 4 pada 2-bit), sehingga transisi kecerahan yang seharusnya mulus terpaksa melompat secara diskrit membentuk pita garis."
+  },
+  {
+    "id": "q-06-03",
+    "question": "Berapakah kapasitas memori RAM mentah (uncompressed) untuk sebuah citra grayscale beresolusi 1024 × 1024 dengan kedalaman 16-bit (2 Byte per piksel)?",
+    "options": [
+      "2.00 MB (2.097.152 Bytes)",
+      "1.00 MB (1.048.576 Bytes)",
+      "6.00 MB (6.291.456 Bytes)",
+      "512 KB (524.288 Bytes)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Bytes = 1024 × 1024 × 1 saluran × 2 Byte = 2.097.152 Bytes. Dibagi 1024² (1.048.576) menghasilkan tepat 2.00 MB."
+  },
+  {
+    "id": "q-06-04",
+    "question": "Mengapa rumus luminansi standar ITU-R BT.601 memberikan bobot terbesar (0.587) kepada saluran warna Hijau (Green)?",
+    "options": [
+      "Karena sel kerucut retina mata manusia paling sensitif terhadap panjang gelombang spektrum hijau-kuning",
+      "Karena sensor kamera digital memiliki jumlah piksel biru yang lebih banyak daripada hijau",
+      "Karena angka 0.587 dipilih secara acak agar penjumlahan menjadi 1.0",
+      "Karena warna hijau memiliki frekuensi tertinggi dalam spektrum elektromagnetik tampak"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sistem penglihatan fotopik manusia memiliki sensitivitas puncak sekitar panjang gelombang 555 nm (hijau-kuning). Oleh karena itu, saluran hijau berkontribusi paling besar terhadap persepsi terang-gelap (luminance)."
+  },
+  {
+    "id": "q-06-05",
+    "question": "Mengapa masker segmentasi biner (label kelas 0 dan 255) sebaiknya disimpan dalam format PNG daripada JPEG?",
+    "options": [
+      "Karena JPEG bersifat lossy yang dapat mengubah nilai piksel tepi menjadi angka antara (mis. 127 atau 253) dan merusak label",
+      "Karena format JPEG hanya mendukung citra dengan dimensi kelipatan 1000 piksel",
+      "Karena format PNG secara otomatis melakukan konvolusi Gaussian",
+      "Karena JPEG tidak mendukung citra 8-bit grayscale"
+    ],
+    "correctIndex": 0,
+    "explanation": "Kompresi lossy DCT JPEG membuang detail frekuensi tinggi sehingga batas tajam antara label 0 dan 255 akan berderau (ringing) menghasilkan nilai piksel tak valid."
+  }
+]
+

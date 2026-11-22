@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 52: Vision-Language Models",
+    "content": "Menjembatani Piksel Visual & Semantik Bahasa: Arsitektur Dual-Encoder, CLIP & Zero-Shot Transfer\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 52. Jelaskan pergeseran paradigma dari klasifikasi tertutup (closed-set) menuju pemahaman terbuka berbasis bahasa alami (open-vocabulary)."
+  },
+  {
+    "id": "slide-2",
+    "title": "Arsitektur Kontrastif Dual-Encoder (CLIP)",
+    "content": "Prinsip Kerja Dual-Encoder:\\n- Vision Encoder f_vision(I) & Text Encoder f_text(T)\\n- Proyeksi linier ke ruang embedding berdimensi D yang sama\\n- Normalisasi L2: Seluruh vektor berada pada unit hypersphere S^{D-1}\\n- Matriks Kesamaan Kosinus S_ij = u_i^T v_j untuk batch N sampel",
+    "diagram": "/media/diagrams/chapter-52-clip-vision-language-alignment.svg",
+    "notes": "Gunakan diagram CLIP. Tunjukkan bagaimana citra dan teks diproses oleh encoder terpisah lalu dicocokkan melalui dot-product berkecepatan tinggi."
+  },
+  {
+    "id": "slide-3",
+    "title": "Formulasi Rugi Simetris Cross-Entropy (CLIP Loss)",
+    "content": "Optimasi Matriks Logit L_ij = (u_i . v_j) / tau:\\n1. Vision-to-Text:\\n   L_{v2t} = - (1/N) * sum_i log [ exp(L_ii) / sum_j exp(L_ij) ]\\n2. Text-to-Vision:\\n   L_{t2v} = - (1/N) * sum_j log [ exp(L_jj) / sum_i exp(L_ij) ]\\n\\nTotal Symmetric Loss: L_CLIP = 0.5 * ( L_{v2t} + L_{t2v} )\\nParameter tau mengontrol ketajaman margin pemisah.",
+    "diagram": null,
+    "notes": "Turunkan persamaan CLIP loss di papan tulis. Tekankan bahwa loss dihitung secara simetris dari baris (citra cari teks) dan kolom (teks cari citra)."
+  },
+  {
+    "id": "slide-4",
+    "title": "Dual-Encoder vs Generative Autoregressive VLMs",
+    "content": "Dua Cabang Utama VLM Modern:\\n1. Dual-Encoder (CLIP, SigLIP):\\n   - Pemrosesan independen, sangat cepat, skala jutaan data\\n   - Unggul untuk: Retrieval citra-teks dan Zero-Shot Classification\\n2. Generative VLMs (LLaVA, Flamingo, BLIP-2):\\n   - Menghubungkan Visual Encoder ke LLM decoder\\n   - Unggul untuk: Image Captioning, Visual QA, dan Penalaran Spasial",
+    "diagram": null,
+    "notes": "Bandingkan komparasi fungsional dan komputasi antara CLIP yang ringan versus LLaVA yang membutuhkan GPU berkapasitas besar."
+  },
+  {
+    "id": "slide-5",
+    "title": "Pipeline Inferensi Klasifikasi Zero-Shot",
+    "content": "Klasifikasi Tanpa Pelatihan Bobot Kategori:\\n1. Buat prompt teks: t_c = 'a photo of a {class_name}'\\n2. Ekstraksi embedding teks v_c untuk semua kelas C\\n3. Ekstraksi embedding citra u dari citra masukan\\n4. Hitung probabilitas softmax:\\n   P(class c | citra) = exp((u . v_c)/tau) / sum_k exp((u . v_k)/tau)\\n5. Prediksi argmax probabilitas tertinggi",
+    "diagram": "/media/diagrams/chapter-52-zero-shot-classification-pipeline.svg",
+    "notes": "Jelaskan alur diagram zero-shot: bagaimana daftar nama kelas diubah menjadi kalimat alami dan dicocokkan langsung ke representasi citra."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Perhitungan CLIP Loss (N=2)",
+    "content": "Data Uji D=2, tau = 0.20:\\n- Citra 1: u1 = [1, 0]^T, Citra 2: u2 = [0, 1]^T\\n- Teks 1: v1 = [0.8, 0.6]^T, Teks 2: v2 = [-0.6, 0.8]^T\\n\\nMatriks Logit L (skala 5x):\\nL = [[4.0, -3.0], [3.0, 4.0]]\\nProbabilitas Benar: P(1|1) = 0.9991, P(2|2) = 0.7311\\nLoss v2t = 0.1571, Loss t2v = 0.1571\\nTotal L_CLIP = 0.1571",
+    "diagram": null,
+    "notes": "Bimbing mahasiswa menelusuri kalkulasi numerik langkah demi langkah. Tunjukkan bagaimana nilai positif 4.0 mendominasi nilai negatif -3.0."
+  },
+  {
+    "id": "slide-7",
+    "title": "Prompt Engineering & Prompt Ensembling",
+    "content": "Sensitivitas Pemilihan Kalimat:\\n- Prompt tunggal rentan: 'dog' vs 'a photo of a cute dog' (+5-15% beda akurasi)\\n- Prompt Ensembling:\\n  Rata-ratakan embedding teks dari puluhan variasi template:\\n  v_ens = (1/K) * sum_{k=1}^K f_text( prompt_k(class) )\\n- Menghilangkan noise sintaksis bahasa dan memperkuat invariansi semantik",
+    "diagram": null,
+    "notes": "Bahas teknik praktis di industri: prompt ensembling adalah trik sederhana namun sangat efektif untuk mendongkrak performa zero-shot CLIP."
+  },
+  {
+    "id": "slide-8",
+    "title": "Tantangan Kritis: Halusinasi Visual & Keterikatan Spasial",
+    "content": "Mode Kegagalan Model Vision-Language:\\n1. Halusinasi Objek (Object Hallucination):\\n   LLM menghasilkan narasi objek yang tidak ada di citra\\n2. Keterikatan Relasi Spasial Lemah (Spatial Binding Blindness):\\n   Sulit membedakan 'kucing di atas meja' vs 'meja di atas kucing'\\n3. Bias Dataset Pretraining (Asosiasi latar belakang terhadap ras/kategori)",
+    "diagram": null,
+    "notes": "Sorot isu keamanan dan etika AI: model vision-language dapat berhalusinasi jika ditanya tentang detail halus yang terlewatkan oleh encoder."
+  },
+  {
+    "id": "slide-9",
+    "title": "Integrasi Praktikum & Laboratorium Interaktif",
+    "content": "Pembelajaran Tiga Moda Bab 52:\\n- Tier A: Lab interaktif VisionLanguageLab.tsx di browser\\n- Tier B: Skrip verifikasi mandiri examples/example-01.py\\n- Tier C: Jupyter notebook praktikum chapter-52-lab.ipynb\\n- Menguji klasifikasi zero-shot secara deterministik dan berbasis model nyata.",
+    "diagram": null,
+    "notes": "Dorong mahasiswa untuk mencoba playground interaktif di situs web guna melihat perubahan probabilitas zero-shot saat teks prompt dimodifikasi."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Arah Riset Bab 52",
+    "content": "Pondasi Utama Bab 52 Menuju ISVWS 2026-2040:\\n- VLM menyatukan ruang visi dan representasi bahasa secara seamless\\n- Skrip verifikasi: examples/example-01.py (lulus deterministik exit 0)\\n- Kesiapan Kurikulum: Menuju Bab 53 (Audio-Visual Learning & Fusion)\\n- Integrasi masa depan: Multimodal Embodied Agents & Vision-Language-Action (VLA).",
+    "diagram": null,
+    "notes": "Slide penutup: tekankan pentingnya penguasaan VLM sebagai pintu gerbang menuju riset Vision-Language-Action dan agen robotik otonom."
+  }
+]

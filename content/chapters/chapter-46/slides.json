@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Vision Transformers & Attention",
+    "subtitle": "Chapter 46 — Multimedia & Computer Vision Learning Hub",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Pergeseran paradigma: Dari konvolusi lokal menuju atensi global",
+      "Arsitektur Vision Transformer (ViT): Citra sebagai urutan token kata visual",
+      "Mekanisme Scaled Dot-Product Multi-Head Self-Attention",
+      "Trade-off kompleksitas kuadratik O(N^2) dan arsitektur Swin Transformer"
+    ],
+    "notes": "Selamat datang di modul Advanced Computer Vision. Bab ini mengawali eksplorasi arsitektur mutakhir berbasis perhatian (Transformers)."
+  },
+  {
+    "id": 2,
+    "title": "Keterbatasan Intrinsik CNN",
+    "subtitle": "Mengapa Jaringan Konvolusi Membutuhkan Alternatif Global",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "CNN mengasumsikan prioritas spasial lokal (inductive bias: locality & translation invariance)",
+      "Interaksi jarak jauh antar objek terpisah hanya terbentuk di lapisan paling dalam",
+      "Piksel di pojok kiri atas tidak dapat langsung berkomunikasi dengan pojok kanan bawah",
+      "Kebutuhan arsitektur fleksibel yang mampu memodelkan konteks global sejak Layer 1"
+    ],
+    "notes": "Tunjukkan bahwa ViT tidak memiliki bias induktif lokal, sehingga jauh lebih bebas mempelajari hubungan semantik visual."
+  },
+  {
+    "id": 3,
+    "title": "Partisi Patch & Patch Embedding",
+    "subtitle": "Mengubah Matriks Citra 2D Menjadi Rangkaian Vektor 1D",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Citra HxW dipotong menjadi patch non-overlapping berukuran PxP (misal 16x16)",
+      "Jumlah token visual: N = (H * W) / P^2 (Untuk 224x224, N = 196 patch)",
+      "Setiap patch diratakan menjadi vektor berdimensi P^2 * C = 768 dimensi",
+      "Proyeksi linier terpelajari memetakan patch ke ruang embedding laten D"
+    ],
+    "notes": "Jelaskan bahwa proyeksi patch linier secara matematis identik dengan Conv2D dengan kernel PxP dan stride P."
+  },
+  {
+    "id": 4,
+    "title": "Class Token [CLS] & Positional Embedding",
+    "subtitle": "Menjaga Geometri Spasial dan Menyiapkan Target Klasifikasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Class Token [CLS]: Vektor terpelajari yang disisipkan di posisi awal token (total N + 1 token)",
+      "Token [CLS] bertindak sebagai wadah agregasi informasi global seluruh citra",
+      "Positional Embedding E_pos: Ditambahkan secara elemen-demi-elemen pada setiap token",
+      "Tanpa positional embedding, Transformer bersifat permutational invariant (urutan patch teracak)"
+    ],
+    "notes": "Diskusikan bagaimana embedding posisi 1D belajar mengenali kedekatan spasial 2D secara otomatis selama training."
+  },
+  {
+    "id": 5,
+    "title": "Scaled Dot-Product Self-Attention",
+    "subtitle": "Jantung Matematis Arsitektur Transformer",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Tiga proyeksi vektor: Query (Q), Key (K), dan Value (V)",
+      "Formulasi matriks: Attention(Q, K, V) = Softmax(Q * K^T / sqrt(d_k)) * V",
+      "Produk titik Q*K^T mengukur kesamaan afinitas antar setiap pasang token",
+      "Faktor penskalaan sqrt(d_k) mencegah gradien Softmax mengalami saturasi mendekati nol"
+    ],
+    "notes": "Bedah contoh manual dari materi bab ini di mana matriks afinitas dinormalisasi menjadi bobot probabilitas yang tepat."
+  },
+  {
+    "id": 6,
+    "title": "Multi-Head Self-Attention (MSA)",
+    "subtitle": "Melihat Citra dari Berbagai Subruang Representasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Membagi vektor dimensi D menjadi h subruang atensi (misal 12 heads dengan d_k = 64)",
+      "Head 1 mungkin fokus pada hubungan kontur dan tepi geometris",
+      "Head 2 fokus pada konsistensi warna dan tekstur semantik",
+      "Keluaran seluruh head digabungkan (concatenated) dan diproyeksikan dengan matriks W_O"
+    ],
+    "notes": "Tunjukkan diagram multi-head attention untuk memvisualisasikan pemisahan subruang."
+  },
+  {
+    "id": 7,
+    "title": "Kompleksitas Komputasi Kuadratik O(N^2)",
+    "subtitle": "Tantangan Utama Pemrosesan Citra Resolusi Tinggi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Biaya komputasi atensi berskala kuadrat terhadap jumlah token: O(N^2 * D)",
+      "Resolusi 224x224 (N=196) butuh ~38.416 operasi perkalian atensi",
+      "Resolusi 448x448 (N=784) melipatgandakan operasi hingga 16 kali lipat!",
+      "Solusi arsitektur: Swin Transformer membatasi atensi dalam jendela lokal shifted window"
+    ],
+    "notes": "Ini adalah alasan utama mengapa deteksi objek dan segmentasi beresolusi tinggi mengadopsi Swin Transformer."
+  },
+  {
+    "id": 8,
+    "title": "Perbandingan Mendalam: CNN vs ViT",
+    "subtitle": "Memilih Arsitektur yang Tepat untuk Kebutuhan Aplikasi",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Dataset Kecil (<100k): CNN lebih unggul karena bias induktif lokal mencegah memorization",
+      "Dataset Raksasa (>1M / JFT): ViT mengungguli CNN karena kapasitas batas representasi jauh lebih tinggi",
+      "Medan Reseptif: CNN bertahap seiring kedalaman; ViT langsung global sejak lapisan pertama",
+      "Kecepatan Inferensi: CNN sangat efisien di edge/mobile; ViT unggul pada akselerator tensor GPU/TPU"
+    ],
+    "notes": "Bahas kapan mahasiswa sebaiknya menggunakan MobileNet/ResNet dan kapan beralih ke ViT."
+  },
+  {
+    "id": 9,
+    "title": "Analisis Mode Kegagalan & Mitigasi",
+    "subtitle": "Diagnostik Praktis Pelatihan Vision Transformer",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Data Hunger: Hindari melatih ViT dari awal pada dataset kecil; selalu gunakan pretrained model",
+      "Ketidakstabilan Pelatihan: Terapkan warmup learning rate panjang dan LayerScale",
+      "Sensitivitas Resolusi: Gunakan interpolasi bikubik untuk menyesuaikan embedding posisi saat inferensi",
+      "Overfitting Ekstrem: Terapkan DropPath (stochastic depth) dan CutMix data augmentation"
+    ],
+    "notes": "Poin ini krusial saat mahasiswa melakukan proyek riset tugas akhir dengan dataset terbatas."
+  },
+  {
+    "id": 10,
+    "title": "Kesimpulan & Laboratorium Interaktif",
+    "subtitle": "Rangkuman Materi & Eksperimen Mandiri",
+    "presenter": "Aji Pamungkas Tri Nurcahyo",
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "bullets": [
+      "Vision Transformer menghadirkan fleksibilitas pemodelan visual global terpadu",
+      "Skrip mandiri verifikasi patch & atensi tersedia di example-01.py",
+      "Notebook laboratorium lengkap tersedia di chapter-46-lab.ipynb",
+      "Bab berikutnya (Chapter 47): Human Pose Estimation & Landmark Detection"
+    ],
+    "notes": "Ajak mahasiswa menjalankan VisionTransformerExplorer di portal web untuk mengamati peta atensi."
+  }
+]

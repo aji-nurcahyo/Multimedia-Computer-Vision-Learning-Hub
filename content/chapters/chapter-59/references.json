@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ref-59-1",
+    "title": "Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities",
+    "authors": "Gene M. Amdahl",
+    "year": 1967,
+    "publisher": "AFIPS Conference Proceedings (Spring Joint Computer Conference)",
+    "url": "https://doi.org/10.1145/1465482.1465560",
+    "annotation": "Makalah dasar klasik yang merumuskan Hukum Amdahl mengenai batas peningkatan kinerja sistem komputasi paralel dan terdistribusi."
+  },
+  {
+    "id": "ref-59-2",
+    "title": "Computer Architecture: A Quantitative Approach",
+    "authors": "John L. Hennessy, David A. Patterson",
+    "year": 2017,
+    "publisher": "Morgan Kaufmann (6th Edition)",
+    "url": "https://www.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1",
+    "annotation": "Buku teks standar emas arsitektur komputer yang mengulas prinsip-prinsip evaluasi kuantitatif performa, hierarki memori, dan teknik profiling sistem komputasi modern."
+  },
+  {
+    "id": "ref-59-3",
+    "title": "High Performance Browser Networking",
+    "authors": "Ilya Grigorik",
+    "year": 2013,
+    "publisher": "O'Reilly Media",
+    "url": "https://hpbn.co/",
+    "annotation": "Panduan komprehensif mengenai optimasi performa jaringan web, protokol HTTP/2 dan WebRTC, strategi kompresi aset, dan minimasi latensi pada peramban mobile."
+  }
+]
+

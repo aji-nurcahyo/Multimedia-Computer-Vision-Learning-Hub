@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-22-01",
+    "title": "Digital Processing of Speech Signals",
+    "authors": "Lawrence R. Rabiner, Ronald W. Schafer",
+    "year": 1978,
+    "publisher": "Prentice Hall",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-processing-of-speech-signals/P200000003309",
+    "type": "book",
+    "annotation": "Buku teks klasik fundamental pemrosesan sinyal wicara, pemodelan saluran suara linier (LPC), dan algoritma estimasi nada pitch."
+  },
+  {
+    "id": "ref-22-02",
+    "title": "YIN, a fundamental frequency estimator for speech and music",
+    "authors": "Alain de Cheveigné, Hideki Kawahara",
+    "year": 2002,
+    "publisher": "The Journal of the Acoustical Society of America",
+    "url": "https://doi.org/10.1121/1.1458024",
+    "type": "paper",
+    "annotation": "Algoritma estimasi frekuensi fundamental F0 terpopuler berbasis diferensiasi fungsi autokorelasi ternormalisasi."
+  },
+  {
+    "id": "ref-22-03",
+    "title": "Speech and Language Processing (3rd Edition Draft)",
+    "authors": "Daniel Jurafsky, James H. Martin",
+    "year": 2024,
+    "publisher": "Stanford University",
+    "url": "https://web.stanford.edu/~jurafsky/slp3/",
+    "type": "book",
+    "annotation": "Referensi komprehensif fonetika akustik, artikulasi formant vokal manusia, dan transkripsi wicara digital."
+  }
+]

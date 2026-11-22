@@ -1,0 +1,62 @@
+[
+  {
+    "id": "q1",
+    "question": "Apa konsep dasar yang menjadi landasan utama pada materi Video Enhancement & Temporal Filtering?",
+    "options": [
+      "Pengolahan sekuens temporal citra digital dengan memperhatikan kontinuitas spasial dan waktu",
+      "Penyimpanan seluruh frame video secara bersamaan di dalam memori cache prosesor",
+      "Pengurangan frame rate hingga di bawah 1 FPS untuk meniadakan seluruh komputasi gerak",
+      "Penghapusan saluran warna kroma secara total tanpa analisis luminansi"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pada Video Enhancement & Temporal Filtering, informasi video diproses sebagai fungsi temporal spasial-waktu 3D dengan memanfaatkan keterkaitan antar-frame yang berurutan."
+  },
+  {
+    "id": "q2",
+    "question": "Mengapa keterkaitan temporal (temporal correlation) sangat penting dalam pemrosesan video?",
+    "options": [
+      "Karena perubahan antar-frame yang berdekatan umumnya kecil sehingga memungkinkan kompresi dan estimasi gerak efisien",
+      "Karena citra video tidak memiliki informasi spasial sama sekali",
+      "Karena waktu hanya dapat diukur menggunakan kamera berkecepatan tinggi",
+      "Karena format video web tidak mendukung dimensi lebar dan tinggi"
+    ],
+    "correctIndex": 0,
+    "explanation": "Redundansi temporal tinggi antar-frame memungkinkan algoritma memprediksi gerak, mengkompresi data, dan melacak lintasan objek secara konsisten."
+  },
+  {
+    "id": "q3",
+    "question": "Dalam implementasi sistem video real-time, berapa batas waktu maksimum pemrosesan per frame untuk mempertahankan laju 30 FPS tanpa frame drop?",
+    "options": [
+      "33.3 milidetik (ms)",
+      "100 milidetik (ms)",
+      "5 milidetik (ms)",
+      "1 detik penuh"
+    ],
+    "correctIndex": 0,
+    "explanation": "Untuk frame rate 30 FPS, interval antar-frame adalah 1 / 30 detik = 0.0333 detik atau 33.3 ms. Seluruh pipeline komputasi harus tuntas dalam batas waktu tersebut."
+  },
+  {
+    "id": "q4",
+    "question": "Manakah dari pernyataan berikut yang paling tepat mengenai karakteristik pemrosesan pada topik ini?",
+    "options": [
+      "Pengelolaan memori buffer yang efisien (seperti ring buffer) mencegah terjadinya kebocoran memori pada video streaming panjang",
+      "Semua algoritma video mutlak harus mengalokasikan memori untuk seluruh frame video dari awal hingga akhir",
+      "Kamera web tidak memerlukan penanganan perizinan (permission) pada peramban web modern",
+      "Semua jenis filter video digital pasti bebas dari artifak bayangan (ghosting)"
+    ],
+    "correctIndex": 0,
+    "explanation": "Penggunaan struktur data antrean melingkar (ring buffer) menjaga ukuran memori tetap konstan terlepas dari seberapa lama sistem video beroperasi."
+  },
+  {
+    "id": "q5",
+    "question": "Bagaimana relevansi topik Video Enhancement & Temporal Filtering terhadap pengembangan sistem visi komputer dan kecerdasan buatan cerdas di dunia industri?",
+    "options": [
+      "Menjadi fondasi analisis dinamis seperti sistem pengawasan cerdas, deteksi anomali, dan navigasi kendaraan otonom",
+      "Menggantikan seluruh kebutuhan sensor radar dan sonar pada industri otomotif",
+      "Menghilangkan kebutuhan pelatihan model machine learning untuk klasifikasi citra",
+      "Membuat pemrosesan video tidak lagi membutuhkan perangkat keras pemroses"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pemrosesan video dan pelacakan objek menyediakan pemahaman konteks perilaku, arah lintasan, dan peristiwa yang krusial bagi sistem otomasi industri dan keamanan cerdas."
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ex-56-1",
+    "title": "Verifikasi Skrip Python Pipeline Latensi Waktu-Nyata",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip `examples/example-01.py`, amati hasil perhitungan latensi pipa pada Skenario A dan Skenario B, serta pastikan seluruh assertion lulus 100%.",
+    "solution": "# Jalankan skrip di terminal:\npython content/chapters/chapter-56/examples/example-01.py"
+  },
+  {
+    "id": "ex-56-2",
+    "title": "Eksperimen Sensitivitas Ukuran Antrean (Buffer Tuning)",
+    "difficulty": "advanced",
+    "instruction": "Modifikasi parameter `max_queue` pada fungsi `simulate_frame_buffer_pipeline` dari 2 menjadi 1 dan 5. Catat perubahan rata-rata latensi dan bandingkan dampaknya terhadap responsivitas visual sistem.",
+    "solution": "# Pada max_queue = 1, latensi antrean menjadi minimum namun drop rate meningkat saat terjadi burst jitter. Pada max_queue = 5, jitter terserap lebih baik namun latensi saat overload melonjak drastis."
+  }
+]
+

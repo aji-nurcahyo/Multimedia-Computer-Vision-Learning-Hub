@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Model Fondasi Visi & Adaptasi Efisien Parameter",
+    "lead": "Modul ADV-07 · L3 Advanced Depth",
+    "body": "Pergeseran paradigma AI Visi: Dari model tertutup ke **Model Fondasi Visi Universal** (CLIP, DINOv2, MAE) dan teknik adaptasi efisien parameter (**PEFT / LoRA**) untuk deployment skala praktis.",
+    "notes": "Jelaskan bahwa model fondasi dilatih secara mandiri pada jutaan citra tanpa anotasi manusia, menghasilkan representasi visual yang dapat ditransfer ke berbagai tugas hilir."
+  },
+  {
+    "id": 2,
+    "title": "Pembelajaran Representasi Kontrasif & InfoNCE Loss",
+    "lead": "Batas Bawah Informasi Mutual",
+    "body": "Fungsi Tujuan Kontrasif (CLIP / SimCLR):\n$$\\mathcal{L}_{\\text{InfoNCE}} = -\\log \\frac{\\exp(q \\cdot k_+ / \\tau)}{\\exp(q \\cdot k_+ / \\tau) + \\sum_{i=1}^K \\exp(q \\cdot k_i / \\tau)}$$\n- Memaksimalkan batas bawah informasi mutual: $I(X; Y) \\ge \\log(K + 1) - \\mathcal{L}_{\\text{InfoNCE}}$.\n- Normalisasi $L_2$ membatasi embedding ke manifold hipersfer $\\mathbb{S}^{d-1}$.\n- Temperatur $\\tau$ mengontrol ketajaman distribusi probabilitas pencarian.",
+    "notes": "Tekankan peran temperatur tau = 0.07 sebagai hiperparameter kritis yang menentukan kekerasan penalti pasangan negatif."
+  },
+  {
+    "id": 3,
+    "title": "Klasifikasi Zero-Shot & Penyelarasan Multimodal",
+    "lead": "Open-Vocabulary Visual Inference",
+    "body": "Penyelarasan ruang embedding visual dan teks:\n$$s(I, T) = \\frac{f_\\theta(I)}{\\|f_\\theta(I)\\|} \\cdot \\frac{g_\\phi(T)}{\\|g_\\phi(T)\\|}$$\n\nDistribusi Prediksi Tanpa Pelatihan Ulang:\n$$p(c \\mid I) = \\frac{\\exp(s(I, T_c) / \\tau)}{\\sum_{j=1}^C \\exp(s(I, T_j) / \\tau)}$$\nMemungkinkan pengenalan objek dengan kelas tak terbatas hanya melalui perumusan prompt teks.",
+    "notes": "Bahas bagaimana prompt engineering (e.g. 'a photo of a {label}') meningkatkan akurasi zero-shot secara konsisten."
+  },
+  {
+    "id": 4,
+    "title": "Parameter-Efficient Fine-Tuning: LoRA",
+    "lead": "Low-Rank Adaptation (Hu et al. 2022)",
+    "body": "Membekukan bobot dasar $W_0 \\in \\mathbb{R}^{d_{\\text{out}} \\times d_{\\text{in}}}$ dan melatih dekomposisi rank rendah:\n$$W = W_0 + \\frac{\\alpha}{r} (B \\cdot A)$$\n- $B \\in \\mathbb{R}^{d_{\\text{out}} \\times r}$ (diinisialisasi $0$)\n- $A \\in \\mathbb{R}^{r \\times d_{\\text{in}}}$ (diinisialisasi Gaussian acak)\n- Reduksi parameter: $r(d_{\\text{in}} + d_{\\text{out}})$ vs $d_{\\text{in}} \\cdot d_{\\text{out}}$ (Penghematan $>98\\%$).",
+    "notes": "Uraikan mengapa LoRA tidak menambah latensi inferensi saat deployment: matriks delta W dapat digabungkan langsung ke W0."
+  },
+  {
+    "id": 5,
+    "title": "Representasi Visual Mandiri: MAE & DINOv2",
+    "lead": "Emergent Semantics & Scalable Masking",
+    "body": "- **Masked Autoencoders (MAE):** Rekonstruksi patch citra tersembunyi berasio tinggi ($75\\%$ masking) melatih ViT menangkap struktur spasial esensial.\n- **DINOv2:** Self-distillation tanpa label menghasilkan token patch yang mengelompok secara semantik alami (emergent semantic segmentation) tanpa supervisi piksel.",
+    "notes": "Tunjukkan bahwa DINOv2 menyediakan fitur visual yang sangat tangguh untuk estimasi kedalaman monokuler dan segmentasi."
+  }
+]
+

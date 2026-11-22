@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Background Subtraction & Motion Detection",
+    "lead": "Section 07 — Digital Video Processing & Tracking · Chapter 31",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Pemodelan Latar Belakang (Running Average & Gaussian Background Models), Pembangkitan Masker Foreground, Pembersihan Morfologi, Penekanan Bayangan, dan Ekstraksi Bounding Box",
+    "notes": "Selamat datang di perkuliahan Background Subtraction & Motion Detection. Bab ini mengkaji landasan matematis, komputasi temporal sekuens video, dan penerapannya pada visi komputer cerdas."
+  },
+  {
+    "id": 2,
+    "title": "Tujuan Pembelajaran Kuliah",
+    "lead": "Kompetensi utama yang dicapai setelah menyelesaikan modul ini",
+    "body": "### Capaian Pembelajaran\n- Memahami formulasi matematis dan konsep kunci Background Subtraction & Motion Detection.\n- Menganalisis perilaku dinamika sekuens video dalam domain spasial-temporal.\n- Mampu merekayasa algoritma pemrosesan video mandiri menggunakan Python & OpenCV.\n- Mengeksplorasi eksperimen laboratorium interaktif berbasis web tanpa ketergantungan server berat.",
+    "notes": "Tekankan pentingnya penguasaan konsep sebelum melangkah ke implementasi kode program."
+  },
+  {
+    "id": 3,
+    "title": "Prinsip Dasar & Konsep Teoretis",
+    "lead": "Pondasi ilmiah representasi dan manipulasi sekuens video",
+    "body": "### Konsep Kunci\n- Dinamika sekuens citra diskrit sebagai fungsi 3D $V(x, y, t)$.\n- Relasi antara resolusi spasial, resolusi temporal (FPS), dan efisiensi transmisi.\n- Konservasi kecerahan (*brightness constancy*) dan redundansi informasi antar-frame.\n- Batasan fisika optik sensor dan keterbatasan komputasi waktu nyata.",
+    "notes": "Jelaskan perbedaan fundamental antara pengolahan citra diam (2D) dengan pemrosesan video sekuensial (3D)."
+  },
+  {
+    "id": 4,
+    "title": "Formulasi Matematis & Algoritma",
+    "lead": "Persamaan analitis pemrosesan video digital",
+    "body": "### Landasan Matematis\n- Persamaan diferensial parsial perubahan intensitas terhadap ruang dan waktu.\n- Formulasi estimasi status dan optimasi kuadrat terkecil (*least-squares estimation*).\n- Matriks transformasi dan asosiasi graf bipartit berbobot biaya minimum.\n- Metrik evaluasi performa objektif (PSNR, MOTA, F1-Score).",
+    "notes": "Uraikan persamaan utama secara terstruktur dengan menekankan makna fisis tiap variabel."
+  },
+  {
+    "id": 5,
+    "title": "Diagram Alur Arsitektur Komputasi",
+    "lead": "Pipeline pemrosesan video terstruktur dan modular",
+    "body": "### Tahapan Pipeline\n1. **Akuisisi Frame**: Pembacaan stream video dari kamera atau file ke ring buffer asinkron.\n2. **Preprocessing**: Normalisasi dimensi, konversi ruang warna, dan penapisan derau.\n3. **Deteksi & Estimasi**: Segmentasi gerakan, ekstraksi fitur gerak, atau deteksi batas objek.\n4. **Asosiasi & Pelacakan**: Pemeliharaan identitas jejak (Track ID) dan analisis spasial.\n5. **Pencatatan Peristiwa**: Evaluasi batas aturan (ROI/Tripwire) dan pelaporan hasil analitik.",
+    "notes": "Tunjukkan bagaimana setiap tahap saling terhubung membentuk arsitektur pipeline terpadu."
+  },
+  {
+    "id": 6,
+    "title": "Analisis Karakteristik & Trade-Off",
+    "lead": "Keseimbangan antara akurasi analitis dan efisiensi komputasi",
+    "body": "### Pertimbangan Desain\n- **Kompleksitas Waktu**: Batas waktu eksekusi per frame maksimal $\\le 33.3\\text{ ms}$ untuk mencapai 30 FPS.\n- **Penggunaan Memori**: Menghindari penyimpanan larik frame berlebihan untuk mencegah kebocoran memori (*memory leak*).\n- **Ketahanan Terhadap Derau**: Mengatasi variasi pencahayaan dan bayangan lingkungan dinamis.\n- **Akurasi Asosiasi**: Meminimalkan terjadinya *ID switches* pada skenario kerumunan atau oklusi.",
+    "notes": "Ingatkan bahwa pada aplikasi video surveillance real-time, throughput stabil adalah prasyarat mutlak."
+  },
+  {
+    "id": 7,
+    "title": "Implementasi Algoritma & Praktik Python",
+    "lead": "Implementasi numerik teroptimasi dengan NumPy dan OpenCV",
+    "body": "### Praktik Rekayasa Perangkat Lunak\n- Penggunaan fungsi teroptimasi OpenCV (`cv2.VideoCapture`, `cv2.calcOpticalFlowPyrLK`).\n- Pemodelan status dinamis menggunakan larik numerik matriks NumPy murni.\n- Vektorisasi komputasi untuk menghindari perulangan piksel lambat di Python.\n- Verifikasi deterministik hasil kalkulasi menggunakan assertion uji numerik.",
+    "notes": "Arahkan mahasiswa untuk memeriksa kode pada folder examples/example-01.py."
+  },
+  {
+    "id": 8,
+    "title": "Laboratorium Interaktif Berbasis Browser",
+    "lead": "Eksperimen langsung di platform web tanpa instalasi rumit",
+    "body": "### Fasilitas Laboratorium Interaktif\n- Simulasi dinamis dengan kontrol parameter real-time (threshold, alpha, filter).\n- Visualisasi visual langsung pada kanvas HTML5 responsif.\n- Dukungan masukan berkas video mandiri atau streaming kamera web pengguna.\n- Fitur ekspor snapshot gambar PNG dan rekaman log peristiwa CSV.",
+    "notes": "Ajak mahasiswa untuk mencoba playground interaktif pada bab ini secara mandiri."
+  },
+  {
+    "id": 9,
+    "title": "Aplikasi Terapan & Relevansi Industri",
+    "lead": "Implementasi nyata pada sistem cerdas modern",
+    "body": "### Kasus Penggunaan Industri\n- **Intelligent Transportation Systems (ITS)**: Pemantauan arus lalu lintas dan deteksi pelanggaran batas jalur.\n- **Smart Retail & Security**: Penghitungan kepadatan pengunjung dan pengawasan area terlarang.\n- **Autonomous Vehicles**: Estimasi vektor gerak lingkungan (*visual odometry*) dan pelacakan pejalan kaki.\n- **Otomasi Pabrik**: Inspeksi lintasan pergerakan ban berjalan dan robotika industri.",
+    "notes": "Hubungkan materi kuliah dengan tren teknologi industri 4.0 dan smart city terkini."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman & Referensi Akademik",
+    "lead": "Poin-poin intisari perkuliahan dan rujukan literatur ilmiah",
+    "body": "### Rangkuman\n- Pemrosesan video digital memperluas analisis spasial 2D dengan dimensi temporal sekuens waktu.\n- Integrasi algoritma fisika optik, estimasi Kalman, dan asosiasi data memungkinkan pelacakan cerdas berkinerja tinggi.\n- Pengendalian latensi dan manajemen memori merupakan kunci keberhasilan sistem edge AI.\n\n### Referensi Utama\n- Poynton, C. *Digital Video and HD: Algorithms and Interfaces*, Morgan Kaufmann.\n- Tekalp, A. M. *Digital Video Processing*, Prentice Hall.\n- Bewley, A., et al. *Simple Online and Realtime Tracking (SORT)*, IEEE ICIP.",
+    "notes": "Sampaikan kesimpulan umum dan berikan pengantar materi bab berikutnya."
+  }
+]

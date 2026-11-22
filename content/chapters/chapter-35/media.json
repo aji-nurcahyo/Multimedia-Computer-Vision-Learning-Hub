@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-35-01",
+    "title": "Arsitektur Sistem Analitik Video Cerdas Terpadu (End-to-End)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-35-applied-video-analytics-system.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-35-02",
+    "title": "Optimasi Sistem Analitik Video pada Perangkat Tepi (Edge AI)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-35-edge-video-optimization.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

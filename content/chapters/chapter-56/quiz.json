@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-56-1",
+    "question": "Berapakah alokasi anggaran waktu (frame budget) maksimum per frame pada sistem pemrosesan video yang menargetkan throughput 60 FPS?",
+    "options": [
+      "16.67 milidetik",
+      "33.33 milidetik",
+      "50.00 milidetik",
+      "100.00 milidetik"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Frame budget untuk 60 FPS adalah 1000 ms / 60 ≈ 16.67 ms. Jika total latensi melampaui 16.67 ms, sistem akan mengalami penurunan laju frame."
+  },
+  {
+    "id": "q-56-2",
+    "question": "Mengapa kebijakan pembuangan 'Drop-Oldest' lebih disukai daripada 'Drop-Newest' dalam sistem computer vision waktu-nyata?",
+    "options": [
+      "Drop-Oldest memastikan modul visi selalu memproses frame visual paling mutakhir dari dunia nyata",
+      "Drop-Oldest menghapus kebutuhan kompresi video",
+      "Drop-Oldest menggandakan ukuran buffer antrean secara otomatis",
+      "Drop-Oldest mengubah format warna piksel secara instan"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Dalam navigasi dan kendali interaktif, informasi lingkungan terkini jauh lebih berharga daripada memproses frame lama yang tertunda."
+  },
+  {
+    "id": "q-56-3",
+    "question": "Jika kamera mengirimkan frame pada laju kedatangan lambda = 30 FPS dan modul inferensi hanya mampu melayani pada laju mu = 20 FPS, berapakah rasio pembuangan frame (drop rate) teoritisnya?",
+    "options": [
+      "33.33%",
+      "10.00%",
+      "50.00%",
+      "0.00%"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Drop rate dihitung dengan max(0, (lambda - mu) / lambda) = (30 - 20) / 30 = 10 / 30 = 33.33%."
+  },
+  {
+    "id": "q-56-4",
+    "question": "Apa dampak negatif dari penggunaan antrean buffer tak terbatas (unbounded queue) dalam pipeline streaming video?",
+    "options": [
+      "Terjadinya buffer bloat yang mengakibatkan latensi end-to-end terus membengkak dan risiko crash kehabisan memori",
+      "Penurunan kontras warna pada citra",
+      "Meningkatnya resolusi sensor kamera secara tidak terkendali",
+      "Terjadinya desinkronisasi audio tanpa jeda waktu"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Antrean tak terbatas menampung semua frame yang belum sempat diproses, menyebabkan penumpukan latensi dan pemborosan memori."
+  },
+  {
+    "id": "q-56-5",
+    "question": "Bagaimanakah teknik Direct Memory Access (DMA) dan buffer zero-copy mempercepat pipeline multimedia waktu-nyata?",
+    "options": [
+      "Memungkinkan perangkat penangkap menulis langsung ke memori host tanpa membebani instruksi siklus CPU untuk penyalinan data",
+      "Menghapus komputasi konvolusi pada jaringan syaraf",
+      "Mengurangi dimensi resolusi gambar menjadi nol",
+      "Menyimpan seluruh model deep learning di dalam kabel kamera"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Zero-copy dan DMA mengeliminasi overhead penyalinan data piksel antarraung memori, menghemat siklus CPU dan bandwidth memori bus."
+  }
+]
+

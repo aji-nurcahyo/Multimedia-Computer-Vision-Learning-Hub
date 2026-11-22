@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-22-01",
+    "title": "Model Saluran Suara Manusia & Formant Vokal",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-22-speech-production-formants.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-22-02",
+    "title": "Voice Activity Detection (VAD) & Estimasi Nada (Pitch)",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-22-vad-pitch-estimation.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-29-01",
+    "title": "Digital Video Processing (2nd Edition)",
+    "authors": "A. Murat Tekalp",
+    "year": 2015,
+    "publisher": "Prentice Hall",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-video-processing/P200000003307",
+    "type": "book",
+    "annotation": "Karya fundamental pengolahan video digital tingkat lanjut mengenai penapisan spatio-temporal, kompensasi gerak, dan restorasi sekuens video."
+  },
+  {
+    "id": "ref-29-02",
+    "title": "Video Denoising by Exploring Spatio-Temporal Redundancy",
+    "authors": "Marc Lebrun, Miguel Colom, Jean-Michel Morel",
+    "year": 2015,
+    "publisher": "Image Processing On Line (IPOL)",
+    "url": "https://doi.org/10.5201/ipol.2015.127",
+    "type": "paper",
+    "annotation": "Metodologi restorasi video multi-frame memanfaatkan redundansi temporal lintasan gerak dan penapisan non-lokal 3D (VBM3D)."
+  },
+  {
+    "id": "ref-29-03",
+    "title": "Temporal Noise Reduction in Video Sequences with Motion Detection",
+    "authors": "Jocelyn Chanussot, Patrick Lambert",
+    "year": 1999,
+    "publisher": "Signal Processing: Image Communication",
+    "url": "https://doi.org/10.1016/S0923-5965(98)00036-7",
+    "type": "paper",
+    "annotation": "Strategi penapisan temporal adaptif yang membatasi rata-rata temporal hanya pada area statis guna mencegah artifak ghosting."
+  }
+]

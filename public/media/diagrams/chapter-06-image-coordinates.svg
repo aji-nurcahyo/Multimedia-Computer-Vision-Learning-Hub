@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 390" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg06a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+  <rect width="960" height="390" rx="16" fill="url(#bg06a)" />
+  <rect x="36" y="24" width="320" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 06 · IMAGE COORDINATE &amp; TENSOR MODEL</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Sistem Koordinat Citra Digital &amp; Indeks Memori NumPy</text>
+  <text x="36" y="104" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Origin (0, 0) berada di sudut kiri atas: indeks NumPy img[y, x] atau img[row, col]</text>
+
+  <!-- Image Grid Box -->
+  <g transform="translate(65, 140)">
+    <rect width="260" height="200" rx="8" fill="#090d16" stroke="#38bdf8" stroke-width="2" />
+    <!-- Grid lines -->
+    <g stroke="#1e293b" stroke-width="1">
+      <line x1="65" y1="0" x2="65" y2="200" /><line x1="130" y1="0" x2="130" y2="200" /><line x1="195" y1="0" x2="195" y2="200" />
+      <line x1="0" y1="50" x2="260" y2="50" /><line x1="0" y1="100" x2="260" y2="100" /><line x1="0" y1="150" x2="260" y2="150" />
+    </g>
+    <!-- Origin cell -->
+    <rect x="0" y="0" width="65" height="50" fill="#0284c7" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="32" y="28" fill="#e0f2fe" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">(0, 0)</text>
+    <!-- Highlight cell (y=2, x=2) -->
+    <rect x="130" y="100" width="65" height="50" fill="#10b981" fill-opacity="0.3" stroke="#34d399" stroke-width="2" />
+    <text x="162" y="129" fill="#a7f3d0" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">img[2, 2]</text>
+    <!-- Axis arrows -->
+    <line x1="0" y1="-14" x2="250" y2="-14" stroke="#38bdf8" stroke-width="2" />
+    <text x="130" y="-21" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle">Sumbu X / Kolom (Width W) →</text>
+    <line x1="-16" y1="0" x2="-16" y2="190" stroke="#34d399" stroke-width="2" />
+    <text x="-28" y="100" fill="#34d399" font-family="monospace" font-size="12" font-weight="700" text-anchor="middle" transform="rotate(-90, -28, 100)">Sumbu Y / Baris (Height H) →</text>
+  </g>
+
+  <!-- Channels Stack Diagram -->
+  <g transform="translate(410, 145)">
+    <rect x="0" y="0" width="180" height="145" rx="8" fill="#ef4444" fill-opacity="0.18" stroke="#ef4444" stroke-width="1.5" />
+    <rect x="25" y="22" width="180" height="145" rx="8" fill="#22c55e" fill-opacity="0.18" stroke="#34d399" stroke-width="1.5" />
+    <rect x="50" y="44" width="180" height="145" rx="8" fill="#3b82f6" fill-opacity="0.22" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="15" y="18" fill="#fca5a5" font-family="monospace" font-size="12" font-weight="700">R [H, W, 0]</text>
+    <text x="40" y="40" fill="#86efac" font-family="monospace" font-size="12" font-weight="700">G [H, W, 1]</text>
+    <text x="140" y="122" fill="#93c5fd" font-family="monospace" font-size="14" font-weight="700" text-anchor="middle">B [H, W, 2]</text>
+    <text x="115" y="212" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13" text-anchor="middle">Tensor Citra RGB: Shape = (H, W, 3)</text>
+  </g>
+
+  <!-- Formula Summary Card -->
+  <g transform="translate(670, 145)">
+    <rect width="250" height="195" rx="10" fill="#090d16" stroke="#334155" stroke-width="1.5" />
+    <text x="18" y="30" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Kalkulasi Memori Mentah</text>
+    <text x="18" y="60" fill="#e2e8f0" font-family="monospace" font-size="12">Bytes = H × W × C × (b / 8)</text>
+    <text x="18" y="92" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">• Grayscale 8-bit: C = 1</text>
+    <text x="18" y="114" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">• RGB TrueColor 24-bit: C = 3</text>
+    <text x="18" y="136" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">• RGBA + Alpha 32-bit: C = 4</text>
+    <text x="18" y="172" fill="#34d399" font-family="monospace" font-size="11">1080p RGB ≈ 6.22 MB RAM</text>
+  </g>
+
+  <text x="924" y="372" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

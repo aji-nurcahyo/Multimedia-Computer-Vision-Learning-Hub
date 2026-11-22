@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Image Enhancement & Intensity Transformation",
+    "lead": "Section 02 — Digital Image Processing Fundamentals · Chapter 08",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Brightness, Contrast, Negative, Log Transform, Gamma Correction, Contrast Stretching, & LUT",
+    "notes": "Mulai dengan menjelaskan bahwa point processing merupakan transformasi paling cepat karena hanya melihat satu piksel pada satu waktu."
+  },
+  {
+    "id": 2,
+    "title": "Taksonomi Point Processing",
+    "lead": "Pemetaan s = T(r) tanpa ketergantungan tetangga spasial",
+    "body": "### Konsep Inti\n- Setiap piksel masukan $r = f(x, y)$ dipetakan langsung ke $s = g(x, y) = T(r)$.\n- **Perbedaan dengan Spatial Filtering (Ch 10)**: Tidak menggunakan kernel jendela tetangga $K \\times K$.\n- **Tujuan**: Meningkatkan keterbacaan visual manusia (*enhancement*) atau menormalkan masukan jaringan AI.",
+    "notes": "Tekankan perbedaan point processing vs neighborhood processing."
+  },
+  {
+    "id": 3,
+    "title": "Operasi Linier: Brightness & Contrast",
+    "lead": "Transformasi afin s = α·r + β",
+    "body": "### Efek Parameter\n$$s = \\text{clip}(\\alpha \\cdot (r - 128) + 128 + \\beta,\\; 0,\\; 255)$$\n- **Gain / Contrast ($\\alpha$)**: Memperbesar kemiringan kurva sehingga memisahkan intensitas gelap & terang.\n- **Bias / Brightness ($\\beta$)**: Menggeser tingkat kecerahan secara seragam.\n- **Risiko Clipping**: Nilai melebihi 255 atau kurang dari 0 terpotong rata sehingga detail hilang.",
+    "notes": "Peringatkan mahasiswa untuk tidak membiarkan overflow uint8 tanpa np.clip."
+  },
+  {
+    "id": 4,
+    "title": "Image Negative & Log Transformation",
+    "lead": "Transformasi untuk citra medis dan spektrum frekuensi tinggi",
+    "body": "### Dua Transformasi Klasik\n- **Image Negative**: $s = (L - 1) - r = 255 - r$. Membalik intensitas gelap menjadi terang (efektif untuk memindai jaringan putih tipis pada X-ray).\n- **Log Transform**: $s = c \\cdot \\log(1 + r)$. Memperbesar variasi piksel bernilai sangat kecil sembari menekan nilai puncak raksasa (esensial untuk memvisualisasikan spektrum FFT 2D!).",
+    "notes": "Tunjukkan pentingnya penambahan angka 1 pada log(1+r) agar log(0) tidak menghasilkan minus tak hingga."
+  },
+  {
+    "id": 5,
+    "title": "Power-Law (Gamma) Correction",
+    "lead": "Koreksi non-linier tanpa saturasi di ujung 0 dan 255",
+    "body": "### Formulasi Power-Law\n$$s = 255 \\cdot \\left(\\frac{r}{255}\\right)^\\gamma$$\n- **$\\gamma < 1$ (mis. 0.4)**: Mengangkat detail di area bayangan gelap secara mulus.\n- **$\\gamma = 1$**: Identitas (citra tidak berubah).\n- **$\\gamma > 1$ (mis. 2.2)**: Menggelapkan citra yang tampak terlalu terang/pudar (*washed-out*).",
+    "notes": "Jelaskan mengapa monitor sRGB standar dikalibrasi dengan gamma sekitar 2.2."
+  },
+  {
+    "id": 6,
+    "title": "Piecewise Linear Contrast Stretching & Normalization",
+    "lead": "Memaksimalkan penggunaan rentang dinamis [0, 255]",
+    "body": "### Min–Max Normalization\n$$s = \\frac{r - r_{\\min}}{r_{\\max} - r_{\\min}} \\cdot 255$$\n- Jika citra berkabut hanya memakai rentang nilai sempit $[60, 140]$, normalisasi meregangkannya agar mencakup $[0, 255]$.\n- Meningkatkan standar deviasi intensitas dan ketajaman kontras secara langsung.",
+    "notes": "Hubungkan contrast stretching dengan prapemrosesan citra berkabut (dehazing sederhana)."
+  },
+  {
+    "id": 7,
+    "title": "Akselerasi Komputasi dengan Look-Up Table (LUT)",
+    "lead": "Menghitung fungsi pemetaan tepat 256 kali untuk jutaan piksel",
+    "body": "### Efisiensi O(1) per Piksel\n- Daripada menghitung $255 \\cdot (r/255)^\\gamma$ sebanyak $1920 \\times 1080 = 2.073.600$ kali,\n- Hitung sekali untuk seluruh nilai integer $r \\in \\{0, 1, \\dots, 255\\}$ dalam array `lut[256]`.\n- Ganti tiap piksel melalui pembacaan tabel `cv2.LUT(img, lut)` — sangat cepat!",
+    "notes": "Jelaskan mengapa LUT tidak berlaku untuk citra float32 tak terbatas, hanya untuk integer 8-bit/16-bit diskrit."
+  },
+  {
+    "id": 8,
+    "title": "Implementasi Python & OpenCV",
+    "lead": "Koreksi Gamma cepat dengan cv2.LUT",
+    "body": "### Kode Referensi\n```python\nimport cv2, numpy as np\n\ngamma = 0.5\nr = np.arange(256, dtype=np.float64) / 255.0\nlut = np.clip(np.round((r ** gamma) * 255.0), 0, 255).astype(np.uint8)\nenhanced = cv2.LUT(img, lut)\n```",
+    "notes": "Minta mahasiswa memperhatikan dtype=np.uint8 pada array lut agar diterima oleh cv2.LUT."
+  },
+  {
+    "id": 9,
+    "title": "Evaluasi Peningkatan Mutu Citra",
+    "lead": "Mengukur kontras dan penyebaran energi secara objektif",
+    "body": "### Indikator Statistik Sederhana\n- **Mean Luminance ($\\mu$)**: Mengukur kecerahan rata-rata keseluruhan citra.\n- **Standard Deviation ($\\sigma$)**: Mengukur penyebaran kontras (citra kontras rendah memiliki $\\sigma$ kecil).\n- **Saturation Percentage**: Persentase piksel bernilai $0$ atau $255$ (terpotong).",
+    "notes": "Tekankan bahwa peningkatan kontras terlalu ekstrem menaikkan standar deviasi namun juga membuang detail karena saturasi."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Bab 08",
+    "lead": "Multimedia & Computer Vision Learning Hub · ITERA",
+    "body": "### Poin Kunci\n- Point processing memetakan intensitas secara independen dengan $s = T(r)$.\n- Gunakan Gamma ($\\gamma < 1$) untuk bayangan gelap dan Log Transform untuk rentang dinamis raksasa.\n- Implementasikan transformasi integer 8-bit dengan Look-Up Table (`cv2.LUT`).\n\n### Rujukan\n- Gonzalez & Woods (2018), *Digital Image Processing*, Bab 3.",
+    "notes": "Persiapkan mahasiswa memasuki Chapter 09 yang mengotomatisasi pemetaan T(r) berdasarkan distribusi histogram citra."
+  }
+]
+

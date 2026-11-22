@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-51-1",
+    "title": "Multimodal Machine Learning: A Survey and Taxonomy",
+    "authors": "Tadas Baltrušaitis, Chaitanya Ahuja, Louis-Philippe Morency",
+    "year": 2019,
+    "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+    "url": "https://doi.org/10.1109/TPAMI.2018.2798607",
+    "annotation": "Karya ilmiah kanonikal mengenai taksonomi komprehensif pembelajaran mesin multimodal: representasi, translasi, penyelarasan, fusi, dan ko-learning."
+  },
+  {
+    "id": "ref-51-2",
+    "title": "Attention Bottlenecks for Multimodal Fusion",
+    "authors": "Arsha Nagrani, Shan Yang, Anurag Arnab, Aren Jansen, Cordelia Schmid, Chen Sun",
+    "year": 2021,
+    "publisher": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "url": "https://proceedings.neurips.cc/paper/2021/hash/769d67b2d5a3fc5b93175850901e920d-Abstract.html",
+    "annotation": "Memperkenalkan mekanisme bottleneck tokens untuk fusi lintas-modalitas berbasis Transformer yang membatasi aliran informasi berlebih dan menghemat komputasi kuadratik."
+  },
+  {
+    "id": "ref-51-3",
+    "title": "What Makes Training Multi-Modal Classification Networks Hard?",
+    "authors": "Weiyao Wang, Du Tran, Matt Feiszli",
+    "year": 2020,
+    "publisher": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "url": "https://doi.org/10.1109/CVPR42600.2020.01271",
+    "annotation": "Menganalisis fenomena dominasi modalitas tunggal dan laju pembelajaran asimetris, serta mengusulkan Gradient Blending untuk fusi multimodal yang stabil."
+  },
+  {
+    "id": "ref-51-4",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "authors": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever",
+    "year": 2021,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v139/radford21a.html",
+    "annotation": "Pondasi arsitektur dual-encoder CLIP yang menghubungkan pemahaman visual dengan supervisi bahasa alami berskala masif."
+  }
+]

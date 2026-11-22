@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="100%">
+  <rect width="960" height="360" rx="16" fill="#0f172a" />
+  <rect x="36" y="24" width="380" height="28" rx="6" fill="#1e293b" stroke="#334155" />
+  <text x="48" y="43" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">CH 15 · CONNECTED COMPONENTS &amp; METRICS</text>
+  <text x="36" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Pelabelan Komponen Terhubung (CCL), Watershed &amp; Evaluasi Segmentasi</text>
+
+  <g transform="translate(55, 125)">
+    <rect width="275" height="170" rx="10" fill="#1e293b" stroke="#38bdf8" />
+    <text x="20" y="32" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700">1. Connected Component Labeling</text>
+    <text x="20" y="64" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">• 4-Connectivity vs 8-Connectivity</text>
+    <text x="20" y="92" fill="#34d399" font-family="monospace" font-size="12">Area, Centroid (cx, cy), BBox</text>
+    <text x="20" y="120" fill="#f59e0b" font-family="monospace" font-size="12">Circularity = 4π·Area / P²</text>
+    <text x="20" y="148" fill="#94a3b8" font-family="monospace" font-size="11">cv2.connectedComponentsWithStats()</text>
+  </g>
+
+  <g transform="translate(350, 125)">
+    <rect width="275" height="170" rx="10" fill="#1e293b" stroke="#a78bfa" />
+    <text x="20" y="32" fill="#a78bfa" font-family="system-ui, sans-serif" font-size="14" font-weight="700">2. Watershed Segmentation</text>
+    <text x="20" y="64" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Menganggap intensitas citra sebagai</text>
+    <text x="20" y="84" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">topografi banjir dari marker lembah.</text>
+    <text x="20" y="114" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12">Solusi efektif memisahkan objek</text>
+    <text x="20" y="134" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12">yang saling bersentuhan/menumpuk.</text>
+  </g>
+
+  <g transform="translate(645, 125)">
+    <rect width="265" height="170" rx="10" fill="#1e293b" stroke="#34d399" />
+    <text x="20" y="32" fill="#34d399" font-family="system-ui, sans-serif" font-size="14" font-weight="700">3. Metrik Evaluasi (IoU &amp; Dice)</text>
+    <text x="20" y="72" fill="#f8fafc" font-family="monospace" font-size="12">IoU  = |P ∩ G| / |P ∪ G|</text>
+    <text x="20" y="104" fill="#f8fafc" font-family="monospace" font-size="12">Dice = 2|P ∩ G| / (|P| + |G|)</text>
+    <text x="20" y="140" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Membandingkan Prediksi P vs Ground Truth G</text>
+  </g>
+  <text x="924" y="342" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" text-anchor="end">ITERA · Aji Pamungkas Tri Nurcahyo (CC-BY-4.0)</text>
+</svg>

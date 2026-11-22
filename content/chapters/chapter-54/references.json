@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ref-54-1",
+    "title": "Billion-scale similarity search with GPUs (FAISS)",
+    "authors": "Jeff Johnson, Matthijs Douze, Hervé Jégou",
+    "year": 2019,
+    "publisher": "IEEE Transactions on Big Data",
+    "url": "https://doi.org/10.1109/TBDATA.2019.2921572",
+    "annotation": "Makalah dasar perpustakaan FAISS yang mendefinisikan standar kuantisasi produk (Product Quantization) dan pencarian tetangga terdekat berbasis akselerasi GPU."
+  },
+  {
+    "id": "ref-54-2",
+    "title": "Mind the Gap: Understanding the Modality Gap in Multi-modal Contrastive Representation",
+    "authors": "Weixin Liang, Yuhui Zhang, Yongchan Kwon, Serena Yeung, James Zou",
+    "year": 2022,
+    "publisher": "Advances in Neural Information Processing Systems (NeurIPS)",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/703b414f4e7c4f4201e74a8eb9b253fa-Abstract.html",
+    "annotation": "Membuktikan secara teoritis dan empiris keberadaan kesenjangan geometris (Modality Gap) antara embedding citra dan teks pada model kontras seperti CLIP."
+  },
+  {
+    "id": "ref-54-3",
+    "title": "Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs (HNSW)",
+    "authors": "Yury A. Malkov, Dmitry A. Yashunin",
+    "year": 2020,
+    "publisher": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)",
+    "url": "https://doi.org/10.1109/TPAMI.2018.2889473",
+    "annotation": "Arsitektur graf navigasi bertingkat HNSW yang menjadi algoritma standar industri untuk pencarian vektor kemiripan dengan trade-off recall-latensi terbaik."
+  },
+  {
+    "id": "ref-54-4",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "authors": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, Ilya Sutskever",
+    "year": 2021,
+    "publisher": "International Conference on Machine Learning (ICML)",
+    "url": "https://proceedings.mlr.press/v139/radford21a.html",
+    "annotation": "Model fondasi CLIP yang menetapkan protokol evaluasi standar retrieval teks-ke-citra dan citra-ke-teks pada benchmark Flickr30k dan MS COCO."
+  }
+]

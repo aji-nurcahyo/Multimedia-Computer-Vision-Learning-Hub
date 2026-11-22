@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Spatial Filtering & Convolution",
+    "lead": "Section 02 — Digital Image Processing Fundamentals · Chapter 10",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Materi**: Landasan Matematis Konvolusi 2D, Separabilitas Gaussian, Boundary Padding, dan Implementasi OpenCV",
+    "notes": "Selamat datang di sesi perkuliahan Spatial Filtering & Convolution. Bab ini merupakan fondasi matematis penting baik untuk pemrosesan citra digital klasik maupun arsitektur Convolutional Neural Networks (CNN)."
+  },
+  {
+    "id": 2,
+    "title": "Tujuan Pembelajaran Kuliah",
+    "lead": "Kompetensi utama yang dicapai setelah menyelesaikan modul ini",
+    "body": "### Capaian Pembelajaran\n- Memahami prinsip ketetanggaan spasial (spatial neighborhood) dan perbedaan matematis antara korelasi dan konvolusi 2D.\n- Menguasai formulasi matematis filter Gaussian dan membuktikan sifat separabilitas komputasionalnya.\n- Mampu mengimplementasikan konvolusi dari nol menggunakan NumPy serta memanfaatkan fungsi teroptimasi OpenCV.\n- Mengevaluasi strategi penanganan batas citra (zero-padding vs replicate vs reflect) untuk mencegah artifak tepi.",
+    "notes": "Tekankan pentingnya memahami operasi ketetanggaan spasial sebelum melangkah ke deteksi tepi dan feature extraction di bab selanjutnya."
+  },
+  {
+    "id": 3,
+    "title": "Konsep Operasi Ketetanggaan Spasial",
+    "lead": "Perbedaan fundamental antara Point Processing vs Neighborhood Processing",
+    "body": "### Karakteristik Spatial Filter\n- **Point Processing**: Output piksel hanya bergantung pada satu nilai piksel input pada koordinat yang sama $g(x,y) = T[f(x,y)]$.\n- **Neighborhood Processing**: Output piksel $g(x,y)$ dihitung dari sub-matriks ketetanggaan berukuran $m \\times n$ di sekitar $(x,y)$.\n- **Komponen Utama**: Citra masukan $f(x,y)$, matriks kernel/mask $w(s,t)$, dan citra hasil $g(x,y)$.\n- **Dimensi Standar**: Kernel berukuran ganjil ($3\\times 3$, $5\\times 5$, $7\\times 7$) agar memiliki titik pusat unik (*center origin*).",
+    "notes": "Jelaskan mengapa ukuran ganjil dipilih: keberadaan piksel pusat simetris memudahkan indexing dan interpretasi spasial."
+  },
+  {
+    "id": 4,
+    "title": "Formulasi Matematis: Korelasi vs Konvolusi",
+    "lead": "Perbedaan kritis: Rotasi 180 derajat pada kernel konvolusi",
+    "body": "### Korelasi Spasial 2D (Spatial Correlation)\n$$(f \\circ w)(x, y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} w(s, t) \\, f(x + s, y + t)$$\n\n### Konvolusi Spasial 2D (Spatial Convolution)\n$$(f * w)(x, y) = \\sum_{s=-a}^{a} \\sum_{t=-b}^{b} w(s, t) \\, f(x - s, y - t)$$\n\n### Catatan Ekuivalensi Simetri\n- Konvolusi memutar kernel sebesar $180^\\circ$ sebelum dot-product.\n- Untuk kernel simetris ($w(-s,-t) = w(s,t)$), korelasi dan konvolusi menghasilkan output yang **identik**.",
+    "notes": "Jelaskan alasan matematis mengapa konvolusi di LTI system memerlukan pembalikan tanda: agar sifat asosiatif konvolusi terpenuhi."
+  },
+  {
+    "id": 5,
+    "title": "Normalisasi Kernel & Konservasi Energi",
+    "lead": "Menjaga keseimbangan intensitas rata-rata citra hasil",
+    "body": "### Kriteria Bobot Kernel\n- **Smoothing / Blurring Filter**: Total jumlahan seluruh koefisien kernel harus bernilai 1:\n  $$\\sum_{s=-a}^{a} \\sum_{t=-b}^{b} w(s, t) = 1$$\n  *Mencegah citra menjadi over-exposed atau under-exposed secara artifisial.*\n\n- **Derivative / Gradient Filter (Edge Detection)**:\n  $$\\sum_{s=-a}^{a} \\sum_{t=-b}^{b} w(s, t) = 0$$\n  *Menghasilkan nilai 0 pada region datar/homogen dan merespons transisi intensitas tajam.*",
+    "notes": "Ingatkan mahasiswa untuk selalu mengecek normalisasi saat membuat kernel custom di Python."
+  },
+  {
+    "id": 6,
+    "title": "Distribusi Gaussian & Sifat Separabilitas",
+    "lead": "Reduksi kompleksitas komputasi dari kuadratik menjadi linier",
+    "body": "### Persamaan Gaussian 2D\n$$G(x, y) = \\frac{1}{2\\pi \\sigma^2} \\exp\\left(-\\frac{x^2 + y^2}{2\\sigma^2}\\right)$$\n\n### Sifat Separabilitas (Separability)\n$$G(x, y) = G_{1D}(x) \\cdot G_{1D}(y)$$\n- **Konvolusi 2D Langsung**: $\\mathcal{O}(K^2 \\cdot M \\cdot N)$ operasi.\n- **Konvolusi Separabel 1D (Horizontal + Vertikal)**: $\\mathcal{O}(2K \\cdot M \\cdot N)$ operasi.\n- **Speedup**: $\\frac{K}{2}$. Untuk kernel $15\\times 15$, eksekusi berjalan $\\mathbf{7.5\\times}$ lebih cepat!",
+    "notes": "Sifat separabilitas adalah alasan mengapa Gaussian blur dapat diterapkan pada video streaming resolusi 4K secara real-time."
+  },
+  {
+    "id": 7,
+    "title": "Strategi Penanganan Batas Citra (Boundary Padding)",
+    "lead": "Solusi komputasi ketika elemen kernel melampaui matriks citra",
+    "body": "### Tiga Metode Utama\n- **Zero Padding (`cv2.BORDER_CONSTANT`)**: Mengisi nilai 0 di luar tepi citra. Berisiko menimbulkan artifak gelap pada batas luar saat smoothing.\n- **Replicate Padding (`cv2.BORDER_REPLICATE`)**: Menduplikasi nilai baris/kolom terluar ke area padding.\n- **Reflect Padding (`cv2.BORDER_REFLECT`)**: Mencerminkan piksel di sekitar perbatasan ($c, b, a | a, b, c$). Metode paling direkomendasikan untuk spatial filtering.",
+    "notes": "Tunjukkan bahwa pemilihan mode padding yang salah dapat merusak analisis fitur pada batas tepi gambar."
+  },
+  {
+    "id": 8,
+    "title": "Implementasi Praktis Python & OpenCV",
+    "lead": "Perbandingan eksekusi NumPy vs fungsi cv2 teroptimasi",
+    "body": "### Kode Referensi OpenCV\n```python\nimport cv2\n\n# 1. Gaussian Blur otomatis dengan refleksi batas\nblurred = cv2.GaussianBlur(img, ksize=(5, 5), sigmaX=1.2, borderType=cv2.BORDER_REFLECT)\n\n# 2. Custom linear filter dengan cv2.filter2D\nkernel_sharpen = np.array([[ 0, -1,  0],\n                           [-1,  5, -1],\n                           [ 0, -1,  0]], dtype=np.float32)\nsharpened = cv2.filter2D(img, -1, kernel_sharpen)\n```",
+    "notes": "Jelaskan bahwa cv2.filter2D memanfaatkan SIMD dan multi-threading CPU sehingga berjalan optimal untuk citra berukuran besar."
+  },
+  {
+    "id": 9,
+    "title": "Aplikasi Praktis di Industri",
+    "lead": "Pemanfaatan spatial filtering dalam pipeline visi modern",
+    "body": "### Penerimaan di Berbagai Bidang\n- **Medical Imaging**: Denoising pada citra CT-Scan dan MRI menggunakan bilateral/Gaussian filter untuk memperjelas kontur jaringan tanpa merusak batas anatomi.\n- **Autonomous Vehicles**: Pra-pemrosesan citra kamera sensor sebelum input ke detektor rintangan YOLO.\n- **Document Processing**: Binarisasi adaptif dan unsharp masking untuk merestorasi teks kuno atau dokumen yang buram.\n- **Mobile Photography**: Night mode enhancement dan portrait blur (bokeh sintetis).",
+    "notes": "Berikan konteks aplikasi nyata agar mahasiswa memahami relevansi konsep ini dalam karier rekayasa mereka."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman & Referensi Akademik",
+    "lead": "Multimedia & Computer Vision Learning Hub · Institut Teknologi Sumatera (ITERA)",
+    "body": "### Poin Inti Perkuliahan\n- Konvolusi 2D adalah perkalian terbobot pada jendela ketetanggaan spasial dengan rotasi $180^\\circ$.\n- Gaussian filter bersifat separabel: menghemat beban komputasi secara dramatis.\n- Selalu gunakan reflect padding untuk menghindari distorsi tepian citra.\n\n### Referensi Utama\n1. Gonzalez & Woods (2018). *Digital Image Processing*, 4th Ed. Pearson.\n2. Szeliski (2022). *Computer Vision: Algorithms and Applications*, 2nd Ed. Springer.",
+    "notes": "Tutup sesi kuliah dan arahkan mahasiswa untuk mengerjakan kuis dan latihan Python di platform."
+  }
+]

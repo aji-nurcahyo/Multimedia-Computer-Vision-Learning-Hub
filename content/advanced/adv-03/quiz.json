@@ -1,0 +1,39 @@
+[
+  {
+    "id": "quiz-adv03-01",
+    "question": "Mengapa algoritma ByteTrack mampu mengurangi false negatives (missed targets) akibat oklusi dibandingkan SORT konvensional?",
+    "options": [
+      "Karena ByteTrack menggunakan kamera berkecepatan 1000 FPS",
+      "Karena ByteTrack tidak membuang kotak deteksi dengan confidence rendah, melainkan mengasosiasikannya pada tahap kedua dengan track yang belum berpasangan",
+      "Karena ByteTrack menggantikan filter Kalman dengan regresi linier sederhana",
+      "Karena ByteTrack hanya melacak satu objek tunggal dalam satu frame"
+    ],
+    "correctIndex": 1,
+    "explanation": "ByteTrack memperkenalkan asosiasi dua tahap: deteksi berkeyakinan tinggi diasosiasikan terlebih dahulu, kemudian deteksi berkeyakinan rendah (yang biasanya diabaikan oleh detektor standar) diasosiasikan dengan track aktif yang belum cocok, sehingga objek yang mengalami oklusi parsial atau motion blur tetap terlacak."
+  },
+  {
+    "id": "quiz-adv03-02",
+    "question": "Apa keunggulan metrik HOTA (Higher Order Tracking Accuracy) dibandingkan MOTA?",
+    "options": [
+      "HOTA menghitung nilai akurasi dalam satuan detik",
+      "HOTA menyeimbangkan skor akurasi deteksi spasial (DetA) dan akurasi asosiasi temporal (AssA) secara harmonis melalui akar kuadrat perkalian keduanya",
+      "HOTA tidak membutuhkan data ground truth untuk evaluasi",
+      "HOTA hanya berlaku untuk data citra tunggal tanpa dimensi waktu"
+    ],
+    "correctIndex": 1,
+    "explanation": "MOTA sangat didominasi oleh performa deteksi per frame dan sering kali gagal menghukum pergantian ID secara proporsional. HOTA mendefinisikan HOTA = sqrt(DetA * AssA), sehingga pelacak harus unggul dalam menemukan objek sekaligus konsisten mempertahankan identitas sepanjang waktu."
+  },
+  {
+    "id": "quiz-adv03-03",
+    "question": "Dalam filter Kalman kinematik 2D, apa yang terjadi pada matriks kovarians estimasi P ketika target mengalami oklusi total selama beberapa frame berturut-turut?",
+    "options": [
+      "Kovarians P runtuh menjadi nol (ketidakpastian hilang)",
+      "Kovarians P membesar secara monoton karena penambahan derau proses Q pada setiap langkah prediksi tanpa adanya koreksi inovasi",
+      "Kovarians P berosilasi secara periodik",
+      "Kecepatan estimasi otomatis menjadi tak berhingga"
+    ],
+    "correctIndex": 1,
+    "explanation": "Tanpa pengukuran sensor (z = null), tahap pembaruan tidak dapat dijalankan. Filter hanya menjalankan prediksi P_{t|t-1} = F P_{t-1} F^T + Q, sehingga ketidakpastian posisi terus bertambah membesar mencerminkan akumulasi galat gerak."
+  }
+]
+

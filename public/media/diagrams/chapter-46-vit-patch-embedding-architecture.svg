@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" rx="12" />
+  <rect x="2" y="2" width="796" height="446" fill="none" stroke="#334155" stroke-width="1.5" rx="10" />
+
+  <!-- Title & Subtitle -->
+  <text x="30" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">Arsitektur Vision Transformer (ViT) & Patch Embedding</text>
+  <text x="30" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Pembagian Citra Menjadi Patch PxP, Proyeksi Linear, dan Positional Encoding</text>
+
+  <!-- Header Divider -->
+  <line x1="30" y1="78" x2="770" y2="78" stroke="#334155" stroke-width="1" />
+
+  <!-- Diagram Graphics Content -->
+  
+      <g transform="translate(50, 110)">
+        <rect width="700" height="260" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+        <rect x="30" y="60" width="120" height="120" fill="#0f172a" stroke="#38bdf8"/>
+        <line x1="70" y1="60" x2="70" y2="180" stroke="#334155"/>
+        <line x1="110" y1="60" x2="110" y2="180" stroke="#334155"/>
+        <line x1="30" y1="100" x2="150" y2="100" stroke="#334155"/>
+        <line x1="30" y1="140" x2="150" y2="140" stroke="#334155"/>
+        <text x="35" y="45" fill="#38bdf8" font-size="12">Citra (H x W x C)</text>
+        <line x1="155" y1="120" x2="195" y2="120" stroke="#64748b" stroke-width="2"/>
+        <rect x="200" y="60" width="150" height="120" rx="6" fill="#0f172a" stroke="#818cf8"/>
+        <text x="215" y="85" fill="#818cf8" font-size="12" font-weight="bold">Linear Projection</text>
+        <text x="215" y="115" fill="#e2e8f0" font-size="10">N = (H·W)/P² Patch</text>
+        <text x="215" y="135" fill="#e2e8f0" font-size="10">+ [CLS] Token Token</text>
+        <text x="215" y="155" fill="#fbbf24" font-size="10">+ Positional Embedding</text>
+        <line x1="355" y1="120" x2="395" y2="120" stroke="#64748b" stroke-width="2"/>
+        <rect x="400" y="50" width="270" height="150" rx="6" fill="#0f172a" stroke="#34d399"/>
+        <text x="420" y="80" fill="#34d399" font-size="13" font-weight="bold">Transformer Encoder Block (L-layer)</text>
+        <text x="420" y="110" fill="#94a3b8" font-size="11">• LayerNorm + Multi-Head Attention</text>
+        <text x="420" y="135" fill="#94a3b8" font-size="11">• Residual Connection (Skip Add)</text>
+        <text x="420" y="160" fill="#94a3b8" font-size="11">• MLP Feed-Forward Network</text>
+        <text x="420" y="185" fill="#38bdf8" font-size="11">Output MLP Head: Klasifikasi [CLS]</text>
+      </g>
+    
+
+  <!-- Footer / Attribution -->
+  <line x1="30" y1="418" x2="770" y2="418" stroke="#334155" stroke-width="1" />
+  <text x="30" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">Multimedia &amp; Computer Vision Hub · Institut Teknologi Sumatera (ITERA) · Aji Pamungkas Tri Nurcahyo</text>
+  <text x="770" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" text-anchor="end">CC-BY-4.0 License</text>
+</svg>

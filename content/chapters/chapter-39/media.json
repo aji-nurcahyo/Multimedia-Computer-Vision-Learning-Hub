@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-39-1",
+    "title": "Geometri Epipolar pada Stereo Vision",
+    "path": "/media/diagrams/chapter-39-epipolar-geometry.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-39-2",
+    "title": "Triangulasi Disparitas & Estimasi Kedalaman Stereo",
+    "path": "/media/diagrams/chapter-39-stereo-disparity-depth-triangulation.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]

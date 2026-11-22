@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fig-01-01",
+    "title": "Diagram End-to-End Multimedia Processing Pipeline",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-01-multimedia-pipeline.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-01-02",
+    "title": "Taksonomi Image Processing vs Computer Vision",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-01-ip-vs-cv.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "ex-adv03-01",
+    "title": "Perhitungan Inovasi & Penguatan Kalman 1D Manual",
+    "difficulty": "intermediate",
+    "instruction": "Hitung secara analitis nilai Kalman Gain K dan pembaruan kovarians P jika prior P = 6.0, derau pengukuran R = 3.0, pengukuran z = 50.0, dan prior keadaan x = 40.0.",
+    "starterCode": "# 1. Hitung inovasi y = z - x\n# 2. Hitung kovarians inovasi S = P + R\n# 3. Hitung K = P / S\n# 4. Hitung posterior x_new dan P_new",
+    "solution": "# 1. Inovasi: y = 50.0 - 40.0 = 10.0\n# 2. S = 6.0 + 3.0 = 9.0\n# 3. K = 6.0 / 9.0 = 2/3 ~ 0.6667\n# 4. x_new = 40.0 + (2/3) * 10.0 = 46.6667\n# 5. P_new = (1 - K) * P = (1/3) * 6.0 = 2.0"
+  },
+  {
+    "id": "ex-adv03-02",
+    "title": "Implementasi Gating Jarak Mahalanobis",
+    "difficulty": "advanced",
+    "instruction": "Tuliskan fungsi Python mahalanobis_gating(residual, S, chi2_thresh) yang memeriksa apakah inovasi residual 2D lolos uji elipsoid kepercayaan.",
+    "starterCode": "import numpy as np\n\ndef mahalanobis_gating(y: np.ndarray, S: np.ndarray, chi2_thresh: float = 9.488) -> bool:\n    \"\"\"\n    Mengembalikan True jika residual berada di dalam batas toleransi Mahalanobis.\n    \"\"\"\n    pass",
+    "solution": "import numpy as np\n\ndef mahalanobis_gating(y: np.ndarray, S: np.ndarray, chi2_thresh: float = 9.488) -> bool:\n    inv_S = np.linalg.inv(S)\n    d_sq = float(y.T @ inv_S @ y)\n    return d_sq <= chi2_thresh"
+  }
+]
+

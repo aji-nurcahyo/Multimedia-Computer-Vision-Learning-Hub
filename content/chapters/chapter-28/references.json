@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ref-28-01",
+    "title": "The H.264 Advanced Video Compression Standard (2nd Edition)",
+    "authors": "Iain E. Richardson",
+    "year": 2010,
+    "publisher": "John Wiley & Sons",
+    "url": "https://www.wiley.com/en-us/The+H+264+Advanced+Video+Compression+Standard%2C+2nd+Edition-p-9780470516928",
+    "type": "book",
+    "annotation": "Rujukan komprehensif struktur codec H.264, estimasi vektor gerak makroblok, DCT integer diskrit, dan entropi CABAC."
+  },
+  {
+    "id": "ref-28-02",
+    "title": "Overview of the High Efficiency Video Coding (HEVC) Standard",
+    "authors": "Gary J. Sullivan, Jens-Rainer Ohm, Woo-Jin Han, Thomas Wiegand",
+    "year": 2012,
+    "publisher": "IEEE Transactions on Circuits and Systems for Video Technology",
+    "url": "https://doi.org/10.1109/TCSVT.2012.2221191",
+    "type": "paper",
+    "annotation": "Makalah seminal pengenalan standar H.265/HEVC dengan unit pohon pengkodean (CTU) kuadratik adaptif."
+  },
+  {
+    "id": "ref-28-03",
+    "title": "A Technical Overview of AV1",
+    "authors": "Jingning Han, Bohan Li, Debargha Mukherjee, et al.",
+    "year": 2021,
+    "publisher": "Proceedings of the IEEE",
+    "url": "https://doi.org/10.1109/JPROC.2021.3058004",
+    "type": "paper",
+    "annotation": "Arsitektur codec video sumber terbuka royalti-bebas AOMedia AV1 yang menawarkan efisiensi kompresi tertinggi untuk video internet."
+  }
+]

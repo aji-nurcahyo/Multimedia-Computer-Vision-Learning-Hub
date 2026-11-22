@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 39: Stereo Vision & Depth Estimation",
+    "content": "Multimedia & Computer Vision Learning Hub\n\nInstitut Teknologi Sumatera (ITERA)\nAuthor: Aji Pamungkas Tri Nurcahyo\nTopik Utama: Geometri Epipolar, Matriks Fundamental F, Rektifikasi Stereo, dan Triangulasi Disparitas.",
+    "diagram": null,
+    "notes": "Slide pembuka: Kenalkan analogi penglihatan binokular mata manusia dan bagaimana dua kamera dapat merekonstruksi kedalaman 3D secara metrik."
+  },
+  {
+    "id": "slide-2",
+    "title": "Geometri Epipolar & Kendala Epipolar",
+    "content": "- Dua Pusat Proyeksi: CL dan CR dihubungkan oleh baseline B.\n- Titik Epipol (eL, eR): Titik potong garis baseline dengan bidang citra masing-masing.\n- Kendala Epipolar: Untuk setiap titik xL, titik pasangannya xR pasti berada pada garis epipolar lR.\n- Mereduksi pencarian korespondensi dari 2D citra penuh (O(W*H)) menjadi pencarian garis 1D (O(W)).",
+    "diagram": "/media/diagrams/chapter-39-epipolar-geometry.svg",
+    "notes": "Jelaskan Gambar 39.1: tunjukkan pembentukan bidang epipolar dari titik 3D P dan kedua pusat kamera."
+  },
+  {
+    "id": "slide-3",
+    "title": "Matriks Esensial E vs Matriks Fundamental F",
+    "content": "- Matriks Esensial E in R^3x3 (Koordinat Kamera Ternormalisasi):\n  xR_norm^T * E * xL_norm = 0, dengan E = [t]x * R (5 DoF).\n- Matriks Fundamental F in R^3x3 (Koordinat Piksel Sensor):\n  xR^T * F * xL = 0, dengan F = KR^-T * E * KL^-1 (7 DoF).\n- Sifat Matriks F: Rank 2 (det(F) = 0), garis epipolar lR = F * xL.",
+    "diagram": null,
+    "notes": "Bahas perbedaan mendasar: Matriks Esensial membutuhkan kalibrasi intrinsik K; Matriks Fundamental berlaku pada piksel mentah."
+  },
+  {
+    "id": "slide-4",
+    "title": "Rektifikasi Stereo (Stereo Rectification)",
+    "content": "- Tujuan: Mengoreksi rotasi relatif kedua kamera melalui homografi proyektif (HL, HR).\n- Kondisi Pasca-Rektifikasi:\n  1. Kedua bidang citra berada pada bidang planar yang sama persis.\n  2. Garis epipolar menjadi sejajar horizontal sempurna (epipol di tak terhingga).\n  3. Baris piksel bersesuaian identik: vL = vR.",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana rektifikasi mengubah pencarian stereo menjadi pemindaian garis horizontal yang sangat cepat pada GPU/CPU."
+  },
+  {
+    "id": "slide-5",
+    "title": "Triangulasi Disparitas & Kedalaman Metrik",
+    "content": "Definisi Disparitas:\nd = uL - uR (selisih posisi horizontal piksel, d > 0)\n\nPersamaan Kedalaman Stereo Fundamental:\nZ = (f * B) / d\n\n- f: Panjang fokus kamera (dalam satuan piksel)\n- B: Jarak garis basis pemisah kedua kamera (dalam satuan meter)\n- d: Nilai disparitas terukur (dalam satuan piksel)",
+    "diagram": "/media/diagrams/chapter-39-stereo-disparity-depth-triangulation.svg",
+    "notes": "Tunjukkan penurunan rumus dari kesebangunan segitiga pada Gambar 39.2."
+  },
+  {
+    "id": "slide-6",
+    "title": "Rekonstruksi Koordinat 3D Lengkap",
+    "content": "Dari Nilai Disparitas Menuju Awan Titik (Point Cloud) 3D:\nX = (uL - cx) * Z / fx = (uL - cx) * B / d\nY = (vL - cy) * Z / fy = (vL - cy) * B / d\nZ = (fx * B) / d\n\n- Diimplementasikan secara teroptimasi menggunakan cv2.reprojectImageTo3D dengan matriks Q 4x4.",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana matriks transformasi Q 4x4 merekonstruksi koordinat 3D metrik untuk navigasi robotika."
+  },
+  {
+    "id": "slide-7",
+    "title": "Analisis Sensitivitas & Ketidakpastian Kuadratik",
+    "content": "Turunan Parsial Kedalaman terhadap Disparitas:\ndZ/dd = - (f * B) / d^2 = - Z^2 / (f * B)\n\nBesar Galat Metrik:\n|Delta Z| ~ (Z^2 / (f * B)) * |Delta d|\n\n- Implikasi: Galat kedalaman meningkat kuadratik (Z^2) terhadap jarak objek.\n- Contoh: Jika pada jarak 5m galatnya 15 cm, maka pada jarak 20m galatnya melonjak 16x menjadi 2.5 meter!",
+    "diagram": null,
+    "notes": "Tekankan hukum kuadratik ketidakpastian stereo ini: stereo vision sangat presisi untuk jarak dekat, namun butuh baseline lebar untuk jarak jauh."
+  },
+  {
+    "id": "slide-8",
+    "title": "Algoritma Pencocokan Stereo: BM vs SGM",
+    "content": "- Block Matching (StereoBM):\n  * Menghitung korelasi blok lokal (SAD / Sum of Absolute Differences).\n  * Sangat cepat pada CPU, namun rentan pada daerah oklusi dan tanpa tekstur.\n- Semi-Global Matching (StereoSGBM - Hirschmuller 2008):\n  * Mengagregasi fungsi energi global sepanjang 8-16 lintasan 1D.\n  * Menambahkan penalti kehalusan P1 dan P2 untuk permukaan miring.\n  * Standar industri untuk otomotif dan robotika.",
+    "diagram": null,
+    "notes": "Bahas perbedaan kualitas visual peta disparitas antara StereoBM lokal dengan StereoSGBM semi-global."
+  },
+  {
+    "id": "slide-9",
+    "title": "Tantangan Nyata: Oklusi & Left-Right Check",
+    "content": "- Oklusi: Area yang hanya terlihat oleh mata kiri tetapi terhalang dari mata kanan.\n- Left-Right Consistency Check:\n  * Hitung disparitas kiri (dL) dan disparitas kanan (dR).\n  * Verifikasi apakah |dL(x, y) - dR(x - dL, y)| <= 1 piksel.\n  * Jika melanggar, tandai piksel sebagai oklusi (invalid/void).",
+    "diagram": null,
+    "notes": "Jelaskan bagaimana filter konsistensi kiri-kanan membersihkan 'bayangan' disparitas palsu di sekitar batas tepi objek."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Keterkaitan Bab",
+    "content": "1. Disparitas berbanding terbalik dengan kedalaman metrik: Z = fB / d.\n2. Galat kedalaman bertambah kuadratik Z^2 terhadap jarak objek.\n3. Rektifikasi stereo dan SGBM adalah pilar utama rekonstruksi 3D otonom.\n4. Bab berikutnya: Bab 40 (Classical Object Recognition) dan Bab 48 (3D Vision).",
+    "diagram": null,
+    "notes": "Tutup dengan mengaitkan materi stereo vision ke pengenalan objek klasik pada Bab 40."
+  }
+]

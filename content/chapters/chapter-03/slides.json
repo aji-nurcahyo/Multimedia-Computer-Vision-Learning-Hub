@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Multimedia Data Representation & File Formats",
+    "lead": "Section 01 — Multimedia & Signal Foundations · Chapter 03",
+    "body": "### Multimedia & Computer Vision Learning Hub\n- **Institusi**: Institut Teknologi Sumatera (ITERA)\n- **Pengembang**: Aji Pamungkas Tri Nurcahyo\n- **Fokus Kuliah**: Struktur Data Biner, Wadah (Containers) vs Codecs, Kompresi Lossless vs Lossy, dan Estimasi Footprint Memori",
+    "notes": "Selamat datang di kuliah Bab 03. Kita akan mengupas bagaimana piksel, sampel, dan frame dibungkus ke dalam berkas media terstandardisasi."
+  },
+  {
+    "id": 2,
+    "title": "Capaian Pembelajaran Perkuliahan",
+    "lead": "Kompetensi utama analisis format dan representasi berkas",
+    "body": "### Target Pembelajaran\n- Memahami representasi biner media digital (piksel, sampel, frame, metadata).\n- Membedakan peran Container (MP4, MKV) vs Codec (H.264, AV1, AAC).\n- Membandingkan mekanisme kompresi Lossless (PNG, FLAC) vs Lossy (JPEG, MP3).\n- Menghitung secara matematis footprint memori tak terkompresi dan rasio kompresi.\n- Menguasai pemilihan format berkas yang tepat untuk sistem visi dan streaming.",
+    "notes": "Tekankan bahwa salah memilih format atau codec dapat memicu bottleneck komputasi parah pada sistem visi waktu nyata."
+  },
+  {
+    "id": 3,
+    "title": "Arsitektur: Container vs Codec vs Stream",
+    "lead": "Pembeda krusial dalam teknologi multimedia",
+    "body": "### Tiga Lapisan Arsitektur\n- **Stream**: Deretan data berurutan dari satu jenis media tunggal (aliran video murni, aliran audio mono).\n- **Codec (Compressor/Decompressor)**:\n  - Algoritma matematis pemadatan data mentah.\n  - Contoh: H.264/AVC, H.265/HEVC, AV1, VP9, AAC, MP3, Opus.\n- **Container (Wadah Pembungkus)**:\n  - Amplop multiplexing yang menyatukan video stream, audio track, teks subtitle, dan timestamp sinkronisasi ke dalam satu berkas.\n  - Contoh: .mp4, .mkv, .webm, .mov.",
+    "notes": "Gunakan analogi koper (container) dan cara melipat baju (codec) agar mahasiswa langsung paham."
+  },
+  {
+    "id": 4,
+    "title": "Format Berkas Citra: PNG, JPEG, WebP, AVIF",
+    "lead": "Analisis karakteristik dan trade-off mutu visual",
+    "body": "### Spektrum Format Citra\n- **PNG (Portable Network Graphics)**:\n  - Kompresi **Lossless** (DEFLATE / LZ77 + Huffman).\n  - Mendukung transparansi Alpha 8-bit. Ideal untuk diagram dan logo.\n\n- **JPEG (Joint Photographic Experts Group)**:\n  - Kompresi **Lossy** (Discrete Cosine Transform / DCT + Kuantisasi).\n  - Rasio kompresi tinggi ($10:1 - 20:1$). Tidak mendukung transparansi.\n\n- **WebP & AVIF (Next-Gen Formats)**:\n  - Berbasis intra-frame video codec modern (VP8 & AV1).\n  - Menghemat 30%–50% ukuran berkas dibanding JPEG pada mutu setara.",
+    "notes": "Tunjukkan bahwa web modern beralih ke WebP dan AVIF untuk mempercepat pemuatan halaman."
+  },
+  {
+    "id": 5,
+    "title": "Format Berkas Audio: WAV, FLAC, MP3, AAC",
+    "lead": "Dari fidelity tak terkompresi hingga model psikoakustik",
+    "body": "### Spektrum Format Audio\n- **WAV (Waveform Audio)**:\n  - PCM Linier tak terkompresi. Kualitas rekaman murni 100%.\n  - Ukuran berkas sangat besar ($\\approx 10\\text{ MB}$ per menit untuk audio stereo).\n\n- **FLAC (Free Lossless Audio Codec)**:\n  - Kompresi **Lossless** prediktif linier. Menghemat 40%–50% memori tanpa distorsi.\n\n- **MP3 & AAC**:\n  - Kompresi **Lossy** berbasis *Auditory Masking* (menghapus frekuensi yang tidak terdengar oleh telinga manusia).\n  - Rasio kompresi $\\approx 10:1$ (Bitrate standar 128–320 kbps).",
+    "notes": "Jelaskan bahwa dataset AI wicara (ASR) umumnya disimpan dalam format WAV atau FLAC agar fitur spektral tidak cacat."
+  },
+  {
+    "id": 6,
+    "title": "Prinsip Kompresi: Empat Redundansi Data",
+    "lead": "Bagaimana data multimedia dapat dipadatkan secara ekstrem",
+    "body": "### Jenis Redundansi yang Dieliminasi\n1. **Spatial Redundancy**: Korelasi piksel tetangga yang memiliki warna serupa (diolah via DCT / DWT).\n2. **Temporal Redundancy**: Kemiripan frame $t$ dan $t+1$ pada video (diolah via Motion Compensation).\n3. **Spectral Redundancy**: Korelasi antara saluran warna RGB (dikonversi ke YCbCr / YUV).\n4. **Psychovisual Redundancy**: Keterbatasan biologis mata manusia (mata lebih peka terang-gelap daripada detail warna halus).",
+    "notes": "Jelaskan konsep YUV420 subsampling warna yang membuang 50% data kroma tanpa disadari mata manusia."
+  },
+  {
+    "id": 7,
+    "title": "Rumus Estimasi Ukuran Data Citra & Audio",
+    "lead": "Kalkulasi deterministik kapasitas memori mentah",
+    "body": "### Citra Tak Terkompresi (Bytes)\n$$S_{\\text{image}} = W \\times H \\times C \\times \\left(\\frac{b}{8}\\right)$$\n- Contoh 4K UHD ($3840 \\times 2160$ RGB 24-bit):\n  $$S = 3840 \\times 2160 \\times 3 = \\mathbf{24.883.200\\text{ Bytes}} \\approx \\mathbf{23.7\\text{ MB}} \\text{ per foto!}$$\n\n### Audio PCM Tak Terkompresi (Bytes)\n$$S_{\\text{audio}} = f_s \\times N_{\\text{channels}} \\times \\left(\\frac{b}{8}\\right) \\times t$$\n- Contoh CD Audio (44.1 kHz, 16-bit Stereo, 3 Menit):\n  $$S = 44100 \\times 2 \\times 2 \\times 180 = \\mathbf{31.752.000\\text{ Bytes}} \\approx \\mathbf{30.3\\text{ MB}}$$",
+    "notes": "Ajak mahasiswa berlatih menghitung ukuran file foto dan audio di kepala mereka."
+  },
+  {
+    "id": 8,
+    "title": "Perhitungan Bandwidth Video Streaming Mentah",
+    "lead": "Mengapa kompresi video mutlak diperlukan di dunia internet",
+    "body": "### Video 1080p Full HD (60 FPS, RGB 24-bit, 1 Menit)\n- Ukuran 1 Frame: $1920 \\times 1080 \\times 3 = 6.22\\text{ MB}$.\n- Laju Transfer Data per Detik (Bitrate):\n  $$6.22\\text{ MB} \\times 60\\text{ frame/s} = \\mathbf{373.2\\text{ MB/s}} = \\mathbf{2.98\\text{ Gbps}}!$$\n- Total 1 Menit: $\\mathbf{22.4\\text{ GB}}$!\n\n### Peran H.264 / AV1 Codec\n- Codec video memadatkan video 1080p60 menjadi $\\approx 8\\text{ Mbps}$ (Rasio Kompresi $\\mathbf{370:1}$).\n- Memungkinkan streaming lancar pada koneksi internet seluler standar.",
+    "notes": "Tunjukkan kenyataan bahwa tanpa video codec, layanan seperti YouTube dan Zoom tidak akan pernah ada."
+  },
+  {
+    "id": 9,
+    "title": "Implementasi Python: Kalkulasi Rasio Kompresi",
+    "lead": "Verifikasi komputasional perbandingan footprint",
+    "body": "### Skrip Python Ringkas\n```python\ndef calculate_compression_ratio(raw_bytes, compressed_bytes):\n    return raw_bytes / compressed_bytes\n\n# Citra 4K mentah (23.7 MB) vs JPEG terkompresi (1.2 MB)\nraw = 23.7\njpeg = 1.2\ncr = calculate_compression_ratio(raw, jpeg)\nprint(f\"Rasio Kompresi: {cr:.1f}:1\")  # Output: 19.8:1\n```",
+    "notes": "Jelaskan bahwa rasio kompresi 20:1 berarti menghemat 95% ruang penyimpanan."
+  },
+  {
+    "id": 10,
+    "title": "Rangkuman Kuliah & Referensi",
+    "lead": "Multimedia & Computer Vision Learning Hub · Institut Teknologi Sumatera (ITERA)",
+    "body": "### Poin Inti Pembahasan\n- **Container** (MP4) membungkus aliran data, sedangkan **Codec** (H.264/AAC) mengompresi data.\n- **Lossless** menjamin pemulihan bit 100% eksak, sedangkan **Lossy** memadatkan data hingga ratusan kali lipat.\n- Selalu perhitungkan ukuran footprint data mentah sebelum merancang arsitektur pipeline visi.\n\n### Referensi Utama\n1. Nelson & Gailly (1996). *The Data Compression Book*, 2nd Ed.\n2. Richardson (2002). *Video Codec Design*. Wiley.\n3. Li, Drew, & Liu (2021). *Fundamentals of Multimedia*, 3rd Ed. Springer.",
+    "notes": "Ajak mahasiswa mengeksplorasi simulator Format & File Size Explorer di tab lab."
+  }
+]

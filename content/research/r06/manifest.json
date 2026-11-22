@@ -1,0 +1,80 @@
+{
+  "experimentId": "EXP-R06-001",
+  "trackId": "r06",
+  "trackCode": "R06",
+  "title": "Calibrated Stereo Pinhole Projection, DLT Triangulation, and Trajectory Error Analysis",
+  "objective": "Standardized evaluation of binocular pinhole cameras, Direct Linear Transformation (DLT) 3D triangulation, reprojection RMSE, and Absolute Trajectory Error (ATE)",
+  "hypothesis": "Calibrated stereo triangulation using SVD Direct Linear Transformation achieves sub-pixel reprojection error (RMSE <= 0.5 px) and sub-meter visual odometry drift (ATE <= 0.20 m) across variable baseline configurations",
+  "evidenceCategory": "educational_simulation",
+  "executionStatus": "reproduced",
+  "randomSeeds": [42, 1337, 2026],
+  "isDeterministic": true,
+  "dataset": {
+    "name": "KITTI Vision Benchmark Suite - Stereo / Odometry",
+    "version": "v1.0-seq00-sub",
+    "license": "CC-BY-NC-SA 3.0",
+    "split": "val",
+    "sampleCount": 100,
+    "annotationType": "6dof_poses_and_3d_landmarks",
+    "sensorProvenance": "Calibrated dual Point Grey Flea 2 stereo rig (baseline 0.54m, focal length 718.8px)",
+    "provenanceAuditPassed": true,
+    "citation": "Geiger et al., Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite, CVPR 2012"
+  },
+  "model": {
+    "name": "StereoDLT-VO Pipeline",
+    "architecture": "CalibratedStereoTriangulationOdometry",
+    "version": "v1.0",
+    "backbone": "PinholeCameraModelWithSVD",
+    "parameterCountM": 0.0,
+    "flopsG": 0.15,
+    "framework": "NumPy / SciPy"
+  },
+  "hyperparameters": {
+    "stereoBaselineM": 0.54,
+    "focalLengthPx": 718.856,
+    "principalPointPx": [607.19, 185.21],
+    "disparityNoiseStdPx": 0.50,
+    "triangulationSolver": "SVD-DLT"
+  },
+  "hardware": {
+    "target": "cpu",
+    "gpuModel": "None (Deterministic CPU Analytic SVD Execution)",
+    "vramCapacityGB": 0.0,
+    "cudaVersion": "N/A"
+  },
+  "metrics": [
+    {
+      "metricName": "ReprojectionRMSE",
+      "unit": "pixel",
+      "singleRunValue": 0.364,
+      "multiSeedValues": [0.316, 0.396, 0.380],
+      "mean": 0.364,
+      "std": 0.042,
+      "ci95": [0.316, 0.396],
+      "higherIsBetter": false
+    },
+    {
+      "metricName": "AbsoluteTrajectoryError_ATE",
+      "unit": "meter",
+      "singleRunValue": 0.161,
+      "multiSeedValues": [0.133, 0.128, 0.220],
+      "mean": 0.161,
+      "std": 0.052,
+      "ci95": [0.128, 0.220],
+      "higherIsBetter": false
+    }
+  ],
+  "knownLimitations": [
+    "Stereo depth uncertainty increases quadratically with scene depth: sigma_Z = (Z^2 / (f * B)) * sigma_d, limiting depth fidelity for far-field objects (>50m)."
+  ],
+  "reproducibilityChecklistPassed": true,
+  "artifactPaths": {
+    "notebookPath": "content/research/r06/notebooks/r06-research-baseline.ipynb",
+    "scriptPath": "content/research/r06/examples/example-01.py"
+  },
+  "author": "Tim Riset Visi Komputer ITERA",
+  "institution": "Institut Teknologi Sumatera (ITERA)",
+  "createdAt": "2026-11-22T00:00:00Z",
+  "updatedAt": "2026-11-22T00:00:00Z"
+}
+

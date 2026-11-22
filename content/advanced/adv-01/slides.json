@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Fondasi Matematika Computer Vision Lanjut",
+    "lead": "Modul ADV-01 · L3 Advanced Depth",
+    "body": "Transisi dari kalkulus skalar dan manipulasi matriks elementer menuju **kalkulus tensor**, **dekomposisi nilai singular**, dan **manifold grup Lie $\\text{SO}(3)$**.",
+    "notes": "Jelaskan bahwa modul ADV-01 membekali mahasiswa pascasarjana dengan peralatan analitis yang mutlak diperlukan untuk memahami makalah riset SOTA CVPR/ICCV."
+  },
+  {
+    "id": 2,
+    "title": "Kalkulus Matriks & Operator Jejak (Trace Calculus)",
+    "lead": "Turunan Fungsi Skalar Terhadap Matriks Parameter",
+    "body": "Hubungan diferensial fundamental:\n$$df = \\text{Tr}((\\nabla_W f)^T dW)$$\nIdentitas kunci untuk optimasi neural network:\n- $\\nabla_W \\text{Tr}(AWB) = A^T B^T$\n- $\\nabla_W \\text{Tr}(W^T A W) = (A + A^T) W$\n- $\\nabla_W \\log\\det(W) = W^{-T}$",
+    "notes": "Tunjukkan bagaimana fungsi loss kuadrat terkecil dan regularisasi pembobotan diturunkan secara langsung menggunakan operator trace tanpa menguraikan elemen skalar."
+  },
+  {
+    "id": 3,
+    "title": "Dekomposisi Nilai Singular (SVD)",
+    "lead": "Faktorisasi Geometri Spektral Semesta",
+    "body": "Setiap matriks nyata $A \\in \\mathbb{R}^{m \\times n}$ memiliki representasi tunggal:\n$$A = U \\Sigma V^T = \\sum_{i=1}^r \\sigma_i u_i v_i^T$$\n- $u_i$: Vektor singular kiri (arah eigen dari $A A^T$)\n- $\\sigma_i$: Nilai singular (panjang sumbu elipsoid)\n- $v_i$: Vektor singular kanan (arah eigen dari $A^T A$)",
+    "notes": "Tekankan interpretasi geometris: matriks mentransformasikan bola satuan menjadi elipsoid berdimensi tinggi."
+  },
+  {
+    "id": 4,
+    "title": "Teorema Eckart-Young-Mirsky",
+    "lead": "Aproksimasi Berperingkat Rendah (Low-Rank)",
+    "body": "Aproksimasi matriks rank-$k$ terbaik adalah pemotongan $k$ nilai singular teratas:\n$$A_k = \\sum_{i=1}^k \\sigma_i u_i v_i^T = \\arg\\min_{\\text{rank}(B) \\le k} \\|A - B\\|_F$$\nGalat residu Frobenius yang dicapai secara eksak:\n$$\\|A - A_k\\|_F = \\sqrt{\\sum_{i=k+1}^r \\sigma_i^2}$$",
+    "notes": "Aplikasi penting: kompresi bobot neural network (LoRA pada ADV-07), penyaringan derau citra, dan reduksi dimensi fitur."
+  },
+  {
+    "id": 5,
+    "title": "Grup Lie SO(3) & Formula Rodrigues",
+    "lead": "Representasi Orientasi 3D Tanpa Gimbal Lock",
+    "body": "Rotasi pada manifold $\\text{SO}(3)$ dipetakan dari aljabar Lie $\\mathfrak{so}(3)$ vektor rotasi $\\boldsymbol{\\omega} = \\theta \\mathbf{u}$ melalui Formula Rodrigues:\n$$R = \\exp([\\boldsymbol{\\omega}]_\\times) = I + \\frac{\\sin \\theta}{\\theta} [\\boldsymbol{\\omega}]_\\times + \\frac{1 - \\cos \\theta}{\\theta^2} [\\boldsymbol{\\omega}]_\\times^2$$\nMenjamin $\\det(R) = +1$ dan $R^T R = I$.",
+    "notes": "Jelaskan mengapa representasi Euler angles bermasalah (gimbal lock) dan bagaimana aljabar Lie memungkinkan turunan analitis dalam visual SLAM."
+  }
+]
+

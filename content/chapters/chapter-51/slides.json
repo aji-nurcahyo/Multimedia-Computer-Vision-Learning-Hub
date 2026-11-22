@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 51: Introduction to Multimodal AI",
+    "content": "Integrasi Persepsi Visual & Multi-Sensor: Prinsip, Paradigma Fusi & Keandalan Adaptif\\n\\nProgram Studi Teknik Telekomunikasi\\nInstitut Teknologi Sumatera (ITERA)\\nAuthor: Aji Pamungkas Tri Nurcahyo",
+    "diagram": null,
+    "notes": "Slide pembuka Bab 51. Tekankan posisi sentral Computer Vision sebagai modalitas jangkar utama, dengan audio, radar, dan sensor spasial sebagai penguat persepsi cerdas."
+  },
+  {
+    "id": "slide-2",
+    "title": "Tiga Paradigma Utama Fusi Multimodal",
+    "content": "Strategi Penyatuan Informasi Sensorik:\\n1. Early Fusion: Konkatenasi vektor fitur mentah z = [v^T, a^T, s^T]^T\\n2. Intermediate Fusion: Cross-Attention antar-representasi tersembunyi\\n3. Late Fusion: Kombinasi terbobot probabilitas prediksi akhir P = sum alpha_m P_m",
+    "diagram": "/media/diagrams/chapter-51-multimodal-fusion-paradigms.svg",
+    "notes": "Jelaskan diagram paradigma fusi. Sorot trade-off antara korelasi fitur dini pada early fusion versus isolasi kegagalan sensor pada late fusion."
+  },
+  {
+    "id": "slide-3",
+    "title": "Asimetri Representasi & Normalisasi Fitur",
+    "content": "Tantangan Dimensi & Magnitudo Sensor:\\n- Citra Visual: Matriks spasial 2D/3D (tinggi dimensi)\\n- Sinyal Audio: Deret waktu 1D atau spektrogram frekuensi\\n- Sinyal Radar/IMU: Vektor telemetri skalar\\n\\nSolusi Matematis: L2 Normalisasi sebelum penggabungan:\\nz_norm = z / ( ||z||_2 + eps )\\nMencegah satu sensor mendominasi ruang representasi laten.",
+    "diagram": null,
+    "notes": "Jelaskan mengapa normalisasi L2 mutlak diperlukan sebelum fusi fitur awal: tanpa normalisasi, magnitudo sinyal yang besar akan menenggelamkan fitur lainnya."
+  },
+  {
+    "id": "slide-4",
+    "title": "Fusi Sadar-Keandalan (Uncertainty-Aware Fusion)",
+    "content": "Pembobotan Dinamis Berbasis Kualitas Sensor:\\nalpha_m = (1 / sigma_m^2) / sum_k (1 / sigma_k^2)\\n\\nAlternatif Entropi Prediksi Shannon:\\ngamma_m = 1 - ( H(P_m) / log(C) )\\nalpha_m = gamma_m / sum_k gamma_k\\n- Sensor dengan noise/entropi tinggi menerima bobot kecil\\n- Sensor jernih dan berkeyakinan tinggi memimpin keputusan",
+    "diagram": null,
+    "notes": "Tekankan bahwa di industri nyata (mobil otonom, drone), sensor mengalami gangguan dinamis sehingga pembobotan adaptif sangat vital demi keselamatan."
+  },
+  {
+    "id": "slide-5",
+    "title": "Perataan Representasi Ruang Vektor Multimodal",
+    "content": "Menjembatani Modalitas ke Ruang Bersama:\\n- Proyeksi linier/non-linier ke dimensi laten identik D\\n- Metrik kesamaan kosinus untuk mengukur kedekatan semantik\\n- Cross-Modal Contrastive Loss memastikan konsep yang sama berada berdekatan",
+    "diagram": "/media/diagrams/chapter-51-modality-representation-alignment.svg",
+    "notes": "Gunakan diagram perataan representasi untuk menunjukkan bagaimana fitur visual dan sensor dipetakan ke manifold laten terpadu."
+  },
+  {
+    "id": "slide-6",
+    "title": "Contoh Numerik Fusi Terbobot Keandalan",
+    "content": "Kasus 3 Modalitas (Visual, Audio, Radar) pada 3 Kelas:\\n- Keandalan: gamma_v = 0.8, gamma_a = 0.4 (berisik), gamma_r = 0.8\\n- Bobot Normal: alpha_v = 0.40, alpha_a = 0.20, alpha_r = 0.40\\n\\nHasil Prediksi Kelas 0 (Kendaraan):\\nP_fused(0) = 0.40(0.70) + 0.20(0.40) + 0.40(0.85) = 0.7000 (70%)\\nBandingkan Fusi Naif Rata-Rata: P_naive(0) = 0.6500 (Turun akibat derau audio!)",
+    "diagram": null,
+    "notes": "Bimbing mahasiswa melalui kalkulasi angka. Tunjukkan secara matematis bahwa fusi naif merusak performa ketika salah satu sensor bising, sedangkan fusi terbobot keandalan melindungi akurasi."
+  },
+  {
+    "id": "slide-7",
+    "title": "Ketahanan Terhadap Sensor Dropout",
+    "content": "Mitigasi Kamera Tertutup Kotoran (gamma_v = 0.0):\\n- Total bobot tersisa: sum gamma = 0.40 + 0.80 = 1.20\\n- Bobot Terkalibrasi Ulang: alpha_a = 0.3333, alpha_r = 0.6667\\n- Keputusan Fallback: P_fallback(0) = 0.3333(0.40) + 0.6667(0.85) = 0.7000\\n\\nSistem tetap andal dan deterministik tanpa interupsi kegagalan.",
+    "diagram": null,
+    "notes": "Jelaskan konsep fail-safe pada sistem persepsi multimodal cerdas: ketika kamera tertutup lumpur, sistem otomotif beralih ke radar dan audio tanpa tabrakan."
+  },
+  {
+    "id": "slide-8",
+    "title": "Mode Kegagalan: Negative Transfer & Modality Collapse",
+    "content": "Penyakit Umum Multimodal AI & Obatnya:\\n1. Injeksi Derau Bencana (Negative Transfer):\\n   Solusi: Gated fusion dan kalibrasi reliabilitas dinamis\\n2. Dominasi Modalitas Tunggal (Modality Collapse):\\n   Solusi: Gradient Blending & random modality dropout saat training\\n3. Pergeseran Waktu (Temporal Desynchronization):\\n   Solusi: Sinkronisasi waktu PTP & interpolasi deret waktu",
+    "diagram": null,
+    "notes": "Jelaskan mengapa melatih sistem multimodal lebih sulit daripada model modalitas tunggal: optimizer cenderung mengambil jalan pintas melalui modalitas termudah."
+  },
+  {
+    "id": "slide-9",
+    "title": "Implementasi & Integrasi Laboratorium Web",
+    "content": "Eksplorasi Pembelajaran Tiga Moda:\\n- Tier A: Lab interaktif MultimodalPipelineExplorer.tsx di browser\\n- Tier B: Skrip verifikasi mandiri examples/example-01.py\\n- Tier C: Jupyter notebook praktikum chapter-51-lab.ipynb\\n- Eksplorasi slider keandalan sensor dan pengamatan dampak fusi real-time.",
+    "diagram": null,
+    "notes": "Arahkan mahasiswa untuk berinteraksi dengan laboratorium visual di web hub guna merasakan langsung fenomena penyesuaian bobot keandalan sensor."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Arah Riset Bab 51",
+    "content": "Pondasi Utama Bab 51 Menuju ISVWS 2026-2040:\\n- Multimodal AI memperluas batas penglihatan komputer murni\\n- Verifikasi skrip: examples/example-01.py (lulus exit 0 deterministik)\\n- Kesiapan Kurikulum: Menuju Bab 52 (Vision-Language Models & CLIP)\\n- Menyongsong persepsi cerdas terdistribusi dan Edge Multimodal AI.",
+    "diagram": null,
+    "notes": "Slide penutup: tekankan integrasi teori dan praktik sebelum melangkah ke modul pemodelan vision-language di bab berikutnya."
+  }
+]

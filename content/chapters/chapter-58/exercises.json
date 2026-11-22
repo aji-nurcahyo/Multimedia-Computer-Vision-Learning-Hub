@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ex-58-1",
+    "title": "Verifikasi Skrip Analisis Bandwidth Buffer Web Multimedia",
+    "difficulty": "intermediate",
+    "instruction": "Jalankan skrip `examples/example-01.py` dan verifikasi perhitungan jejak memori 1080p vs VGA serta reduksi waktu blokir Web Worker sebesar >90%.",
+    "solution": "# Eksekusi pengujian mandiri:\npython content/chapters/chapter-58/examples/example-01.py"
+  },
+  {
+    "id": "ex-58-2",
+    "title": "Analisis Throughput Resolusi 4K UHD vs 720p",
+    "difficulty": "advanced",
+    "instruction": "Hitung jumlah memori per frame dan kebutuhan bandwidth bus untuk resolusi 4K UHD (3840x2160 pada 60 FPS) dibandingkan dengan 720p HD (1280x720 pada 30 FPS). Jelaskan mengapa pemrosesan 4K secara langsung di CPU browser jarang dapat dipertahankan.",
+    "solution": "# 4K UHD 60 FPS: 3840 * 2160 * 4 = 33,177,600 Bytes (~31.64 MB/frame). Pada 60 FPS menuntut 1.89 GB/s bandwidth! Angka ini melampaui kemampuan transfer memori CPU-GPU tipikal pada peramban web."
+  }
+]
+

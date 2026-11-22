@@ -1,0 +1,31 @@
+# ==============================================================================
+# Multimedia & Computer Vision Learning Hub — ITERA
+# Dedicated Isolated Deep Learning Environment Specifications (Chapters 41–45)
+# Author: Aji Pamungkas Tri Nurcahyo (Institut Teknologi Sumatera)
+# ==============================================================================
+
+# Core Scientific & Imaging Stack (Tested on Python 3.12 AMD64)
+numpy>=1.26.0,<3.0.0
+opencv-python-headless>=4.8.0,<5.1.0
+pillow>=10.0.0
+matplotlib>=3.8.0
+scipy>=1.12.0
+
+# Deep Learning Frameworks:
+# 1) CPU-Only Installation (Default lightweight local environment):
+#    pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# 2) NVIDIA GPU / CUDA 12.1+ Acceleration (Workstations with RTX GPUs):
+#    pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+torch>=2.2.0,<2.6.0
+torchvision>=0.17.0,<0.21.0
+
+# ONNX Runtime Inference Engine (Lightweight deployment & Edge Vision)
+onnxruntime>=1.18.0,<1.31.0
+
+# Object Detection & Modern Vision Architectures (Chapter 44)
+ultralytics>=8.1.0,<8.4.0
+
+# Notebook Execution & Automated Quality Assurance
+jupyter>=1.0.0
+nbformat>=5.9.0
+nbclient>=0.10.0

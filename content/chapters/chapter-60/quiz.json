@@ -1,0 +1,63 @@
+[
+  {
+    "id": "q-60-1",
+    "question": "Berapakah alokasi bobot sensorik standar industri untuk modul visual (kamera) dalam proyek referensi Intelligent Visual Monitoring System?",
+    "options": [
+      "60% (Modalitas primer sistem pengawasan)",
+      "25%",
+      "10%",
+      "100% (Tanpa sensor pendukung sama sekali)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sistem berpusat pada visi (vision-centric) menempatkan kamera visual sebagai modalitas primer dengan bobot 60%, didukung audio (25%) dan konteks (15%)."
+  },
+  {
+    "id": "q-60-2",
+    "question": "Bagaimanakah histeresis temporal (misal: penguncian 3 frame berturut-turut) meningkatkan keandalan sistem pemantauan capstone?",
+    "options": [
+      "Mengeliminasi alarm palsu yang dipicu oleh kedipan sensor atau noise acak sesaat",
+      "Membuat kamera merekam dengan kecepatan 3 kali lebih lambat",
+      "Mengubah warna bounding box menjadi transparan",
+      "Menghapus kebutuhan kartu memori pada komputer"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Histeresis temporal mensyaratkan kondisi bahaya terdeteksi konsisten selama beberapa frame berurutan sebelum sirene dibunyikan, menyaring glitch kamera sesaat."
+  },
+  {
+    "id": "q-60-3",
+    "question": "Jika skor deteksi kamera terhalang kabut tebal turun menjadi S_v = 0.10, namun audio (0.60) dan konteks malam (0.90) mendeteksi anomali, berapakah skor fusi Bayesian F?",
+    "options": [
+      "0.3450 (False alarm diredam karena di bawah ambang 0.50)",
+      "0.7950",
+      "0.9000",
+      "0.1000"
+    ],
+    "correctAnswer": 0,
+    "explanation": "F = (0.60 * 0.10) + (0.25 * 0.60) + (0.15 * 0.90) = 0.060 + 0.150 + 0.135 = 0.345. Karena F < 0.50, alarm tidak diaktifkan sehingga false alarm diredam."
+  },
+  {
+    "id": "q-60-4",
+    "question": "Manakah komponen yang memiliki bobot penilaian terbesar (35 Poin) dalam Rubrik Penilaian Capstone Akademik ITERA?",
+    "options": [
+      "Implementasi Komputasi & Efisiensi Algoritma (Performa real-time, kuantisasi, ketiadaan memory leaks)",
+      "Dokumentasi Ilmiah & Format Tulisan",
+      "Desain Logo dan Warna Website",
+      "Jumlah slide presentasi powerpoint"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Pilar implementasi dan efisiensi algoritma memiliki bobot 35 poin, menilai kemampuan teknis sistem dalam beroperasi secara nyata, stabil, dan cepat."
+  },
+  {
+    "id": "q-60-5",
+    "question": "Apakah syarat utama 'Keterulangan Pengujian (Reproducibility)' dalam evaluasi Capstone berstandar riset ISVWS?",
+    "options": [
+      "Penguji dapat mereproduksi seluruh hasil pengujian dan simulasi menggunakan satu skrip otomatis dengan kode keluar (exit code) 0 tanpa error",
+      "Program hanya dapat berjalan di satu komputer pribadi mahasiswa",
+      "Mahasiswa harus menghafal seluruh bobot neural network di luar kepala",
+      "Hasil deteksi harus selalu berubah setiap kali tombol ditekan"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Reproducibility menuntut kode, dependensi, dan dataset pengujian terstruktur rapi sehingga siapa pun dapat memverifikasi klaim ilmiah secara independen."
+  }
+]
+

@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ref-15-01",
+    "title": "A Threshold Selection Method from Gray-Level Histograms",
+    "authors": "Nobuyuki Otsu",
+    "year": 1979,
+    "publisher": "IEEE Transactions on Systems, Man, and Cybernetics",
+    "url": "https://ieeexplore.ieee.org/document/4310076",
+    "type": "article",
+    "annotation": "Makalah klasik yang menurunkan metode Otsu melalui maksimasi variansi antar-kelas pada histogram intensitas."
+  },
+  {
+    "id": "ref-15-02",
+    "title": "Digital Image Processing (4th Edition)",
+    "authors": "Rafael C. Gonzalez, Richard E. Woods",
+    "year": 2018,
+    "publisher": "Pearson Education",
+    "url": "https://www.pearson.com/en-us/subject-catalog/p/digital-image-processing/P200000003306",
+    "type": "book",
+    "annotation": "Bab 10 (Seksi 10.3–10.5) mengulas thresholding optimal, region growing, dan segmentasi watershed."
+  },
+  {
+    "id": "ref-15-03",
+    "title": "Image Segmentation with Distance Transform and Watershed — OpenCV Docs",
+    "authors": "OpenCV Developer Team",
+    "year": 2024,
+    "publisher": "OpenCV Foundation",
+    "url": "https://docs.opencv.org/4.x/d2/dbd/tutorial_distance_transform.html",
+    "type": "documentation",
+    "annotation": "Panduan resmi penerapan distance transform, connected components, dan watershed di OpenCV."
+  }
+]
+

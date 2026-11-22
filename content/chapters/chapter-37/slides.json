@@ -1,0 +1,72 @@
+[
+  {
+    "id": "slide-1",
+    "title": "Bab 37: Feature Detection, Description & Matching",
+    "content": "Multimedia & Computer Vision Learning Hub\n\nInstitut Teknologi Sumatera (ITERA)\nAuthor: Aji Pamungkas Tri Nurcahyo\nTopik Utama: Detektor Titik Sudut, Deskriptor SIFT & ORB, Lowe's Ratio Test, dan Fitting Model RANSAC.",
+    "diagram": null,
+    "notes": "Slide pembuka: Tekankan pentingnya fitur lokal dalam menyelesaikan masalah pencocokan citra dengan variasi sudut pandang, rotasi, dan skala."
+  },
+  {
+    "id": "slide-2",
+    "title": "Prinsip Deteksi Sudut & Matriks Autokorelasi",
+    "content": "- Ide Dasar: Mengukur perubahan intensitas kuadratik E(u, v) saat jendela W digeser.\n- Matriks Momen Kedua M = sum w(x,y) [Ix^2, Ix*Iy; Ix*Iy, Iy^2].\n- Sifat Nilai Eigen (lambda_1, lambda_2):\n  * Datar: lambda_1 ~ 0, lambda_2 ~ 0\n  * Tepi: Satu lambda >> lambda lainnya\n  * Sudut: Kedua lambda bernilai besar.",
+    "diagram": "/media/diagrams/chapter-37-harris-corner-detector.svg",
+    "notes": "Jelaskan elips autokorelasi pada Gambar 37.1 dan bagaimana panjang sumbu elips proporsional terhadap invers akar nilai eigen."
+  },
+  {
+    "id": "slide-3",
+    "title": "Fungsi Respon Harris vs Kriteria Shi-Tomasi",
+    "content": "- Respon Sudut Harris: R = det(M) - k * [trace(M)]^2, dengan k in [0.04, 0.06].\n  * Tidak memerlukan faktorisasi eigenvalue eksplisit per piksel.\n- Kriteria Shi-Tomasi (1994): R = min(lambda_1, lambda_2) > lambda_min.\n  * Lebih stabil untuk pelacakan optik pada video.",
+    "diagram": null,
+    "notes": "Tunjukkan perbandingan numerik kedua kriteria dan diskusikan komputasi efisiensi fungsi determinan vs trace."
+  },
+  {
+    "id": "slide-4",
+    "title": "SIFT: Scale-Invariant Feature Transform (Lowe 2004)",
+    "content": "Empat Tahapan SIFT:\n1. Scale-Space Extrema: Difference of Gaussians (DoG) mendeteksi titik stabil antar-skala.\n2. Keypoint Localization: Eliminasi titik kontras rendah dan respon tepi menggunakan aproksimasi Hessian.\n3. Orientation Assignment: Orientasi kanonikal dari histogram gradien 36-bin.\n4. Deskriptor 128D: Grid 4x4 sub-wilayah x 8 orientasi gradien dinormalisasi L2.",
+    "diagram": null,
+    "notes": "Jelaskan mengapa normalisasi L2 pada vektor 128D memberikan kekebalan terhadap perubahan pencahayaan linier."
+  },
+  {
+    "id": "slide-5",
+    "title": "ORB: Oriented FAST & Rotated BRIEF (Rublee 2011)",
+    "content": "- Solusi Real-Time Bebas Paten untuk Edge Computing:\n- Oriented FAST: Menghitung sudut rotasi menggunakan momen intensitas sentroid C = (m10/m00, m01/m00).\n- Deskriptor rBRIEF 256-bit: Pola pengujian biner yang dirotasikan sesuai orientasi titik kunci.\n- Jarak Hamming: Pencocokan dihitung via operasi bitwise XOR dan popcount pada level instruksi CPU.",
+    "diagram": null,
+    "notes": "Tekankan perbedaan arsitektural antara floating-point descriptor (SIFT) dan binary descriptor (ORB)."
+  },
+  {
+    "id": "slide-6",
+    "title": "Strategi Pencocokan Fitur: Brute-Force vs FLANN",
+    "content": "- Brute-Force Matcher: Menghitung jarak ke seluruh kandidat (kompleksitas O(N1 * N2)). Akurat namun lambat untuk ribuan fitur.\n- FLANN (Fast Library for Approximate Nearest Neighbors): Menggunakan pohon kd-tree acak (randomized kd-trees) atau hierarchical clustering untuk pencarian tetangga terdekat berkecepatan tinggi O(log N).",
+    "diagram": null,
+    "notes": "Diskusikan trade-off akurasi versus efisiensi waktu pada pencocokan berskala besar."
+  },
+  {
+    "id": "slide-7",
+    "title": "Lowe's Ratio Test untuk Eliminasi Ambiguitas",
+    "content": "Pencocokan k-NN dengan k = 2:\nKecocokan dianggap valid jika:\nd1 / d2 < tau (tau in [0.70, 0.75])\n\n- d1: Jarak ke kandidat terdekat pertama\n- d2: Jarak ke kandidat terdekat kedua\n- Jika d1 ~ d2, fitur memiliki pola ambigu repetitif (misal: kisi jendela gedung).",
+    "diagram": null,
+    "notes": "Jelaskan Gambar 37.2 dan tunjukkan bagaimana ratio test membuang 90% false matches sebelum masuk ke RANSAC."
+  },
+  {
+    "id": "slide-8",
+    "title": "RANSAC: Random Sample Consensus",
+    "content": "Algoritma Fitting Model yang Kebal terhadap Outlier:\n1. Pilih subset minimal acak (s = 4 pasang titik untuk Homografi).\n2. Estimasi matriks transformasi model kandidat H.\n3. Hitung jumlah inlier dengan galat reproyeksi di bawah ambang batas.\n4. Ulangi proses dan pilih model dengan konsensus inlier tertinggi.",
+    "diagram": "/media/diagrams/chapter-37-feature-matching-and-ransac.svg",
+    "notes": "Tekankan mengapa metode regresi kuadrat terkecil standar (least-squares) gagal total jika ada bahkan satu outlier ekstrem."
+  },
+  {
+    "id": "slide-9",
+    "title": "Perhitungan Iterasi Teoritis RANSAC",
+    "content": "Formula Jumlah Iterasi:\nN = ln(1 - p) / ln(1 - (1 - epsilon)^s)\n\nContoh Numerik:\n- Keyakinan p = 0.99, Rasio Outlier epsilon = 0.40, Homografi s = 4 titik:\n  N = ln(0.01) / ln(1 - (0.60)^4) = -4.605 / -0.1388 ~ 34 iterasi saja!\n- RANSAC sangat efisien bahkan pada data dengan 50% outlier.",
+    "diagram": null,
+    "notes": "Jelaskan penurunan rumus probabilitas ini kepada mahasiswa dan tunjukkan bahwa N tidak bergantung pada jumlah total titik, melainkan hanya rasio outlier."
+  },
+  {
+    "id": "slide-10",
+    "title": "Rangkuman & Keterkaitan Bab",
+    "content": "1. Deteksi fitur mengubah pencocokan citra piksel menjadi korespondensi titik kunci kompak.\n2. SIFT unggul dalam akurasi dan variasi skala; ORB unggul dalam kecepatan edge computing.\n3. RANSAC adalah algoritma wajib untuk menyaring outlier geometris.\n4. Bab berikutnya: Bab 38 (Camera Calibration) memanfaatkan fitur ini untuk kalibrasi kamera.",
+    "diagram": null,
+    "notes": "Tutup dengan ringkasan kesiapan menuju kalibrasi kamera dan rektifikasi perspektif."
+  }
+]

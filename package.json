@@ -1,0 +1,33 @@
+{
+  "name": "multimedia-computer-vision-hub",
+  "version": "0.1.0",
+  "description": "Multimedia & Computer Vision Learning Hub - Institut Teknologi Sumatera (ITERA)",
+  "author": "Aji Pamungkas Tri Nurcahyo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "validate": "node scripts/validate-content.mjs && node scripts/validate-media.mjs",
+    "test": "node --test tests/content.test.mjs tests/image-processing.test.mjs tests/audio-processing.test.mjs tests/video-processing.test.mjs tests/cv-processing.test.mjs tests/multimodal-processing.test.mjs tests/systems-processing.test.mjs tests/advanced-curriculum.test.mjs tests/advanced-cv-processing.test.mjs tests/research-learning.test.mjs tests/ui-typography-presentation.test.mjs",
+    "build": "npm run validate && npm run typecheck && node node_modules/vite/bin/vite.js build",
+    "preview": "node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 5173",
+    "chapter:new": "node scripts/chapter-new.mjs"
+  },
+  "dependencies": {
+    "katex": "^0.16.21",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "reveal.js": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/katex": "^0.16.7",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.3"
+  }
+}

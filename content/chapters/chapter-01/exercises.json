@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-01-01",
+    "title": "Latihan 1: Ekstraksi Informasi Dimensi dan Rasio Aspek Citra",
+    "difficulty": "beginner",
+    "instruction": "Tuliskan fungsi Python bernama `analyze_multimedia_tensor(array, media_type)` yang menerima array NumPy dan tipe media ('image_gray', 'image_color', 'audio', 'video'). Fungsi harus mengembalikan dictionary berisi informasi dimensi, jumlah elemen, tipe data, dan ukuran memori dalam kilobytes (KB).",
+    "starterCode": "import numpy as np\n\ndef analyze_multimedia_tensor(array: np.ndarray, media_type: str) -> dict:\n    # TODO: Lengkapi ekstraksi metadata\n    pass\n",
+    "solution": "import numpy as np\n\ndef analyze_multimedia_tensor(array: np.ndarray, media_type: str) -> dict:\n    info = {\n        'media_type': media_type,\n        'shape': array.shape,\n        'ndim': array.ndim,\n        'dtype': str(array.dtype),\n        'total_elements': array.size,\n        'memory_kb': round(array.nbytes / 1024, 2)\n    }\n    if media_type == 'image_color' and array.ndim == 3:\n        h, w, c = array.shape\n        info['aspect_ratio'] = round(w / h, 2)\n    return info\n"
+  },
+  {
+    "id": "ex-01-02",
+    "title": "Latihan 2: Pembuatan Pola Sintetis Multi-Kanal (Synthetic Test Pattern)",
+    "difficulty": "beginner",
+    "instruction": "Buatlah citra berwarna RGB berukuran 200x200 piksel dengan ketentuan: kuadran kiri-atas berwarna merah murni, kuadran kanan-atas berwarna hijau murni, kuadran kiri-bawah berwarna biru murni, dan kuadran kanan-bawah berwarna putih murni.",
+    "starterCode": "import numpy as np\n\ndef create_quadrant_pattern() -> np.ndarray:\n    img = np.zeros((200, 200, 3), dtype=np.uint8)\n    # TODO: Isi nilai kuadran\n    return img\n",
+    "solution": "import numpy as np\n\ndef create_quadrant_pattern() -> np.ndarray:\n    img = np.zeros((200, 200, 3), dtype=np.uint8)\n    # Kiri-atas: Merah (R=255, G=0, B=0)\n    img[:100, :100, 0] = 255\n    # Kanan-atas: Hijau (R=0, G=255, B=0)\n    img[:100, 100:, 1] = 255\n    # Kiri-bawah: Biru (R=0, G=0, B=255)\n    img[100:, :100, 2] = 255\n    # Kanan-bawah: Putih (R=255, G=255, B=255)\n    img[100:, 100:, :] = 255\n    return img\n"
+  }
+]

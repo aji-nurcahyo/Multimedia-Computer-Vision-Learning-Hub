@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ex-05-01",
+    "title": "Latihan 1: Ekstraksi dan Swap Saluran Warna RGB ke BGR Murni NumPy",
+    "difficulty": "beginner",
+    "instruction": "Tuliskan fungsi Python `swap_rgb_to_bgr(image_rgb)` tanpa menggunakan pustaka OpenCV (hanya menggunakan slicing indeks array NumPy) untuk membalik urutan saluran warna dari RGB menjadi BGR.",
+    "starterCode": "import numpy as np\n\ndef swap_rgb_to_bgr(image_rgb: np.ndarray) -> np.ndarray:\n    # TODO: Gunakan slicing langkah negatif pada sumbu ke-3\n    pass\n",
+    "solution": "import numpy as np\n\ndef swap_rgb_to_bgr(image_rgb: np.ndarray) -> np.ndarray:\n    # Membalik urutan saluran warna (index 2, 1, 0) menggunakan slicing [..., ::-1]\n    return image_rgb[:, :, ::-1].copy()\n"
+  },
+  {
+    "id": "ex-05-02",
+    "title": "Latihan 2: Penyesuaian Kecerahan dan Kontras Aman (Safe Brightness & Contrast Adjustment)",
+    "difficulty": "intermediate",
+    "instruction": "Tuliskan fungsi `adjust_contrast_brightness(image_uint8, alpha=1.2, beta=30)` dengan formula g(x,y) = alpha * f(x,y) + beta. Pastikan operasi dilakukan dalam float32 dan dipotong aman (clipped) ke rentang [0, 255] sebelum dikonversi kembali ke uint8 untuk mencegah integer overflow.",
+    "starterCode": "import numpy as np\n\ndef adjust_contrast_brightness(image_uint8: np.ndarray, alpha: float = 1.2, beta: float = 30.0) -> np.ndarray:\n    # TODO: Lakukan komputasi aman tanpa overflow\n    pass\n",
+    "solution": "import numpy as np\n\ndef adjust_contrast_brightness(image_uint8: np.ndarray, alpha: float = 1.2, beta: float = 30.0) -> np.ndarray:\n    img_float = image_uint8.astype(np.float32)\n    adjusted = alpha * img_float + beta\n    clipped = np.clip(adjusted, 0.0, 255.0)\n    return clipped.astype(np.uint8)\n"
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "registryVersion": "1.0.0",
+  "lastUpdated": "2026-11-18",
+  "institution": "Institut Teknologi Sumatera (ITERA)",
+  "maintainer": "Aji Pamungkas Tri Nurcahyo",
+  "description": "Pusat Registri Dataset Standar Riset & Tolok Ukur (Benchmarks) untuk Multimedia & Computer Vision Learning Hub",
+  "datasets": [
+    {
+      "id": "cifar-10",
+      "name": "CIFAR-10",
+      "officialSource": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "paperCitation": "Krizhevsky, A. (2009). Learning Multiple Layers of Features from Tiny Images. University of Toronto.",
+      "license": "MIT / Open Academic Use",
+      "task": "Image Classification",
+      "modalities": ["image/rgb"],
+      "version": "1.0",
+      "numSamples": 60000,
+      "classes": ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"],
+      "resolution": "32x32x3",
+      "split": {
+        "train": 50000,
+        "test": 10000
+      },
+      "downloadInstructions": "Unduh otomatis melalui torchvision.datasets.CIFAR10(root='./data', train=True, download=True) atau unduh berkas python binary dari situs resmi.",
+      "expectedOrganization": "data/cifar-10-batches-py/ (data_batch_1..5, test_batch, batches.meta)",
+      "preprocessing": "Normalisasi mean=[0.4914, 0.4822, 0.4465], std=[0.2470, 0.2435, 0.2616]; RandomCrop(32, padding=4), RandomHorizontalFlip().",
+      "evaluationProtocol": "Top-1 Accuracy (%) pada 10.000 citra test set.",
+      "relevantChapters": ["41", "42", "43"]
+    },
+    {
+      "id": "pascal-voc-2012",
+      "name": "PASCAL VOC 2012",
+      "officialSource": "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/",
+      "paperCitation": "Everingham, M., et al. (2015). The Pascal Visual Object Classes Challenge: A Retrospective. IJCV, 111(1), 98-136.",
+      "license": "Non-commercial Academic Use",
+      "task": "Object Detection & Semantic Segmentation",
+      "modalities": ["image/jpeg", "annotation/xml", "mask/png"],
+      "version": "2012",
+      "numSamples": 11530,
+      "classes": ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"],
+      "resolution": "Variabel (~500x375)",
+      "split": {
+        "train": 5717,
+        "val": 5823
+      },
+      "downloadInstructions": "Unduh arsip tar VOCtrainval_11-May-2012.tar (1.9 GB) dari situs Oxford University Robotics Group.",
+      "expectedOrganization": "VOCdevkit/VOC2012/ (Annotations/, ImageSets/, JPEGImages/, SegmentationClass/, SegmentationObject/)",
+      "preprocessing": "Resize menjaga aspek rasio, letterbox padding, normalisasi intensitas [0, 1] standar ImageNet.",
+      "evaluationProtocol": "Mean Average Precision (mAP@0.5 IoU) untuk deteksi objek; mean Intersection over Union (mIoU) untuk segmentasi.",
+      "relevantChapters": ["44", "45"]
+    },
+    {
+      "id": "ms-coco-2017",
+      "name": "Microsoft Common Objects in Context (MS COCO 2017)",
+      "officialSource": "https://cocodataset.org/",
+      "paperCitation": "Lin, T.-Y., et al. (2014). Microsoft COCO: Common Objects in Context. ECCV 2014.",
+      "license": "Creative Commons Attribution 4.0 (CC-BY-4.0)",
+      "task": "Object Detection, Instance Segmentation & Keypoint Estimation",
+      "modalities": ["image/jpeg", "annotation/json"],
+      "version": "2017",
+      "numSamples": 123287,
+      "classes": ["80 object categories"],
+      "resolution": "Variabel (resolusi tinggi rata-rata 640x480)",
+      "split": {
+        "train": 118287,
+        "val": 5000,
+        "test": 40670
+      },
+      "downloadInstructions": "Unduh berkas train2017.zip (19 GB), val2017.zip (1 GB), dan annotations_trainval2017.zip (241 MB) dari situs resmi cocodataset.org.",
+      "expectedOrganization": "coco/ (images/train2017, images/val2017, annotations/instances_train2017.json, instances_val2017.json)",
+      "preprocessing": "Resize citra ke resolusi masukan model (misal 640x640 untuk YOLOv8), normalisasi koordinat bounding box terpusat [x_center, y_center, width, height] relatif terhadap dimensi citra.",
+      "evaluationProtocol": "mAP@[0.50:0.05:0.95], AP50, AP75, AP_small, AP_medium, AP_large.",
+      "relevantChapters": ["44", "45", "47"]
+    },
+    {
+      "id": "oxford-iiit-pet",
+      "name": "Oxford-IIIT Pet Dataset",
+      "officialSource": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+      "paperCitation": "Parkhi, O. M., et al. (2012). Cats and Dogs. CVPR 2012.",
+      "license": "Creative Commons Attribution-ShareAlike 4.0 International",
+      "task": "Fine-Grained Classification & Trimap Semantic Segmentation",
+      "modalities": ["image/jpeg", "mask/trimap-png"],
+      "version": "1.0",
+      "numSamples": 7349,
+      "classes": ["37 ras kucing dan anjing (25 ras anjing, 12 ras kucing)"],
+      "resolution": "Variabel (~500x375)",
+      "split": {
+        "trainval": 3680,
+        "test": 3669
+      },
+      "downloadInstructions": "Unduh images.tar.gz (780 MB) dan annotations.tar.gz (19 MB) dari portal Oxford VGG.",
+      "expectedOrganization": "oxford-pets/ (images/*.jpg, annotations/trimaps/*.png)",
+      "preprocessing": "Resize citra dan trimap ke 128x128 atau 256x256, label trimap {1: Foreground (hewan), 2: Background, 3: Boundary}.",
+      "evaluationProtocol": "Pixel Accuracy dan Dice Coefficient / IoU kelas foreground.",
+      "relevantChapters": ["42", "43", "45"]
+    },
+    {
+      "id": "kitti-stereo-odometry",
+      "name": "KITTI Vision Benchmark Suite (Stereo 2015 & Odometry)",
+      "officialSource": "https://www.cvlibs.net/datasets/kitti/",
+      "paperCitation": "Geiger, A., Lenz, P., & Urtasun, R. (2012). Are we ready for Autonomous Driving? The KITTI Vision Benchmark Suite. CVPR 2012.",
+      "license": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0",
+      "task": "Stereo Vision, Depth Estimation & Visual Odometry",
+      "modalities": ["image/png (Stereo Left/Right)", "calib/txt", "depth/velodyne-lidar"],
+      "version": "2015",
+      "numSamples": 200,
+      "resolution": "1242x375",
+      "split": {
+        "train": 200,
+        "test": 200
+      },
+      "downloadInstructions": "Unduh stereo 2015 data_scene_flow.zip (2 GB) setelah registrasi akun akademik pada portal CVLibs Karlsruhe Institute of Technology.",
+      "expectedOrganization": "kitti_stereo/ (data_scene_flow/training/image_2/, image_3/, disp_noc_0/, calib_cam_to_cam.txt)",
+      "preprocessing": "Rektifikasi stereo berbasis matriks kalibrasi intrinsik dan ekstrinsik, normalisasi intensitas monokrom.",
+      "evaluationProtocol": "D1-all error rate (% piksel dengan error disparitas > 3 px atau > 5%), Root Mean Squared Error (RMSE) estimasi jarak metrik.",
+      "relevantChapters": ["38", "39", "48"]
+    },
+    {
+      "id": "chessboard-camera-calib",
+      "name": "OpenCV Standard Chessboard Calibration Pattern",
+      "officialSource": "https://github.com/opencv/opencv/tree/master/samples/data",
+      "paperCitation": "Zhang, Z. (2000). A Flexible New Technique for Camera Calibration. IEEE TPAMI, 22(11), 1330-1334.",
+      "license": "Apache 2.0 / BSD 3-Clause",
+      "task": "Camera Calibration & Geometric Distortion Correction",
+      "modalities": ["image/png"],
+      "version": "1.0",
+      "numSamples": 15,
+      "patternType": "Pola Papan Catur 9x6 Titik Sudut Interior (Square size = 25 mm)",
+      "resolution": "640x480 atau 1280x720",
+      "split": {
+        "calibrationSet": 15
+      },
+      "downloadInstructions": "Disediakan secara terintegrasi pada modul Python OpenCV samples (left01.jpg .. left14.jpg) atau dihasilkan secara sintetis melalui generator citra proyektif.",
+      "expectedOrganization": "data/calibration/ (left01.jpg .. left14.jpg)",
+      "preprocessing": "Konversi ke Grayscale (cv2.cvtColor), deteksi titik sudut interior otomatis (cv2.findChessboardCorners), perbaikan sub-piksel (cv2.cornerSubPix).",
+      "evaluationProtocol": "Mean Reprojection Error (piksel RMS < 0.5 px) dan kestabilan matriks intrinsik K.",
+      "relevantChapters": ["36", "38"]
+    }
+  ]
+}
+

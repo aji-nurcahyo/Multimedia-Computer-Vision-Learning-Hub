@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fig-09-01",
+    "title": "Transformasi Histogram Global Menggunakan Cumulative Distribution Function",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-09-histogram-equalization.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  },
+  {
+    "id": "fig-09-02",
+    "title": "Mekanisme CLAHE: Local Tiles, Clip Limit & Bilinear Interpolation",
+    "type": "svg",
+    "path": "/media/diagrams/chapter-09-clahe-tiles.svg",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "license": "CC-BY-4.0",
+    "source": "Multimedia & Computer Vision Learning Hub, ITERA",
+    "attribution": "Diagram vektor asli oleh Aji Pamungkas Tri Nurcahyo (ITERA), lisensi CC-BY-4.0"
+  }
+]
+

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "diagram-50-1",
+    "title": "Evaluasi Model Vision: Kurva Presisi-Recall & Metrik mAP",
+    "path": "/media/diagrams/chapter-50-precision-recall-and-map.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  },
+  {
+    "id": "diagram-50-2",
+    "title": "Matriks Konfusi Multi-Kelas & Analisis Sensitivitas",
+    "path": "/media/diagrams/chapter-50-confusion-matrix-and-roc-metrics.svg",
+    "type": "image/svg+xml",
+    "license": "CC-BY-4.0",
+    "creator": "Aji Pamungkas Tri Nurcahyo",
+    "source": "Multimedia & Computer Vision Learning Hub (ITERA)",
+    "attribution": "Dibuat oleh Aji Pamungkas Tri Nurcahyo untuk ITERA. Dilisensikan di bawah lisensi CC-BY-4.0 International."
+  }
+]
