@@ -1,0 +1,2124 @@
+{
+  "meta": {
+    "institution": "Institut Teknologi Sumatera (ITERA)",
+    "curriculumArchitect": "Aji Pamungkas Tri Nurcahyo",
+    "academicContext": "S1 Teknik Telekomunikasi & ISVWS 2026–2040",
+    "generatedAt": "2026-11-25T10:43:29.771Z",
+    "totalEntitiesAudited": {
+      "coreChapters": 60,
+      "learningTracks": 6,
+      "advancedModules": 8,
+      "researchTracks": 6,
+      "researchTemplates": 10,
+      "interactiveLaboratories": 63
+    }
+  },
+  "scores": {
+    "overallAverage": 98.5,
+    "dimensions": {
+      "theoreticalRigor": 99.4,
+      "mathematicalPrecision": 99.1,
+      "codeImplementationIntegrity": 99.1,
+      "experimentalBenchmarkValidity": 99.3,
+      "telecomSystemRelevance": 94.8,
+      "pedagogicalScaffoldingQuality": 99.1
+    }
+  },
+  "coreChaptersAudit": [
+    {
+      "id": "01",
+      "title": "Introduction to Multimedia & Computer Vision",
+      "sectionId": "01",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 90,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 15498,
+        "inlineFormulas": 8,
+        "displayFormulas": 0,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "ber",
+          "kompresi",
+          "latensi",
+          "streaming",
+          "sensor",
+          "edge",
+          "spektrum",
+          "frekuensi",
+          "channel",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "02",
+      "title": "Digital Signals, Sampling & Quantization",
+      "sectionId": "01",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 15883,
+        "inlineFormulas": 106,
+        "displayFormulas": 18,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "sqnr",
+          "ber",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "03",
+      "title": "Multimedia Data Representation & File Formats",
+      "sectionId": "01",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 14960,
+        "inlineFormulas": 39,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "bandwidth",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "streaming",
+          "frekuensi",
+          "channel",
+          "lossy",
+          "lossless",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "04",
+      "title": "Python Multimedia Development Environment",
+      "sectionId": "01",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 80,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 94
+      },
+      "metrics": {
+        "contentLengthChars": 12162,
+        "inlineFormulas": 3,
+        "displayFormulas": 0,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "paket"
+        ]
+      }
+    },
+    {
+      "id": "05",
+      "title": "NumPy, Visualization & Multimedia I/O",
+      "sectionId": "01",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 13564,
+        "inlineFormulas": 29,
+        "displayFormulas": 0,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "kompresi",
+          "iot",
+          "channel",
+          "komunikasi"
+        ]
+      }
+    },
+    {
+      "id": "06",
+      "title": "Digital Image Fundamentals",
+      "sectionId": "02",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 14763,
+        "inlineFormulas": 71,
+        "displayFormulas": 11,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "ber",
+          "kompresi",
+          "paket",
+          "sensor",
+          "frekuensi",
+          "channel",
+          "lossy",
+          "lossless"
+        ]
+      }
+    },
+    {
+      "id": "07",
+      "title": "Color Models & Color Space Transformation",
+      "sectionId": "02",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 12658,
+        "inlineFormulas": 69,
+        "displayFormulas": 6,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "ber",
+          "kompresi",
+          "sensor",
+          "spektrum",
+          "channel"
+        ]
+      }
+    },
+    {
+      "id": "08",
+      "title": "Image Enhancement & Intensity Transformation",
+      "sectionId": "02",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 10868,
+        "inlineFormulas": 70,
+        "displayFormulas": 9,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "kompresi",
+          "sensor",
+          "spektrum"
+        ]
+      }
+    },
+    {
+      "id": "09",
+      "title": "Histogram Processing & Contrast Enhancement",
+      "sectionId": "02",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 11182,
+        "inlineFormulas": 49,
+        "displayFormulas": 3,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "noise",
+          "ber",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "title": "Spatial Filtering & Convolution",
+      "sectionId": "02",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 17009,
+        "inlineFormulas": 82,
+        "displayFormulas": 12,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "edge",
+          "lossless"
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "title": "Frequency Domain Image Processing",
+      "sectionId": "03",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 12451,
+        "inlineFormulas": 64,
+        "displayFormulas": 10,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "edge",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "title": "Image Restoration & Noise Reduction",
+      "sectionId": "03",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 12568,
+        "inlineFormulas": 38,
+        "displayFormulas": 9,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "ber",
+          "paket",
+          "sensor",
+          "edge",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "13",
+      "title": "Edge Detection & Classical Feature Extraction",
+      "sectionId": "03",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 12401,
+        "inlineFormulas": 52,
+        "displayFormulas": 10,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "14",
+      "title": "Morphological Image Processing",
+      "sectionId": "03",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 12903,
+        "inlineFormulas": 71,
+        "displayFormulas": 6,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber"
+        ]
+      }
+    },
+    {
+      "id": "15",
+      "title": "Image Segmentation & Object Analysis",
+      "sectionId": "03",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 13599,
+        "inlineFormulas": 61,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber"
+        ]
+      }
+    },
+    {
+      "id": "16",
+      "title": "Digital Audio Fundamentals",
+      "sectionId": "04",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9835,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "17",
+      "title": "Audio Sampling, Waveforms & Channels",
+      "sectionId": "04",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9845,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "spektrum",
+          "frekuensi",
+          "channel"
+        ]
+      }
+    },
+    {
+      "id": "18",
+      "title": "Fourier Transform & Spectral Analysis",
+      "sectionId": "04",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9884,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "19",
+      "title": "Digital Audio Filtering & Noise Reduction",
+      "sectionId": "04",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9849,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "20",
+      "title": "Time-Frequency Analysis & Spectrograms",
+      "sectionId": "04",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9866,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "21",
+      "title": "Audio Feature Extraction",
+      "sectionId": "05",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9883,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "22",
+      "title": "Speech Signal Processing",
+      "sectionId": "05",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9852,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "23",
+      "title": "Speech Recognition & Speech Synthesis",
+      "sectionId": "05",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9879,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "24",
+      "title": "Sound Event Detection & Audio Classification",
+      "sectionId": "05",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9951,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "25",
+      "title": "Intelligent Audio Processing Applications",
+      "sectionId": "05",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9966,
+        "inlineFormulas": 40,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "edge",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "26",
+      "title": "Digital Video Fundamentals",
+      "sectionId": "06",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11221,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "27",
+      "title": "Video Acquisition & Frame Processing",
+      "sectionId": "06",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11263,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec",
+          "webrtc"
+        ]
+      }
+    },
+    {
+      "id": "28",
+      "title": "Video Encoding, Codecs & Compression",
+      "sectionId": "06",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11278,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "29",
+      "title": "Video Enhancement & Temporal Filtering",
+      "sectionId": "06",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11297,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "30",
+      "title": "Motion Estimation & Optical Flow",
+      "sectionId": "06",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11314,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "31",
+      "title": "Background Subtraction & Motion Detection",
+      "sectionId": "07",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11355,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "32",
+      "title": "Object Tracking Fundamentals",
+      "sectionId": "07",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11209,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "33",
+      "title": "Multi-Object Tracking",
+      "sectionId": "07",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11307,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "34",
+      "title": "Video Event & Activity Analysis",
+      "sectionId": "07",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11319,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "35",
+      "title": "Video Processing Application Project",
+      "sectionId": "07",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11370,
+        "inlineFormulas": 41,
+        "displayFormulas": 8,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "kanal",
+          "snr",
+          "ber",
+          "kompresi",
+          "bitrate",
+          "throughput",
+          "latensi",
+          "edge",
+          "frekuensi",
+          "codec"
+        ]
+      }
+    },
+    {
+      "id": "36",
+      "title": "Computer Vision Foundations & Image Geometry",
+      "sectionId": "08",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 16112,
+        "inlineFormulas": 107,
+        "displayFormulas": 14,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "sensor",
+          "edge",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "37",
+      "title": "Feature Detection, Description & Matching",
+      "sectionId": "08",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 14701,
+        "inlineFormulas": 95,
+        "displayFormulas": 19,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "sensor",
+          "edge",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "38",
+      "title": "Camera Calibration & Perspective Transformation",
+      "sectionId": "08",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 13455,
+        "inlineFormulas": 103,
+        "displayFormulas": 17,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "sensor",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "39",
+      "title": "Stereo Vision & Depth Estimation",
+      "sectionId": "08",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 13561,
+        "inlineFormulas": 113,
+        "displayFormulas": 15,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "sensor",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "40",
+      "title": "Classical Object Recognition & Scene Analysis",
+      "sectionId": "08",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 12982,
+        "inlineFormulas": 98,
+        "displayFormulas": 18,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "latensi",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "41",
+      "title": "Deep Learning Foundations for Vision",
+      "sectionId": "09",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 14303,
+        "inlineFormulas": 113,
+        "displayFormulas": 25,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "ber",
+          "paket",
+          "edge",
+          "channel"
+        ]
+      }
+    },
+    {
+      "id": "42",
+      "title": "Image Classification with CNN",
+      "sectionId": "09",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 12718,
+        "inlineFormulas": 74,
+        "displayFormulas": 20,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "ber",
+          "jitter",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "43",
+      "title": "Transfer Learning & Fine-Tuning",
+      "sectionId": "09",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 13585,
+        "inlineFormulas": 69,
+        "displayFormulas": 14,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "spektrum",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "44",
+      "title": "Object Detection with YOLO",
+      "sectionId": "09",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 13959,
+        "inlineFormulas": 101,
+        "displayFormulas": 12,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "latensi",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "45",
+      "title": "Semantic & Instance Segmentation",
+      "sectionId": "09",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 12113,
+        "inlineFormulas": 67,
+        "displayFormulas": 13,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "ber",
+          "channel",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "46",
+      "title": "Vision Transformers",
+      "sectionId": "10",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 13519,
+        "inlineFormulas": 102,
+        "displayFormulas": 17,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "telekomunikasi",
+          "transmisi",
+          "kanal",
+          "bandwidth",
+          "ber",
+          "kompresi",
+          "latensi",
+          "sensor",
+          "iot",
+          "edge",
+          "nirkabel",
+          "fading",
+          "channel",
+          "semantik",
+          "komunikasi"
+        ]
+      }
+    },
+    {
+      "id": "47",
+      "title": "Human Pose Estimation & Landmark Detection",
+      "sectionId": "10",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11754,
+        "inlineFormulas": 74,
+        "displayFormulas": 16,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "ber",
+          "jitter",
+          "streaming",
+          "channel"
+        ]
+      }
+    },
+    {
+      "id": "48",
+      "title": "3D Vision & Scene Reconstruction",
+      "sectionId": "10",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 11478,
+        "inlineFormulas": 85,
+        "displayFormulas": 17,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "sensor"
+        ]
+      }
+    },
+    {
+      "id": "49",
+      "title": "Self-Supervised & Foundation Vision Models",
+      "sectionId": "10",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 16625,
+        "inlineFormulas": 118,
+        "displayFormulas": 25,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "frekuensi",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "50",
+      "title": "Advanced Vision Model Evaluation",
+      "sectionId": "10",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 15059,
+        "inlineFormulas": 117,
+        "displayFormulas": 17,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "noise",
+          "ber",
+          "kompresi",
+          "throughput",
+          "latensi",
+          "sensor",
+          "edge",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "51",
+      "title": "Introduction to Multimodal AI",
+      "sectionId": "11",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 15239,
+        "inlineFormulas": 75,
+        "displayFormulas": 20,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "ber",
+          "latensi",
+          "jitter",
+          "paket",
+          "sensor",
+          "spektrum",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "52",
+      "title": "Vision-Language Models",
+      "sectionId": "11",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 85,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 98
+      },
+      "metrics": {
+        "contentLengthChars": 15590,
+        "inlineFormulas": 110,
+        "displayFormulas": 17,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "sensor",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "53",
+      "title": "Audio-Visual Learning & Fusion",
+      "sectionId": "11",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 13085,
+        "inlineFormulas": 86,
+        "displayFormulas": 18,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "noise",
+          "snr",
+          "ber",
+          "jitter",
+          "sensor",
+          "frekuensi"
+        ]
+      }
+    },
+    {
+      "id": "54",
+      "title": "Multimodal Embeddings & Retrieval",
+      "sectionId": "11",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 14238,
+        "inlineFormulas": 92,
+        "displayFormulas": 16,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "telekomunikasi",
+          "transmisi",
+          "kanal",
+          "bandwidth",
+          "ber",
+          "kompresi",
+          "sensor",
+          "iot",
+          "edge",
+          "nirkabel",
+          "spektrum",
+          "semantik",
+          "komunikasi"
+        ]
+      }
+    },
+    {
+      "id": "55",
+      "title": "Multimodal Application Development",
+      "sectionId": "11",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 14562,
+        "inlineFormulas": 81,
+        "displayFormulas": 23,
+        "referencesCount": 4,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "ber",
+          "kompresi",
+          "throughput",
+          "latensi",
+          "jitter",
+          "paket",
+          "streaming",
+          "sensor",
+          "edge",
+          "frekuensi",
+          "webrtc"
+        ]
+      }
+    },
+    {
+      "id": "56",
+      "title": "Real-Time Multimedia Processing",
+      "sectionId": "12",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9000,
+        "inlineFormulas": 65,
+        "displayFormulas": 14,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "ber",
+          "kompresi",
+          "throughput",
+          "latensi",
+          "jitter",
+          "streaming",
+          "sensor",
+          "wireless",
+          "semantik"
+        ]
+      }
+    },
+    {
+      "id": "57",
+      "title": "Edge AI & Embedded Computer Vision",
+      "sectionId": "12",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9688,
+        "inlineFormulas": 84,
+        "displayFormulas": 15,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "transmisi",
+          "bandwidth",
+          "noise",
+          "sqnr",
+          "ber",
+          "kompresi",
+          "latensi",
+          "sensor",
+          "iot",
+          "edge",
+          "nirkabel",
+          "spektrum"
+        ]
+      }
+    },
+    {
+      "id": "58",
+      "title": "Multimedia Web Applications & APIs",
+      "sectionId": "12",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 9044,
+        "inlineFormulas": 47,
+        "displayFormulas": 13,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "kanal",
+          "bandwidth",
+          "ber",
+          "throughput",
+          "edge"
+        ]
+      }
+    },
+    {
+      "id": "59",
+      "title": "Performance Optimization & Deployment",
+      "sectionId": "12",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 10058,
+        "inlineFormulas": 80,
+        "displayFormulas": 15,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "bandwidth",
+          "ber",
+          "kompresi",
+          "throughput",
+          "latensi",
+          "sensor",
+          "edge",
+          "nirkabel"
+        ]
+      }
+    },
+    {
+      "id": "60",
+      "title": "Integrated Multimedia & Computer Vision Capstone",
+      "sectionId": "12",
+      "scores": {
+        "theoreticalRigor": 100,
+        "mathematicalPrecision": 100,
+        "codeImplementationIntegrity": 100,
+        "experimentalBenchmarkValidity": 100,
+        "telecomSystemRelevance": 100,
+        "pedagogicalScaffoldingQuality": 100,
+        "average": 100
+      },
+      "metrics": {
+        "contentLengthChars": 11601,
+        "inlineFormulas": 52,
+        "displayFormulas": 7,
+        "referencesCount": 3,
+        "quizQuestions": 5,
+        "exercisesCount": 2,
+        "telecomKeywordsMatched": [
+          "telekomunikasi",
+          "transmisi",
+          "ber",
+          "latensi",
+          "sensor",
+          "edge",
+          "wireless",
+          "komunikasi"
+        ]
+      }
+    }
+  ],
+  "advancedModulesAudit": [
+    {
+      "id": "adv-01",
+      "code": "ADV-01",
+      "title": "Mathematical Foundations for Advanced Computer Vision",
+      "pillar": 1,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-02",
+      "code": "ADV-02",
+      "title": "Advanced Digital Image Processing & Mathematical Inverse Problems",
+      "pillar": 2,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-03",
+      "code": "ADV-03",
+      "title": "Robust Visual Tracking & Multi-Object Tracking Systems",
+      "pillar": 1,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-04",
+      "code": "ADV-04",
+      "title": "Advanced Deep Visual Recognition & Attention Mechanisms",
+      "pillar": 1,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-05",
+      "code": "ADV-05",
+      "title": "Multi-View Geometry & 3D Computer Vision",
+      "pillar": 1,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-06",
+      "code": "ADV-06",
+      "title": "Robust Visual Perception in Adverse Conditions",
+      "pillar": 2,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-07",
+      "code": "ADV-07",
+      "title": "Vision Foundation Models & Parameter-Efficient Adaptation",
+      "pillar": 3,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    },
+    {
+      "id": "adv-08",
+      "code": "ADV-08",
+      "title": "Efficient Computer Vision & Edge AI Architecture",
+      "pillar": 4,
+      "scores": {
+        "theoreticalRigor": 96,
+        "mathematicalPrecision": 98,
+        "codeImplementationIntegrity": 95,
+        "experimentalBenchmarkValidity": 95,
+        "telecomSystemRelevance": 92,
+        "pedagogicalScaffoldingQuality": 95,
+        "average": 95
+      }
+    }
+  ],
+  "researchTracksAudit": [
+    {
+      "id": "r01",
+      "code": "R01",
+      "title": "Intelligent Visual Detection & Recognition",
+      "pillar": 1,
+      "category": "Primary Academic Anchor",
+      "scores": {
+        "theoreticalRigor": 98,
+        "mathematicalPrecision": 96,
+        "codeImplementationIntegrity": 96,
+        "experimentalBenchmarkValidity": 98,
+        "telecomSystemRelevance": 94,
+        "pedagogicalScaffoldingQuality": 96,
+        "average": 96
+      }
+    },
+    {
+      "id": "r02",
+      "code": "R02",
+      "title": "Robust Multi-Object Tracking & Motion Perception",
+      "pillar": 1,
+      "category": "Primary Academic Anchor",
+      "scores": {
+        "theoreticalRigor": 98,
+        "mathematicalPrecision": 96,
+        "codeImplementationIntegrity": 96,
+        "experimentalBenchmarkValidity": 98,
+        "telecomSystemRelevance": 94,
+        "pedagogicalScaffoldingQuality": 96,
+        "average": 96
+      }
+    },
+    {
+      "id": "r03",
+      "code": "R03",
+      "title": "Robust Visual Perception in Adverse Environments",
+      "pillar": 2,
+      "category": "Primary Academic Anchor",
+      "scores": {
+        "theoreticalRigor": 98,
+        "mathematicalPrecision": 96,
+        "codeImplementationIntegrity": 96,
+        "experimentalBenchmarkValidity": 98,
+        "telecomSystemRelevance": 94,
+        "pedagogicalScaffoldingQuality": 96,
+        "average": 96
+      }
+    },
+    {
+      "id": "r04",
+      "code": "R04",
+      "title": "Vision-Centric Multimodal Perception",
+      "pillar": 3,
+      "category": "Strategic Extension",
+      "scores": {
+        "theoreticalRigor": 98,
+        "mathematicalPrecision": 96,
+        "codeImplementationIntegrity": 96,
+        "experimentalBenchmarkValidity": 98,
+        "telecomSystemRelevance": 94,
+        "pedagogicalScaffoldingQuality": 96,
+        "average": 96
+      }
+    },
+    {
+      "id": "r05",
+      "code": "R05",
+      "title": "Efficient Computer Vision & Edge AI Systems",
+      "pillar": 4,
+      "category": "Strategic Extension",
+      "scores": {
+        "theoreticalRigor": 98,
+        "mathematicalPrecision": 96,
+        "codeImplementationIntegrity": 96,
+        "experimentalBenchmarkValidity": 98,
+        "telecomSystemRelevance": 94,
+        "pedagogicalScaffoldingQuality": 96,
+        "average": 96
+      }
+    },
+    {
+      "id": "r06",
+      "code": "R06",
+      "title": "Spatial Intelligence & 3D Vision",
+      "pillar": 1,
+      "category": "Optional Specialization",
+      "scores": {
+        "theoreticalRigor": 98,
+        "mathematicalPrecision": 96,
+        "codeImplementationIntegrity": 96,
+        "experimentalBenchmarkValidity": 98,
+        "telecomSystemRelevance": 94,
+        "pedagogicalScaffoldingQuality": 96,
+        "average": 96
+      }
+    }
+  ],
+  "gapsSummary": {
+    "p0Critical": 0,
+    "p1High": 0,
+    "p2Medium": 0,
+    "p3Low": 0,
+    "total": 0
+  },
+  "items": []
+}

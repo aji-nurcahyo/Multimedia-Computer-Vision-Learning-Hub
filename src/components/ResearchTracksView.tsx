@@ -14,6 +14,7 @@ import {
   RotateCcw,
   ShieldCheck,
   Activity,
+  Code2,
 } from 'lucide-react';
 import {
   researchTracks,
@@ -23,6 +24,7 @@ import {
 } from '../lib/advancedContent';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { R01DetectionResearchLab } from './playgrounds/R01DetectionResearchLab';
+import { AcademicExportToolbar } from './AcademicExportToolbar';
 import { R02TrackingResearchLab } from './playgrounds/R02TrackingResearchLab';
 import { R03AdversePerceptionLab } from './playgrounds/R03AdversePerceptionLab';
 import { R04MultimodalFusionLab } from './playgrounds/R04MultimodalFusionLab';
@@ -38,7 +40,7 @@ interface ResearchTracksViewProps {
   onNavigateToAdvanced: (moduleId?: string) => void;
 }
 
-type TrackWorkspaceTab = 'curriculum' | 'lab' | 'workflow' | 'protocols' | 'templates';
+type TrackWorkspaceTab = 'curriculum' | 'lab' | 'workflow' | 'code' | 'protocols' | 'templates';
 
 export const ResearchTracksView: React.FC<ResearchTracksViewProps> = ({
   activeTrackId: propActiveTrackId,
@@ -129,6 +131,8 @@ export const ResearchTracksView: React.FC<ResearchTracksViewProps> = ({
 
   if (currentTrack) {
     const curriculumContent = getResearchText(currentTrack.id, 'index.md');
+    const workflowContent = getResearchText(currentTrack.id, 'guided-workflow.md');
+    const pythonCode = getResearchText(currentTrack.id, 'examples/example-01.py');
     const trackProtocol = getProtocolForTrack(currentTrack.code);
 
     return (
@@ -271,6 +275,15 @@ export const ResearchTracksView: React.FC<ResearchTracksViewProps> = ({
           </div>
         </div>
 
+        {/* Academic Slide & Material Export Bar */}
+        <div style={{ marginBottom: '1.25rem' }}>
+          <AcademicExportToolbar
+            type="research"
+            id={currentTrack.id}
+            title={currentTrack.title}
+          />
+        </div>
+
         {/* Workspace Learning Section Tabs */}
         <div className="academic-workspace-tabs">
           <button
@@ -293,6 +306,13 @@ export const ResearchTracksView: React.FC<ResearchTracksViewProps> = ({
           >
             <Activity size={16} />
             <span>Alur Riset Terpandu &amp; Baseline</span>
+          </button>
+          <button
+            className={`academic-workspace-tab-btn ${activeTab === 'code' ? 'active' : ''}`}
+            onClick={() => setActiveTab('code')}
+          >
+            <Code2 size={16} />
+            <span>Skrip &amp; Notebook (Tier C)</span>
           </button>
           <button
             className={`academic-workspace-tab-btn ${activeTab === 'protocols' ? 'active' : ''}`}
@@ -378,6 +398,79 @@ export const ResearchTracksView: React.FC<ResearchTracksViewProps> = ({
                       </p>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* Complete 8-Stage Tier-B Guided Research Workflow */}
+              <div className="card" style={{ padding: '2.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)' }}>
+                      Metodologi Riset Komputasi Baku
+                    </span>
+                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, margin: '0.2rem 0', color: 'var(--text)' }}>
+                      Alur Riset Terpandu 8 Tahap (Tier-B Workflow)
+                    </h3>
+                  </div>
+                  <span className="card-badge badge-published">Standar ISVWS 2026–2040</span>
+                </div>
+                {workflowContent ? (
+                  <div className="prose">
+                    <MarkdownRenderer content={workflowContent} />
+                  </div>
+                ) : (
+                  <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+                    Naskah alur riset terpandu sedang dimuat.
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'code' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div className="card" style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--primary)' }}>
+                      Tier-C Reproducible Research Package
+                    </span>
+                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, margin: '0.2rem 0', color: 'var(--text)' }}>
+                      Skrip Evaluasi &amp; Komputasi Baseline ({currentTrack.code})
+                    </h3>
+                    <p style={{ margin: '0.25rem 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                      Implementasi Python mandiri berstandar Gate 6 (multi-seed, parameter, FLOPs, metrik kuantitatif).
+                    </p>
+                  </div>
+                  <span className="card-badge badge-published">Gate 6 Terverifikasi</span>
+                </div>
+
+                {pythonCode ? (
+                  <pre style={{ borderRadius: '8px', overflowX: 'auto', maxHeight: '650px' }}>
+                    <code>{pythonCode}</code>
+                  </pre>
+                ) : (
+                  <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+                    Skrip Python baseline sedang dimuat.
+                  </div>
+                )}
+              </div>
+
+              {/* Research Baseline Notebook Card */}
+              <div className="card" style={{ padding: '1.75rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+                  <div>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 700, margin: '0 0 0.35rem', color: 'var(--text)' }}>
+                      Jupyter Notebook Baseline Riset Mandiri (.ipynb)
+                    </h4>
+                    <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-muted)' }}>
+                      Notebook riset terstruktur memuat pipeline akuisisi data, eksekusi baseline multi-seed, dan visualisasi galat diagnosis TIDE.
+                    </p>
+                    <div style={{ fontSize: '0.82rem', fontFamily: 'var(--font-mono)', color: 'var(--primary)', marginTop: '0.5rem' }}>
+                      content/research/{currentTrack.id}/notebooks/{currentTrack.id}-research-baseline.ipynb
+                    </div>
+                  </div>
+                  <span className="card-badge badge-published">Reproducible Artifact</span>
                 </div>
               </div>
             </div>

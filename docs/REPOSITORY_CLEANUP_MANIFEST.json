@@ -1,0 +1,87 @@
+{
+  "phase": "AC-02C",
+  "auditTimestamp": "2026-11-26T13:39:30+07:00",
+  "project": "Multimedia & Computer Vision Learning Hub",
+  "institution": "Institut Teknologi Sumatera (ITERA)",
+  "auditor": "Antigravity Academic Agent",
+  "directoryStorageInventory": {
+    "node_modules": {
+      "category": "GENERATED — Rebuildable",
+      "sizeMB": 155.1,
+      "description": "Third-party npm runtime and build dependencies. Managed by package-lock.json."
+    },
+    "dist": {
+      "category": "GENERATED — Rebuildable",
+      "sizeMB": 6.57,
+      "description": "Production build artifacts output by Vite build. Rebuildable at any time via npm run build."
+    },
+    "content": {
+      "category": "KEEP — Essential",
+      "sizeMB": 2.65,
+      "fileCount": 555,
+      "description": "Canonical academic curriculum: 60 Core chapters (Markdown, Python, Jupyter, JSON specs), 8 Advanced L3 modules, 6 Research L4 tracks, and 10 Research templates."
+    },
+    ".git": {
+      "category": "KEEP — Essential",
+      "sizeMB": 2.12,
+      "description": "Local Git repository history and references."
+    },
+    "src": {
+      "category": "KEEP — Essential",
+      "sizeMB": 1.71,
+      "fileCount": 112,
+      "description": "Application source code: React components, Interactive Roadmap, Laboratory Catalog, Presentation Viewer, Export Engine, and styles."
+    },
+    "docs": {
+      "category": "KEEP — Essential & Historical Archive",
+      "sizeMB": 0.62,
+      "fileCount": 51,
+      "description": "Academic specifications, audit manifests, gap registers, and verification reports."
+    },
+    "public": {
+      "category": "KEEP — Essential",
+      "sizeMB": 0.47,
+      "fileCount": 120,
+      "description": "120 verified SVG scientific diagrams and figures with attribution metadata."
+    },
+    "scripts": {
+      "category": "KEEP — Essential",
+      "sizeMB": 0.44,
+      "fileCount": 15,
+      "description": "Validation, media attribution, content linting, and screenshot verification scripts."
+    },
+    "tests": {
+      "category": "KEEP — Essential",
+      "sizeMB": 0.19,
+      "fileCount": 21,
+      "description": "21 automated unit test suites covering 158 academic and functional test cases."
+    }
+  },
+  "dependencyOptimization": {
+    "bundleSplitting": {
+      "vendor-export-pptx": {
+        "library": "pptxgenjs",
+        "chunkSizeKB": 374.1,
+        "strategy": "Vite manualChunks dynamic split"
+      },
+      "vendor-export-pdf": {
+        "library": "jspdf",
+        "chunkSizeKB": 389.91,
+        "strategy": "Vite manualChunks dynamic split"
+      },
+      "mainBundleReductionKB": 764.01
+    }
+  },
+  "cleanedFiles": [
+    {
+      "path": "content/research/r02/examples/__pycache__/example-01.cpython-312.pyc",
+      "category": "DISPOSABLE CACHE — Removed",
+      "reason": "Transient Python bytecode cache generated during local Python test execution; ignored by .gitignore."
+    }
+  ],
+  "disposableArtifactsSummary": {
+    "temporaryFilesRemaining": 0,
+    "untrackedGarbageRemaining": 0,
+    "status": "CLEAN & HYGIENIC"
+  }
+}

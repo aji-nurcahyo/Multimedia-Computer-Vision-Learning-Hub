@@ -17,6 +17,8 @@ export default defineConfig({
           'vendor-react': ['react', 'react-dom'],
           'vendor-katex': ['katex'],
           'vendor-icons': ['lucide-react'],
+          'vendor-export-pptx': ['pptxgenjs'],
+          'vendor-export-pdf': ['jspdf'],
         },
       },
     },

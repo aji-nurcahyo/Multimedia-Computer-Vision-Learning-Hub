@@ -16,10 +16,13 @@ import {
   FileBadge,
   Layers,
   GraduationCap,
-  Microscope
+  Microscope,
+  Network
 } from 'lucide-react';
 import { AdvancedCurriculumView } from './components/AdvancedCurriculumView';
 import { ResearchTracksView } from './components/ResearchTracksView';
+import { InteractiveRoadmapView } from './components/InteractiveRoadmapView';
+import { AcademicExportToolbar } from './components/AcademicExportToolbar';
 import {
   masterCurriculum,
   learningTracks,
@@ -37,7 +40,7 @@ import { PresentationViewer } from './components/PresentationViewer';
 import { QuizView } from './components/QuizView';
 import { LaboratoryCatalogView, LabRenderer } from './components/LaboratoryCatalogView';
 
-type NavTab = 'home' | 'curriculum' | 'tracks' | 'advanced' | 'research' | 'chapter' | 'playgrounds' | 'about';
+type NavTab = 'home' | 'curriculum' | 'tracks' | 'roadmap' | 'advanced' | 'research' | 'chapter' | 'playgrounds' | 'about';
 type ChapterSubTab = 'reading' | 'slides' | 'lab' | 'quiz' | 'references';
 
 export function App() {
@@ -70,6 +73,9 @@ export function App() {
   // Active track in Research tab (null = show catalog, string = active workspace)
   const [activeResearchTrackId, setActiveResearchTrackId] = useState<string | null>(null);
 
+  // Active track/node in Roadmap tab (null = show overview, string = focus mode)
+  const [activeRoadmapTrackId, setActiveRoadmapTrackId] = useState<string | null>(null);
+
   // Sync Theme attribute and localStorage
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -101,6 +107,10 @@ export function App() {
         setCurrentTab('curriculum');
       } else if (rawHash === 'tracks') {
         setCurrentTab('tracks');
+      } else if (rawHash === 'roadmap' || rawHash.startsWith('roadmap/')) {
+        setCurrentTab('roadmap');
+        const rKey = rawHash.replace(/^roadmap\/?/, '').split('?')[0].trim();
+        setActiveRoadmapTrackId(rKey || null);
       } else if (rawHash === 'playgrounds' || rawHash.startsWith('playgrounds/')) {
         setCurrentTab('playgrounds');
         const labKey = rawHash.replace(/^playgrounds\/?/, '').trim();
@@ -110,9 +120,14 @@ export function App() {
       } else if (rawHash === 'home') {
         setCurrentTab('home');
       } else if (rawHash.startsWith('chapter/')) {
-        const cid = rawHash.replace('chapter/', '');
+        const parts = rawHash.replace('chapter/', '').split('/');
+        const cid = parts[0];
+        const sub = parts[1];
         if (cid) {
           setActiveChapterId(cid);
+          if (sub && ['reading', 'slides', 'lab', 'quiz', 'references'].includes(sub)) {
+            setChapterSubTab(sub as ChapterSubTab);
+          }
           setCurrentTab('chapter');
         }
       }
@@ -250,6 +265,13 @@ export function App() {
             Learning Tracks
           </button>
           <button
+            className={`nav-btn ${currentTab === 'roadmap' ? 'active' : ''}`}
+            onClick={() => handleTabChange('roadmap')}
+          >
+            <Network size={16} />
+            Roadmap DAG
+          </button>
+          <button
             className={`nav-btn ${currentTab === 'advanced' ? 'active' : ''}`}
             onClick={() => handleTabChange('advanced')}
           >
@@ -335,6 +357,14 @@ export function App() {
                 >
                   <BookOpen size={16} />
                   <span>Jelajahi Kurikulum Core</span>
+                </button>
+                <button
+                  className="control-btn"
+                  onClick={() => handleTabChange('roadmap')}
+                  style={{ padding: '0.65rem 1.25rem', fontSize: '0.95rem', fontWeight: 600 }}
+                >
+                  <Network size={16} />
+                  <span>Jelajahi Peta Pembelajaran</span>
                 </button>
                 <button
                   className="control-btn"
@@ -708,6 +738,17 @@ export function App() {
               <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
                 Kurikulum terarah yang mengaitkan modul-modul kanonikal tanpa menduplikasi berkas materi.
               </p>
+              <div style={{ marginTop: '0.85rem' }}>
+                <button
+                  type="button"
+                  className="control-btn"
+                  onClick={() => handleTabChange('roadmap')}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', fontSize: '0.875rem', fontWeight: 600 }}
+                >
+                  <Network size={16} />
+                  <span>Buka Peta Pembelajaran Interaktif (DAG Roadmap)</span>
+                </button>
+              </div>
             </div>
 
             {/* Track Selector Pills */}
@@ -853,6 +894,15 @@ export function App() {
               <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '820px' }}>
                 {currentChapter.description}
               </p>
+
+              {/* Academic Slide & Material Export Bar */}
+              <div style={{ marginTop: '1.25rem' }}>
+                <AcademicExportToolbar
+                  type="chapter"
+                  id={currentChapter.id}
+                  title={currentChapter.title}
+                />
+              </div>
             </header>
 
             {/* Chapter Navigation Tabs */}
@@ -1039,6 +1089,18 @@ export function App() {
             activeLabId={activeLabTab}
             onSelectLab={handleSelectLab}
             onNavigateToChapter={navigateToChapter}
+          />
+        )}
+
+        {/* =========================================================================
+            TAB: INTERACTIVE LEARNING ROADMAP (PHASE AC-01)
+           ========================================================================= */}
+        {currentTab === 'roadmap' && (
+          <InteractiveRoadmapView
+            initialTrackId={activeRoadmapTrackId || undefined}
+            onNavigateToRoute={(route) => {
+              window.location.hash = route;
+            }}
           />
         )}
 

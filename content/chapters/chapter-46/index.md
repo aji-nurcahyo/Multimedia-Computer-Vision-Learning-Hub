@@ -167,6 +167,10 @@ Hasil vektor representasi teragregasi untuk token ke-0 adalah $[6.601, 5.262]^T$
    - *Penyebab*: Embedding posisi absolut 1D standar gagal menangkap pergeseran skala dan orientasi 2D yang fleksibel saat resolusi inferensi berubah.
    - *Solusi Teknik*: Terapkan Relative Position Bias atau Rotary Position Embedding (RoPE) 2D.
 
+4. **Relevansi Sistem Telekomunikasi & Transmisi Edge (Token Pruning & JSCC)**:
+   - *Tantangan Transmisi*: Dalam arsitektur *split computing* (pemisahan komputasi antara perangkat IoT/sensor cerdas di edge dan server pusat via jaringan telekomunikasi seluler 4G/5G), pengiriman seluruh representasi token patch $N=196$ dengan dimensi $D=768$ membebani bandwidth kanal uplink dan meningkatkan latensi transmisi.
+   - *Solusi Telekomunikasi*: Terapkan mekanisme *Token Pruning* berbasis skor perhatian (*attention score thresholding*). Patch yang merepresentasikan latar belakang seragam (*background redundancy*) dipangkas sebelum transmisi nirkabel, mereduksi payload bit data hingga $>60\%$ tanpa menurunkan akurasi klasifikasi downstream secara signifikan ($<0.5\%$). Selain itu, ViT encoder kini menjadi pilar dalam sistem *Semantic Communications* dan *Joint Source-Channel Coding* (JSCC), di mana token semantik visual ditransmisikan langsung melintasi kanal nirkabel berderau (*noisy fading channel*) dengan ketahanan derau yang jauh lebih tinggi daripada kompresi citra konvensional.
+
 ---
 
 ## 5. Eksperimen Terpandu & Dokumentasi Praktikum

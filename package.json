@@ -9,14 +9,16 @@
     "dev": "node node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "validate": "node scripts/validate-content.mjs && node scripts/validate-media.mjs",
-    "test": "node --test tests/content.test.mjs tests/image-processing.test.mjs tests/audio-processing.test.mjs tests/video-processing.test.mjs tests/cv-processing.test.mjs tests/multimodal-processing.test.mjs tests/systems-processing.test.mjs tests/advanced-curriculum.test.mjs tests/advanced-cv-processing.test.mjs tests/research-learning.test.mjs tests/ui-typography-presentation.test.mjs tests/laboratory-catalog.test.mjs tests/academic-content-lint.test.mjs tests/unified-advanced-research-ux.test.mjs",
+    "test": "node --test tests/content.test.mjs tests/image-processing.test.mjs tests/audio-processing.test.mjs tests/video-processing.test.mjs tests/cv-processing.test.mjs tests/multimodal-processing.test.mjs tests/systems-processing.test.mjs tests/advanced-curriculum.test.mjs tests/advanced-cv-processing.test.mjs tests/research-learning.test.mjs tests/ui-typography-presentation.test.mjs tests/laboratory-catalog.test.mjs tests/academic-content-lint.test.mjs tests/unified-advanced-research-ux.test.mjs tests/academic-roadmap-dependency.test.mjs tests/roadmap-view-routing.test.mjs tests/academic-roadmap-path-highlighting.test.mjs tests/academic-roadmap-exclusive-isolation.test.mjs tests/academic-roadmap-focus-mode.test.mjs tests/academic-material-export.test.mjs tests/academic-roadmap-simplified-focus.test.mjs tests/academic-roadmap-edge-routing.test.mjs tests/content-integrity-recovery.test.mjs",
     "build": "npm run validate && npm run typecheck && node node_modules/vite/bin/vite.js build",
     "preview": "node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 5173",
     "chapter:new": "node scripts/chapter-new.mjs"
   },
   "dependencies": {
+    "jspdf": "^4.2.1",
     "katex": "^0.16.21",
     "lucide-react": "^0.468.0",
+    "pptxgenjs": "^4.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "reveal.js": "^5.1.0"

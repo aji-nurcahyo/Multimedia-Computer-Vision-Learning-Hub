@@ -158,6 +158,10 @@ $$\text{MRR} = \frac{1.0000 + 0.333333 + 0.5000 + 0.166667}{4} = \frac{2.0000}{4
    - *Penyebab*: Kueri kata tunggal yang ambigu (misalnya `"apple"` dapat merujuk pada buah apel atau perusahaan teknologi) menghasilkan vektor yang berada di antara kedua konsep visual.
    - *Solusi Teknik*: Terapkan teknik *Query Expansion* berbasis konteks kalimat atau sediakan mekanisme *Relevance Feedback* interaktif.
 
+4. **Relevansi Sistem Telekomunikasi & Edge Retrieval (Bandwidth Compression)**:
+   - *Tantangan Transmisi*: Mengirimkan citra digital beresolusi tinggi (misal $1080\text{p} \approx 6.2\text{ MB}$ mentah atau $250\text{ KB}$ terkompresi) melalui kanal telekomunikasi nirkabel uplink pada jaringan sensor berdaya rendah (IoT/edge node) memboroskan bandwidth spektrum dan daya baterai.
+   - *Solusi Telekomunikasi*: Ekstraksi representasi semantik dilakukan di sisi edge device, sehingga yang ditransmisikan melalui kanal telekomunikasi hanyalah vektor embedding ternormalisasi $\ell_2$ yang sangat ringkas ($D = 512$ elemen, setara 512 byte bila dikuantisasi ke INT8). Strategi ini menghasilkan penghematan bandwidth transmisi lebih dari $99.8\%$ dengan rasio kompresi muatan payload $\approx 500:1$, memungkinkan pencarian visual terdistribusi secara *real-time* di seluruh wilayah rural dan koridor infrastruktur cerdas Sumatera (selaras dengan visi roadmap ISVWS 2026–2040).
+
 ---
 
 ## 5. Eksperimen Terpandu & Dokumentasi Praktikum

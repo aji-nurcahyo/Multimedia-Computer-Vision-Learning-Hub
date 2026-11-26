@@ -8,10 +8,16 @@ import {
   HelpCircle,
   Sun,
   Moon,
+  Download,
+  Printer,
+  Loader2,
+  AlertCircle
 } from 'lucide-react';
 import type { SlideData } from '../lib/content';
+import { getSlideBodyText, getSlideLeadText } from '../lib/content';
 import { renderInlineText } from './MarkdownRenderer';
 import { MathView } from './MathView';
+import { exportPresentationPptx, exportPresentationPdf } from '../lib/exportService';
 
 export type SlideTheme = 'dark' | 'light';
 
@@ -28,6 +34,9 @@ export function PresentationViewer({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [showExportMenu, setShowExportMenu] = useState(false);
+  const [exportingFormat, setExportingFormat] = useState<'pptx' | 'pdf' | null>(null);
+  const [exportError, setExportError] = useState<string | null>(null);
   const [slideTheme, setSlideTheme] = useState<SlideTheme>(() => {
     try {
       const saved = localStorage.getItem('slide_theme');
@@ -49,7 +58,55 @@ export function PresentationViewer({
   useEffect(() => {
     setCurrentSlideIndex(0);
     setShowNotes(false);
+    setShowExportMenu(false);
+    setExportError(null);
   }, [chapterNumber]);
+
+  const handleExportPptx = useCallback(async () => {
+    try {
+      setExportingFormat('pptx');
+      setExportError(null);
+      await exportPresentationPptx({
+        deckTitle: chapterTitle,
+        categoryOrTrack: `Chapter ${chapterNumber}`,
+        moduleCode: `Chapter ${chapterNumber}`,
+        slides,
+        fileName: `chapter-${chapterNumber}-slides.pptx`,
+        outputType: 'download'
+      });
+      setShowExportMenu(false);
+    } catch (err: any) {
+      console.error('PPTX export error:', err);
+      setExportError('Gagal mengekspor PowerPoint: ' + (err?.message || 'Error tidak diketahui'));
+    } finally {
+      setExportingFormat(null);
+    }
+  }, [chapterNumber, chapterTitle, slides]);
+
+  const handleExportPdf = useCallback(() => {
+    try {
+      setExportingFormat('pdf');
+      setExportError(null);
+      exportPresentationPdf({
+        categoryOrTrack: `Chapter ${chapterNumber}`,
+        moduleCode: `Chapter ${chapterNumber}`,
+        slides,
+        fileName: `chapter-${chapterNumber}-slides.pdf`,
+        outputType: 'download'
+      });
+      setShowExportMenu(false);
+    } catch (err: any) {
+      console.error('PDF export error:', err);
+      setExportError('Gagal mengekspor PDF: ' + (err?.message || 'Error tidak diketahui'));
+    } finally {
+      setExportingFormat(null);
+    }
+  }, [chapterNumber, slides]);
+
+  const handlePrint = useCallback(() => {
+    setShowExportMenu(false);
+    window.print();
+  }, []);
 
   const toggleSlideTheme = useCallback(() => {
     setSlideTheme((prev) => {
@@ -223,10 +280,11 @@ export function PresentationViewer({
         continue;
       }
 
-      if (trimmed.startsWith('### ')) {
+      if (trimmed.startsWith('### ') || trimmed.startsWith('## ') || trimmed.startsWith('# ')) {
+        const headingText = trimmed.replace(/^#{1,4}\s+/, '');
         nodes.push(
           <h3 key={idx} className="slide-section-heading">
-            {renderInlineText(trimmed.slice(4))}
+            {renderInlineText(headingText)}
           </h3>
         );
         continue;
@@ -238,6 +296,28 @@ export function PresentationViewer({
             <span className="slide-bullet">•</span>
             <div>{renderInlineText(trimmed.slice(2))}</div>
           </div>
+        );
+        continue;
+      }
+
+      const olMatch = /^(\d+)\.\s+(.+)$/.exec(trimmed);
+      if (olMatch) {
+        nodes.push(
+          <div key={idx} className="slide-list-item">
+            <span className="slide-bullet" style={{ minWidth: '1.4rem', fontWeight: 700 }}>
+              {olMatch[1]}.
+            </span>
+            <div>{renderInlineText(olMatch[2])}</div>
+          </div>
+        );
+        continue;
+      }
+
+      if (trimmed.startsWith('> ')) {
+        nodes.push(
+          <blockquote key={idx} className="slide-blockquote">
+            {renderInlineText(trimmed.slice(2))}
+          </blockquote>
         );
         continue;
       }
@@ -279,6 +359,58 @@ export function PresentationViewer({
           </span>
         </div>
         <div className="presentation-actions">
+          {/* Download & Export Menu Dropdown */}
+          <div className="presentation-export-dropdown" style={{ position: 'relative' }}>
+            <button
+              className={`control-btn ${showExportMenu ? 'active' : ''}`}
+              onClick={() => setShowExportMenu((prev) => !prev)}
+              title="Unduh Bahan Presentasi (PowerPoint, PDF, Cetak)"
+              aria-label="Unduh Bahan Presentasi"
+            >
+              {exportingFormat ? <Loader2 size={15} className="spin-animate" /> : <Download size={15} />}
+              <span>{exportingFormat ? 'Mengekspor...' : 'Unduh'}</span>
+            </button>
+
+            {showExportMenu && (
+              <div className="presentation-export-menu">
+                <button
+                  className="export-menu-item"
+                  onClick={handleExportPptx}
+                  disabled={exportingFormat !== null}
+                >
+                  <span className="export-menu-icon pptx">PPTX</span>
+                  <div>
+                    <div className="export-menu-title">Unduh PowerPoint (.pptx)</div>
+                    <div className="export-menu-desc">Slide 16:9, teks &amp; bentuk native dapat diedit</div>
+                  </div>
+                </button>
+                <button
+                  className="export-menu-item"
+                  onClick={handleExportPdf}
+                  disabled={exportingFormat !== null}
+                >
+                  <span className="export-menu-icon pdf">PDF</span>
+                  <div>
+                    <div className="export-menu-title">Unduh Slide PDF</div>
+                    <div className="export-menu-desc">Format 16:9 siap baca offline &amp; cetak resolusi tinggi</div>
+                  </div>
+                </button>
+                <button
+                  className="export-menu-item"
+                  onClick={handlePrint}
+                >
+                  <span className="export-menu-icon print">
+                    <Printer size={14} />
+                  </span>
+                  <div>
+                    <div className="export-menu-title">Cetak Slide (Print / Save as PDF)</div>
+                    <div className="export-menu-desc">Menggunakan dialog cetak peramban bawaan</div>
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+
           <button
             className="control-btn"
             onClick={toggleSlideTheme}
@@ -318,12 +450,34 @@ export function PresentationViewer({
         </div>
       </div>
 
+      {exportError && (
+        <div className="presentation-export-error-banner" role="alert">
+          <AlertCircle size={16} />
+          <span>{exportError}</span>
+          <button onClick={() => setExportError(null)} className="error-dismiss-btn">✕</button>
+        </div>
+      )}
+
       {/* Main 16:9 Presentation Canvas */}
       <div className="presentation-screen">
         <div className="slide-content-area">
           <h2 className="slide-title">{currentSlide.title}</h2>
-          {currentSlide.lead && <p className="slide-lead">{currentSlide.lead}</p>}
-          {renderSlideBody(currentSlide.body)}
+          {getSlideLeadText(currentSlide) && (
+            <p className="slide-lead">{getSlideLeadText(currentSlide)}</p>
+          )}
+          {renderSlideBody(getSlideBodyText(currentSlide))}
+          {currentSlide.diagram && (
+            <div className="slide-diagram-wrapper" style={{ margin: '1rem 0', textAlign: 'center' }}>
+              <img
+                src={currentSlide.diagram}
+                alt={currentSlide.title}
+                style={{ maxHeight: '280px', maxWidth: '100%', objectFit: 'contain', borderRadius: '8px' }}
+                onError={(e) => {
+                  (e.target as HTMLElement).style.display = 'none';
+                }}
+              />
+            </div>
+          )}
         </div>
 
         {/* Custom Academic Footer (Strictly ITERA & Course Author - NO Reveal.js branding) */}

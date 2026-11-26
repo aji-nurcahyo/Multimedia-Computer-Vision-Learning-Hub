@@ -13,16 +13,20 @@ import {
   FileText,
   Compass,
   RotateCcw,
+  Presentation,
 } from 'lucide-react';
 import {
   advancedModules,
   type AdvancedModule,
   getAdvancedText,
+  getAdvancedJson,
   getAdvancedModuleById,
 } from '../lib/advancedContent';
+import { PresentationViewer } from './PresentationViewer';
 import { SvdOptimizationExplorerLab } from './playgrounds/SvdOptimizationExplorerLab';
 import { SyntheticMotArenaLab } from './playgrounds/SyntheticMotArenaLab';
 import { AdverseConditionsExplorerLab } from './playgrounds/AdverseConditionsExplorerLab';
+import { AcademicExportToolbar } from './AcademicExportToolbar';
 import { VariationalInverseProblemLab } from './playgrounds/VariationalInverseProblemLab';
 import { MultiViewGeometryExplorerLab } from './playgrounds/MultiViewGeometryExplorerLab';
 import { DeformableAttentionExplorerLab } from './playgrounds/DeformableAttentionExplorerLab';
@@ -37,7 +41,7 @@ interface AdvancedCurriculumViewProps {
   onNavigateToResearch: () => void;
 }
 
-type ModuleTab = 'theory' | 'lab' | 'code' | 'syllabus';
+type ModuleTab = 'theory' | 'slides' | 'lab' | 'code' | 'syllabus';
 
 export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
   activeModuleId: propActiveModuleId,
@@ -108,6 +112,7 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
   if (currentModule) {
     const theoryContent = getAdvancedText(currentModule.id, 'index.md');
     const pythonCode = getAdvancedText(currentModule.id, 'examples/example-01.py');
+    const slidesData = getAdvancedJson<any[]>(currentModule.id, 'slides.json') || [];
 
     return (
       <div className="container" style={{ paddingBottom: '4rem' }}>
@@ -221,6 +226,15 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
           </div>
         </div>
 
+        {/* Academic Slide & Material Export Bar */}
+        <div style={{ marginBottom: '1.25rem' }}>
+          <AcademicExportToolbar
+            type="advanced"
+            id={currentModule.id}
+            title={currentModule.title}
+          />
+        </div>
+
         {/* Workspace Learning Section Tabs */}
         <div className="academic-workspace-tabs">
           <button
@@ -229,6 +243,13 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
           >
             <BookOpen size={16} />
             <span>Teori &amp; Fondasi Matematis</span>
+          </button>
+          <button
+            className={`academic-workspace-tab-btn ${activeTab === 'slides' ? 'active' : ''}`}
+            onClick={() => setActiveTab('slides')}
+          >
+            <Presentation size={16} />
+            <span>Slide Presentasi ({slidesData.length})</span>
           </button>
           <button
             className={`academic-workspace-tab-btn ${activeTab === 'lab' ? 'active' : ''}`}
@@ -269,6 +290,16 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
             </div>
           )}
 
+          {activeTab === 'slides' && (
+            <div style={{ minHeight: '520px' }}>
+              <PresentationViewer
+                chapterNumber={currentModule.code}
+                chapterTitle={currentModule.title}
+                slides={slidesData}
+              />
+            </div>
+          )}
+
           {activeTab === 'lab' && (
             <div style={{ minHeight: '520px' }}>
               {renderInteractiveLab(currentModule.id)}
@@ -298,6 +329,19 @@ export const AdvancedCurriculumView: React.FC<AdvancedCurriculumViewProps> = ({
                   Contoh kode komputasi untuk modul ini sedang dipersiapkan.
                 </div>
               )}
+
+              {/* Advanced Lab Notebook Card */}
+              <div style={{ marginTop: '1.25rem', padding: '1rem 1.25rem', background: 'var(--bg-subtle)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <div>
+                    <strong style={{ fontSize: '0.9rem', color: 'var(--text)' }}>Jupyter Notebook Laboratorium:</strong>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--primary)', fontFamily: 'var(--font-mono)', marginTop: '0.2rem' }}>
+                      content/advanced/{currentModule.id}/notebooks/{currentModule.id}-lab.ipynb
+                    </div>
+                  </div>
+                  <span className="card-badge badge-published">Notebook Terverifikasi</span>
+                </div>
+              </div>
             </div>
           )}
 

@@ -1,0 +1,1474 @@
+{
+  "generatedAt": "2026-11-26T04:15:57.060Z",
+  "totalUnits": 74,
+  "units": [
+    {
+      "id": "01",
+      "code": "Chapter 01",
+      "title": "Introduction to Multimedia & Computer Vision",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-01-introduction-to-multimedia-computer-vision-presentation.pptx",
+        "presentationPdf": "chapter-01-introduction-to-multimedia-computer-vision-presentation.pdf",
+        "chapterPdf": "chapter-01-introduction-to-multimedia-computer-vision-materi-lengkap.pdf",
+        "pythonCode": "chapter-01-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "02",
+      "code": "Chapter 02",
+      "title": "Digital Signals, Sampling & Quantization",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-02-digital-signals-sampling-quantization-presentation.pptx",
+        "presentationPdf": "chapter-02-digital-signals-sampling-quantization-presentation.pdf",
+        "chapterPdf": "chapter-02-digital-signals-sampling-quantization-materi-lengkap.pdf",
+        "pythonCode": "chapter-02-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "03",
+      "code": "Chapter 03",
+      "title": "Multimedia Data Representation & File Formats",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-03-multimedia-data-representation-file-formats-presentation.pptx",
+        "presentationPdf": "chapter-03-multimedia-data-representation-file-formats-presentation.pdf",
+        "chapterPdf": "chapter-03-multimedia-data-representation-file-formats-materi-lengkap.pdf",
+        "pythonCode": "chapter-03-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "04",
+      "code": "Chapter 04",
+      "title": "Python Multimedia Development Environment",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-04-python-multimedia-development-environment-presentation.pptx",
+        "presentationPdf": "chapter-04-python-multimedia-development-environment-presentation.pdf",
+        "chapterPdf": "chapter-04-python-multimedia-development-environment-materi-lengkap.pdf",
+        "pythonCode": "chapter-04-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "05",
+      "code": "Chapter 05",
+      "title": "NumPy, Visualization & Multimedia I/O",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-05-numpy-visualization-multimedia-i-o-presentation.pptx",
+        "presentationPdf": "chapter-05-numpy-visualization-multimedia-i-o-presentation.pdf",
+        "chapterPdf": "chapter-05-numpy-visualization-multimedia-i-o-materi-lengkap.pdf",
+        "pythonCode": "chapter-05-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "06",
+      "code": "Chapter 06",
+      "title": "Digital Image Fundamentals",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-06-digital-image-fundamentals-presentation.pptx",
+        "presentationPdf": "chapter-06-digital-image-fundamentals-presentation.pdf",
+        "chapterPdf": "chapter-06-digital-image-fundamentals-materi-lengkap.pdf",
+        "pythonCode": "chapter-06-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "07",
+      "code": "Chapter 07",
+      "title": "Color Models & Color Space Transformation",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-07-color-models-color-space-transformation-presentation.pptx",
+        "presentationPdf": "chapter-07-color-models-color-space-transformation-presentation.pdf",
+        "chapterPdf": "chapter-07-color-models-color-space-transformation-materi-lengkap.pdf",
+        "pythonCode": "chapter-07-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "08",
+      "code": "Chapter 08",
+      "title": "Image Enhancement & Intensity Transformation",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-08-image-enhancement-intensity-transformation-presentation.pptx",
+        "presentationPdf": "chapter-08-image-enhancement-intensity-transformation-presentation.pdf",
+        "chapterPdf": "chapter-08-image-enhancement-intensity-transformation-materi-lengkap.pdf",
+        "pythonCode": "chapter-08-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "09",
+      "code": "Chapter 09",
+      "title": "Histogram Processing & Contrast Enhancement",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-09-histogram-processing-contrast-enhancement-presentation.pptx",
+        "presentationPdf": "chapter-09-histogram-processing-contrast-enhancement-presentation.pdf",
+        "chapterPdf": "chapter-09-histogram-processing-contrast-enhancement-materi-lengkap.pdf",
+        "pythonCode": "chapter-09-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "10",
+      "code": "Chapter 10",
+      "title": "Spatial Filtering & Convolution",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-10-spatial-filtering-convolution-presentation.pptx",
+        "presentationPdf": "chapter-10-spatial-filtering-convolution-presentation.pdf",
+        "chapterPdf": "chapter-10-spatial-filtering-convolution-materi-lengkap.pdf",
+        "pythonCode": "chapter-10-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "11",
+      "code": "Chapter 11",
+      "title": "Frequency Domain Image Processing",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-11-frequency-domain-image-processing-presentation.pptx",
+        "presentationPdf": "chapter-11-frequency-domain-image-processing-presentation.pdf",
+        "chapterPdf": "chapter-11-frequency-domain-image-processing-materi-lengkap.pdf",
+        "pythonCode": "chapter-11-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "12",
+      "code": "Chapter 12",
+      "title": "Image Restoration & Noise Reduction",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-12-image-restoration-noise-reduction-presentation.pptx",
+        "presentationPdf": "chapter-12-image-restoration-noise-reduction-presentation.pdf",
+        "chapterPdf": "chapter-12-image-restoration-noise-reduction-materi-lengkap.pdf",
+        "pythonCode": "chapter-12-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "13",
+      "code": "Chapter 13",
+      "title": "Edge Detection & Classical Feature Extraction",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-13-edge-detection-classical-feature-extraction-presentation.pptx",
+        "presentationPdf": "chapter-13-edge-detection-classical-feature-extraction-presentation.pdf",
+        "chapterPdf": "chapter-13-edge-detection-classical-feature-extraction-materi-lengkap.pdf",
+        "pythonCode": "chapter-13-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "14",
+      "code": "Chapter 14",
+      "title": "Morphological Image Processing",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-14-morphological-image-processing-presentation.pptx",
+        "presentationPdf": "chapter-14-morphological-image-processing-presentation.pdf",
+        "chapterPdf": "chapter-14-morphological-image-processing-materi-lengkap.pdf",
+        "pythonCode": "chapter-14-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "15",
+      "code": "Chapter 15",
+      "title": "Image Segmentation & Object Analysis",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-15-image-segmentation-object-analysis-presentation.pptx",
+        "presentationPdf": "chapter-15-image-segmentation-object-analysis-presentation.pdf",
+        "chapterPdf": "chapter-15-image-segmentation-object-analysis-materi-lengkap.pdf",
+        "pythonCode": "chapter-15-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "16",
+      "code": "Chapter 16",
+      "title": "Digital Audio Fundamentals",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-16-digital-audio-fundamentals-presentation.pptx",
+        "presentationPdf": "chapter-16-digital-audio-fundamentals-presentation.pdf",
+        "chapterPdf": "chapter-16-digital-audio-fundamentals-materi-lengkap.pdf",
+        "pythonCode": "chapter-16-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "17",
+      "code": "Chapter 17",
+      "title": "Audio Sampling, Waveforms & Channels",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-17-audio-sampling-waveforms-channels-presentation.pptx",
+        "presentationPdf": "chapter-17-audio-sampling-waveforms-channels-presentation.pdf",
+        "chapterPdf": "chapter-17-audio-sampling-waveforms-channels-materi-lengkap.pdf",
+        "pythonCode": "chapter-17-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "18",
+      "code": "Chapter 18",
+      "title": "Fourier Transform & Spectral Analysis",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-18-fourier-transform-spectral-analysis-presentation.pptx",
+        "presentationPdf": "chapter-18-fourier-transform-spectral-analysis-presentation.pdf",
+        "chapterPdf": "chapter-18-fourier-transform-spectral-analysis-materi-lengkap.pdf",
+        "pythonCode": "chapter-18-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "19",
+      "code": "Chapter 19",
+      "title": "Digital Audio Filtering & Noise Reduction",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-19-digital-audio-filtering-noise-reduction-presentation.pptx",
+        "presentationPdf": "chapter-19-digital-audio-filtering-noise-reduction-presentation.pdf",
+        "chapterPdf": "chapter-19-digital-audio-filtering-noise-reduction-materi-lengkap.pdf",
+        "pythonCode": "chapter-19-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "20",
+      "code": "Chapter 20",
+      "title": "Time-Frequency Analysis & Spectrograms",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-20-time-frequency-analysis-spectrograms-presentation.pptx",
+        "presentationPdf": "chapter-20-time-frequency-analysis-spectrograms-presentation.pdf",
+        "chapterPdf": "chapter-20-time-frequency-analysis-spectrograms-materi-lengkap.pdf",
+        "pythonCode": "chapter-20-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "21",
+      "code": "Chapter 21",
+      "title": "Audio Feature Extraction",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-21-audio-feature-extraction-presentation.pptx",
+        "presentationPdf": "chapter-21-audio-feature-extraction-presentation.pdf",
+        "chapterPdf": "chapter-21-audio-feature-extraction-materi-lengkap.pdf",
+        "pythonCode": "chapter-21-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "22",
+      "code": "Chapter 22",
+      "title": "Speech Signal Processing",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-22-speech-signal-processing-presentation.pptx",
+        "presentationPdf": "chapter-22-speech-signal-processing-presentation.pdf",
+        "chapterPdf": "chapter-22-speech-signal-processing-materi-lengkap.pdf",
+        "pythonCode": "chapter-22-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "23",
+      "code": "Chapter 23",
+      "title": "Speech Recognition & Speech Synthesis",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-23-speech-recognition-speech-synthesis-presentation.pptx",
+        "presentationPdf": "chapter-23-speech-recognition-speech-synthesis-presentation.pdf",
+        "chapterPdf": "chapter-23-speech-recognition-speech-synthesis-materi-lengkap.pdf",
+        "pythonCode": "chapter-23-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "24",
+      "code": "Chapter 24",
+      "title": "Sound Event Detection & Audio Classification",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-24-sound-event-detection-audio-classification-presentation.pptx",
+        "presentationPdf": "chapter-24-sound-event-detection-audio-classification-presentation.pdf",
+        "chapterPdf": "chapter-24-sound-event-detection-audio-classification-materi-lengkap.pdf",
+        "pythonCode": "chapter-24-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "25",
+      "code": "Chapter 25",
+      "title": "Intelligent Audio Processing Applications",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-25-intelligent-audio-processing-applications-presentation.pptx",
+        "presentationPdf": "chapter-25-intelligent-audio-processing-applications-presentation.pdf",
+        "chapterPdf": "chapter-25-intelligent-audio-processing-applications-materi-lengkap.pdf",
+        "pythonCode": "chapter-25-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "26",
+      "code": "Chapter 26",
+      "title": "Digital Video Fundamentals",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-26-digital-video-fundamentals-presentation.pptx",
+        "presentationPdf": "chapter-26-digital-video-fundamentals-presentation.pdf",
+        "chapterPdf": "chapter-26-digital-video-fundamentals-materi-lengkap.pdf",
+        "pythonCode": "chapter-26-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "27",
+      "code": "Chapter 27",
+      "title": "Video Acquisition & Frame Processing",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-27-video-acquisition-frame-processing-presentation.pptx",
+        "presentationPdf": "chapter-27-video-acquisition-frame-processing-presentation.pdf",
+        "chapterPdf": "chapter-27-video-acquisition-frame-processing-materi-lengkap.pdf",
+        "pythonCode": "chapter-27-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "28",
+      "code": "Chapter 28",
+      "title": "Video Encoding, Codecs & Compression",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-28-video-encoding-codecs-compression-presentation.pptx",
+        "presentationPdf": "chapter-28-video-encoding-codecs-compression-presentation.pdf",
+        "chapterPdf": "chapter-28-video-encoding-codecs-compression-materi-lengkap.pdf",
+        "pythonCode": "chapter-28-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "29",
+      "code": "Chapter 29",
+      "title": "Video Enhancement & Temporal Filtering",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-29-video-enhancement-temporal-filtering-presentation.pptx",
+        "presentationPdf": "chapter-29-video-enhancement-temporal-filtering-presentation.pdf",
+        "chapterPdf": "chapter-29-video-enhancement-temporal-filtering-materi-lengkap.pdf",
+        "pythonCode": "chapter-29-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "30",
+      "code": "Chapter 30",
+      "title": "Motion Estimation & Optical Flow",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-30-motion-estimation-optical-flow-presentation.pptx",
+        "presentationPdf": "chapter-30-motion-estimation-optical-flow-presentation.pdf",
+        "chapterPdf": "chapter-30-motion-estimation-optical-flow-materi-lengkap.pdf",
+        "pythonCode": "chapter-30-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "31",
+      "code": "Chapter 31",
+      "title": "Background Subtraction & Motion Detection",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-31-background-subtraction-motion-detection-presentation.pptx",
+        "presentationPdf": "chapter-31-background-subtraction-motion-detection-presentation.pdf",
+        "chapterPdf": "chapter-31-background-subtraction-motion-detection-materi-lengkap.pdf",
+        "pythonCode": "chapter-31-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "32",
+      "code": "Chapter 32",
+      "title": "Object Tracking Fundamentals",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-32-object-tracking-fundamentals-presentation.pptx",
+        "presentationPdf": "chapter-32-object-tracking-fundamentals-presentation.pdf",
+        "chapterPdf": "chapter-32-object-tracking-fundamentals-materi-lengkap.pdf",
+        "pythonCode": "chapter-32-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "33",
+      "code": "Chapter 33",
+      "title": "Multi-Object Tracking",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-33-multi-object-tracking-presentation.pptx",
+        "presentationPdf": "chapter-33-multi-object-tracking-presentation.pdf",
+        "chapterPdf": "chapter-33-multi-object-tracking-materi-lengkap.pdf",
+        "pythonCode": "chapter-33-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "34",
+      "code": "Chapter 34",
+      "title": "Video Event & Activity Analysis",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-34-video-event-activity-analysis-presentation.pptx",
+        "presentationPdf": "chapter-34-video-event-activity-analysis-presentation.pdf",
+        "chapterPdf": "chapter-34-video-event-activity-analysis-materi-lengkap.pdf",
+        "pythonCode": "chapter-34-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "35",
+      "code": "Chapter 35",
+      "title": "Video Processing Application Project",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": false
+      },
+      "fileNames": {
+        "pptx": "chapter-35-video-processing-application-project-presentation.pptx",
+        "presentationPdf": "chapter-35-video-processing-application-project-presentation.pdf",
+        "chapterPdf": "chapter-35-video-processing-application-project-materi-lengkap.pdf",
+        "pythonCode": "chapter-35-practice.py",
+        "jupyterNotebook": null
+      }
+    },
+    {
+      "id": "36",
+      "code": "Chapter 36",
+      "title": "Computer Vision Foundations & Image Geometry",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-36-computer-vision-foundations-image-geometry-presentation.pptx",
+        "presentationPdf": "chapter-36-computer-vision-foundations-image-geometry-presentation.pdf",
+        "chapterPdf": "chapter-36-computer-vision-foundations-image-geometry-materi-lengkap.pdf",
+        "pythonCode": "chapter-36-practice.py",
+        "jupyterNotebook": "chapter-36-lab.ipynb"
+      }
+    },
+    {
+      "id": "37",
+      "code": "Chapter 37",
+      "title": "Feature Detection, Description & Matching",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-37-feature-detection-description-matching-presentation.pptx",
+        "presentationPdf": "chapter-37-feature-detection-description-matching-presentation.pdf",
+        "chapterPdf": "chapter-37-feature-detection-description-matching-materi-lengkap.pdf",
+        "pythonCode": "chapter-37-practice.py",
+        "jupyterNotebook": "chapter-37-lab.ipynb"
+      }
+    },
+    {
+      "id": "38",
+      "code": "Chapter 38",
+      "title": "Camera Calibration & Perspective Transformation",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-38-camera-calibration-perspective-transformation-presentation.pptx",
+        "presentationPdf": "chapter-38-camera-calibration-perspective-transformation-presentation.pdf",
+        "chapterPdf": "chapter-38-camera-calibration-perspective-transformation-materi-lengkap.pdf",
+        "pythonCode": "chapter-38-practice.py",
+        "jupyterNotebook": "chapter-38-lab.ipynb"
+      }
+    },
+    {
+      "id": "39",
+      "code": "Chapter 39",
+      "title": "Stereo Vision & Depth Estimation",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-39-stereo-vision-depth-estimation-presentation.pptx",
+        "presentationPdf": "chapter-39-stereo-vision-depth-estimation-presentation.pdf",
+        "chapterPdf": "chapter-39-stereo-vision-depth-estimation-materi-lengkap.pdf",
+        "pythonCode": "chapter-39-practice.py",
+        "jupyterNotebook": "chapter-39-lab.ipynb"
+      }
+    },
+    {
+      "id": "40",
+      "code": "Chapter 40",
+      "title": "Classical Object Recognition & Scene Analysis",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-40-classical-object-recognition-scene-analysis-presentation.pptx",
+        "presentationPdf": "chapter-40-classical-object-recognition-scene-analysis-presentation.pdf",
+        "chapterPdf": "chapter-40-classical-object-recognition-scene-analysis-materi-lengkap.pdf",
+        "pythonCode": "chapter-40-practice.py",
+        "jupyterNotebook": "chapter-40-lab.ipynb"
+      }
+    },
+    {
+      "id": "41",
+      "code": "Chapter 41",
+      "title": "Deep Learning Foundations for Vision",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-41-deep-learning-foundations-for-vision-presentation.pptx",
+        "presentationPdf": "chapter-41-deep-learning-foundations-for-vision-presentation.pdf",
+        "chapterPdf": "chapter-41-deep-learning-foundations-for-vision-materi-lengkap.pdf",
+        "pythonCode": "chapter-41-practice.py",
+        "jupyterNotebook": "chapter-41-lab.ipynb"
+      }
+    },
+    {
+      "id": "42",
+      "code": "Chapter 42",
+      "title": "Image Classification with CNN",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-42-image-classification-with-cnn-presentation.pptx",
+        "presentationPdf": "chapter-42-image-classification-with-cnn-presentation.pdf",
+        "chapterPdf": "chapter-42-image-classification-with-cnn-materi-lengkap.pdf",
+        "pythonCode": "chapter-42-practice.py",
+        "jupyterNotebook": "chapter-42-lab.ipynb"
+      }
+    },
+    {
+      "id": "43",
+      "code": "Chapter 43",
+      "title": "Transfer Learning & Fine-Tuning",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-43-transfer-learning-fine-tuning-presentation.pptx",
+        "presentationPdf": "chapter-43-transfer-learning-fine-tuning-presentation.pdf",
+        "chapterPdf": "chapter-43-transfer-learning-fine-tuning-materi-lengkap.pdf",
+        "pythonCode": "chapter-43-practice.py",
+        "jupyterNotebook": "chapter-43-lab.ipynb"
+      }
+    },
+    {
+      "id": "44",
+      "code": "Chapter 44",
+      "title": "Object Detection with YOLO",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-44-object-detection-with-yolo-presentation.pptx",
+        "presentationPdf": "chapter-44-object-detection-with-yolo-presentation.pdf",
+        "chapterPdf": "chapter-44-object-detection-with-yolo-materi-lengkap.pdf",
+        "pythonCode": "chapter-44-practice.py",
+        "jupyterNotebook": "chapter-44-lab.ipynb"
+      }
+    },
+    {
+      "id": "45",
+      "code": "Chapter 45",
+      "title": "Semantic & Instance Segmentation",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-45-semantic-instance-segmentation-presentation.pptx",
+        "presentationPdf": "chapter-45-semantic-instance-segmentation-presentation.pdf",
+        "chapterPdf": "chapter-45-semantic-instance-segmentation-materi-lengkap.pdf",
+        "pythonCode": "chapter-45-practice.py",
+        "jupyterNotebook": "chapter-45-lab.ipynb"
+      }
+    },
+    {
+      "id": "46",
+      "code": "Chapter 46",
+      "title": "Vision Transformers",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-46-vision-transformers-presentation.pptx",
+        "presentationPdf": "chapter-46-vision-transformers-presentation.pdf",
+        "chapterPdf": "chapter-46-vision-transformers-materi-lengkap.pdf",
+        "pythonCode": "chapter-46-practice.py",
+        "jupyterNotebook": "chapter-46-lab.ipynb"
+      }
+    },
+    {
+      "id": "47",
+      "code": "Chapter 47",
+      "title": "Human Pose Estimation & Landmark Detection",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-47-human-pose-estimation-landmark-detection-presentation.pptx",
+        "presentationPdf": "chapter-47-human-pose-estimation-landmark-detection-presentation.pdf",
+        "chapterPdf": "chapter-47-human-pose-estimation-landmark-detection-materi-lengkap.pdf",
+        "pythonCode": "chapter-47-practice.py",
+        "jupyterNotebook": "chapter-47-lab.ipynb"
+      }
+    },
+    {
+      "id": "48",
+      "code": "Chapter 48",
+      "title": "3D Vision & Scene Reconstruction",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-48-3d-vision-scene-reconstruction-presentation.pptx",
+        "presentationPdf": "chapter-48-3d-vision-scene-reconstruction-presentation.pdf",
+        "chapterPdf": "chapter-48-3d-vision-scene-reconstruction-materi-lengkap.pdf",
+        "pythonCode": "chapter-48-practice.py",
+        "jupyterNotebook": "chapter-48-lab.ipynb"
+      }
+    },
+    {
+      "id": "49",
+      "code": "Chapter 49",
+      "title": "Self-Supervised & Foundation Vision Models",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-49-self-supervised-foundation-vision-models-presentation.pptx",
+        "presentationPdf": "chapter-49-self-supervised-foundation-vision-models-presentation.pdf",
+        "chapterPdf": "chapter-49-self-supervised-foundation-vision-models-materi-lengkap.pdf",
+        "pythonCode": "chapter-49-practice.py",
+        "jupyterNotebook": "chapter-49-lab.ipynb"
+      }
+    },
+    {
+      "id": "50",
+      "code": "Chapter 50",
+      "title": "Advanced Vision Model Evaluation",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-50-advanced-vision-model-evaluation-presentation.pptx",
+        "presentationPdf": "chapter-50-advanced-vision-model-evaluation-presentation.pdf",
+        "chapterPdf": "chapter-50-advanced-vision-model-evaluation-materi-lengkap.pdf",
+        "pythonCode": "chapter-50-practice.py",
+        "jupyterNotebook": "chapter-50-lab.ipynb"
+      }
+    },
+    {
+      "id": "51",
+      "code": "Chapter 51",
+      "title": "Introduction to Multimodal AI",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-51-introduction-to-multimodal-ai-presentation.pptx",
+        "presentationPdf": "chapter-51-introduction-to-multimodal-ai-presentation.pdf",
+        "chapterPdf": "chapter-51-introduction-to-multimodal-ai-materi-lengkap.pdf",
+        "pythonCode": "chapter-51-practice.py",
+        "jupyterNotebook": "chapter-51-lab.ipynb"
+      }
+    },
+    {
+      "id": "52",
+      "code": "Chapter 52",
+      "title": "Vision-Language Models",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-52-vision-language-models-presentation.pptx",
+        "presentationPdf": "chapter-52-vision-language-models-presentation.pdf",
+        "chapterPdf": "chapter-52-vision-language-models-materi-lengkap.pdf",
+        "pythonCode": "chapter-52-practice.py",
+        "jupyterNotebook": "chapter-52-lab.ipynb"
+      }
+    },
+    {
+      "id": "53",
+      "code": "Chapter 53",
+      "title": "Audio-Visual Learning & Fusion",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-53-audio-visual-learning-fusion-presentation.pptx",
+        "presentationPdf": "chapter-53-audio-visual-learning-fusion-presentation.pdf",
+        "chapterPdf": "chapter-53-audio-visual-learning-fusion-materi-lengkap.pdf",
+        "pythonCode": "chapter-53-practice.py",
+        "jupyterNotebook": "chapter-53-lab.ipynb"
+      }
+    },
+    {
+      "id": "54",
+      "code": "Chapter 54",
+      "title": "Multimodal Embeddings & Retrieval",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-54-multimodal-embeddings-retrieval-presentation.pptx",
+        "presentationPdf": "chapter-54-multimodal-embeddings-retrieval-presentation.pdf",
+        "chapterPdf": "chapter-54-multimodal-embeddings-retrieval-materi-lengkap.pdf",
+        "pythonCode": "chapter-54-practice.py",
+        "jupyterNotebook": "chapter-54-lab.ipynb"
+      }
+    },
+    {
+      "id": "55",
+      "code": "Chapter 55",
+      "title": "Multimodal Application Development",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-55-multimodal-application-development-presentation.pptx",
+        "presentationPdf": "chapter-55-multimodal-application-development-presentation.pdf",
+        "chapterPdf": "chapter-55-multimodal-application-development-materi-lengkap.pdf",
+        "pythonCode": "chapter-55-practice.py",
+        "jupyterNotebook": "chapter-55-lab.ipynb"
+      }
+    },
+    {
+      "id": "56",
+      "code": "Chapter 56",
+      "title": "Real-Time Multimedia Processing",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-56-real-time-multimedia-processing-presentation.pptx",
+        "presentationPdf": "chapter-56-real-time-multimedia-processing-presentation.pdf",
+        "chapterPdf": "chapter-56-real-time-multimedia-processing-materi-lengkap.pdf",
+        "pythonCode": "chapter-56-practice.py",
+        "jupyterNotebook": "chapter-56-lab.ipynb"
+      }
+    },
+    {
+      "id": "57",
+      "code": "Chapter 57",
+      "title": "Edge AI & Embedded Computer Vision",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-57-edge-ai-embedded-computer-vision-presentation.pptx",
+        "presentationPdf": "chapter-57-edge-ai-embedded-computer-vision-presentation.pdf",
+        "chapterPdf": "chapter-57-edge-ai-embedded-computer-vision-materi-lengkap.pdf",
+        "pythonCode": "chapter-57-practice.py",
+        "jupyterNotebook": "chapter-57-lab.ipynb"
+      }
+    },
+    {
+      "id": "58",
+      "code": "Chapter 58",
+      "title": "Multimedia Web Applications & APIs",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-58-multimedia-web-applications-apis-presentation.pptx",
+        "presentationPdf": "chapter-58-multimedia-web-applications-apis-presentation.pdf",
+        "chapterPdf": "chapter-58-multimedia-web-applications-apis-materi-lengkap.pdf",
+        "pythonCode": "chapter-58-practice.py",
+        "jupyterNotebook": "chapter-58-lab.ipynb"
+      }
+    },
+    {
+      "id": "59",
+      "code": "Chapter 59",
+      "title": "Performance Optimization & Deployment",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-59-performance-optimization-deployment-presentation.pptx",
+        "presentationPdf": "chapter-59-performance-optimization-deployment-presentation.pdf",
+        "chapterPdf": "chapter-59-performance-optimization-deployment-materi-lengkap.pdf",
+        "pythonCode": "chapter-59-practice.py",
+        "jupyterNotebook": "chapter-59-lab.ipynb"
+      }
+    },
+    {
+      "id": "60",
+      "code": "Chapter 60",
+      "title": "Integrated Multimedia & Computer Vision Capstone",
+      "tier": "core",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "chapter-60-integrated-multimedia-computer-vision-capstone-presentation.pptx",
+        "presentationPdf": "chapter-60-integrated-multimedia-computer-vision-capstone-presentation.pdf",
+        "chapterPdf": "chapter-60-integrated-multimedia-computer-vision-capstone-materi-lengkap.pdf",
+        "pythonCode": "chapter-60-practice.py",
+        "jupyterNotebook": "chapter-60-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-01",
+      "code": "ADV-01",
+      "title": "Mathematical Foundations for Advanced Computer Vision",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-01-presentation.pptx",
+        "presentationPdf": "adv-01-presentation.pdf",
+        "chapterPdf": "adv-01-materi-lengkap.pdf",
+        "pythonCode": "adv-01-example.py",
+        "jupyterNotebook": "adv-01-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-02",
+      "code": "ADV-02",
+      "title": "Advanced Digital Image Processing & Mathematical Inverse Problems",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-02-presentation.pptx",
+        "presentationPdf": "adv-02-presentation.pdf",
+        "chapterPdf": "adv-02-materi-lengkap.pdf",
+        "pythonCode": "adv-02-example.py",
+        "jupyterNotebook": "adv-02-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-03",
+      "code": "ADV-03",
+      "title": "Robust Visual Tracking & Multi-Object Tracking Systems",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-03-presentation.pptx",
+        "presentationPdf": "adv-03-presentation.pdf",
+        "chapterPdf": "adv-03-materi-lengkap.pdf",
+        "pythonCode": "adv-03-example.py",
+        "jupyterNotebook": "adv-03-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-04",
+      "code": "ADV-04",
+      "title": "Advanced Deep Visual Recognition & Attention Mechanisms",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-04-presentation.pptx",
+        "presentationPdf": "adv-04-presentation.pdf",
+        "chapterPdf": "adv-04-materi-lengkap.pdf",
+        "pythonCode": "adv-04-example.py",
+        "jupyterNotebook": "adv-04-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-05",
+      "code": "ADV-05",
+      "title": "Multi-View Geometry & 3D Computer Vision",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-05-presentation.pptx",
+        "presentationPdf": "adv-05-presentation.pdf",
+        "chapterPdf": "adv-05-materi-lengkap.pdf",
+        "pythonCode": "adv-05-example.py",
+        "jupyterNotebook": "adv-05-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-06",
+      "code": "ADV-06",
+      "title": "Robust Visual Perception in Adverse Conditions",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-06-presentation.pptx",
+        "presentationPdf": "adv-06-presentation.pdf",
+        "chapterPdf": "adv-06-materi-lengkap.pdf",
+        "pythonCode": "adv-06-example.py",
+        "jupyterNotebook": "adv-06-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-07",
+      "code": "ADV-07",
+      "title": "Vision Foundation Models & Parameter-Efficient Adaptation",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-07-presentation.pptx",
+        "presentationPdf": "adv-07-presentation.pdf",
+        "chapterPdf": "adv-07-materi-lengkap.pdf",
+        "pythonCode": "adv-07-example.py",
+        "jupyterNotebook": "adv-07-lab.ipynb"
+      }
+    },
+    {
+      "id": "adv-08",
+      "code": "ADV-08",
+      "title": "Efficient Computer Vision & Edge AI Architecture",
+      "tier": "advanced",
+      "formats": {
+        "pptx": true,
+        "presentationPdf": true,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "pptx": "adv-08-presentation.pptx",
+        "presentationPdf": "adv-08-presentation.pdf",
+        "chapterPdf": "adv-08-materi-lengkap.pdf",
+        "pythonCode": "adv-08-example.py",
+        "jupyterNotebook": "adv-08-lab.ipynb"
+      }
+    },
+    {
+      "id": "r01",
+      "code": "R01",
+      "title": "Intelligent Visual Detection & Recognition",
+      "tier": "research",
+      "formats": {
+        "pptx": false,
+        "presentationPdf": false,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "chapterPdf": "r01-panduan-riset.pdf",
+        "pythonCode": "r01-research-baseline.py",
+        "jupyterNotebook": "r01-research-baseline.ipynb"
+      }
+    },
+    {
+      "id": "r02",
+      "code": "R02",
+      "title": "Robust Multi-Object Tracking & Motion Perception",
+      "tier": "research",
+      "formats": {
+        "pptx": false,
+        "presentationPdf": false,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "chapterPdf": "r02-panduan-riset.pdf",
+        "pythonCode": "r02-research-baseline.py",
+        "jupyterNotebook": "r02-research-baseline.ipynb"
+      }
+    },
+    {
+      "id": "r03",
+      "code": "R03",
+      "title": "Robust Visual Perception in Adverse Environments",
+      "tier": "research",
+      "formats": {
+        "pptx": false,
+        "presentationPdf": false,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "chapterPdf": "r03-panduan-riset.pdf",
+        "pythonCode": "r03-research-baseline.py",
+        "jupyterNotebook": "r03-research-baseline.ipynb"
+      }
+    },
+    {
+      "id": "r04",
+      "code": "R04",
+      "title": "Vision-Centric Multimodal Perception",
+      "tier": "research",
+      "formats": {
+        "pptx": false,
+        "presentationPdf": false,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "chapterPdf": "r04-panduan-riset.pdf",
+        "pythonCode": "r04-research-baseline.py",
+        "jupyterNotebook": "r04-research-baseline.ipynb"
+      }
+    },
+    {
+      "id": "r05",
+      "code": "R05",
+      "title": "Efficient Computer Vision & Edge AI Systems",
+      "tier": "research",
+      "formats": {
+        "pptx": false,
+        "presentationPdf": false,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "chapterPdf": "r05-panduan-riset.pdf",
+        "pythonCode": "r05-research-baseline.py",
+        "jupyterNotebook": "r05-research-baseline.ipynb"
+      }
+    },
+    {
+      "id": "r06",
+      "code": "R06",
+      "title": "Spatial Intelligence & 3D Vision",
+      "tier": "research",
+      "formats": {
+        "pptx": false,
+        "presentationPdf": false,
+        "chapterPdf": true,
+        "pythonCode": true,
+        "jupyterNotebook": true
+      },
+      "fileNames": {
+        "chapterPdf": "r06-panduan-riset.pdf",
+        "pythonCode": "r06-research-baseline.py",
+        "jupyterNotebook": "r06-research-baseline.ipynb"
+      }
+    }
+  ]
+}
